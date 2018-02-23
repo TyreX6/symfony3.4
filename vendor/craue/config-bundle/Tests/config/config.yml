@@ -1,0 +1,33 @@
+doctrine:
+  dbal:
+    charset: UTF8
+    driver: ~
+    host: 127.0.0.1
+    port: ~
+    dbname: test
+    user: travis
+    password: ~
+  orm:
+    auto_generate_proxy_classes: '%kernel.debug%'
+    auto_mapping: true
+
+framework:
+  form: ~
+  profiler:
+    enabled: true
+    collect: false
+  router:
+    resource: '%kernel.root_dir%/config/routing.yml'
+  secret: whatever
+  session:
+    storage_id: session.storage.mock_file
+  templating:
+    engines:
+      - twig
+  test: ~
+  translator:
+    fallback: en
+
+twig:
+  debug: '%kernel.debug%'
+  strict_variables: '%kernel.debug%'
