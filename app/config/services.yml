@@ -5,8 +5,8 @@ parameters:
 
 services:
     jwt_token_authenticator:
-                class: Lexik\Bundle\JWTAuthenticationBundle\Security\Guard\JWTTokenAuthenticator
-                autowire: true
+        class: Lexik\Bundle\JWTAuthenticationBundle\Security\Guard\JWTTokenAuthenticator
+        autowire: true
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services
@@ -36,13 +36,3 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
-    Symfony\Component\Ldap\Ldap:
-        arguments: ['@Symfony\Component\Ldap\Adapter\ExtLdap\Adapter']
-    Symfony\Component\Ldap\Adapter\ExtLdap\Adapter:
-        arguments:
-            -   host: ldap://192.168.56.102
-                port: 80
-                encryption: tls
-                options:
-                    protocol_version: 3
-                    referrals: false

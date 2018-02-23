@@ -8,8 +8,8 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
 {
     public static $files = array (
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -19,6 +19,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
     );
 
     public static $prefixLengthsPsr4 = array (
+        'Z' => 
+        array (
+            'Zend\\Ldap\\' => 10,
+        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -44,6 +48,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
             'Sensio\\Bundle\\DistributionBundle\\' => 33,
         ),
+        'R' => 
+        array (
+            'Ramsey\\Uuid\\' => 12,
+        ),
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
@@ -65,6 +73,8 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         'L' => 
         array (
             'Lexik\\Bundle\\JWTAuthenticationBundle\\' => 37,
+            'LdapTools\\Bundle\\LdapToolsBundle\\' => 33,
+            'LdapTools\\' => 10,
         ),
         'J' => 
         array (
@@ -77,8 +87,13 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         'F' => 
         array (
             'Fig\\Link\\' => 9,
+            'FR3D\\LdapBundle\\' => 16,
             'FOS\\UserBundle\\' => 15,
             'FOS\\RestBundle\\' => 15,
+        ),
+        'E' => 
+        array (
+            'Enums\\' => 6,
         ),
         'D' => 
         array (
@@ -90,6 +105,7 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         ),
         'C' => 
         array (
+            'Craue\\ConfigBundle\\' => 19,
             'Composer\\CaBundle\\' => 18,
         ),
         'A' => 
@@ -99,6 +115,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
     );
 
     public static $prefixDirsPsr4 = array (
+        'Zend\\Ldap\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-ldap/src',
+        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
@@ -175,6 +195,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         array (
             0 => __DIR__ . '/..' . '/sensio/distribution-bundle',
         ),
+        'Ramsey\\Uuid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ramsey/uuid/src',
+        ),
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
@@ -215,6 +239,14 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         array (
             0 => __DIR__ . '/..' . '/lexik/jwt-authentication-bundle',
         ),
+        'LdapTools\\Bundle\\LdapToolsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ldaptools/ldaptools-bundle',
+        ),
+        'LdapTools\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ldaptools/ldaptools/src/LdapTools',
+        ),
         'JMS\\SerializerBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/jms/serializer-bundle',
@@ -227,6 +259,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         array (
             0 => __DIR__ . '/..' . '/fig/link-util/src',
         ),
+        'FR3D\\LdapBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fr3d/ldap-bundle',
+        ),
         'FOS\\UserBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
@@ -234,6 +270,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         'FOS\\RestBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/rest-bundle',
+        ),
+        'Enums\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/chadsikorra/php-simple-enum/src/Enums',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -254,6 +294,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         'Doctrine\\Bundle\\DoctrineBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle',
+        ),
+        'Craue\\ConfigBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/craue/config-bundle',
         ),
         'Composer\\CaBundle\\' => 
         array (

@@ -17,3 +17,6 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+    LDAP_host: 192.168.56.102
+    LDAP_baseDn: ou=People,dc=localhost
+    Port: 389

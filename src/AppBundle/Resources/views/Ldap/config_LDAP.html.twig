@@ -1,0 +1,137 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% block title %} Configuration LDAP {% endblock %}
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">LDAP</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Dashboard</a></li>
+                        <li class="active">Configuration LDAP</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!--.row-->
+
+            <div class="row">
+
+                <div class="col-md-8">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"> Configuration du Serveur LDAP</div>
+                        {% if (message) %}
+                            <h3 class="center-block alert-success">{{ message }}</h3>
+                        {% endif %}
+                        <div class="panel-wrapper collapse in" aria-expanded="true">
+                            <div class="panel-body">
+
+                                {#<form action="#" class="form-horizontal form-bordered">#}
+                                {{ form_start(editForm, {'attr' : {'id':'formID','class':'form-horizontal form-bordered'} }) }}
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Host Ldap</label>
+                                        <div class="col-md-9">
+                                            {{ form_widget (editForm.host, { 'attr': {'class': 'validate[required] text-inputt form-control','data-errormessage-value-missing':'This input is required!'} }) }}
+                                            <span class="help-block"> {{ form_errors (editForm.host) }} </span></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Base DN</label>
+                                        <div class="col-md-9">
+                                            {{ form_widget (editForm.baseDn, { 'attr': {'class': 'validate[required] text-inputt form-control','data-errormessage-value-missing':'This input is required!'} }) }}
+                                            <span class="help-block"> {{ form_errors (editForm.baseDn) }} </span></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Port du serveur LDAP</label>
+                                        <div class="col-md-9">
+                                            {{ form_widget (editForm.port, { 'attr': {'class': 'validate[required] text-inputt form-control','data-errormessage-value-missing':'This input is required!'} }) }}
+                                            <span class="help-block"> {{ form_errors (editForm.port) }} </span></div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-9">
+                                                    <button type="submit" class="btn btn-success"><i
+                                                                class="fa fa-check"></i> Envoyer
+                                                    </button>
+                                                    <button id="verifyLDAP" class="btn btn-primary waves-effect waves-light" type="button"><span class="btn-label"><i class="fa fa-arrow-circle-up"></i></span>Vérifier Serveur</button>
+                                                    <button type="reset" class="btn btn-default">Annuler</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{ form_end(editForm) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"> Statut du LDAP</div>
+                        <div class="panel-wrapper collapse in" aria-expanded="true">
+                            <div class="panel-body">
+                                <div class="center-block loader"></div>
+                                <div id="ldapConnected" class="notShown text-md-center">
+                                    <h3 >Connecté avec succée</h3>
+                                    <button type="button" class="btn btn-info btn-circle btn-x5 center-block"><i
+                                                class="fa fa-check"></i></button>
+                                </div>
+
+                                <div id="ldapNotConnected" class="notShown text-md-center">
+                                    <h3 >Echec de la connexion</h3>
+                                    <button type="button" class="btn btn-danger btn-circle btn-x5 center-block"><i
+                                                class="fa fa-times"></i></button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--./row-->
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+{% endblock %}
+{% block scripts %}
+<script>
+    $(document).ready(function () {
+       checkHost();
+    });
+    $("#verifyLDAP").click(function () {
+        $("#ldapNotConnected").hide() ;
+        $("#ldapConnected").hide() ;
+        $(".loader").show();
+        checkHost();
+    });
+    function checkHost() {
+        var host = $("#appbundle_ldapconfig_host").val();
+        var port = parseInt($("#appbundle_ldapconfig_port").val());
+        $.ajax({
+            type: 'post',
+            url: '{{ path('verifyLDAP') }}',
+            data: 'host=' + host + '&port=' + port,
+            dataType: 'json',
+            success: function (data) {
+                $(".loader").hide();
+                if (data.connected === 1)
+                {
+                    $("#ldapConnected").show() ;
+                    $("#ldapNotConnected").hide() ;
+                }
+                else {
+                    $("#ldapConnected").hide();
+                    $("#ldapNotConnected").show() ;
+                }
+            }
+        });
+    }
+</script>
+{% endblock %}

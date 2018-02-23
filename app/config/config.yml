@@ -99,7 +99,7 @@ nelmio_cors:
 # FOSRest Configuration
 fos_rest:
     format_listener:
-        rules: 
+        rules:
             - { path: '^/api', priorities: ['json'], fallback_format: json, prefer_extension: false }
             - { path: '^/', stop: true } # Available for version >= 1.5
     view:
@@ -120,3 +120,13 @@ fos_rest:
         json: true
     body_converter:
         enabled: true
+
+fr3d_ldap:
+   driver:
+      host: "%LDAP_host%"
+   user:
+      baseDn: "%LDAP_baseDn%"
+      attributes:
+         - { ldap_attr: uid,  user_method: setUsername }
+         - { ldap_attr: mail,  user_method: setEmail }
+      filter: (&(ObjectClass=person))

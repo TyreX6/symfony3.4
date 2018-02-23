@@ -78,4 +78,14 @@ Enjoy!
 
 *-* Il existe une seule table contenant Users et Admins
   c'est gràce à l'annotation //@ORM\InheritanceType("SINGLE_TABLE")
-  Il faut que l'entité 'Admin' hérite de 'User' 
+  Il faut que l'entité 'Admin' hérite de 'User'
+
+*-* Mise en place d'un systéme (MAIN+API) d'authentification
+      (FR3DLdapBundle,FOSRestBundle,LexikJWTAuthenticationBundle,FOSUserBundle)
+
+    -Utiliser le notion de "chain_provider": (providers: [fos_userbundle, fr3d_ldapbundle])
+    -La 1ére connexion d'un utilisateur du serveur LDAP va enregistrer les ses infos dans la base des données (pas le mot de passe) 
+
+    -Le systéme cherche l'utilisateur dans la base de données d'abord , s'il a un mot de passe il va l'utiliser , si non il va essayer un authentification par le serveur LDAP
+
+    -Il faut ajouter "fr3d_ldap:  ~" sous les firewalls concerné par ce systéme.(Main et login dans notre cas)

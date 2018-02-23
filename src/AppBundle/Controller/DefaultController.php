@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Admin;
+use Symfony\Component\Yaml\Yaml;
 
 class DefaultController extends Controller
 {
@@ -16,11 +17,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
+
 
     /**
      * @Route("/user", name="user")
@@ -28,6 +29,7 @@ class DefaultController extends Controller
      */
     public function registerAction()
     {
+
         $admin = new Admin;
         $encoder = $this->get('security.encoder_factory')->getEncoder($admin);
         $em = $this->getDoctrine()->getManager();
@@ -35,7 +37,7 @@ class DefaultController extends Controller
         $admin->setEmail("admin@admin.com");
         $password = $encoder->encodePassword('admin', $admin->getSalt());
         $admin->setPassword($password);
-        $admin->setRoles(array("admin"));
+        $admin->setRoles(array("ROLE_ADMIN"));
         $admin->setEnabled(true);
         $em->persist($admin);
         $em->flush();
