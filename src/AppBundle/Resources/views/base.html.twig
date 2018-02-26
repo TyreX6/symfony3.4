@@ -15,6 +15,8 @@
           rel="stylesheet">
     <!-- Menu CSS -->
     <link href="{{ asset('bundles/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
+    {% block stylesheets %}
+    {% endblock %}
     <!-- animation CSS -->
     <link href="{{ asset('bundles/assets/css/animate.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
@@ -22,12 +24,14 @@
     <!-- color CSS -->
     <link href="{{ asset('bundles/assets/css/personalized.css') }}" rel="stylesheet">
     <link href="{{ asset('bundles/assets/css/colors/green-dark.css') }}" id="theme" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
 <body class="fix-sidebar">
@@ -211,6 +215,7 @@
     {% block content %} {% endblock %}
 </div>
 <!-- jQuery -->
+
 <script src="{{ asset('bundles/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ asset('bundles/assets/bootstrap/dist/js/tether.min.js') }}"></script>
@@ -224,7 +229,6 @@
 <script src="{{ asset('bundles/assets/js/waves.js') }}"></script>
 <!-- Custom Theme JavaScript -->
 <script src="{{ asset('bundles/assets/js/custom.min.js') }}"></script>
-<script src="{{ asset('bundles/assets/js/jasny-bootstrap.js') }}"></script>
 {% block scripts %}
 
 {% endblock %}

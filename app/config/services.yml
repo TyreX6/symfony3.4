@@ -4,6 +4,15 @@ parameters:
     #parameter_name: value
 
 services:
+#    app.image_uploader:
+#        class: AppBundle\Services\ImageUpload
+#        arguments: ['%images_directory%']
+#    app.doctrine_image_listener:
+#        class: AppBundle\EventListener\ImageUploadListener
+#        arguments: ['@app.image_uploader']
+#        tags:
+#            - { name: doctrine.event_listener, event: prePersist }
+#            - { name: doctrine.event_listener, event: preUpdate }
     jwt_token_authenticator:
         class: Lexik\Bundle\JWTAuthenticationBundle\Security\Guard\JWTTokenAuthenticator
         autowire: true

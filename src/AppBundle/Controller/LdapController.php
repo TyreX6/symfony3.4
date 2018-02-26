@@ -25,11 +25,15 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Yaml\Yaml;
 
-
+/**
+ * Class LdapController
+ * @package AppBundle\Controller
+ * @Route("/admin")
+ */
 class LdapController extends Controller
 {
     /**
-     * @Route("/admin/LDAP", name="configLDAP")
+     * @Route("/LDAP", name="configLDAP")
      * @Template()
      */
     public function config_ldapAction()

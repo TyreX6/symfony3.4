@@ -8,17 +8,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
+/**
+ * Class DispositifController
+ * @package AppBundle\Controller
+ * @Route("/admin")
+ */
 class DispositifController extends Controller
 {
     /**
-     * @Route("/admin/dispositif/ajouter" , name="ajouter_dispositif")
+     * @Route("/dispositif/ajouter" , name="ajouter_dispositif")
      * @Template()
      */
-    public function ajouterDispositifAction($name)
+    public function ajouter_DispositifAction()
     {
         $message = null ;
         $dispositif = new Dispositif();
-        $form=$this->createForm("AppBundle\Form\ImageType",$dispositif);
+        $form=$this->createForm("AppBundle\Form\DispositifType",$dispositif);
         $request = $this->get('request_stack')->getCurrentRequest();
         $form->handleRequest($request);
         if($form->isValid()) {
@@ -28,8 +33,18 @@ class DispositifController extends Controller
             }
             $em->persist($dispositif);
             $em->flush();
-            $message = "Disposiif a été crée avec succée";
+            $message = "Dispositif a été crée avec succée";
         }
         return array('dispositifForm' => $form->createView(), 'message' => $message);
+    }
+
+    /**
+     * @Route("/dispositif/liste" , name="liste_dispositif")
+     * @Template()
+     */
+    public function lister_dispositifAction(){
+        $em = $this->getDoctrine()->getManager();
+        $dispositifs = $em->getRepository("AppBundle:Dispositif")->findAll() ;
+        return array('dispositifs'=> $dispositifs);
     }
 }

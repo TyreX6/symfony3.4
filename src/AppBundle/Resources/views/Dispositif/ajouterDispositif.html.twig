@@ -1,4 +1,77 @@
 {% extends 'AppBundle::base.html.twig' %}
 {% block title %} Ajouter Dispositif {% endblock %}
 {% block content %}
+    <div id="wrapper">
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Ajouter Terrain </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-home"></i> <a href="{{ path("admin_accueil") }}">Accueil</a>
+                            </li>
+
+                            <li>
+                                <i>Nouveau terrain </i>
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+                {{ form_start(dispositifForm) }}
+                <fildset>
+                    <legend>Informations générales:</legend>
+
+                    <table class="mytable">
+                        <tr>
+                            <td>{{ form_label (dispositifForm.modele) }}</td>
+                            <td>{{ form_widget (dispositifForm.modele) }}</td>
+                            <td>{{ form_errors (dispositifForm.modele) }}</td>
+
+                        </tr>
+                        <tr>
+                            <td>{{ form_label (dispositifForm.os) }}</td>
+                            <td>{{ form_widget (dispositifForm.os) }}</td>
+                            <td>{{ form_errors (dispositifForm.os) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_label (dispositifForm.versionOS) }}</td>
+                            <td>{{ form_widget (dispositifForm.versionOS) }}</td>
+                            <td>{{ form_errors (dispositifForm.versionOS) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_label (dispositifForm.processeur) }}</td>
+                            <td>{{ form_widget (dispositifForm.processeur) }}</td>
+                            <td>{{ form_errors (dispositifForm.processeur) }}</td>
+                        </tr>
+                    </table>
+                </fildset>
+                <fildset>
+                    <legend>Gallerie:</legend>
+                    <div class="row" id="picture-fields-list"
+                         data-prototype="{{ form_widget(dispositifForm.images.vars.prototype) | e }}">
+                        {% for imageField in dispositifForm.images %}
+                            {{ form_errors(imageField) }}
+                            {{ form_widget(imageField) }}
+                        {% endfor %}
+                    </div>
+                    <a id="add-another-item" class="fa fa-plus-circle fa-2x cursor">Ajouter image</a><br><br>
+                </fildset>
+                <table>
+                    <tr>
+                        <td><input type="submit" id="submit" value="Ajouter" name="Ajouter" class="btn btn-primary">
+                            <input type="reset" id="reset" value="Annuler" name="Annuler" class="btn btn-primary"></td>
+                        <td><input Type="button" VALUE="<< Précédent" onClick="history.go(-1);return true;"
+                                   class="btn btn-primary pre"></td>
+                    </tr>
+                </table>
+                {{ form_end(dispositifForm) }}
+
+            </div>
+        </div>
+    </div>
 {% endblock %}

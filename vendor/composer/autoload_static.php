@@ -23,6 +23,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         array (
             'Zend\\Ldap\\' => 10,
         ),
+        'V' => 
+        array (
+            'Vich\\UploaderBundle\\' => 20,
+        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -118,6 +122,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         'Zend\\Ldap\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-ldap/src',
+        ),
+        'Vich\\UploaderBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vich/uploader-bundle',
         ),
         'Twig\\' => 
         array (

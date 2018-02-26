@@ -17,10 +17,8 @@ use AppBundle\Entity\Image ;
 
 
 /**
- * Dispositif
- *
+ * @ORM\Entity
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="")
  * @ExclusionPolicy("all")
  */
 class Dispositif
@@ -33,6 +31,14 @@ class Dispositif
      * @Expose
      */
     private $id;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @var string
@@ -51,9 +57,9 @@ class Dispositif
     private $os;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(name="versionOS", type="float")
+     * @ORM\Column(name="versionOS", type="string")
      * @Expose
      */
     private $versionOS;
@@ -189,6 +195,12 @@ class Dispositif
     }
 
 
+    /**
+     * add image
+     *
+     * @param \AppBundle\Entity\Image $image
+     * @return Dispositif
+     */
     public function addImage($image) {
 
         $image->setDispositif($this);

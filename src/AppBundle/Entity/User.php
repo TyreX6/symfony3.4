@@ -30,7 +30,9 @@ class User extends BaseUser implements LdapUserInterface
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        if (empty($this->roles)) {
+            $this->roles[] = 'ROLE_USER';
+        }
     }
     /**
      * {@inheritDoc}

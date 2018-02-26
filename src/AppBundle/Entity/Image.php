@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use JMS\Serializer\Annotation\Expose;
+use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\Mapping as ORM;
@@ -33,7 +35,7 @@ class Image
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Dispositif", inversedBy="images" ,cascade={"all"})
-     * @ORM\JoinColumn(name="dispositif_id", referencedColumnName="id",onDelete="CASCADE")
+     * @ORM\JoinColumn(name="dispositive_id", referencedColumnName="id",onDelete="CASCADE")
      **/
     private $dispositif;
 
@@ -46,6 +48,7 @@ class Image
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $path;
+
 
     function __toString()
     {
@@ -74,22 +77,11 @@ class Image
         return $this;
     }
 
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-
-    public function setPath($path)
-    {
-        $this->path = $path;
-        return $this;
-    }
-
     /**
      * Set file
      *
-     * @var Symfony\Component\HttpFoundation\File\UploadedFile $file
+     * @var UploadedFile $file
+     * @return $this
      */
     public function setFile($file)
     {
@@ -138,7 +130,9 @@ class Image
     public function getUploadRootDir()
     {
         // le chemin absolu du répertoire où les documents uploadés doivent être sauvegardés
-        return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+        //return __DIR__.'/../web/'.$this->getUploadDir();
+
+       return  __DIR__ . '/../../../web/' . $this->getUploadDir();
     }
 
     public function getUploadDir()
@@ -207,14 +201,14 @@ class Image
             unlink($file);
         }
     }
-    /* public function getPath() {
+     public function getPath() {
          return $this->path;
      }
 
      public function setPath() {
          $this->path = '/../../../web/uploads/documents';
          return $this;
-     }*/
+     }
 
 
 }
