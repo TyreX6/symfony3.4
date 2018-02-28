@@ -1,0 +1,161 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% block title %}
+    Ajouter une réservation
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/app/plugins/bower_components/calendar/dist/fullcalendar.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Calendar Page</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Dashboard</a></li>
+                        <li class="active">Calendar Page</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="white-box">
+                        <h3 class="box-title">GLISSEZ ET BAISSEZ VOTRE ÉVÉNEMENT</h3>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div id="calendar-events" class="m-t-20">
+
+                                </div>
+                                <!-- checkbox -->
+                                <div class="checkbox">
+                                    <input id="drop-remove" type="checkbox">
+                                    <label for="drop-remove">
+                                        Supprimer aprés glissement
+                                    </label>
+                                </div>
+                                <a href="#" data-toggle="modal" data-target="#add-new-event"
+                                   class="btn btn-1d m-t-20 btn-danger btn-block waves-effect waves-light">
+                                    <i class="ti-plus"></i> Ajouter une réservation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="white-box">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- BEGIN MODAL -->
+            <div class="modal none-border" id="my-event">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><strong>Ajouter une réservation</strong></h4>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white waves-effect" data-dismiss="modal">Fermer</button>
+                            <button type="button" class="btn btn-success save-event waves-effect waves-light">Créer réservation
+                            </button>
+                            <button type="button" class="btn btn-danger delete-event waves-effect waves-light"
+                                    data-dismiss="modal">Supprimer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Add Category -->
+            <div class="modal fade none-border" id="add-new-event">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><strong>Ajouter</strong> une réservation</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="newRes" role="form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Choisir le dispositif</label>
+                                        <select name="dispositif-Select" class="form-control form-white" data-placeholder="{{ dispositif.modele }}">
+                                            {% for dispo in dispos %}
+                                            <option value="{{ dispo.id }}">{{ dispo.modele }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="control-label">Choisir l'utilisateur</label>
+                                        <select class="form-control form-white" data-placeholder="Utilisateur ..."
+                                                name="utilisateur-select">
+                                            {% for util in utilisateurs %}
+                                            <option value="{{ util.id }}">{{ util.username }}</option>
+                                            {% endfor %}
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger waves-effect waves-light save-category"
+                                    data-dismiss="modal">Enregistrer
+                            </button>
+                            <button type="button" class="btn btn-white waves-effect" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MODAL -->
+
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+{% endblock %}
+
+    {% block scripts %}
+        <script>
+            //TODO work with API to get events with structure like this
+            var apiPathAdd="{{ path('ajout_reservation_ajax') }}" ;
+            var apiPathUpdate ="{{ path('modifier_reservation_ajax') }}";
+            var CalenderEvents = [
+                {
+                    events: [
+                        {% for reservation in reservations %}
+                        {
+                            id:{{ reservation.id }},
+                            title: '{{ reservation.dispositif.modele }} pour {{ reservation.user.username }}',
+                            start: new Date('{{ reservation.dateDebut | date('Y/m/d H:i:s') }}'),
+                            end: new Date('{{ reservation.dateFin | date('Y/m/d H:i:s') }}'),
+                            className: 'bg-warning',
+                            dispId:'{{ reservation.dispositif.id }}',
+                            editable: false
+                        },
+                        {% endfor %}
+                        ],
+                    //color: 'black',     // an option!
+                    textColor: 'black' // an option!
+                }
+            ];
+        </script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/calendar/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/moment/moment.js') }}"></script>
+        <script src='{{ asset('bundles/app/plugins/bower_components/calendar/dist/fullcalendar.min.js') }}'></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/calendar/dist/cal-init.js') }}"></script>
+
+
+<script>
+
+</script>
+
+
+    {% endblock %}

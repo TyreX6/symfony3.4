@@ -11,7 +11,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use FR3D\LdapBundle\Model\LdapUserInterface;
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UsersRepository")
  * @ORM\Table(name="fos_user")
  * @ORM\InheritanceType("SINGLE_TABLE")
  */
@@ -27,6 +27,13 @@ class User extends BaseUser implements LdapUserInterface
      * @ORM\Column(type="string")
      */
     protected $dn;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="reservation",cascade="persist")
+     **/
+    private $reservation;
+
+
     public function __construct()
     {
         parent::__construct();

@@ -32,13 +32,7 @@ class Dispositif
      */
     private $id;
 
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+
 
     /**
      * @var string
@@ -94,10 +88,24 @@ class Dispositif
      **/
     private $images;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="reservation")
+     **/
+    private $reservation;
+
+
+
     public function __construct() {
         $this->images = new ArrayCollection();
     }
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
     /**
      * @return string
      */
@@ -235,7 +243,21 @@ class Dispositif
         $this->images->removeElement($image);
     }
 
+    /**
+     * @return mixed
+     */
+    public function getReservation()
+    {
+        return $this->reservation;
+    }
 
+    /**
+     * @param mixed $reservation
+     */
+    public function setReservation($reservation)
+    {
+        $this->reservation = $reservation;
+    }
 
 
 }

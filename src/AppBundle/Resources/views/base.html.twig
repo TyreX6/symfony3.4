@@ -7,23 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('bundles/plugins/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('bundles/app/plugins/images/favicon.png') }}">
     <title>{% block title %} {% endblock %}</title>
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('bundles/assets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}"
+    <link href="{{ asset('bundles/app/assets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}"
           rel="stylesheet">
     <!-- Menu CSS -->
-    <link href="{{ asset('bundles/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}" rel="stylesheet">
     {% block stylesheets %}
     {% endblock %}
     <!-- animation CSS -->
-    <link href="{{ asset('bundles/assets/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/assets/css/animate.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{ asset('bundles/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/assets/css/style.css') }}" rel="stylesheet">
     <!-- color CSS -->
-    <link href="{{ asset('bundles/assets/css/personalized.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/assets/css/colors/green-dark.css') }}" id="theme" rel="stylesheet">
+    <link href="{{ asset('bundles/app/assets/css/personalized.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/assets/css/colors/green-dark.css') }}" id="theme" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,13 +45,13 @@
         <div class="navbar-header"><a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)"
                                       data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
             <div class="top-left-part"><a class="logo" href="index.html"><b><img
-                                src="{{ asset('bundles/plugins/images/eliteadmin-logo.png') }}" alt="home"
+                                src="{{ asset('bundles/app/plugins/images/eliteadmin-logo.png') }}" alt="home"
                                 class="dark-logo"/><img
-                                src="{{ asset('bundles/plugins/images/eliteadmin-logo-dark.png') }}" alt="home"
+                                src="{{ asset('bundles/app/plugins/images/eliteadmin-logo-dark.png') }}" alt="home"
                                 class="light-logo"/></b><span class="hidden-xs"><img
-                                src="{{ asset('bundles/plugins/images/eliteadmin-text.png') }}" alt="home"
+                                src="{{ asset('bundles/app/plugins/images/eliteadmin-text.png') }}" alt="home"
                                 class="dark-logo"/><img
-                                src="{{ asset('bundles/plugins/images/eliteadmin-text-dark.png') }}" alt="home"
+                                src="{{ asset('bundles/app/plugins/images/eliteadmin-text-dark.png') }}" alt="home"
                                 class="light-logo"/></span></a>
             </div>
             <ul class="nav navbar-top-links navbar-left hidden-xs">
@@ -76,7 +76,7 @@
                             <div class="message-center">
                                 <a href="#">
                                     <div class="user-img"><img
-                                                src="{{ asset('bundles/plugins/images/users/semh.jpg') }}" alt="user"
+                                                src="{{ asset('bundles/app/plugins/images/users/semh.jpg') }}" alt="user"
                                                 class="img-circle"> <span
                                                 class="profile-status busy pull-right"></span></div>
                                     <div class="mail-contnet">
@@ -149,7 +149,7 @@
         <div class="sidebar-nav navbar-collapse slimscrollsidebar">
             <div class="user-profile">
                 <div class="dropdown user-pro-body">
-                    <div><img src="{{ asset('bundles/plugins/images/users/semh.jpg') }}" alt="user-img"
+                    <div><img src="{{ asset('bundles/app/plugins/images/users/semh.jpg') }}" alt="user-img"
                               class="img-circle"></div>
                     <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button"
                        aria-haspopup="true" aria-expanded="false">Administrateur<span class="caret"></span></a>
@@ -216,19 +216,19 @@
 </div>
 <!-- jQuery -->
 
-<script src="{{ asset('bundles/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<script src="{{ asset('bundles/app/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap Core JavaScript -->
-<script src="{{ asset('bundles/assets/bootstrap/dist/js/tether.min.js') }}"></script>
-<script src="{{ asset('bundles/assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('bundles/plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js') }}"></script>
+<script src="{{ asset('bundles/app/assets/bootstrap/dist/js/tether.min.js') }}"></script>
+<script src="{{ asset('bundles/app/assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js') }}"></script>
 <!-- Menu Plugin JavaScript -->
-<script src="{{ asset('bundles/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
+<script src="{{ asset('bundles/app/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
 <!--slimscroll JavaScript -->
-<script src="{{ asset('bundles/assets/js/jquery.slimscroll.js') }}"></script>
+<script src="{{ asset('bundles/app/assets/js/jquery.slimscroll.js') }}"></script>
 <!--Wave Effects -->
-<script src="{{ asset('bundles/assets/js/waves.js') }}"></script>
+<script src="{{ asset('bundles/app/assets/js/waves.js') }}"></script>
 <!-- Custom Theme JavaScript -->
-<script src="{{ asset('bundles/assets/js/custom.min.js') }}"></script>
+<script src="{{ asset('bundles/app/assets/js/custom.min.js') }}"></script>
 {% block scripts %}
 
 {% endblock %}

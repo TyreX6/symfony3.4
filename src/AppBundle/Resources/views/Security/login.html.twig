@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('bundles/plugins/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('bundles/app/plugins/images/favicon.png') }}">
     <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('bundles/assets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}"
+    <link href="{{ asset('bundles/app/assets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}"
           rel="stylesheet">
     <!-- animation CSS -->
-    <link href="{{ asset('bundles/assets/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/assets/css/animate.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{ asset('bundles/assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/assets/css/style.css') }}" rel="stylesheet">
     <!-- color CSS -->
-    <link href="{{ asset('bundles/assets/css/colors/default-dark.css') }}" id="theme" rel="stylesheet">
+    <link href="{{ asset('bundles/app/assets/css/colors/default-dark.css') }}" id="theme" rel="stylesheet">
     <div class="preloader">
         <div class="cssload-speeding-wheel"></div>
     </div>
@@ -32,14 +32,14 @@
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
                     <div class="form-group">
                         <div class="col-xs-12 text-center">
-                            <div class="user-thumb text-center"><img alt="thumbnail" class="img-circle" width="100" src="{{ asset('bundles/plugins/images/users/semh.jpg') }}">
+                            <div class="user-thumb text-center"><img alt="thumbnail" class="img-circle" width="100" src="{{ asset('bundles/app/plugins/images/users/semh.jpg') }}">
                                 <h3>Administrateur</h3>
                             </div>
                         </div>
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input type="hidden" id="username" name="_username" value="admin" placeholder="Username" required="required" class="form-control placeholder-no-fix"/>
+                            <input type="hidden" id="username" name="_username" placeholder="Username" required="required" value="admin" class="form-control placeholder-no-fix"/>
                             <input class="form-control" type="password" name="_password" required=""
                                    placeholder="Password">
                         </div>
@@ -57,17 +57,17 @@
     </section>
 
     <!-- jQuery -->
-    <script src="{{ asset('bundles/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ asset('bundles/assets/bootstrap/dist/js/tether.min.js') }}"></script>
-    <script src="{{ asset('bundles/assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bundles/plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/assets/bootstrap/dist/js/tether.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js') }}"></script>
     <!-- Menu Plugin JavaScript -->
-    <script src="{{ asset('bundles/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
     <!--slimscroll JavaScript -->
-    <script src="{{ asset('bundles/assets/js/jquery.slimscroll.js') }}"></script>
+    <script src="{{ asset('bundles/app/assets/js/jquery.slimscroll.js') }}"></script>
     <!--Wave Effects -->
-    <script src="{{ asset('bundles/assets/js/waves.js') }}"></script>
+    <script src="{{ asset('bundles/app/assets/js/waves.js') }}"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="{{ asset('bundles/assets/js/custom.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/assets/js/custom.min.js') }}"></script>
 {% endblock fos_user_content %}

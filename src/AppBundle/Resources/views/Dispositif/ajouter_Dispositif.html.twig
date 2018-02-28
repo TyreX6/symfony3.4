@@ -1,8 +1,8 @@
 {% extends 'AppBundle::base.html.twig' %}
 {% block stylesheets %}
-    <link href="{{ asset('bundles/plugins/bower_components/bootstrap-select/bootstrap-select.min.css') }}"
+    <link href="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css') }}"
           rel="stylesheet"/>
-    <link rel="stylesheet" href="{{ asset('bundles/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/app/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
 {% endblock %}
 {% block title %} Ajouter Dispositif {% endblock %}
 
@@ -99,9 +99,13 @@
                                         <!--/span-->
                                     </div>
                                     <h3 class="box-title">Gallery</h3>
-                                    <button class="btn btn-info waves-effect waves-light add-another-collection-widget" data-list="#image-fields-list" type="button"><span class="btn-label"><i class="fa fa-plus-circle"></i></span>Ajouter Image
+                                    <button class="btn btn-info waves-effect waves-light add-another-collection-widget"
+                                            data-list="#image-fields-list" type="button"><span class="btn-label"><i
+                                                    class="fa fa-plus-circle"></i></span>Ajouter Image
                                     </button>
-                                    <button class="btn btn-warning waves-effect waves-light remove-collection-widget" data-list="#image-fields-list" type="button"><span class="btn-label"><i class="fa fa-minus-circle"></i></span>Supprimer Image
+                                    <button class="btn btn-warning waves-effect waves-light remove-collection-widget"
+                                            data-list="#image-fields-list" type="button"><span class="btn-label"><i
+                                                    class="fa fa-minus-circle"></i></span>Supprimer Image
                                     </button>
                                     <hr class="m-t-0 m-b-40">
                                     <!--/row-->
@@ -109,13 +113,17 @@
                                         <div class="col-sm-6 ol-md-6 col-xs-12">
                                             <div class="white-box">
                                                 <h3 class="box-title">Image 1</h3>
-                                                <input type="file" id="appbundle_dispositif_images_0_file" name="appbundle_dispositif[images][0][file]" required="required" class="dropify">
+                                                <input type="file" id="appbundle_dispositif_images_0_file"
+                                                       name="appbundle_dispositif[images][0][file]" required="required"
+                                                       class="dropify">
                                             </div>
                                         </div>
                                         <div class="col-sm-6 ol-md-6 col-xs-12">
                                             <div class="white-box">
                                                 <h3 class="box-title">Image 2</h3>
-                                                <input type="file" id="appbundle_dispositif_images_1_file" name="appbundle_dispositif[images][1][file]" required="required" class="dropify">
+                                                <input type="file" id="appbundle_dispositif_images_1_file"
+                                                       name="appbundle_dispositif[images][1][file]" required="required"
+                                                       class="dropify">
                                             </div>
                                         </div>
 
@@ -166,13 +174,13 @@
     {% block scripts %}
         <!-- Custom Theme JavaScript -->
         //For Select
-        <script src="{{ asset('bundles/plugins/bower_components/bootstrap-select/bootstrap-select.min.js') }}"
+        <script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js') }}"
                 type="text/javascript"></script>
 
-        <script src="{{ asset('bundles/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"
+        <script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"
                 type="text/javascript"></script>
-        <script src="{{ asset('bundles/assets/js/jasny-bootstrap.js') }}"></script>
-        <script src="{{ asset('bundles/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/assets/js/jasny-bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
 
         // SCript for RAM input
         <script>
@@ -188,8 +196,8 @@
                 });
             });
         </script>
-        <script src="{{ asset('bundles/assets/js/jasny-bootstrap.js') }}"></script>
-        <script src="{{ asset('bundles/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/assets/js/jasny-bootstrap.js') }}"></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
         <!-- jQuery file upload -->
         <script>
             $(document).ready(function () {
@@ -227,5 +235,5 @@
                 })
             });
         </script>
-        <script src="{{ asset('bundles/assets/js/add-collection-widget.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/app/assets/js/add-collection-widget.js') }}" type="text/javascript"></script>
     {% endblock %}
