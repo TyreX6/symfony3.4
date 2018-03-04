@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5af7c24-abb1-4243-aee1-a66749e4d204" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/localiser_Dispositif.html.twig" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/ajouterDispositif.html.twig" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/AppBundle/Repository/ReservationRepository.php" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/ReservationsRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/DispositifController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/DispositifController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/ReservationsController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/ReservationsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Dispositif.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Dispositif.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Reservation.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Reservation.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/ajouter_Dispositif.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/ajouter_Dispositif.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/lister_dispositif.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/lister_dispositif.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Reservations/ajouter_Reservations.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Reservations/ajouter_Reservations.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/Security/login.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/Security/login.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/base.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Validator/Constraints/DateTime.php" afterPath="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Validator/Constraints/DateTime.php" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,7 +43,7 @@
       <file leaf-file-name="localiser_Dispositif.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/localiser_Dispositif.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
+            <state relative-caret-position="-38">
               <caret line="53" column="82" lean-forward="false" selection-start-line="53" selection-start-column="82" selection-end-line="53" selection-end-column="82" />
               <folding />
             </state>
@@ -67,7 +54,7 @@
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/lister_dispositif.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
-              <caret line="53" column="58" lean-forward="true" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+              <caret line="67" column="117" lean-forward="false" selection-start-line="67" selection-start-column="117" selection-end-line="67" selection-end-column="117" />
               <folding />
             </state>
           </provider>
@@ -474,7 +461,7 @@
       <workItem from="1519855992847" duration="41793000" />
       <workItem from="1519992403040" duration="21486000" />
       <workItem from="1520119056170" duration="1600000" />
-      <workItem from="1520171606410" duration="772000" />
+      <workItem from="1520171606410" duration="993000" />
     </task>
     <task id="LOCAL-00001" summary="LdapConfig working fine;&#10;To the step of managing devices">
       <created>1519385300544</created>
@@ -504,11 +491,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519807498247</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding  device localisation controller&#10;Handling reservation controller&#10;  -Handling AJAX requests&#10;  -verifying reservations&#10;    -star time, end time, modifiyng autorisation, deleting autorisation, etc ...&#10;    -handling timezone problems&#10;Implementing JsonSerializable interfaces on Entities to handle relation cycles problems&#10;Changing Views&#10;And the most important thing : Implementing a good calender for reservation , intialized with the reservations from the database , and giving possbilities to modify , delete , add , managing those reservations">
+      <created>1520172407612</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1520172407612</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="260859000" />
+    <option name="totallyTimeSpent" value="261080000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -947,7 +941,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/localiser_Dispositif.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
+        <state relative-caret-position="-38">
           <caret line="53" column="82" lean-forward="false" selection-start-line="53" selection-start-column="82" selection-end-line="53" selection-end-column="82" />
           <folding />
         </state>
@@ -964,7 +958,7 @@
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Dispositif/lister_dispositif.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
-          <caret line="53" column="58" lean-forward="true" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
+          <caret line="67" column="117" lean-forward="false" selection-start-line="67" selection-start-column="117" selection-end-line="67" selection-end-column="117" />
           <folding />
         </state>
       </provider>

@@ -64,6 +64,8 @@
                                     <td>{{ dispositif.processeur }}</td>
                                     <td>{{ dispositif.ram }} GB</td>
                                     <td>{{ dispositif.resolution }}</td>
+                                    <td><span class="label label-table label-success">Active</span></td>
+                                    <td><button class="btn btn-block btn-outline btn-primary">Localiser</button></td>
                                     <td>
                                         <div class="row el-element-overlay m-b-40">
                                              {% for image in dispositif.images %}
@@ -87,7 +89,7 @@
                                             {% endfor %}
                                         </div>
                                     </td>
-                                    <td><span class="label label-table label-success">Active</span></td>
+
                                 </tr>
                             {% endfor %}
                             </tbody>
