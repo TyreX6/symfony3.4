@@ -18,8 +18,12 @@
     <link href="{{ asset('bundles/app/assets/css/style.css') }}" rel="stylesheet">
     <!-- color CSS -->
     <link href="{{ asset('bundles/app/assets/css/colors/default-dark.css') }}" id="theme" rel="stylesheet">
-    <div class="preloader">
-        <div class="cssload-speeding-wheel"></div>
+    <link href="{{ asset('bundles/app/assets/css/personalized.css') }}" id="theme" rel="stylesheet">
+    <div class="LoadingRoot">
+        <div class="content">
+            <div class="ball"></div>
+            <div class="ball1"></div>
+        </div>
     </div>
     <section id="wrapper" class="login-register">
         <div class="login-box">
@@ -32,14 +36,16 @@
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
                     <div class="form-group">
                         <div class="col-xs-12 text-center">
-                            <div class="user-thumb text-center"><img alt="thumbnail" class="img-circle" width="100" src="{{ asset('bundles/app/plugins/images/users/semh.jpg') }}">
+                            <div class="user-thumb text-center"><img alt="thumbnail" class="img-circle" width="100"
+                                                                     src="{{ asset('bundles/app/plugins/images/users/semh.jpg') }}">
                                 <h3>Administrateur</h3>
                             </div>
                         </div>
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input type="hidden" id="username" name="_username" placeholder="Username" required="required" value="admin" class="form-control placeholder-no-fix"/>
+                            <input type="hidden" id="username" name="_username" placeholder="Username"
+                                   required="required" value="admin" class="form-control placeholder-no-fix"/>
                             <input class="form-control" type="password" name="_password" required=""
                                    placeholder="Password">
                         </div>

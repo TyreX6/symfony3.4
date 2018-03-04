@@ -11,9 +11,9 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\Query;
-class ReservationRepository extends EntityRepository
+class ReservationsRepository extends EntityRepository
 {
-    public function getReservationByDispositive($id) {
+    public function getReservationsByDispositive($id) {
         $qb = $this->_em->createQueryBuilder();
         $qb->select('r')
             ->from('AppBundle:Reservation', 'r')

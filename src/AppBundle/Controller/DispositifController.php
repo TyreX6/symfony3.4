@@ -47,4 +47,15 @@ class DispositifController extends Controller
         $dispositifs = $em->getRepository("AppBundle:Dispositif")->findAll() ;
         return array('dispositifs'=> $dispositifs);
     }
+
+    /**
+     * @Route("/dispositif/localiser/{id}" , name="localiser_dispositif")
+     * @Template()
+     */
+    public function localiser_DispositifAction($id)
+    {
+        $em = $this->getDoctrine()->getManager() ;
+        $dispositif = $em->getRepository('AppBundle:Dispositif')->findOneBy(['id'=>$id]) ;
+        return array('dispositif'=> $dispositif);
+    }
 }

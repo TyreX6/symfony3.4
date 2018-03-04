@@ -21,7 +21,7 @@ use AppBundle\Entity\Image ;
  * @ORM\Table()
  * @ExclusionPolicy("all")
  */
-class Dispositif
+class Dispositif implements \JsonSerializable
 {
     /**
      * @var integer
@@ -89,13 +89,14 @@ class Dispositif
     private $images;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="reservation")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="dispositif",cascade="persist")
      **/
     private $reservation;
 
 
 
     public function __construct() {
+        $this->reservation = new ArrayCollection();
         $this->images = new ArrayCollection();
     }
 
@@ -260,4 +261,25 @@ class Dispositif
     }
 
 
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        // TODO: Implement jsonSerialize() method.
+        return [
+                'id' => $this->getId(),
+                'modele' => $this->getModele(),
+                'os' => $this->getOs(),
+                'osVersion' => $this->getVersionOS(),
+                'processeur' => $this->getProcesseur(),
+                'ram' => $this->getRam(),
+                'resolution' => $this->getResolution(),
+
+        ];
+    }
 }

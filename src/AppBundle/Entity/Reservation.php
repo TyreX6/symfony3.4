@@ -9,15 +9,21 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\RestBundle\Context\Context;
+use FOS\RestBundle\Serializer\Serializer;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Expose;
+use JsonSerializable;
 
 
 /**
  * Reservation
  *
  * @ORM\Table(name="Reservation")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ReservationRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ReservationsRepository")
+ * @ExclusionPolicy("all")
  */
-class Reservation
+class Reservation implements JsonSerializable
 {
     /**
      * @var integer
@@ -25,6 +31,7 @@ class Reservation
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Expose
      */
     protected $id;
 
@@ -32,6 +39,7 @@ class Reservation
      * @var string
      *
      * @ORM\Column(name="statut", type="string", length=20)
+     * @Expose
      */
     private $statut;
 
@@ -39,6 +47,7 @@ class Reservation
      * @var \DateTime
      *
      * @ORM\Column(name="date_debut", type="datetime" ,nullable=false)
+     * @Expose
      */
     private $dateDebut;
 
@@ -46,6 +55,7 @@ class Reservation
      * @var \DateTime
      *
      * @ORM\Column(name="date_fin", type="datetime" ,nullable=false)
+     * @Expose
      */
     private $dateFin;
 
@@ -130,7 +140,7 @@ class Reservation
     }
 
     /**
-     * @return mixed
+     * @return User
      */
     public function getUser()
     {
@@ -161,8 +171,24 @@ class Reservation
         $this->dispositif = $dispositif;
     }
 
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    public function jsonSerialize()
+    {
+        // TODO: Implement jsonSerialize() method.
+        return [
 
-
-
-
+                'id' => $this->getId(),
+                'user' => $this->getUser(),
+                'dispositif' => $this->getDispositif(),
+                'dateDebut' => $this->getDateDebut(),
+                'dateFin' => $this->getDateFin(),
+                'etat' => $this->getStatut(),
+        ];
+    }
 }
