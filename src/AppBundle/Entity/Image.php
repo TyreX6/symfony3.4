@@ -49,6 +49,22 @@ class Image
      */
     private $path;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=false)
+     */
+    private $dateAjout;
+
+
+
+    /**
+     * Image constructor.
+     */
+    public function __construct()
+    {
+        $this->setPath();
+        $this->setDateAjout(new \DateTime(null, new \DateTimeZone("Africa/Tunis"))) ;
+    }
+
 
     function __toString()
     {
@@ -64,6 +80,22 @@ class Image
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateAjout()
+    {
+        return $this->dateAjout;
+    }
+
+    /**
+     * @param mixed $dateAjout
+     */
+    public function setDateAjout($dateAjout)
+    {
+        $this->dateAjout = $dateAjout;
     }
 
     public function getFileName()
@@ -104,7 +136,7 @@ class Image
 
     public function getAbsolutePath()
     {
-        return null === $this->path ? null : $this->getUploadRootDir() . '/' . $this->path;
+        return null === $this->path ? null : $this->getUploadRootDir() ."/".$this->file;
     }
 
     public function getWebPath()
@@ -118,6 +150,7 @@ class Image
     {
         return $this->dispositif;
     }
+
 
     /**
      * @param mixed $dispositif
@@ -139,7 +172,7 @@ class Image
     {
         // on se débarrasse de « __DIR__ » afin de ne pas avoir de problème lorsqu'on affiche
         // le document/image dans la vue.
-        return 'uploads/documents';
+        return 'bundles/app/uploads/documents';
     }
 
 
@@ -185,7 +218,6 @@ class Image
          * that the entity is not persisted to the database – which the
          * UploadedFile::move() method does automatically */
         $this->file->move($this->getUploadRootDir(), '/' . $this->fileName);
-
         unset($this->file);
     }
 
@@ -198,15 +230,16 @@ class Image
     public function removeUpload()
     {
         if ($file = $this->getAbsolutePath()) {
-            unlink($file);
+            unlink(realpath($file));
         }
     }
+
      public function getPath() {
          return $this->path;
      }
 
      public function setPath() {
-         $this->path = '/../../../web/uploads/documents';
+         $this->path = '/../../../bundles/app/uploads/documents/';
          return $this;
      }
 

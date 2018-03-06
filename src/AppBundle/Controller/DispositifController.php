@@ -31,9 +31,34 @@ class DispositifController extends Controller
             foreach ($dispositif->getImages() as $image) {
                 $dispositif->addImage($image);
             }
+            $dispositif->setEtat("Fonctionnel") ;
             $em->persist($dispositif);
             $em->flush();
             $message = "Dispositif a été crée avec succée";
+        }
+        return array('dispositifForm' => $form->createView(), 'message' => $message);
+    }
+
+    /**
+     * @Route("/dispositif/edit/{id}",name="modifier_dispositif")
+     * @Template()
+     */
+    public function modifier_DispositifAction($id)
+    {
+        $message = null;
+        $em = $this->getDoctrine()->getManager();
+        $dispositif = $em->getRepository('AppBundle:Dispositif')->find($id);
+        $form = $this->createForm('AppBundle\Form\DispositifType', $dispositif);
+        $request = $this->get('request_stack')->getCurrentRequest();
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            foreach ($dispositif->getImages() as $image) {
+                $dispositif->addImage($image);
+            }
+            $em->persist($dispositif);
+            $em->flush();
+            $message = "Le dispositif a étè bien modifié";
         }
         return array('dispositifForm' => $form->createView(), 'message' => $message);
     }
@@ -58,4 +83,6 @@ class DispositifController extends Controller
         $dispositif = $em->getRepository('AppBundle:Dispositif')->findOneBy(['id'=>$id]) ;
         return array('dispositif'=> $dispositif);
     }
+
+
 }

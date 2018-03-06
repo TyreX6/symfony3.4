@@ -89,15 +89,33 @@ class Dispositif implements \JsonSerializable
     private $images;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string" ,length=20,nullable=false)
+     * @Expose
+     */
+    private $etat;
+
+
+
+
+
+    /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservation", mappedBy="dispositif",cascade="persist")
      **/
     private $reservation;
 
 
+    /**
+     * @ORM\Column(type="datetime",nullable=false)
+     */
+    private $dateAtjout ;
+
 
     public function __construct() {
         $this->reservation = new ArrayCollection();
         $this->images = new ArrayCollection();
+        $this->setDateAtjout($date= new \DateTime(null, new \DateTimeZone("Africa/Tunis"))) ;
     }
 
     /**
@@ -121,6 +139,22 @@ class Dispositif implements \JsonSerializable
     public function setModele($modele)
     {
         $this->modele = $modele;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateAtjout()
+    {
+        return $this->dateAtjout;
+    }
+
+    /**
+     * @param mixed $dateAtjout
+     */
+    public function setDateAtjout($dateAtjout)
+    {
+        $this->dateAtjout = $dateAtjout;
     }
 
     /**
@@ -201,6 +235,22 @@ class Dispositif implements \JsonSerializable
     public function setResolution($resolution)
     {
         $this->resolution = $resolution;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param mixed $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
     }
 
 

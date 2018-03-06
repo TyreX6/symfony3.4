@@ -26,7 +26,6 @@ class DispositifType extends AbstractType
         ))
             ->add('os', ChoiceType::class, array(
                 'attr' => array('class' => 'form-control selectpicker m-b-20 m-r-10',
-                    'placeholder' => 'Exp: 2048x1440',
                     'data-errormessage-value-missing' => 'This input is required!',
                     'data-style'=>'btn-info btn-outline'),
                 'choices' => array(
@@ -34,6 +33,17 @@ class DispositifType extends AbstractType
                     'IOS' => "IOS",
                     'Windows' => "WINDOWS",
                     'Linux' => "LINUX"
+                ),
+
+            ))
+            ->add('etat', ChoiceType::class, array(
+                'attr' => array('class' => 'form-control selectpicker m-b-20 m-r-10',
+                    'data-errormessage-value-missing' => 'This input is required!',
+                    'data-style'=>'btn-info btn-outline'),
+                'choices' => array(
+                    'Fonctionnel' => "Fonctionnel",
+                    'Détruit' => "Détruit",
+                    'Perdu' => "Perdu"
                 ),
 
             ))
@@ -49,7 +59,6 @@ class DispositifType extends AbstractType
             ))
             ->add('ram', TextType::class, array(
                 'attr' => array('class' => 'form-control  validate[required] ',
-                    'value'=>'0.512',
                     'data-bts-button-down-class'=>'btn btn-default btn-outline',
                     'data-errormessage-value-missing' => 'This input is required!')
             ))
@@ -61,6 +70,7 @@ class DispositifType extends AbstractType
 
         $builder->add('images', CollectionType::class, array(
             'label' => true,
+            'required'=>false,
             'entry_type' => ImageType::class,
             'prototype' => true,
             'allow_add' => true,
