@@ -1,0 +1,4 @@
+services:
+#    it_dispositif.example:
+#        class: IT\DispositifBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

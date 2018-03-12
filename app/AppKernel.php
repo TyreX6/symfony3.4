@@ -22,7 +22,10 @@ class AppKernel extends Kernel
             new \Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FR3D\LdapBundle\FR3DLdapBundle(),
-            new AppBundle\AppBundle(),
+            new IT\DispositifBundle\ITDispositifBundle(),
+            new IT\ReservationBundle\ITReservationBundle(),
+            new IT\UserBundle\ITUserBundle(),
+            new IT\ApiBundle\ITApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

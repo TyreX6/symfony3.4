@@ -124,6 +124,7 @@ fos_rest:
 fr3d_ldap:
    driver:
       host: "%LDAP_host%"
+      port: 389
    user:
       baseDn: "%LDAP_baseDn%"
       attributes:

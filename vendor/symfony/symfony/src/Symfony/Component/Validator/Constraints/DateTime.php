@@ -33,5 +33,4 @@ class DateTime extends Constraint
 
     public $format = 'Y-m-d H:i:s';
     public $message = 'This value is not a valid datetime.';
-
 }

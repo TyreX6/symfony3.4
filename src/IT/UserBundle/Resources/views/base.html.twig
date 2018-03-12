@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('bundles/app/plugins/images/favicon.png') }}">
+    <title>{% block title %} {% endblock %}</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ asset('bundles/app/assets/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css') }}"
+          rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="{{ asset('bundles/app/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css') }}"
+          rel="stylesheet">
+    {% block stylesheets %}
+    {% endblock %}
+    <!-- animation CSS -->
+    <link href="{{ asset('bundles/app/assets/css/animate.css') }}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ asset('bundles/app/assets/css/style.css') }}" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="{{ asset('bundles/app/assets/css/personalized.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/app/assets/css/colors/green-dark.css') }}" id="theme" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body class="fix-sidebar">
+<!-- Preloader -->
+<div class="LoadingRoot">
+    <div class="content">
+        <div class="ball"></div>
+        <div class="ball1"></div>
+    </div>
+</div>
+<div id="wrapper">
+    <!-- Top Navigation -->
+    <nav class="navbar navbar-default navbar-static-top m-b-0">
+        <div class="navbar-header">
+            <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse"
+               data-target=".navbar-collapse">
+                <i class="ti-menu"></i>
+            </a>
+            <div class="top-left-part">
+                <a class="logo" href="#">
+                    <b>
+                        <img src="{{ asset('bundles/app/plugins/images/eliteadmin-logo.png') }}" alt="home"
+                             class="dark-logo"/>
+                        <img src="{{ asset('bundles/app/plugins/images/eliteadmin-logo-darkBack.png') }}" alt="home"
+                             class="light-logo"/>
+                    </b>
+                    <span class="hidden-xs">
+                        <img src="{{ asset('bundles/app/plugins/images/eliteadmin-text.png') }}" alt="home"
+                             class="dark-logo"/>
+                        <img src="{{ asset('bundles/app/plugins/images/eliteadmin-text-dark.png') }}" alt="home"
+                             class="light-logo"/>
+                    </span>
+                </a>
+            </div>
+            <ul class="nav navbar-top-links navbar-left hidden-xs">
+                <li>
+                    <a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light">
+                        <i class="icon-arrow-left-circle ti-menu"></i>
+                    </a>
+                </li>
+                <li>
+                    <form role="search" class="app-search hidden-xs">
+                        <input type="text" name="keyword" placeholder="Rechercher..." class="form-control">
+                        <a href="{{ path('rechercher',{"keyword":"samsung"}) }}"><i class="fa fa-search"></i></a>
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav navbar-top-links navbar-right pull-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown"
+                       href="#">
+                        <i class="icon-envelope"></i>
+                        <div class="notify">
+                            <span class="heartbit"></span>
+                            <span class="point"></span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu mailbox animated bounceInDown">
+                        <li>
+                            <div class="drop-title">Vous avez 4 nouveaux messages</div>
+                        </li>
+                        <li>
+                            <div class="message-center">
+                                <a href="#">
+                                    <div class="user-img">
+                                        <img src="{{ asset('bundles/app/plugins/images/users/semh.jpg') }}" alt="user"
+                                             class="img-circle">
+                                        <span class="profile-status busy pull-right"></span>
+                                    </div>
+                                    <div class="mail-contnet">
+                                        <h5>Sonu Nigam</h5>
+                                        <span class="mail-desc">I've sung a song! See you at</span>
+                                        <span class="time">9:10 AM</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="text-center" href="javascript:void(0);">
+                                <strong>See all notifications</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#">
+                        <i class="icon-note"></i>
+                        <div class="notify">
+                            <span class="heartbit"></span>
+                            <span class="point"></span>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks animated slideInUp">
+                        {{ render(controller('ITReservationBundle:Notification:notification')) }}
+                        <li>
+                            <a class="text-center" href="{{ path('liste_reservation') }}"> <strong>Voir les
+                                    réservations</strong> <i
+                                        class="fa fa-angle-right"></i> </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+        </div>
+        <!-- /.navbar-header -->
+        <!-- /.navbar-top-links -->
+        <!-- /.navbar-static-side -->
+    </nav>
+    <!-- End Top Navigation -->
+    <!-- Left navbar-header -->
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+            <div class="user-profile">
+                <div class="dropdown user-pro-body">
+                    <div><img src="{{ asset('bundles/app/plugins/images/users/semh.jpg') }}" alt="user-img"
+                              class="img-circle"></div>
+                    <a href="#" class="dropdown-toggle u-dropdown" data-toggle="dropdown" role="button"
+                       aria-haspopup="true" aria-expanded="false">Administrateur<span class="caret"></span></a>
+                    <ul class="dropdown-menu animated flipInY">
+                        <li><a href="#"><i class="ti-user"></i> Mon profile</a></li>
+                        <li><a href="#"><i class="ti-wallet"></i> Mon Balance</a></li>
+                        <li><a href="#"><i class="ti-email"></i> Messages</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#"><i class="ti-settings"></i> Paramétres</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i> Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="nav" id="side-menu">
+                <li class="sidebar-search hidden-sm hidden-md hidden-lg">
+                    <!-- input-group -->
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" placeholder="Rechercher..."> <span
+                                class="input-group-btn">
+            <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
+            </span></div>
+                    <!-- /input-group -->
+                </li>
+                {#<li class="nav-small-cap m-t-10">--- LDAP</li>#}
+                <li><a href="{{ path('configLDAP') }}" class="waves-effect"><i class="icon-badge fa-fw"
+                                                                               data-icon="v"></i>
+                        <span class="hide-menu"> Configuration LDAP </span></a>
+                </li>
+                {#<li class="nav-small-cap m-t-10">--- Dashboard</li>#}
+                <li><a href="index.html" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i>
+                        <span class="hide-menu"> Statistiques <span class="fa arrow"></span> <span
+                                    class="label label-rouded label-custom pull-right">4</span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="index.html">Réservations</a></li>
+                        <li><a href="index.html">Dispositifs</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    {% block gestion_reservations %}
+                        <a href="index.html" class="waves-effect"><i class="icon-calender fa-fw" data-icon="v"></i>
+                            <span class="hide-menu"> Gestion Réservations <span class="fa arrow"></span></span></a>
+                    {% endblock %}
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{ path('liste_reservation') }}" class="waves-effect">
+                                <i class="icon-list fa-fw" data-icon="v"></i>
+                                <span class="hide-menu"> Liste réservations </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ajouter_reservation') }}" class="waves-effect">
+                                <i class="icon-calender fa-fw" data-icon="v"></i>
+                                <span class="hide-menu"> Ajouter réservation </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="waves-effect">
+                                <i class="icon-game-controller fa-fw" data-icon="v"></i>
+                                <span class="hide-menu"> Fixer les régles </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    {% block gestion_dispositifs %}
+                        <a href="index.html" class="waves-effect"><i class="icon-screen-smartphone fa-fw"
+                                                                     data-icon="v"></i>
+                            <span class="hide-menu"> Gestion Dispositifs <span class="fa arrow"></span></span></a>
+                    {% endblock %}
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{ path('liste_dispositif') }}" class="waves-effect">
+                                <i class="icon-list fa-fw" data-icon="v"></i>
+                                <span class="hide-menu"> Liste des dispositifs </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ajouter_dispositif') }}" class="waves-effect">
+                                <i class="icon-software-add-vectorpoint fa-fw" data-icon="v"></i>
+                                <span class="hide-menu"> Ajouter un dispositif </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-small-cap">--- Proffessionel</li>
+
+                <li><a href="{{ path('fos_user_security_logout') }}" class="waves-effect"><i
+                                class="icon-logout fa-fw"></i> <span class="hide-menu">Déconnexion</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Left navbar-header end -->
+    {% block content %} {% endblock %}
+</div>
+<!-- jQuery -->
+
+<script src="{{ asset('bundles/app/plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ asset('bundles/app/assets/bootstrap/dist/js/tether.min.js') }}"></script>
+<script src="{{ asset('bundles/app/assets/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-extension/js/bootstrap-extension.min.js') }}"></script>
+<!-- Menu Plugin JavaScript -->
+<script src="{{ asset('bundles/app/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js') }}"></script>
+<!--slimscroll JavaScript -->
+<script src="{{ asset('bundles/app/assets/js/jquery.slimscroll.js') }}"></script>
+<!--Wave Effects -->
+<script src="{{ asset('bundles/app/assets/js/waves.js') }}"></script>
+<!-- Custom Theme JavaScript -->
+<script src="{{ asset('bundles/app/assets/js/custom.min.js') }}"></script>
+<script>
+    {#$(document).ready(function () {#}
+    {#$.ajax({#}
+    {#type: 'get',#}
+    {#url: {{ path('fetch_notifications') }},#}
+    {#dataType: 'json',#}
+    {#success: function (data) {#}
+    {#console.log(data);#}
+    {#$(".dropdown-tasks").prepend(#}
+    {#'<li><a href="#"><div><p><strong>Task 1</strong> <span class="pull-right text-muted">40% Complete</span></p><div class="progress progress-striped active"><div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only">40% Complete (success)</span></div></div></div></a></li><li class="divider"></li>'#}
+    {#) ;#}
+    {#}#}
+    {#});#}
+    {#})#}
+</script>
+{% block scripts %}
+
+{% endblock %}
+</body>
+
+</html>

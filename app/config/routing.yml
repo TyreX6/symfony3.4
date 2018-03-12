@@ -1,12 +1,33 @@
-app:
-    resource: '@AppBundle/Controller/'
+it_api:
+    resource: "@ITApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+it_user:
+    resource: "@ITUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+it_reservation:
+    resource: "@ITReservationBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/reservations
+
+it_dispositif:
+    resource: "@ITDispositifBundle/Controller/"
+    type:     annotation
+    prefix:   /admin/dispositifs
+
+it_users:
+    resource: '@ITUserBundle/Controller/'
     type: annotation
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
 api_login_check:
     path: /api/login_check
 
-users:
-    type:     rest #Optional
-    resource: AppBundle\Controller\ApiController
+#users:
+#    type:     rest #Optional
+#    resource: IT\ApiBundle\Controller\DispositifApiController

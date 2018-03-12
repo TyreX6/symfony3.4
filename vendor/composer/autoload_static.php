@@ -87,6 +87,10 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         'I' => 
         array (
             'Incenteev\\ParameterHandler\\' => 27,
+            'IT\\UserBundle\\' => 14,
+            'IT\\ReservationBundle\\' => 21,
+            'IT\\DispositifBundle\\' => 20,
+            'IT\\ApiBundle\\' => 13,
         ),
         'F' => 
         array (
@@ -262,6 +266,22 @@ class ComposerStaticInitf7f3b6ce90d61d05e1635299bcfe092f
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
+        ),
+        'IT\\UserBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/IT/UserBundle',
+        ),
+        'IT\\ReservationBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/IT/ReservationBundle',
+        ),
+        'IT\\DispositifBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/IT/DispositifBundle',
+        ),
+        'IT\\ApiBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/IT/ApiBundle',
         ),
         'Fig\\Link\\' => 
         array (

@@ -1,0 +1,297 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Ajouter une réservation
+{% endblock %}
+
+{% block gestion_reservations %}
+    <a href="index.html" class="waves-effect active"><i class="icon-calender fa-fw" data-icon="v"></i>
+        <span class="hide-menu"> Gestion Réservations <span class="fa arrow"></span></span></a>
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/app/plugins/bower_components/calendar/dist/fullcalendar.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('bundles/app/plugins/bower_components/toast-master/css/jquery.toast.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('bundles/app/plugins/bower_components/custom-select/custom-select.css') }}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{ asset('bundles/app/plugins/bower_components/switchery/dist/switchery.min.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css') }}"
+          rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Calendar Page</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Dashboard</a></li>
+                        <li class="active">Calendar Page</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="white-box">
+                        <h3 class="box-title">GLISSEZ ET BAISSEZ VOTRE ÉVÉNEMENT</h3>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div id="calendar-events" class="m-t-20">
+
+                                </div>
+                                <!-- checkbox -->
+                                <div class="checkbox">
+                                    <input id="drop-remove" type="checkbox">
+                                    <label for="drop-remove">
+                                        Supprimer aprés glissement
+                                    </label>
+                                </div>
+                                <a href="#" data-toggle="modal" data-target="#add-new-event"
+                                   class="btn btn-1d m-t-20 btn-danger btn-block waves-effect waves-light"
+                                   id="add-new-reservation">
+                                    <i class="ti-plus"></i> Ajouter une réservation
+                                </a>
+
+                                <div class="card card-outline-primary text-dark">
+                                    <div class="card-block">
+                                        <p>** Changer le calendrier du dispositif en cliquant sur le bouton
+                                            ci-dessus.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div id="calendar-container" class="white-box">
+                        <div id="calendar">
+                            <div class="center-block loader"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- BEGIN MODAL -->
+            <div class="modal none-border" id="my-event">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><strong>Ajouter une réservation</strong></h4>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white waves-effect" data-dismiss="modal">Fermer
+                            </button>
+                            <button type="button" class="btn btn-success save-event waves-effect waves-light">Créer
+                                réservation
+                            </button>
+                            <button type="button" class="btn btn-danger delete-event waves-effect waves-light"
+                                    data-dismiss="modal">Supprimer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Add Category -->
+            <div class="modal fade none-border" id="add-new-event">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><strong>Ajouter</strong> une réservation</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="newRes" role="form">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Choisir le dispositif</label>
+                                        <select name="dispositif-Select" class="form-control form-white select2"
+                                                data-placeholder="">
+                                            {% for dispo in dispos %}
+                                                <option value="{{ dispo.id }}">{{ dispo.modele }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="control-label">Choisir l'utilisateur</label>
+                                        <select class="form-control form-white select2"
+                                                data-placeholder="Utilisateur ..."
+                                                name="utilisateur-select">
+                                            {% for util in utilisateurs %}
+                                                <option value="{{ util.id }}">{{ util.username }}</option>
+                                            {% endfor %}
+
+                                        </select>
+                                        <a data-dismiss="modal" data-toggle="modal" data-target="#login-user"
+                                           class="btn btn-1b m-t-10 btn-warning btn-block" id="connect-user">Utilisateur
+                                            non trouvé ?
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger waves-effect waves-light save-category"
+                                    data-dismiss="modal">Enregistrer
+                            </button>
+                            <button type="button" class="btn btn-white waves-effect" data-dismiss="modal">Fermer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MODAL -->
+
+            <!-- Modal Add Category -->
+            <div class="modal fade none-border" id="login-user">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"><strong>Connecter</strong> un utilisateur</h4>
+                        </div>
+                        <form id="login-form">
+                            <div class="modal-body">
+
+                                <div class="form-group">
+                                    <label for="login-text" class="control-label">Login:</label>
+                                    <input type="text" class="form-control" id="login-text" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password-text" class="control-label">Password:</label>
+                                    <input type="password" class="form-control" id="password-text" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-danger waves-effect waves-light">Envoyer</button>
+                                <button type="button" class="btn btn-white waves-effect" data-dismiss="modal"
+                                        data-toggle="modal" data-target="#add-new-event">Fermer
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- END MODAL -->
+
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+{% endblock %}
+
+    {% block scripts %}
+        <script>
+            //TODO work with API to get events with structure like this
+            var apiPathAdd = "{{ path('ajout_reservation_ajax') }}";
+            var apiPathUpdate = "{{ path('modifier_reservation_ajax') }}";
+            var apiPathDelete = "{{ path('delete_reservations') }}";
+            var apiFetchReservation = "{{ path('fetch_reservation') }}";
+            var CalenderEvents = [
+                {
+                    events: [],
+                    //color: 'black',     // an option!
+                    textColor: 'black' // an option!
+                }];
+            $("#add-new-reservation").click(function () {
+                fetchReservations();
+            });
+            $("select[name='dispositif-Select']").change(function () {
+                fetchReservations();
+            });
+
+            function fetchReservations() {
+                $('.LoadingRoot').show();
+                var idDispo = $("select[name='dispositif-Select'] option:selected").val();
+                CalenderEvents[0].events = [];
+                $.ajax({
+                    type: 'post',
+                    url: apiFetchReservation,
+                    data: 'id=' + idDispo,
+                    dataType: 'json',
+                    success: function (data) {
+                        data.reservations.forEach(function (element) {
+                            var eventEditable = Date.parse(element.dateFin.date) > Date.now();
+                            CalenderEvents[0].events.push(
+                                {
+                                    id: element.id,
+                                    title: element.dispositif.modele + " pour " + element.user.username,
+                                    start: new Date(element.dateDebut.date),
+                                    end: new Date(element.dateFin.date),
+                                    className: "bg-warning",
+                                    dispId: element.dispositif.id,
+                                    editable: Date.parse(element.dateFin.date) > Date.now()
+                                }
+                            )
+                        });
+                        console.log(CalenderEvents[0].events);
+                        $('#calendar-container').html('<div id="calendar"></div>');
+                        initCalender();
+                        $('.LoadingRoot').hide();
+
+                    }
+                });
+            }
+        </script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/toast-master/js/jquery.toast.js') }}"></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/fullcalendar/lib/jquery-ui.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/assets/js/custom.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/switchery/dist/switchery.min.js') }}"></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/custom-select/custom-select.min.js') }}"
+                type="text/javascript"></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js') }}"
+                type="text/javascript"></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/fullcalendar/lib/moment.min.js') }}"></script>
+        <script src='{{ asset('bundles/app/plugins/bower_components/fullcalendar/fullcalendar.min.js') }}'></script>
+        <script src="{{ asset('bundles/app/plugins/bower_components/calendar/dist/cal-init.js') }}"></script>
+
+
+        <script>
+            // SCript pour configurer un formulaire de login pour les utilisateurs introuvable dans la liste déroulante
+            var loginForm = $("#login-form");
+            loginForm.on('submit', function () {
+                $('.LoadingRoot').show();
+                var login = loginForm.find("input[id='login-text']").val();
+                var password = loginForm.find("input[id='password-text']").val();
+                $.ajax({
+                    type: 'POST',
+                    url: "http://localhost:8000/api/login_check",
+                    //TODO parse time
+                    data: 'username=' + login + '&password=' + password,
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.token) {
+                            $("select[name='utilisateur-select']").append(
+                                '<option>' + data.token + '</option>'
+                            );
+                            $.toast({
+                                heading: 'Utilisateur ajouté',
+                                text: 'Utilisateur ajouté avec succée.',
+                                position: 'top-right',
+                                loaderBg: '#ff6849',
+                                icon: 'success',
+                                hideAfter: 7000,
+                                stack: 6
+                            });
+                            $('.LoadingRoot').hide();
+                            $('#login-user').modal('hide');
+                            $('#add-new-event').modal('show');
+                        }
+                    }
+                });
+                return false;
+            });
+
+            // For select 2
+            $(".select2").select2();
+            $('.selectpicker').selectpicker();
+        </script>
+
+
+    {% endblock %}

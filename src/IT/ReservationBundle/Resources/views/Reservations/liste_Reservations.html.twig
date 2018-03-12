@@ -1,0 +1,129 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/app/plugins/bower_components/footable/css/footable.core.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block gestion_reservations %}
+    <a href="#" class="waves-effect active">
+        <i class="icon-calender fa-fw" data-icon="v"></i>
+        <span class="hide-menu"> Gestion Réservations
+            <span class="fa arrow"></span>
+        </span>
+    </a>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Réservations</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                        <li><a href="{{ path('liste_reservation') }}">Réservations</a></li>
+                        <li class="active">Liste</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- .row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"> Liste des réservations entrantes</div>
+                        <!-- Tabstyle start -->
+                        <div class="panel-wrapper collapse in" aria-expanded="true">
+                            <div class="panel-body">
+                                <label class="form-inline">Afficher
+                                    <select id="demo-show-entries" class="form-control input-sm">
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select> entrées </label>
+                                <table id="demo-foo-pagination"
+                                       class="table table-bordered color-table success-table m-b-0 toggle-arrow-tiny"
+                                       data-page-size="10">
+                                    <thead>
+                                    <tr>
+                                        <th> ID</th>
+                                        <th data-toggle="true"> Modéle</th>
+                                        <th data-hide="phone"> Date début</th>
+                                        <th data-hide="phone"> Date fin</th>
+                                        <th data-hide="phone"> Collaborateur</th>
+                                        <th data-hide="phone"> Pourcentage</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for reservation in reservations %}
+                                        <tr>
+                                            <td>
+                                                {{ reservation.dispositif.id }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('modifier_dispositif',{'id':reservation.dispositif.id}) }}">{{ reservation.dispositif.modele }}</a>
+                                            </td>
+                                            <td>{{ reservation.dateDebut | date }}</td>
+                                            <td>{{ reservation.dateFin | date }}</td>
+                                            <td>{{ reservation.user.username }}</td>
+                                            <td>
+                                                <div>
+                                                    <p><strong>{{ reservation.dispositif.modele }}</strong> <span
+                                                                class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"] }}
+                                                            % Complete</span>
+                                                    </p>
+                                                    <div class="progress progress-striped active">
+                                                        <div class="progress-bar progress-bar-{{ reservation.getPourcentage["class"] }}"
+                                                             role="progressbar"
+                                                             aria-valuenow="{{ reservation.getPourcentage["pourcentage"] }}"
+                                                             aria-valuemin="0" aria-valuemax="100"
+                                                             style="width: {{ reservation.getPourcentage["pourcentage"] }}%">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="text-right">
+                                                <ul class="pagination pagination-split m-t-30"></ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /content -->
+                        </div>
+                        <!-- /tabs -->
+
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{{ asset('bundles/app/plugins/bower_components/footable/js/footable.all.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/assets/js/footable-init.js') }}"></script>
+    <script src="{{ asset('bundles/app/assets/js/cbpFWTabs.js') }}"></script>
+    <script type="text/javascript">
+        (function () {
+            [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
+                new CBPFWTabs(el);
+            });
+        })();
+    </script>
+{% endblock %}
+

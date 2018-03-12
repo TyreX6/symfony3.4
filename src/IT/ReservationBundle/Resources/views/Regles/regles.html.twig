@@ -1,0 +1,172 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('bundles/app/plugins/bower_components/toast-master/css/jquery.toast.css') }}"
+          rel="stylesheet"/>
+    <link href="{{ asset('bundles/app/plugins/bower_components/custom-select/custom-select.css') }}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css') }}"
+          rel="stylesheet"/>
+{% endblock %}
+
+{% block title %} Fixer les régles {% endblock %}
+
+{% block gestion_reservations %}
+    <a href="#" class="waves-effect active"><i class="icon-calender fa-fw" data-icon="v"></i>
+        <span class="hide-menu"> Gestion Réservations <span class="fa arrow"></span></span></a>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Régles</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Accueil</a></li>
+                        <li class="active">Ajuster les régles</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"> Fixer les régles</div>
+                        {{ form_start(reglesForm, {'attr' : {'id':'regles','class':'form-horizontal form-bordered'} }) }}
+                            <div class="panel-wrapper collapse in" aria-expanded="true">
+                                <div class="panel-body">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <div class="white-box">
+                                                <h2>Régles pour la durée maximale d'une
+                                                    réservation</h2>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-5 col-md-5">La durée maximale d'une réservation
+                                                        est : </label>
+                                                    {{ form_widget (reglesForm.limDureeReservation) }}
+                                                    Heures
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <div class="white-box">
+                                                <h2>Régles pour les réservations d'une journée</h2>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-5 col-md-5">Le nombre maximale de réservation
+                                                        d'un dispositif par jour est : </label>
+                                                    {{ form_widget (reglesForm.nbrLimiteParJour) }}
+                                                    Fois
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <div class="white-box">
+                                                <h2>Régles pour les réservations d'une semaine</h2>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-5 col-md-5">Le nombre maxiamel de réservation
+                                                        d'un dispositif par semaine est : </label>
+                                                    {{ form_widget (reglesForm.nbrLimiteParSemaine) }}
+                                                    Fois
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <div class="white-box">
+                                                <h2>Régles pour le timeout d'une réservation</h2>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-5 col-md-5">Le timeout d'une réservation avant
+                                                        de l'annuler est : </label>
+                                                    {{ form_widget (reglesForm.dureeTimeout) }}
+                                                    Minutes
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button type="submit" class="btn btn-success">Envoyer</button>
+                                            <button type="button" class="btn btn-default">Annuler</button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        {{ form_end(reglesForm) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js') }}"
+            type="text/javascript"></script>
+    <script src="{{ asset('bundles/app/plugins/bower_components/toast-master/js/jquery.toast.js') }}"></script>
+    <script>
+        $("form").submit(function (event) {
+            event.preventDefault();
+            $('.LoadingRoot').show();
+            var limiteDuree = $("#it_reservationbundle_regles_limDureeReservation").val();
+            var limite_par_jour = $("#it_reservationbundle_regles_nbrLimiteParJour").val();
+            var limite_par_semaine = $("#it_reservationbundle_regles_nbrLimiteParSemaine").val();
+            var reserv_timeout = $("#it_reservationbundle_regles_dureeTimeout").val();
+            $.ajax({
+                type: 'POST',
+
+                url: "{{ path('fixer_regles') }}",
+
+                data: 'limiteDuree=' + limiteDuree + '&limiteParJour=' + limite_par_jour + '&limiteParSemaine=' + limite_par_semaine + '&reservationTimeout=' + reserv_timeout,
+
+                dataType: 'json',
+
+                success: function (data) {
+                    console.log(data);
+                    if (data.success === 1) {
+                        $('.LoadingRoot').hide();
+                        $.toast({
+                            heading: 'Régles envoyés',
+                            text: 'Les régles sont ajustées avec succée.',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'success',
+                            hideAfter: 7000,
+                            stack: 6
+                        });
+                    }
+                    else {
+                        $('.LoadingRoot').hide();
+                        $.toast({
+                            heading: 'Erreur',
+                            text: 'Un erreur lors de l"envoi.',
+                            position: 'top-right',
+                            loaderBg: '#ff6849',
+                            icon: 'error',
+                            hideAfter: 7000,
+                            stack: 6
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+
+{% endblock %}
+
+
+
