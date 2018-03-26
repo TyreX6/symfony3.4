@@ -1,7 +1,11 @@
 {% extends '::base.html.twig' %}
 
 {% block stylesheets %}
-    <link href="{{ asset('bundles/app/plugins/bower_components/footable/css/footable.core.css') }}" rel="stylesheet">
+    {% stylesheets
+    'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 {% endblock %}
 
 {% block gestion_reservations %}
@@ -115,9 +119,13 @@
 
 
 {% block scripts %}
-    <script src="{{ asset('bundles/app/plugins/bower_components/footable/js/footable.all.min.js') }}"></script>
-    <script src="{{ asset('bundles/app/assets/js/footable-init.js') }}"></script>
-    <script src="{{ asset('bundles/app/assets/js/cbpFWTabs.js') }}"></script>
+    {% javascripts
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
+    '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
+    '@ITReservationBundle/Resources/public/app/assets/js/cbpFWTabs.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
     <script type="text/javascript">
         (function () {
             [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {

@@ -2,42 +2,42 @@
 
 namespace Vich\UploaderBundle\Metadata\Driver;
 
+use Metadata\Driver\AbstractFileDriver;
 use Symfony\Component\Yaml\Yaml as YmlParser;
-
 use Vich\UploaderBundle\Metadata\ClassMetadata;
 
 /**
- * Yaml driver
- *
  * @author Kévin Gomez <contact@kevingomez.fr>
+ * @author Konstantin Myakshin <koc-dp@yandex.ru>
  */
 class YamlDriver extends AbstractFileDriver
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
-    protected function loadMetadataFromFile($file, \ReflectionClass $class = null)
+    protected function loadMetadataFromFile(\ReflectionClass $class, $file)
     {
         $config = $this->loadMappingFile($file);
         $className = $this->guessClassName($file, $config, $class);
-        $metadata = new ClassMetadata($className);
+        $classMetadata = new ClassMetadata($className);
+        $classMetadata->fileResources[] = $file;
+        $classMetadata->fileResources[] = $class->getFileName();
 
         foreach ($config[$className] as $field => $mappingData) {
-            $fieldMetadata = array(
-                'mapping'           => $mappingData['mapping'],
-                'propertyName'      => $field,
-                'fileNameProperty'  => isset($mappingData['filename_property']) ? $mappingData['filename_property'] : null,
-            );
+            $fieldMetadata = [
+                'mapping' => $mappingData['mapping'],
+                'propertyName' => $field,
+                'fileNameProperty' => isset($mappingData['filename_property']) ? $mappingData['filename_property'] : null,
+                'size' => isset($mappingData['size']) ? $mappingData['size'] : null,
+                'mimeType' => isset($mappingData['mime_type']) ? $mappingData['mime_type'] : null,
+                'originalName' => isset($mappingData['original_name']) ? $mappingData['original_name'] : null,
+                'dimensions' => isset($mappingData['dimensions']) ? $mappingData['dimensions'] : null,
+            ];
 
-            $metadata->fields[$field] = $fieldMetadata;
+            $classMetadata->fields[$field] = $fieldMetadata;
         }
 
-        return $metadata;
-    }
-
-    protected function getClassNameFromFile($file)
-    {
-        return $this->guessClassName($file, $this->loadMappingFile($file));
+        return $classMetadata;
     }
 
     protected function loadMappingFile($file)
@@ -46,7 +46,7 @@ class YamlDriver extends AbstractFileDriver
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected function getExtension()
     {
@@ -55,7 +55,7 @@ class YamlDriver extends AbstractFileDriver
 
     protected function guessClassName($file, array $config, \ReflectionClass $class = null)
     {
-        if ($class === null) {
+        if (null === $class) {
             return current(array_keys($config));
         }
 

@@ -13,38 +13,63 @@ namespace Vich\UploaderBundle\Mapping\Annotation;
 class UploadableField
 {
     /**
-     * @var string $mapping
+     * @var string
      */
     protected $mapping;
 
     /**
-     * @var string $fileNameProperty
+     * @var string
      */
     protected $fileNameProperty;
+
+    //TODO: replace "fileNameProperty" with just "name"
+
+    /**
+     * @var string
+     */
+    protected $size;
+
+    /**
+     * @var string
+     */
+    protected $mimeType;
+
+    /**
+     * @var string
+     */
+    protected $originalName;
+
+    /**
+     * @var array
+     */
+    protected $dimensions;
 
     /**
      * Constructs a new instance of UploadableField.
      *
-     * @param  array                     $options The options.
+     * @param array $options The options
+     *
      * @throws \InvalidArgumentException
      */
     public function __construct(array $options)
     {
-        if (isset($options['mapping'])) {
-            $this->mapping = $options['mapping'];
-        } else {
+        if (empty($options['mapping'])) {
             throw new \InvalidArgumentException('The "mapping" attribute of UploadableField is required.');
         }
 
-        if (isset($options['fileNameProperty'])) {
-            $this->fileNameProperty = $options['fileNameProperty'];
+        foreach ($options as $property => $value) {
+            if (!property_exists($this, $property)) {
+                throw new \RuntimeException(sprintf('Unknown key "%s" for annotation "@%s".', $property, get_class($this)));
+            }
+
+            $this->$property = $value;
         }
     }
 
     /**
      * Gets the mapping name.
      *
-     * @return string The mapping name.
+     * @return string The mapping name
      */
     public function getMapping()
     {
@@ -54,10 +79,42 @@ class UploadableField
     /**
      * Gets the file name property.
      *
-     * @return string The file name property.
+     * @return string The file name property
      */
     public function getFileNameProperty()
     {
         return $this->fileNameProperty;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->mimeType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOriginalName()
+    {
+        return $this->originalName;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getDimensions()
+    {
+        return $this->dimensions;
     }
 }

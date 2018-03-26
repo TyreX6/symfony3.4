@@ -5,7 +5,7 @@ namespace Vich\UploaderBundle\EventListener\Doctrine;
 use Doctrine\Common\EventArgs;
 
 /**
- * CleanListener
+ * CleanListener.
  *
  * Listen to the update event to delete old files accordingly.
  *
@@ -16,19 +16,19 @@ class CleanListener extends BaseListener
     /**
      * The events the listener is subscribed to.
      *
-     * @return array The array of events.
+     * @return array The array of events
      */
-    public function getSubscribedEvents()
+    public function getSubscribedEvents(): array
     {
-        return array(
+        return [
             'preUpdate',
-        );
+        ];
     }
 
     /**
-     * @param EventArgs $event The event.
+     * @param EventArgs $event The event
      */
-    public function preUpdate(EventArgs $event)
+    public function preUpdate(EventArgs $event): void
     {
         $object = $this->adapter->getObjectFromArgs($event);
 

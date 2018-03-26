@@ -14,15 +14,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use IT\DispositifBundle\Entity\Image ;
-
+use Swagger\Annotations as SWG;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="IT\DispositifBundle\Repository\DispositifsRepository")
  * @ExclusionPolicy("all")
+ * @SWG\Definition(type="object", @SWG\Xml(name="Dispositif"))
  */
-class Dispositif implements \JsonSerializable
+class Dispositif
 {
     /**
      * @var integer
@@ -30,6 +32,7 @@ class Dispositif implements \JsonSerializable
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @Expose
+     * @SWG\Property(description="Identifiant du dispositif.")
      */
     private $id;
 
@@ -39,6 +42,14 @@ class Dispositif implements \JsonSerializable
      * @var string
      * @ORM\Column(name="modele", type="string", length=50)
      * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 50,
+     *      minMessage = "Your model must be at least {{ limit }} characters long",
+     *      maxMessage = "Your model cannot be longer than {{ limit }} characters"
+     * )
+     * @SWG\Property(property="modele",type="string",description="modele du dispositif.")
      */
     private $modele;
 
@@ -48,14 +59,23 @@ class Dispositif implements \JsonSerializable
      *
      * @ORM\Column(name="os", type="string", length=20)
      * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Choice(
+     *     choices={"ANDROID", "IOS","WINDOWS","LINUX"},
+     *      message="Choose a valid OS."
+     * )
+     * @SWG\Property(type="string",description="Systéme d'exploitation du dispositif.")
      */
     private $os;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="versionOS", type="string")
      * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Regex("/(^.+)\.(\w+)/",
+     *     message="This is not a valid version")
+     * @SWG\Property(type="string",description="Version du systéme d'exploitation du dispositif.")
      */
     private $versionOS;
 
@@ -64,6 +84,8 @@ class Dispositif implements \JsonSerializable
      *
      * @ORM\Column(name="processeur", type="string", length=40)
      * @Expose
+     * @Assert\NotBlank()
+     * @SWG\Property(type="string",description="Processeur du dispositif.")
      */
     private $processeur;
 
@@ -72,20 +94,30 @@ class Dispositif implements \JsonSerializable
      *
      * @ORM\Column(name="ram", type="float")
      * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = 0.512,
+     *      max = 24.000,
+     *      minMessage = "Your RAM must be at least {{ limit }} MB",
+     *      maxMessage = "Your RAM be greater than {{ limit }} MB"
+     * )
+     * @SWG\Property(type="number",description="Ram du dispositif.")
      */
     private $ram;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="resolution", type="string" ,length=20)
      * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Regex("/(^[0-9]{4}+)(x|X)([0-9]{4}$)/",
+     *     message="This is not a valid resolution")
+     * @SWG\Property(type="string",description="Résolution du dispositif.")
      */
     private $resolution;
 
     /**
      * @ORM\OneToMany(targetEntity="Image", mappedBy="dispositif" ,cascade={"remove", "persist"},orphanRemoval=true)
-     * @Expose
      **/
     private $images;
 
@@ -94,24 +126,24 @@ class Dispositif implements \JsonSerializable
      *
      * @ORM\Column(name="etat", type="string" ,length=20,nullable=false)
      * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Choice(
+     *     choices={"Fonctionnel", "Détruit","Perdu"},
+     *      message="Choose a valid status."
+     * )
+     * @SWG\Property(type="string",description="Etat du dispositif.")
      */
     private $etat;
-
-
-
-
 
     /**
      * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\Reservation", mappedBy="dispositif",cascade="persist")
      **/
     private $reservation;
 
-
     /**
      * @ORM\Column(type="datetime",nullable=false)
      */
     private $dateAtjout ;
-
 
     public function __construct() {
         $this->reservation = new ArrayCollection();
@@ -312,25 +344,4 @@ class Dispositif implements \JsonSerializable
     }
 
 
-    /**
-     * Specify data which should be serialized to JSON
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     * @since 5.4.0
-     */
-    public function jsonSerialize()
-    {
-        // TODO: Implement jsonSerialize() method.
-        return [
-                'id' => $this->getId(),
-                'modele' => $this->getModele(),
-                'os' => $this->getOs(),
-                'osVersion' => $this->getVersionOS(),
-                'processeur' => $this->getProcesseur(),
-                'ram' => $this->getRam(),
-                'resolution' => $this->getResolution(),
-
-        ];
-    }
 }

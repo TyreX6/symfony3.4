@@ -24,25 +24,31 @@ class Regles
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var integer
      * @ORM\Column(type="integer")
      */
-    protected $limDureeReservation;
+    private $limDureeReservation;
 
     /**
      * @var integer
      * @ORM\Column(type="integer")
      */
-    protected $nbrLimiteParJour;
+    private $nbrLimiteParJour;
 
     /**
      * @var integer
      * @ORM\Column(type="integer")
      */
-    protected $nbrLimiteParSemaine;
+    private $nbrLimiteParSemaine;
+
+    /**
+     * @var integer
+     * @ORM\Column(type="integer")
+     */
+    private $nbrMaxReservParallelPar;
 
     /**
      * @var \DateTime
@@ -59,12 +65,21 @@ class Regles
     private $dateModif;
 
     /**
+     * The duration of the timeout before cancelling a reservation
+     * User can not start the reservation if he submit after + "$dureeTimeout" + of the StartTime of his reservation
+     *
      * @var integer
      * @ORM\Column(type="integer")
      */
-    protected $dureeTimeout;
+    private $dureeTimeout;
 
-
+    /**
+     * Highest Number of parallel reservations per User
+     * In the same time, a user can only reserve $maxResParall devices
+     * @var integer
+     * @ORM\Column(type="integer")
+     */
+    private $maxResParall;
 
     /**
      * Regles constructor.
@@ -178,6 +193,38 @@ class Regles
     public function setDureeTimeout($dureeTimeout)
     {
         $this->dureeTimeout = $dureeTimeout;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrMaxReservParallelPar()
+    {
+        return $this->nbrMaxReservParallelPar;
+    }
+
+    /**
+     * @param int $nbrMaxReservParallelPar
+     */
+    public function setNbrMaxReservParallelPar($nbrMaxReservParallelPar)
+    {
+        $this->nbrMaxReservParallelPar = $nbrMaxReservParallelPar;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaxResParall()
+    {
+        return $this->maxResParall;
+    }
+
+    /**
+     * @param int $maxResParall
+     */
+    public function setMaxResParall($maxResParall)
+    {
+        $this->maxResParall = $maxResParall;
     }
 
 

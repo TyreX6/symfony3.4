@@ -6,8 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\User;
-use AppBundle\Entity\Admin;
+use IT\UserBundle\Entity\User;
+use IT\UserBundle\Entity\Admin;
 use Symfony\Component\Yaml\Yaml;
 
 class DefaultController extends Controller
@@ -17,9 +17,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
-        ]);
+        return $this->redirect("/login");
     }
     /**
      * @Route("/user", name="user")

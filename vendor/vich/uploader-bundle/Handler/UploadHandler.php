@@ -19,23 +19,15 @@ use Vich\UploaderBundle\Storage\StorageInterface;
 class UploadHandler extends AbstractHandler
 {
     /**
-     * @var FileInjectorInterface $injector
+     * @var FileInjectorInterface
      */
     protected $injector;
 
     /**
-     * @var EventDispatcherInterface $dispatcher
+     * @var EventDispatcherInterface
      */
     protected $dispatcher;
 
-    /**
-     * Constructs a new instance of UploaderListener.
-     *
-     * @param PropertyMappingFactory   $factory    The mapping factory.
-     * @param StorageInterface         $storage    The storage.
-     * @param FileInjectorInterface    $injector   The injector.
-     * @param EventDispatcherInterface $dispatcher The event dispatcher.
-     */
     public function __construct(PropertyMappingFactory $factory, StorageInterface $storage, FileInjectorInterface $injector, EventDispatcherInterface $dispatcher)
     {
         parent::__construct($factory, $storage);
@@ -47,10 +39,12 @@ class UploadHandler extends AbstractHandler
     /**
      * Checks for file to upload.
      *
-     * @param object $obj       The object.
-     * @param string $fieldName The name of the field containing the upload (has to be mapped).
+     * @param object $obj       The object
+     * @param string $fieldName The name of the field containing the upload (has to be mapped)
+     *
+     * @throws \Vich\UploaderBundle\Exception\MappingNotFoundException
      */
-    public function upload($obj, $fieldName)
+    public function upload($obj, string $fieldName): void
     {
         $mapping = $this->getMapping($obj, $fieldName);
 
@@ -67,7 +61,7 @@ class UploadHandler extends AbstractHandler
         $this->dispatch(Events::POST_UPLOAD, new Event($obj, $mapping));
     }
 
-    public function inject($obj, $fieldName)
+    public function inject($obj, string $fieldName): void
     {
         $mapping = $this->getMapping($obj, $fieldName);
 
@@ -78,7 +72,7 @@ class UploadHandler extends AbstractHandler
         $this->dispatch(Events::POST_INJECT, new Event($obj, $mapping));
     }
 
-    public function clean($obj, $fieldName)
+    public function clean($obj, string $fieldName): void
     {
         $mapping = $this->getMapping($obj, $fieldName);
 
@@ -90,7 +84,7 @@ class UploadHandler extends AbstractHandler
         $this->remove($obj, $fieldName);
     }
 
-    public function remove($obj, $fieldName)
+    public function remove($obj, string $fieldName): void
     {
         $mapping = $this->getMapping($obj, $fieldName);
         $oldFilename = $mapping->getFileName($obj);
@@ -103,20 +97,20 @@ class UploadHandler extends AbstractHandler
         $this->dispatch(Events::PRE_REMOVE, new Event($obj, $mapping));
 
         $this->storage->remove($obj, $mapping);
-        $mapping->setFileName($obj, null);
+        $mapping->erase($obj);
 
         $this->dispatch(Events::POST_REMOVE, new Event($obj, $mapping));
     }
 
-    protected function dispatch($eventName, Event $event)
+    protected function dispatch(string $eventName, Event $event): void
     {
         $this->dispatcher->dispatch($eventName, $event);
     }
 
-    protected function hasUploadedFile($obj, PropertyMapping $mapping)
+    protected function hasUploadedFile($obj, PropertyMapping $mapping): bool
     {
         $file = $mapping->getFile($obj);
 
-        return $file !== null && $file instanceof UploadedFile;
+        return null !== $file && $file instanceof UploadedFile;
     }
 }

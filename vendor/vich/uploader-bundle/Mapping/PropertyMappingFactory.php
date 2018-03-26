@@ -4,7 +4,6 @@ namespace Vich\UploaderBundle\Mapping;
 
 use Doctrine\Common\Persistence\Proxy;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-
 use Vich\UploaderBundle\Exception\MappingNotFoundException;
 use Vich\UploaderBundle\Exception\NotUploadableException;
 use Vich\UploaderBundle\Metadata\MetadataReader;
@@ -19,34 +18,26 @@ use Vich\UploaderBundle\Util\ClassUtils;
 class PropertyMappingFactory
 {
     /**
-     * @var ContainerInterface $container
+     * @var ContainerInterface
      */
     protected $container;
 
     /**
-     * @var MetadataReader $metadata
+     * @var MetadataReader
      */
     protected $metadata;
 
     /**
-     * @var array $mappings
+     * @var array
      */
     protected $mappings;
 
     /**
-     * @var string $defaultFilenameAttributeSuffix
+     * @var string
      */
     protected $defaultFilenameAttributeSuffix;
 
-    /**
-     * Constructs a new instance of PropertyMappingFactory.
-     *
-     * @param ContainerInterface $container                      The container.
-     * @param MetadataReader     $metadata                       The mapping mapping.
-     * @param array              $mappings                       The configured mappings.
-     * @param string             $defaultFilenameAttributeSuffix The default suffix to be used if the fileNamePropertyPath isn't given for a mapping.
-     */
-    public function __construct(ContainerInterface $container, MetadataReader $metadata, array $mappings, $defaultFilenameAttributeSuffix = '_name')
+    public function __construct(ContainerInterface $container, MetadataReader $metadata, array $mappings, ?string $defaultFilenameAttributeSuffix = '_name')
     {
         $this->container = $container;
         $this->metadata = $metadata;
@@ -59,12 +50,17 @@ class PropertyMappingFactory
      * configuration for the uploadable fields in the specified
      * object.
      *
-     * @param object $obj       The object.
-     * @param string $className The object's class. Mandatory if $obj can't be used to determine it.
+     * @param object $obj         The object
+     * @param string $className   The object's class. Mandatory if $obj can't be used to determine it
+     * @param string $mappingName The mapping name
      *
-     * @return array An array up PropertyMapping objects.
+     * @return array|PropertyMapping[] An array up PropertyMapping objects
+     *
+     * @throws \RuntimeException
+     * @throws MappingNotFoundException
+     * @throws NotUploadableException
      */
-    public function fromObject($obj, $className = null, $mappingName = null)
+    public function fromObject($obj, ?string $className = null, ?string $mappingName = null): array
     {
         if ($obj instanceof Proxy) {
             $obj->__load();
@@ -73,9 +69,9 @@ class PropertyMappingFactory
         $class = $this->getClassName($obj, $className);
         $this->checkUploadable($class);
 
-        $mappings = array();
+        $mappings = [];
         foreach ($this->metadata->getUploadableFields($class) as $field => $mappingData) {
-            if ($mappingName !== null && $mappingName !== $mappingData['mapping']) {
+            if (null !== $mappingName && $mappingName !== $mappingData['mapping']) {
                 continue;
             }
 
@@ -89,13 +85,17 @@ class PropertyMappingFactory
      * Creates a property mapping object which contains the
      * configuration for the specified uploadable field.
      *
-     * @param object $obj       The object.
-     * @param string $field     The field.
-     * @param string $className The object's class. Mandatory if $obj can't be used to determine it.
+     * @param object|array $obj       The object
+     * @param string       $field     The field
+     * @param string       $className The object's class. Mandatory if $obj can't be used to determine it
      *
-     * @return null|PropertyMapping The property mapping.
+     * @return PropertyMapping|null The property mapping
+     *
+     * @throws \RuntimeException
+     * @throws MappingNotFoundException
+     * @throws NotUploadableException
      */
-    public function fromField($obj, $field, $className = null)
+    public function fromField($obj, string $field, ?string $className = null): ?PropertyMapping
     {
         if ($obj instanceof Proxy) {
             $obj->__load();
@@ -105,7 +105,7 @@ class PropertyMappingFactory
         $this->checkUploadable($class);
 
         $mappingData = $this->metadata->getUploadableField($class, $field);
-        if ($mappingData === null) {
+        if (null === $mappingData) {
             return null;
         }
 
@@ -115,11 +115,11 @@ class PropertyMappingFactory
     /**
      * Checks to see if the class is uploadable.
      *
-     * @param string $class The class name (FQCN).
+     * @param string $class The class name (FQCN)
      *
      * @throws NotUploadableException
      */
-    protected function checkUploadable($class)
+    protected function checkUploadable(string $class): void
     {
         if (!$this->metadata->isUploadable($class)) {
             throw new NotUploadableException(sprintf('The class "%s" is not uploadable. If you use annotations to configure VichUploaderBundle, you probably just forgot to add `@Vich\Uploadable` on top of your entity. If you don\'t use annotations, check that the configuration files are in the right place. In both cases, clearing the cache can also solve the issue.', $class));
@@ -129,24 +129,26 @@ class PropertyMappingFactory
     /**
      * Creates the property mapping from the read annotation and configured mapping.
      *
-     * @param object $obj         The object.
-     * @param string $fieldName   The field name.
-     * @param array  $mappingData The mapping data.
+     * @param object $obj         The object
+     * @param string $fieldName   The field name
+     * @param array  $mappingData The mapping data
      *
-     * @return PropertyMapping           The property mapping.
+     * @return PropertyMapping The property mapping
+     *
+     * @throws \LogicException
      * @throws MappingNotFoundException
      */
-    protected function createMapping($obj, $fieldName, array $mappingData)
+    protected function createMapping($obj, string $fieldName, array $mappingData): PropertyMapping
     {
         if (!array_key_exists($mappingData['mapping'], $this->mappings)) {
             throw MappingNotFoundException::createNotFoundForClassAndField($mappingData['mapping'], $this->getClassName($obj), $fieldName);
         }
 
         $config = $this->mappings[$mappingData['mapping']];
-        $fileProperty = isset($mappingData['propertyName']) ? $mappingData['propertyName'] : $fieldName;
-        $fileNameProperty = empty($mappingData['fileNameProperty']) ? $fileProperty . $this->defaultFilenameAttributeSuffix : $mappingData['fileNameProperty'];
+        $fileProperty = $mappingData['propertyName'] ?? $fieldName;
+        $fileNameProperty = empty($mappingData['fileNameProperty']) ? $fileProperty.$this->defaultFilenameAttributeSuffix : $mappingData['fileNameProperty'];
 
-        $mapping = new PropertyMapping($fileProperty, $fileNameProperty);
+        $mapping = new PropertyMapping($fileProperty, $fileNameProperty, $mappingData);
         $mapping->setMappingName($mappingData['mapping']);
         $mapping->setMapping($config);
 
@@ -184,15 +186,16 @@ class PropertyMappingFactory
     /**
      * Returns the className of the given object.
      *
-     * @param object $object    The object to inspect.
-     * @param string $className User specified className.
+     * @param object $object    The object to inspect
+     * @param string $className User specified className
      *
      * @return string
+     *
      * @throws \RuntimeException
      */
-    protected function getClassName($object, $className = null)
+    protected function getClassName($object, ?string $className = null): string
     {
-        if ($className !== null) {
+        if (null !== $className) {
             return $className;
         }
 

@@ -22,11 +22,18 @@ it_users:
     resource: '@ITUserBundle/Controller/'
     type: annotation
 
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 
 api_login_check:
     path: /api/login_check
+
+
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
+    prefix:   /api/doc
 
 #users:
 #    type:     rest #Optional

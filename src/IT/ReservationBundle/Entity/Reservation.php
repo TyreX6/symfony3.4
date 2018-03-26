@@ -14,7 +14,8 @@ use FOS\RestBundle\Context\Context;
 use FOS\RestBundle\Serializer\Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
-use JsonSerializable;
+use Swagger\Annotations as SWG;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -22,9 +23,10 @@ use JsonSerializable;
  *
  * @ORM\Table(name="Reservation")
  * @ORM\Entity(repositoryClass="IT\ReservationBundle\Repository\ReservationsRepository")
+ * @SWG\Definition(type="object", @SWG\Xml(name="Reservation"))
  * @ExclusionPolicy("all")
  */
-class Reservation implements JsonSerializable
+class Reservation
 {
     /**
      * @var integer
@@ -33,6 +35,7 @@ class Reservation implements JsonSerializable
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @Expose
+     * @SWG\Property(description="Identifiant du réservation.")
      */
     protected $id;
 
@@ -41,34 +44,54 @@ class Reservation implements JsonSerializable
      *
      * @ORM\Column(name="statut", type="string", length=20)
      * @Expose
+     * @Assert\NotBlank()
+     * @Assert\Choice(
+     *     choices = { "En cours", "En attente","Terminé" },
+     *     message = "Choose a valid status."
+     * )
+     * @SWG\Property(description="Statut du réservation.")
      */
     private $statut;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = "now"
+     * )
      * @ORM\Column(name="date_debut", type="datetime" ,nullable=false)
      * @Expose
+     * @SWG\Property(description="Date de début du réservation.")
      */
     private $dateDebut;
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank()
+     * @Assert\Range(
+     *      min = "+2 hours"
+     * )
      * @ORM\Column(name="date_fin", type="datetime" ,nullable=false)
      * @Expose
+     * @SWG\Property(description="Date de fin du réservation.")
      */
     private $dateFin;
 
     /**
      * @ORM\ManyToOne(targetEntity="IT\UserBundle\Entity\User", inversedBy="reservation" ,cascade="persist")
+     * @Assert\NotBlank()
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false,onDelete="CASCADE")
+     * @Expose
+     * @SWG\Property(description="L'utilisateur qui a réservé.")
      **/
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="IT\DispositifBundle\Entity\Dispositif", inversedBy="reservation",)
+     * @Assert\NotBlank()
      * @ORM\JoinColumn(name="dispositif_id", referencedColumnName="id",onDelete="CASCADE",nullable=false)
+     * @SWG\Property(description="Le dispositif réservé.")
+     * @Expose
      **/
     private $dispositif;
 
@@ -201,24 +224,5 @@ class Reservation implements JsonSerializable
         $this->dispositif = $dispositif;
     }
 
-    /**
-     * Specify data which should be serialized to JSON
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     * @since 5.4.0
-     */
-    public function jsonSerialize()
-    {
-        // TODO: Implement jsonSerialize() method.
-        return [
 
-            'id' => $this->getId(),
-            'user' => $this->getUser(),
-            'dispositif' => $this->getDispositif(),
-            'dateDebut' => $this->getDateDebut(),
-            'dateFin' => $this->getDateFin(),
-            'etat' => $this->getStatut(),
-        ];
-    }
 }

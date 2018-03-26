@@ -3,19 +3,26 @@
 namespace Vich\UploaderBundle\Metadata\Driver;
 
 use Doctrine\Common\Annotations\Reader as AnnotationReader;
-use Metadata\Driver\DriverInterface;
-
+use Metadata\Driver\AdvancedDriverInterface;
+use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
+use Vich\UploaderBundle\Mapping\Annotation\UploadableField;
 use Vich\UploaderBundle\Metadata\ClassMetadata;
 
 /**
- * Annotation driver
- *
  * @author Kévin Gomez <contact@kevingomez.fr>
+ * @author Konstantin Myakshin <koc-dp@yandex.ru>
  */
-class AnnotationDriver implements DriverInterface
+class AnnotationDriver implements AdvancedDriverInterface
 {
-    const UPLOADABLE_ANNOTATION         = 'Vich\UploaderBundle\Mapping\Annotation\Uploadable';
-    const UPLOADABLE_FIELD_ANNOTATION   = 'Vich\UploaderBundle\Mapping\Annotation\UploadableField';
+    /**
+     * @deprecated
+     */
+    const UPLOADABLE_ANNOTATION = Uploadable::class;
+
+    /**
+     * @deprecated
+     */
+    const UPLOADABLE_FIELD_ANNOTATION = UploadableField::class;
 
     protected $reader;
 
@@ -27,31 +34,44 @@ class AnnotationDriver implements DriverInterface
     public function loadMetadataForClass(\ReflectionClass $class)
     {
         if (!$this->isUploadable($class)) {
-            return null;
+            return;
         }
 
-        $metadata = new ClassMetadata($class->name);
+        $classMetadata = new ClassMetadata($class->name);
+        $classMetadata->fileResources[] = $class->getFileName();
 
         foreach ($class->getProperties() as $property) {
-            $uploadableField = $this->reader->getPropertyAnnotation($property, self::UPLOADABLE_FIELD_ANNOTATION);
-            if ($uploadableField === null) {
+            $uploadableField = $this->reader->getPropertyAnnotation($property, UploadableField::class);
+            if (null === $uploadableField) {
                 continue;
             }
+            /* @var $uploadableField UploadableField */
+            //TODO: try automatically determinate target fields if embeddable used
 
-            $fieldMetadata = array(
-                'mapping'           => $uploadableField->getMapping(),
-                'propertyName'      => $property->getName(),
-                'fileNameProperty'  => $uploadableField->getFileNameProperty(),
-            );
+            $fieldMetadata = [
+                'mapping' => $uploadableField->getMapping(),
+                'propertyName' => $property->getName(),
+                'fileNameProperty' => $uploadableField->getFileNameProperty(),
+                'size' => $uploadableField->getSize(),
+                'mimeType' => $uploadableField->getMimeType(),
+                'originalName' => $uploadableField->getOriginalName(),
+                'dimensions' => $uploadableField->getDimensions(),
+            ];
 
-            $metadata->fields[$property->getName()] = $fieldMetadata;
+            //TODO: store UploadableField object instead of array
+            $classMetadata->fields[$property->getName()] = $fieldMetadata;
         }
 
-        return $metadata;
+        return $classMetadata;
+    }
+
+    public function getAllClassNames()
+    {
+        return [];
     }
 
     protected function isUploadable(\ReflectionClass $class)
     {
-        return $this->reader->getClassAnnotation($class, self::UPLOADABLE_ANNOTATION) !== null;
+        return null !== $this->reader->getClassAnnotation($class, Uploadable::class);
     }
 }

@@ -1,9 +1,12 @@
 {% extends '::base.html.twig' %}
 
 {% block stylesheets %}
-    <link href="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css') }}"
-          rel="stylesheet"/>
-    <link rel="stylesheet" href="{{ asset('bundles/app/plugins/bower_components/dropify/dist/css/dropify.min.css') }}">
+    {% stylesheets
+    'bundles/itreservation/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css'
+    'bundles/itreservation/app/plugins/bower_components/dropify/dist/css/dropify.min.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 {% endblock %}
 
 {% block title %} Modifier Dispositif {% endblock %}
@@ -52,7 +55,8 @@
                                                 <label class="control-label col-md-4">Modéle</label>
                                                 <div class="col-md-8">
                                                     {{ form_widget (dispositifForm.modele) }}
-                                                    <span class="help-block"> {{ form_errors (dispositifForm.modele) }} </span>
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.modele) }}</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +66,8 @@
                                                 <label class="control-label col-md-4">Résolution</label>
                                                 <div class="col-md-8">
                                                     {{ form_widget (dispositifForm.resolution) }}
-                                                    <span class="help-block"> {{ form_errors (dispositifForm.resolution) }} </span>
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.resolution) }}</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,6 +80,8 @@
                                                 <label class="control-label col-md-4">Systéme d'exploitation</label>
                                                 <div class="col-md-8">
                                                     {{ form_widget (dispositifForm.os) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.os) }}</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -84,6 +91,8 @@
                                                 <label class="control-label col-md-4">Etat du dispositif</label>
                                                 <div class="col-md-8">
                                                     {{ form_widget (dispositifForm.etat) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.etat) }}</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,7 +104,8 @@
                                                 <label class="control-label col-md-4">Version Systéme</label>
                                                 <div class="col-md-8">
                                                     {{ form_widget (dispositifForm.versionOS) }}
-                                                    <span class="help-block"> {{ form_errors (dispositifForm.versionOS) }} </span>
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.versionOS) }}</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,7 +115,8 @@
                                                 <label class="control-label col-md-4">Processeur</label>
                                                 <div class="col-md-8">
                                                     {{ form_widget (dispositifForm.processeur) }}
-                                                    <span class="help-block"> {{ form_errors (dispositifForm.processeur) }} </span>
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.processeur) }}</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,6 +132,8 @@
                                                 <label class="control-label col-md-4">RAM</label>
                                                 <div class="col-md-8">
                                                     {{ form_widget (dispositifForm.ram) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.ram) }}</span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -191,16 +204,17 @@
 
 {% block scripts %}
     <!-- Custom Theme JavaScript -->
-    //For Select
-    <script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js') }}"
-            type="text/javascript"></script>
+    {% javascripts
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js'
+    '@ITReservationBundle/Resources/public/app/assets/js/jasny-bootstrap.js'
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js'
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/dropify/dist/js/dropify.min.js'
+    '@ITReservationBundle/Resources/public/app/assets/js/jasny-bootstrap.js'
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/dropify/dist/js/dropify.min.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 
-    <script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"
-            type="text/javascript"></script>
-    <script src="{{ asset('bundles/app/assets/js/jasny-bootstrap.js') }}"></script>
-    <script src="{{ asset('bundles/app/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
-
-    // SCript for RAM input
     <script>
         jQuery(document).ready(function () {
             $("input[name='appbundle_dispositif[ram]']").TouchSpin({
@@ -214,8 +228,6 @@
             });
         });
     </script>
-    <script src="{{ asset('bundles/app/assets/js/jasny-bootstrap.js') }}"></script>
-    <script src="{{ asset('bundles/app/plugins/bower_components/dropify/dist/js/dropify.min.js') }}"></script>
     <!-- jQuery file upload -->
     <script>
         $(document).ready(function () {
@@ -253,5 +265,5 @@
             })
         });
     </script>
-    <script src="{{ asset('bundles/app/assets/js/add-collection-widget.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('bundles/itreservation/app/assets/js/add-collection-widget.js') }}" type="text/javascript"></script>
 {% endblock %}

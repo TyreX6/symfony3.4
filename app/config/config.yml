@@ -9,6 +9,7 @@ parameters:
     locale: en
 
 framework:
+    validation: { enable_annotations: true }
     serializer:
         enabled: true
     templating:
@@ -74,7 +75,7 @@ swiftmailer:
 fos_user:
     db_driver: orm # other valid values are 'mongodb' and 'couchdb'
     firewall_name: main
-    user_class: AppBundle\Entity\User
+    user_class: IT\UserBundle\Entity\User
     service:                               # this lines
         mailer: fos_user.mailer.twig_swift # this lines
     from_email:
@@ -131,3 +132,30 @@ fr3d_ldap:
          - { ldap_attr: uid,  user_method: setUsername }
          - { ldap_attr: mail,  user_method: setEmail }
       filter: (&(ObjectClass=person))
+
+nelmio_api_doc:
+    models: { use_jms: true }
+    areas:
+        path_patterns: # an array of regexps
+            - ^/api(?!/doc$)
+#        host_patterns:
+#            - ^api\.
+    documentation:
+        info:
+            title: Réservation des ressources
+            description: Documentation des Web Services développés par cette application!
+            version: 1.0.0
+        securityDefinitions:
+            api_key:
+                type: apiKey
+                description: Your Json Web Token
+                name:  authorization
+                in: header
+        security:
+            - api_key: []
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~

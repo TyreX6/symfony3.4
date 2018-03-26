@@ -13,26 +13,16 @@ use Vich\UploaderBundle\Storage\StorageInterface;
 class UploaderHelper extends Helper
 {
     /**
-     * @var StorageInterface $storage
+     * @var StorageInterface
      */
     protected $storage;
 
-    /**
-     * Constructs a new instance of UploaderHelper.
-     *
-     * @param StorageInterface $storage The storage.
-     */
     public function __construct(StorageInterface $storage)
     {
         $this->storage = $storage;
     }
 
-    /**
-     * Gets the helper name.
-     *
-     * @return string The name
-     */
-    public function getName()
+    public function getName(): string
     {
         return 'vich_uploader';
     }
@@ -41,13 +31,13 @@ class UploaderHelper extends Helper
      * Gets the public path for the file associated with the
      * object.
      *
-     * @param object $obj       The object.
-     * @param string $fieldName The field name.
-     * @param string $className The object's class. Mandatory if $obj can't be used to determine it.
+     * @param object|array $obj       The object
+     * @param string       $fieldName The field name
+     * @param string       $className The object's class. Mandatory if $obj can't be used to determine it
      *
-     * @return string The public asset path.
+     * @return string|null The public asset path or null if file not stored
      */
-    public function asset($obj, $fieldName, $className = null)
+    public function asset($obj, string $fieldName, ?string $className = null)
     {
         return $this->storage->resolveUri($obj, $fieldName, $className);
     }

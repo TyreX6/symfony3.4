@@ -10,14 +10,16 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <link href="{{ asset('bundles/app/plugins/bower_components/calendar/dist/fullcalendar.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('bundles/app/plugins/bower_components/toast-master/css/jquery.toast.css') }}"
-          rel="stylesheet"/>
-    <link href="{{ asset('bundles/app/plugins/bower_components/custom-select/custom-select.css') }}" rel="stylesheet"
-          type="text/css"/>
-    <link href="{{ asset('bundles/app/plugins/bower_components/switchery/dist/switchery.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css') }}"
-          rel="stylesheet"/>
+    {% stylesheets
+    'bundles/itreservation/app/plugins/bower_components/calendar/dist/fullcalendar.css'
+    'bundles/itreservation/app/plugins/bower_components/toast-master/css/jquery.toast.css'
+    'bundles/itreservation/app/plugins/bower_components/custom-select/custom-select.css'
+    'bundles/itreservation/app/plugins/bower_components/switchery/dist/switchery.min.css'
+    'bundles/itreservation/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
 {% endblock %}
 
 {% block content %}
@@ -25,11 +27,12 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Calendar Page</h4></div>
+                    <h4 class="page-title">Ajouter une réservation</h4></div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="#">Dashboard</a></li>
-                        <li class="active">Calendar Page</li>
+                        <li><a href="#">Réservations</a></li>
+                        <li class="active">Ajouter une Réservations</li>
                     </ol>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -111,7 +114,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label class="control-label">Choisir le dispositif</label>
-                                        <select name="dispositif-Select" class="form-control form-white select2"
+                                        <select name="dispositif-Select" class="form-control select2"
                                                 data-placeholder="">
                                             {% for dispo in dispos %}
                                                 <option value="{{ dispo.id }}">{{ dispo.modele }}</option>
@@ -120,7 +123,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label class="control-label">Choisir l'utilisateur</label>
-                                        <select class="form-control form-white select2"
+                                        <select class="form-control select2"
                                                 data-placeholder="Utilisateur ..."
                                                 name="utilisateur-select">
                                             {% for util in utilisateurs %}
@@ -188,6 +191,7 @@
 
     {% block scripts %}
         <script>
+            var newRes = $("#newRes").html() ;
             //TODO work with API to get events with structure like this
             var apiPathAdd = "{{ path('ajout_reservation_ajax') }}";
             var apiPathUpdate = "{{ path('modifier_reservation_ajax') }}";
@@ -216,17 +220,18 @@
                     data: 'id=' + idDispo,
                     dataType: 'json',
                     success: function (data) {
+                        console.log(data);
                         data.reservations.forEach(function (element) {
-                            var eventEditable = Date.parse(element.dateFin.date) > Date.now();
+                            var eventEditable = Date.parse(element.date_fin) > Date.now();
                             CalenderEvents[0].events.push(
                                 {
                                     id: element.id,
                                     title: element.dispositif.modele + " pour " + element.user.username,
-                                    start: new Date(element.dateDebut.date),
-                                    end: new Date(element.dateFin.date),
+                                    start: new Date(element.date_debut),
+                                    end: new Date(element.date_fin),
                                     className: "bg-warning",
                                     dispId: element.dispositif.id,
-                                    editable: Date.parse(element.dateFin.date) > Date.now()
+                                    editable: Date.parse(element.date_fin) > Date.now()
                                 }
                             )
                         });
@@ -239,18 +244,20 @@
                 });
             }
         </script>
-        <script src="{{ asset('bundles/app/plugins/bower_components/toast-master/js/jquery.toast.js') }}"></script>
-        <script src="{{ asset('bundles/app/plugins/bower_components/fullcalendar/lib/jquery-ui.min.js') }}"></script>
-        <script src="{{ asset('bundles/app/assets/js/custom.min.js') }}"></script>
-        <script src="{{ asset('bundles/app/plugins/bower_components/switchery/dist/switchery.min.js') }}"></script>
-        <script src="{{ asset('bundles/app/plugins/bower_components/custom-select/custom-select.min.js') }}"
-                type="text/javascript"></script>
-        <script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js') }}"
-                type="text/javascript"></script>
-        <script src="{{ asset('bundles/app/plugins/bower_components/fullcalendar/lib/moment.min.js') }}"></script>
-        <script src='{{ asset('bundles/app/plugins/bower_components/fullcalendar/fullcalendar.min.js') }}'></script>
-        <script src="{{ asset('bundles/app/plugins/bower_components/calendar/dist/cal-init.js') }}"></script>
 
+        {% javascripts
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/toast-master/js/jquery.toast.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/fullcalendar/lib/jquery-ui.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/custom.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/switchery/dist/switchery.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/custom-select/custom-select.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/fullcalendar/lib/moment.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/fullcalendar/fullcalendar.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/calendar/dist/cal-init.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
 
         <script>
             // SCript pour configurer un formulaire de login pour les utilisateurs introuvable dans la liste déroulante

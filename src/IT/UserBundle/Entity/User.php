@@ -17,7 +17,6 @@ use FR3D\LdapBundle\Model\LdapUserInterface;
  * @ORM\Entity(repositoryClass="IT\UserBundle\Repository\UsersRepository")
  * @ExclusionPolicy("all")
  * @ORM\Table(name="fos_user")
- * @ORM\InheritanceType("SINGLE_TABLE")
  */
 class User extends BaseUser implements LdapUserInterface,\JsonSerializable
 {
@@ -30,7 +29,6 @@ class User extends BaseUser implements LdapUserInterface,\JsonSerializable
     protected $id;
     /**
      * @ORM\Column(type="string")
-     * @Expose
      */
     protected $dn;
 

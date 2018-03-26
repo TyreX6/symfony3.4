@@ -13,6 +13,7 @@ namespace FOS\RestBundle\Tests\DependencyInjection;
 
 use FOS\RestBundle\DependencyInjection\FOSRestExtension;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\DependencyInjection\Alias;
 use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -129,7 +130,7 @@ class FOSRestExtensionTest extends TestCase
         $this->assertCount(4, $bodyListener->getArguments());
         $this->assertInstanceOf(Reference::class, $normalizerArgument);
         $this->assertEquals('fos_rest.normalizer.camel_keys', (string) $normalizerArgument);
-        $this->assertEquals(false, $normalizeForms);
+        $this->assertFalse($normalizeForms);
     }
 
     public function testLoadBodyListenerWithNormalizerArrayAndForms()
@@ -151,7 +152,7 @@ class FOSRestExtensionTest extends TestCase
         $this->assertCount(4, $bodyListener->getArguments());
         $this->assertInstanceOf(Reference::class, $normalizerArgument);
         $this->assertEquals('fos_rest.normalizer.camel_keys', (string) $normalizerArgument);
-        $this->assertEquals(true, $normalizeForms);
+        $this->assertTrue($normalizeForms);
     }
 
     public function testDisableFormatListener()
@@ -238,6 +239,14 @@ class FOSRestExtensionTest extends TestCase
         $this->extension->load([], $this->container);
 
         $this->assertAlias('fos_rest.view_handler.default', 'fos_rest.view_handler');
+
+        $viewHandlerAlias = $this->container->getAlias('fos_rest.view_handler');
+
+        $this->assertTrue($viewHandlerAlias->isPublic());
+
+        if (method_exists(Alias::class, 'isPrivate')) {
+            $this->assertFalse($viewHandlerAlias->isPrivate());
+        }
     }
 
     public function testDisableViewResponseListener()
@@ -588,7 +597,7 @@ class FOSRestExtensionTest extends TestCase
     {
         $arguments = $loader->getArguments();
 
-        $this->assertEquals(5, count($arguments));
+        $this->assertCount(5, $arguments);
         $this->assertEquals('service_container', (string) $arguments[0]);
         $this->assertEquals('file_locator', (string) $arguments[1]);
         $this->assertEquals('controller_name_converter', (string) $arguments[2]);
@@ -615,7 +624,7 @@ class FOSRestExtensionTest extends TestCase
         $processorRef = new Reference('fos_rest.routing.loader.processor');
         $arguments = $loader->getArguments();
 
-        $this->assertEquals(5, count($arguments));
+        $this->assertCount(5, $arguments);
         $this->assertEquals($locatorRef, $arguments[0]);
         $this->assertEquals($processorRef, $arguments[1]);
         $this->assertSame($includeFormat, $arguments[2]);

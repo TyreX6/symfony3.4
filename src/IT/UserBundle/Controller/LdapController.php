@@ -8,16 +8,15 @@
 
 namespace IT\UserBundle\Controller;
 
-use AppBundle\Form\LdapConfigType;
-use LdapTools\Exception\Exception;
+use IT\UserBundle\Form\LdapConfigType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\User;
-use AppBundle\Entity\Admin;
+use IT\UserBundle\Entity\User;
+use IT\UserBundle\Entity\Admin;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;

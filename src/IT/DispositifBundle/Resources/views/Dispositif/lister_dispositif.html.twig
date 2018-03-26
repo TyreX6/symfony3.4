@@ -4,9 +4,12 @@
 {% endblock %}
 
 {% block stylesheets %}
-    <link href="{{ asset('bundles/app/plugins/bower_components/footable/css/footable.core.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/app/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css') }}"
-          rel="stylesheet">
+    {% stylesheets
+    'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
+    'bundles/itreservation/app/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 {% endblock %}
 
 {% block gestion_dispositifs %}
@@ -146,12 +149,16 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ asset('bundles/app/plugins/bower_components/footable/js/footable.all.min.js') }}"></script>
-    {#<script src="{{ asset('bundles/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js') }}" type="text/javascript"></script>#}
+    {% javascripts
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
+    '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
+
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js'
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
     <!--FooTable init-->
-    <script src="{{ asset('bundles/app/assets/js/footable-init.js') }}"></script>
-    <script src="{{ asset('bundles/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('bundles/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
     <!-- Custom Theme JavaScript -->
 {% endblock %}
 

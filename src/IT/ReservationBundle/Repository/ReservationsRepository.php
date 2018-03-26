@@ -16,7 +16,7 @@ use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\Query;
 use IT\ReservationBundle\Entity\Regles;
 use IT\ReservationBundle\Entity\Reservation;
-
+use Doctrine\ORM\Query\ResultSetMapping;
 class ReservationsRepository extends EntityRepository
 {
     public function getReservationsByDispositive($id)
@@ -39,6 +39,21 @@ class ReservationsRepository extends EntityRepository
             ->where('d.modele LIKE :keyword')
             ->setParameter('keyword', '%' . $keyword . '%');
         return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param $username
+     * @param $regles Regles
+     * @return int
+     */
+    public function getActualReservationByUserRawSql($username, $regles)
+    {
+        $timeout = $regles->getDureeTimeout();
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT * FROM `reservation` AS r LEFT JOIN `fos_user` as f ON r.user_id=f.id WHERE f.username='".$username."' AND NOW() > r.date_debut AND NOW() < ADDTIME(r.date_debut,'0 0:$timeout:00.00')";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
     public function getIncomingReservationsOrdererByDate()
@@ -65,7 +80,6 @@ class ReservationsRepository extends EntityRepository
             ->setParameter('now', $date);
         return $qb->getQuery()->getResult();
     }
-
 
 
     /**
@@ -97,7 +111,6 @@ class ReservationsRepository extends EntityRepository
     }
 
 
-
     /**
      * @param $reservation Reservation
      * @param $regles Regles
@@ -118,7 +131,6 @@ class ReservationsRepository extends EntityRepository
 
         return array("message" => $message, "success" => $success);
     }
-
 
 
     /**
@@ -143,24 +155,22 @@ class ReservationsRepository extends EntityRepository
             ->andWhere('r.user = :user')
             ->andWhere('r.dispositif = :dispositif')
             ->setParameter('user', $reservation->getUser())
-            ->setParameter('dispositif',$reservation->getDispositif())
+            ->setParameter('dispositif', $reservation->getDispositif())
             ->setParameter('today', $now->format('Y-m-d H:i:s'))
             ->setParameter('yesterday', $oneDayAgo->format('Y-m-d H:i:s'));
 
-        $count =(int) $qb->getQuery()->getSingleScalarResult();
+        $count = (int)$qb->getQuery()->getSingleScalarResult();
 
         if ($count >= $regles->getNbrLimiteParJour()) {
             $message = "Nombre max de " . $regles->getNbrLimiteParJour() . " réservation par jour est dépassé";
             $success = 0;
-        }
-        else {
+        } else {
             $message = "Régle respecté";
             $success = 1;
         }
 
         return array("message" => $message, "success" => $success);
     }
-
 
 
     /**
@@ -185,17 +195,16 @@ class ReservationsRepository extends EntityRepository
             ->andWhere('r.user = :user')
             ->andWhere('r.dispositif = :dispositif')
             ->setParameter('user', $reservation->getUser())
-            ->setParameter('dispositif',$reservation->getDispositif())
+            ->setParameter('dispositif', $reservation->getDispositif())
             ->setParameter('today', $now->format('Y-m-d H:i:s'))
             ->setParameter('lastWeek', $oneWeekAgo->format('Y-m-d H:i:s'));
 
-        $count =(int) $qb->getQuery()->getSingleScalarResult();
+        $count = (int)$qb->getQuery()->getSingleScalarResult();
 
         if ($count >= $regles->getNbrLimiteParSemaine()) {
             $message = "Nombre max de " . $regles->getNbrLimiteParSemaine() . " réservation par semaine est dépassé";
             $success = 0;
-        }
-        else {
+        } else {
             $message = "Régle respecté";
             $success = 1;
         }

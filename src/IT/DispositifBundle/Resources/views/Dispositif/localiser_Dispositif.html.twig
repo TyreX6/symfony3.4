@@ -3,8 +3,11 @@
 
 {% endblock %}
 {% block stylesheets %}
-    <link href="{{ asset('bundles/app/plugins/bower_components/vect-map/jqvmap.min.css') }}"
-          rel="stylesheet"/>
+    {% stylesheets
+    'bundles/itreservation/app/plugins/bower_components/vect-map/jqvmap.min.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
 {% endblock %}
 
 {% block gestion_dispositifs %}
@@ -55,9 +58,13 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{{ asset('bundles/app/plugins/bower_components/vect-map/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('bundles/app/plugins/bower_components/vect-map/maps/jquery.vmap.tunisia.js') }}"></script>
-    <script src="{{ asset('bundles/app/plugins/bower_components/vect-map/maps/jquery.vmap.proxym.js') }}"></script>
+    {% javascripts
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/vect-map/jquery.vmap.min.js'
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/vect-map/maps/jquery.vmap.tunisia.js'
+    '@ITReservationBundle/Resources/public/app/plugins/bower_components/vect-map/maps/jquery.vmap.proxym.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
     <script>
         jQuery('#vmap').vectorMap({
             map: 'tunisia',

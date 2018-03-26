@@ -11,6 +11,8 @@ use Doctrine\ORM\Mapping\GeneratedValue;
 use JMS\Serializer\Annotation\Expose;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation\ExclusionPolicy;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -41,6 +43,7 @@ class Message
      * @var \DateTime
      *
      * @ORM\Column(name="date_envoi", type="datetime" ,nullable=false)
+     *
      * @Expose
      */
     private $dateEnvoi;
@@ -54,6 +57,12 @@ class Message
     /**
      * @var string
      * @ORM\Column(name="message", type="string", length=255)
+     * @Assert\Length(
+     *      min = 10,
+     *      max = 255,
+     *      minMessage = "Your messsage must be at least {{ limit }} characters long",
+     *      maxMessage = "Your message cannot be longer than {{ limit }} characters"
+     * )
      */
     private $message ;
 

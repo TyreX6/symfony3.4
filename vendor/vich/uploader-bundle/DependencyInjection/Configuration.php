@@ -13,15 +13,11 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
-    protected $supportedDbDrivers = array('orm', 'mongodb', 'propel', 'phpcr');
-    protected $supportedStorages = array('gaufrette', 'flysystem', 'file_system');
+    protected $supportedDbDrivers = ['orm', 'mongodb', 'propel', 'phpcr'];
 
-    /**
-     * Gets the configuration tree builder for the extension.
-     *
-     * @return Tree The configuration tree builder
-     */
-    public function getConfigTreeBuilder()
+    protected $supportedStorages = ['gaufrette', 'flysystem', 'file_system'];
+
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $tb = new TreeBuilder();
         $root = $tb->root('vich_uploader');
@@ -33,7 +29,7 @@ class Configuration implements ConfigurationInterface
         return $tb;
     }
 
-    protected function addGeneralSection(ArrayNodeDefinition $node)
+    protected function addGeneralSection(ArrayNodeDefinition $node): void
     {
         $node
             ->children()
@@ -44,32 +40,38 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()
                     ->beforeNormalization()
                         ->ifString()
-                        ->then(function ($v) { return strtolower($v); })
+                        ->then(function ($v) {
+                            return strtolower($v);
+                        })
                     ->end()
                     ->validate()
                         ->ifNotInArray($this->supportedDbDrivers)
-                        ->thenInvalid('The db driver %s is not supported. Please choose one of ' . implode(', ', $this->supportedDbDrivers))
+                        ->thenInvalid('The db driver %s is not supported. Please choose one of '.implode(', ', $this->supportedDbDrivers))
                     ->end()
                 ->end()
                 ->scalarNode('storage')
                     ->defaultValue('file_system')
                     ->beforeNormalization()
                         ->ifString()
-                        ->then(function ($v) { return strtolower($v); })
+                        ->then(function ($v) {
+                            return strtolower($v);
+                        })
                     ->end()
                     ->validate()
                         ->ifTrue(function ($storage) {
-                            return strpos($storage, '@') !== 0 && !in_array($storage, $this->supportedStorages, true);
+                            return 0 !== strpos($storage, '@') && !in_array($storage, $this->supportedStorages, true);
                         })
-                        ->thenInvalid('The storage %s is not supported. Please choose one of ' . implode(', ', $this->supportedStorages) . ' or provide a service name prefixed with "@".')
+                        ->thenInvalid('The storage %s is not supported. Please choose one of '.implode(', ', $this->supportedStorages).' or provide a service name prefixed with "@".')
                     ->end()
                 ->end()
-                ->scalarNode('twig')->defaultTrue()->end()
+            ->scalarNode('templating')->defaultTrue()->end()
+            ->scalarNode('twig')->defaultTrue()->info('twig requires templating')->end()
+            ->scalarNode('form')->defaultTrue()->end()
             ->end()
         ;
     }
 
-    protected function addMetadataSection(ArrayNodeDefinition $node)
+    protected function addMetadataSection(ArrayNodeDefinition $node): void
     {
         $node
             ->children()
@@ -98,7 +100,7 @@ class Configuration implements ConfigurationInterface
             ->end();
     }
 
-    protected function addMappingsSection(ArrayNodeDefinition $node)
+    protected function addMappingsSection(ArrayNodeDefinition $node): void
     {
         $node
             ->children()
@@ -112,7 +114,9 @@ class Configuration implements ConfigurationInterface
                                 ->addDefaultsIfNotSet()
                                 ->beforeNormalization()
                                     ->ifString()
-                                    ->then(function ($v) { return array('service' => $v, 'options' => array()); })
+                                    ->then(function ($v) {
+                                        return ['service' => $v, 'options' => []];
+                                    })
                                 ->end()
                                 ->children()
                                 ->scalarNode('service')->defaultNull()->end()
@@ -123,7 +127,9 @@ class Configuration implements ConfigurationInterface
                                 ->addDefaultsIfNotSet()
                                 ->beforeNormalization()
                                     ->ifString()
-                                    ->then(function ($v) { return array('service' => $v, 'options' => array()); })
+                                    ->then(function ($v) {
+                                        return ['service' => $v, 'options' => []];
+                                    })
                                 ->end()
                                 ->children()
                                 ->scalarNode('service')->defaultNull()->end()
@@ -137,11 +143,13 @@ class Configuration implements ConfigurationInterface
                                 ->defaultNull()
                                 ->beforeNormalization()
                                     ->ifString()
-                                    ->then(function ($v) { return strtolower($v); })
+                                    ->then(function ($v) {
+                                        return strtolower($v);
+                                    })
                                 ->end()
                                 ->validate()
                                     ->ifNotInArray($this->supportedDbDrivers)
-                                    ->thenInvalid('The db driver %s is not supported. Please choose one of ' . implode(', ', $this->supportedDbDrivers))
+                                    ->thenInvalid('The db driver %s is not supported. Please choose one of '.implode(', ', $this->supportedDbDrivers))
                                 ->end()
                             ->end()
                         ->end()

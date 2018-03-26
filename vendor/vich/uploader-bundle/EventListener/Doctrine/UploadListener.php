@@ -5,7 +5,7 @@ namespace Vich\UploaderBundle\EventListener\Doctrine;
 use Doctrine\Common\EventArgs;
 
 /**
- * UploadListener
+ * UploadListener.
  *
  * Handles file uploads.
  *
@@ -16,20 +16,22 @@ class UploadListener extends BaseListener
     /**
      * The events the listener is subscribed to.
      *
-     * @return array The array of events.
+     * @return array The array of events
      */
-    public function getSubscribedEvents()
+    public function getSubscribedEvents(): array
     {
-        return array(
+        return [
             'prePersist',
             'preUpdate',
-        );
+        ];
     }
 
     /**
-     * @param EventArgs $event The event.
+     * @param EventArgs $event The event
+     *
+     * @throws \Vich\UploaderBundle\Exception\MappingNotFoundException
      */
-    public function prePersist(EventArgs $event)
+    public function prePersist(EventArgs $event): void
     {
         $object = $this->adapter->getObjectFromArgs($event);
 
@@ -43,9 +45,11 @@ class UploadListener extends BaseListener
     }
 
     /**
-     * @param EventArgs $event The event.
+     * @param EventArgs $event The event
+     *
+     * @throws \Vich\UploaderBundle\Exception\MappingNotFoundException
      */
-    public function preUpdate(EventArgs $event)
+    public function preUpdate(EventArgs $event): void
     {
         $object = $this->adapter->getObjectFromArgs($event);
 

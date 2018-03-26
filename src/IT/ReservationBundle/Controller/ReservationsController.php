@@ -5,6 +5,7 @@ namespace IT\ReservationBundle\Controller;
 use IT\ReservationBundle\Entity\Notification;
 use IT\ReservationBundle\Entity\Reservation;
 use DateTime;
+use JMS\Serializer\SerializerBuilder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -126,24 +127,29 @@ class ReservationsController extends Controller
             $date = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
             $em = $this->getDoctrine()->getManager();
             $reser = $em->getRepository("ITReservationBundle:Reservation")->findOneBy(['id' => $id]);
-
+            $reser->setDateFin($dateFin);
 
             //Si la réservation est en cours on ne peut changer que par une prolongation convenable
             //Si date fin réservation est passé , alors on ne peut plus modifier une réservation terminée
             //On peut pas faire une modification en modifiant la date de début du réservation
             if (($dateFin->getTimestamp() < $date->getTimestamp() + 3600) || ($reser->getDateDebutTimeStamp() != $dateDebut->getTimestamp())) {
-                return JsonResponse::create(array("success" => 0, "timestamp datfin" => $dateFin->getTimestamp(), "timestamp date now" => $date->getTimestamp()), 200)
+                return JsonResponse::create(array("success" => 0), 200)
                     ->setSharedMaxAge(900);
             }
 
+            $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
+            $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reser,$regles);
+
+            if ($result["success"] === 0) {
+                return JsonResponse::create(array("success" => 0, "message"=>$result["message"]), 200)
+                    ->setSharedMaxAge(900);
+            }
 
             //Si contraintes validés , on passe à la modification
-            $reser->setDateFin($dateFin);
             $em->persist($reser);
             $em->flush();
 
-
-            return JsonResponse::create(array("success" => 1, "reservation" => $reser, "timestamp datfin" => $dateFin->getTimestamp(), "timestamp date now" => $date->getTimestamp()), 200)
+            return JsonResponse::create(array("success" => 1, "reservation" => $reser), 200)
                 ->setSharedMaxAge(900);
         }
 
@@ -165,9 +171,10 @@ class ReservationsController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->getReservationsByDispositive($id);
+        $serializer = SerializerBuilder::create()->build();
+        $jsonContent = $serializer->serialize(array("reservations"=>$reservations), 'json');
+        return new Response($jsonContent);
 
-        return JsonResponse::create(array("reservations" => $reservations), 200)
-            ->setSharedMaxAge(900);
     }
 
 

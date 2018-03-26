@@ -3,15 +3,20 @@
 namespace IT\ApiBundle\Controller;
 
 use DateTime;
+use Exception;
 use IT\ReservationBundle\Entity\Notification;
 use IT\ReservationBundle\Entity\Reservation;
-use LdapTools\Exception\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use IT\UserBundle\Entity\Admin;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Nelmio\ApiDocBundle\Annotation\Operation;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
+
+
 
 class ReservationsApiController extends Controller
 {
@@ -19,6 +24,27 @@ class ReservationsApiController extends Controller
      * @Rest\View()
      * @Rest\Post("api/reservations/add")
      * @param Request $request
+     * @Operation(
+     *      @SWG\Schema(
+     *         type="Object",
+     *         @Model(type=Reservation::class)
+     *      ),
+     *     tags={"Reservation"},
+     *     summary="Adding a reservation",
+     *      @SWG\Parameter(
+     *     in="body",
+     *     name="body",
+     *     description="Reservation object",
+     *     required=true,
+     *     @SWG\Schema(ref="#/definitions/Reservation"),
+     *
+     *
+     *   ),
+     *     @SWG\Response(
+     *         response="200",
+     *         description="Reservation added sccessfully"
+     *     ),
+     * )
      * @return array
      */
     public function addReservationAction(Request $request)
@@ -76,12 +102,77 @@ class ReservationsApiController extends Controller
     /**
      * @Rest\View()
      * @Rest\GET("api/reservations/liste")
+     * @Operation(
+     *  tags={"Reservation"},summary="Retreive all reservations",
+     *
+     *  @SWG\Response(response=200,description="Array of reservations",
+     *  @SWG\Schema(type="array",@SWG\Items(ref="#/definitions/Reservation")
+     *  ),
+     * ),
+     * )
      * @return array
      */
     public function listReservations(){
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->findAll() ;
         return $reservations ;
+    }
+
+    /**
+     * @param $id
+     * @Rest\View()
+     * @Rest\PUT("api/reservations/modify/{id}")
+     * @Operation(
+     *     tags={"Reservation"},
+     *     summary="Edit the reservation with the ID passed into parameters",
+     *      @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     description="id of the reservation",
+     *     required=true,
+     *     type="integer"
+     *   ),
+     *     @SWG\Parameter(
+     *     in="body",
+     *     name="body",
+     *     description="Data to modify",
+     *     required=true,
+     *     @SWG\Schema(ref="#/definitions/Reservation")
+     *   ),
+     *
+     *   @SWG\Response(response="200",description="Reservation modified successfully"),
+     *   @SWG\Response(response=400, description="Invalid Reservation supplied"),
+     *   @SWG\Response(response=404, description="Reservation not found")
+     * )
+     */
+    public function modifyReservation($id){
+    }
+
+    /**
+     * @Rest\View()
+     * @Rest\Delete("api/reservations/delete/{id}")
+     * @param Request $request
+     * @param $id
+     * @return array
+     * @Operation(
+     *     tags={"Reservation"},
+     *     summary="Edit the Reservation with the ID passed into parameters",
+     * @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     description="Id of the Reservation",
+     *     required=true,
+     *     type="integer"
+     *   ),
+     *   @SWG\Response(response="200",description="Reservation deleted successfully"),
+     *   @SWG\Response(response=400, description="Invalid Reservation supplied"),
+     *   @SWG\Response(response=404, description="Reservation not found")
+     * )
+     *
+     */
+    public function deleteReservationAction(Request $request,$id)
+    {
+        return array();
     }
 
 
