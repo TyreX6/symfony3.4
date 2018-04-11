@@ -2,6 +2,7 @@
 
 namespace IT\ReservationBundle\Controller;
 
+use IT\ReservationBundle\Entity\Notification;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -22,7 +23,7 @@ class NotificationController extends Controller
     }
 
     /**
-     * @param $notifications
+     * @param $notifications Notification[]
      * @return Response
      */
     public function unsetNotificationAction($notifications) {

@@ -79,9 +79,9 @@
                     </a>
                 </li>
                 <li>
-                    <form role="search" class="app-search hidden-xs">
+                    <form action="{{ path('rechercher') }}" method="get" role="search" class="app-search hidden-xs">
                         <input type="text" name="keyword" placeholder="Rechercher..." class="form-control">
-                        <a href="{{ path('rechercher',{"keyword":"samsung"}) }}"><i class="fa fa-search"></i></a>
+                        <button class="button btn btn-success" type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </li>
             </ul>
@@ -240,6 +240,12 @@
                             <a href="{{ path('ajouter_dispositif') }}" class="waves-effect">
                                 <i class="icon-software-add-vectorpoint fa-fw" data-icon="v"></i>
                                 <span class="hide-menu"> Ajouter un dispositif </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('modifier_category') }}" class="waves-effect">
+                                <i class="icon-basic-archive fa-fw" data-icon="v"></i>
+                                <span class="hide-menu"> Gestion des catégories </span>
                             </a>
                         </li>
                     </ul>

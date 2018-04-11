@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use IT\UserBundle\Entity\User;
 use IT\UserBundle\Entity\Admin;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Yaml\Yaml;
 
 class DefaultController extends Controller
@@ -17,15 +18,21 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->redirect("/login");
+        if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute("configLDAP");
+        } else {
+            return $this->redirect("/login");
+        }
+
     }
+
     /**
      * @Route("/user", name="user")
      * @Template()
      */
     public function registerAction()
     {
-        $admin = new Admin;
+        $admin = new Admin();
         $encoder = $this->get('security.encoder_factory')->getEncoder($admin);
         $em = $this->getDoctrine()->getManager();
         $admin->setUsername("admin");

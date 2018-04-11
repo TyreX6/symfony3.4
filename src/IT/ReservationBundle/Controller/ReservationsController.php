@@ -16,8 +16,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Serializer;
+use Unirest;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Psr7\Request as GuzzleRequest;
+
 
 //TODO verify reservations with administrator contraints
+
 /**
  * Class ReservationsController
  * @package IT\ReservationBundle\Controller
@@ -34,7 +40,7 @@ class ReservationsController extends Controller
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->getIncomingReservationsOrdererByDate();
 
-        return array("reservations"=>$reservations) ;
+        return array("reservations" => $reservations);
     }
 
 
@@ -87,25 +93,34 @@ class ReservationsController extends Controller
             $reservation->setDispositif($dispositif);
             $reservation->setDateFin($dateFin);
             $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
-            $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reservation,$regles);
+            $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reservation, $regles);
 
             if ($result["success"] === 0) {
-                return JsonResponse::create(array("success" => 0, "message"=>$result["message"]), 200)
+                return JsonResponse::create(array("success" => 0, "message" => $result["message"]), 200)
                     ->setSharedMaxAge(900);
             }
-
 
             $notification->setReservation($reservation);
 
             $em->persist($reservation);
             $em->persist($notification);
             $em->flush();
+            $serializer = SerializerBuilder::create()->build();
+            $jsonContent = $serializer->serialize($reservation, 'json');
 
-            return JsonResponse::create(array("success" => 1, "id" => $reservation->getId()), 200)->setSharedMaxAge(900);
-        }
+            $client = new Client();
+            $url = "http://localhost:8080/reservation";
+            $data = ["reservation" => $jsonContent];
+            $response = $client->post($url, [
+                'json' => $data
+            ]);
 
-        catch (Exception $e) {
-            return JsonResponse::create(array("success" => 0, "message"=>"erreur"), 200)
+
+            $message = $dispositif->getModele() . " réservé pour " . $user->getUsername();
+
+            return JsonResponse::create(array("success" => 1, "message" => $message, "id" => $reservation->getId()), 200)->setSharedMaxAge(900);
+        } catch (Exception $e) {
+            return JsonResponse::create(array("success" => 0, "message" => "erreur"), 200)
                 ->setSharedMaxAge(900);
         }
 
@@ -125,23 +140,25 @@ class ReservationsController extends Controller
 
             //Date actuelle pour le comparer avec la date fin ulturieurement
             $date = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
+            $dateTimeStamp = $date->getTimestamp() + 3600;
             $em = $this->getDoctrine()->getManager();
             $reser = $em->getRepository("ITReservationBundle:Reservation")->findOneBy(['id' => $id]);
             $reser->setDateFin($dateFin);
+            $reser->setDateDebut($dateDebut);
 
             //Si la réservation est en cours on ne peut changer que par une prolongation convenable
             //Si date fin réservation est passé , alors on ne peut plus modifier une réservation terminée
             //On peut pas faire une modification en modifiant la date de début du réservation
-            if (($dateFin->getTimestamp() < $date->getTimestamp() + 3600) || ($reser->getDateDebutTimeStamp() != $dateDebut->getTimestamp())) {
-                return JsonResponse::create(array("success" => 0), 200)
+            if (($dateFin->getTimestamp() < $dateTimeStamp) ) {
+                return JsonResponse::create(array("success" => 0, "message" => "reservation passé"), 200)
                     ->setSharedMaxAge(900);
             }
 
             $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
-            $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reser,$regles);
+            $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reser, $regles);
 
             if ($result["success"] === 0) {
-                return JsonResponse::create(array("success" => 0, "message"=>$result["message"]), 200)
+                return JsonResponse::create(array("success" => 0, "message" => $result["message"]), 200)
                     ->setSharedMaxAge(900);
             }
 
@@ -151,9 +168,7 @@ class ReservationsController extends Controller
 
             return JsonResponse::create(array("success" => 1, "reservation" => $reser), 200)
                 ->setSharedMaxAge(900);
-        }
-
-        catch (Exception $e) {
+        } catch (Exception $e) {
             return JsonResponse::create(array("success" => 0), 200)
                 ->setSharedMaxAge(900);
         }
@@ -172,7 +187,7 @@ class ReservationsController extends Controller
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->getReservationsByDispositive($id);
         $serializer = SerializerBuilder::create()->build();
-        $jsonContent = $serializer->serialize(array("reservations"=>$reservations), 'json');
+        $jsonContent = $serializer->serialize(array("reservations" => $reservations), 'json');
         return new Response($jsonContent);
 
     }
@@ -195,4 +210,40 @@ class ReservationsController extends Controller
         return JsonResponse::create(array("success" => 1), 200)
             ->setSharedMaxAge(900);
     }
+
+    function CallAPI($method, $url, $data = false)
+    {
+        $curl = curl_init();
+
+        switch ($method)
+        {
+            case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+            case "PUT":
+                curl_setopt($curl, CURLOPT_PUT, 1);
+                break;
+            default:
+                if ($data)
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+
+        // Optional Authentication:
+        curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+        curl_setopt($curl, CURLOPT_USERPWD, "username:password");
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        $result = curl_exec($curl);
+
+        curl_close($curl);
+
+        return $result;
+    }
+
+
 }

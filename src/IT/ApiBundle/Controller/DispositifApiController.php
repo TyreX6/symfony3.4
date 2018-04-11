@@ -40,7 +40,6 @@ class DispositifApiController extends Controller
      *     required=true,
      *     @SWG\Schema(ref="#/definitions/Dispositif"),
      *
-     *
      *   ),
      *     @SWG\Response(
      *         response="200",

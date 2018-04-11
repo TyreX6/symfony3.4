@@ -61,10 +61,18 @@ security:
             pattern: ^/
             fr3d_ldap:  ~
             form_login:
+                login_path: /login
+                post_only:   true
                 provider: chain_provider
                 csrf_token_generator: security.csrf.token_manager
                 default_target_path: /admin/LDAP
-            logout:    true
+            logout:
+                path:   /logout
+                target: /login
+            remember_me:
+                secret: "%secret%"
+                lifetime: 604800 # 1 week in seconds
+                path:     /
             anonymous: true
             # activate different ways to authenticate
 

@@ -1,10 +1,10 @@
 function initCalender() {
     var CalendarApp = function () {
         //Variables globals pour le calendrier
-        this.$body = $("body")
-        this.$calendar = $('#calendar'),
+        this.$body = $("body"),
+            this.$calendar = $('#calendar'),
             this.$event = ('#calendar-events div.calendar-events'),
-            this.$categoryForm = $('#add-new-event form'),
+            this.$categoryForm = $('#newRes'),
             this.$extEvents = $('#calendar-events'),
             this.$modal = $('#my-event'),
             this.$saveCategoryBtn = $('.save-category'),
@@ -14,13 +14,13 @@ function initCalender() {
     /* on drop event listener */
     CalendarApp.prototype.onDrop = function (eventObj, date) {
         if (new Date(date.format()) < new Date()) {
-            alert("Vous ne pouvez pas réserver dans le passé") ;
-            return false ;
+            alert("Vous ne pouvez pas réserver dans le passé");
+            return false;
         }
         var $this = this;
         // retrieve the dropped element's stored Event Object
         var originalEventObject = eventObj.data('eventObject');
-        var $categoryClass = "bg-warning";
+        var $categoryClass = "bg-info";
 
         // we need to copy it, so that multiple events don't have a reference to the same object
         var copiedEventObject = $.extend({}, originalEventObject);
@@ -33,7 +33,9 @@ function initCalender() {
 
         copiedEventObject.dispId = this.$categoryForm.find("select[name='dispositif-Select'] option:selected").val();
         copiedEventObject.userId = this.$categoryForm.find("select[name='utilisateur-select'] option:selected").val();
-        copiedEventObject['className'] = [$categoryClass];
+        copiedEventObject.backTitle = copiedEventObject.title;
+        copiedEventObject.title = "Cliquer sur la réservation";
+        copiedEventObject['className'] = "bg-info";
 
         // render the event on the calendar
         $this.$calendar.fullCalendar('renderEvent', copiedEventObject, true);
@@ -53,7 +55,7 @@ function initCalender() {
             //formulaire de sauvegarde
             var form = $("<form></form>");
             form.append("<label>Sauvegarder la réservation</label>");
-            form.append("<div class='input-group'><input class='form-control' type=text value='" + calEvent.title + "' disabled='disabled' /><span class='input-group-btn'><button type='submit' " + disabled + " class='btn btn-success waves-effect waves-light'><i class='fa fa-check'></i>Enregistrer</button></span></div>");
+            form.append("<div class='input-group'><input class='form-control' type=text value='" + calEvent.backTitle + "' disabled='disabled' /><span class='input-group-btn'><button type='submit' " + disabled + " class='btn btn-success waves-effect waves-light'><i class='fa fa-check'></i>Enregistrer</button></span></div>");
             $this.$modal.modal({
                 backdrop: 'static'
             });
@@ -111,6 +113,7 @@ function initCalender() {
                                 if (data.success === 1) {
                                     //On affecte l'id au calEvent -> calEvent est persisté
                                     calEvent.id = data.id;
+                                    calEvent.title = data.message;
                                     $this.$calendarObj.fullCalendar('updateEvent', calEvent);
                                     $.toast({
                                         heading: 'Réservation persisté',
@@ -174,7 +177,7 @@ function initCalender() {
                             }
                             else {
                                 $.toast({
-                                    heading: 'Erreur',
+                                    heading: 'Erreur lors du modification',
                                     text: data.message,
                                     position: 'top-right',
                                     loaderBg: '#ff6849',
@@ -183,7 +186,6 @@ function initCalender() {
                                     stack: 6
                                 });
                             }
-
                         }
                     });
                 }
@@ -193,8 +195,8 @@ function initCalender() {
         /* on select event Listener */
         CalendarApp.prototype.onSelect = function (start, end, allDay) {
             if (new Date(start.format()) < Date.now()) {
-                alert("Vous ne pouvez pas réserver dans le passé !") ;
-                return false ;
+                alert("Vous ne pouvez pas réserver dans le passé !");
+                return false;
             }
             var $this = this;
             $this.$modal.modal({
@@ -208,7 +210,7 @@ function initCalender() {
             var dispModele = $("#newRes").find('select[name="dispositif-Select"] option:selected').text();
 
             form.find('select[name="dispositif-Select"]').attr("disabled", "disabled").html('<option value="' + dispID + '" selected="selected">' + dispModele + '</option>');
-             form.find('select[name="utilisateur-select"]').select2();
+            form.find('select[name="utilisateur-select"]').select2();
 
             $this.$modal.find('.delete-event').hide().end().find('.save-event').show().end().find('.modal-body').empty().prepend(form).end().find('.save-event').unbind('click').click(function () {
                 form.submit();
@@ -223,7 +225,8 @@ function initCalender() {
                 var ending = form.find("input[name='ending']").val();
                 if (title !== null && title.length != 0) {
                     $this.$calendarObj.fullCalendar('renderEvent', {
-                        title: title,
+                        title: "Cliquer pour sauvegarder",
+                        backTitle: title,
                         start: start,
                         end: end,
                         userId: user,
@@ -292,14 +295,24 @@ function initCalender() {
             eventLimit: true, // for all non-agenda views
             //Prevent events to be dropped in invalid ranges
             //Exmpl : event dropped in a past time
-            eventDrop: function(event, delta, revertFunc) {
+            eventDrop: function (event, delta, revertFunc) {
                 if ((new Date(event.start.format()) < new Date())) {
                     revertFunc();
                 }
-                if (!!event.id) {
+                var onlyExpandble = (new Date(moment(event.start).format()) > new Date()) && new Date(moment(event.start).subtract(delta.asSeconds(), 'seconds').format()) < new Date();
+                // console.log("new event start");console.log(new Date(event.start.format()));
+                // console.log("old event start");console.log(new Date(moment(event.start).subtract(delta.asSeconds(), 'seconds').format()));
+
+
+                if (onlyExpandble) {
+                    alert('Vous ne pouvez pas modifier une "réservation déja démarré" que par une prolongation :)');
                     revertFunc();
-                    alert("Vous pouvez seulement modifier la réservation par la prolongation :)") ;
                 }
+                // if we do need to prevent event dragging after persisting
+                // if (!!event.id) {
+                //     revertFunc();
+                //     alert("Vous pouvez seulement modifier la réservation par la prolongation :)");
+                // }
             },
             header: {
                 left: "prev,next today",

@@ -1,0 +1,83 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {% stylesheets
+    'bundles/itreservation/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css'
+    'bundles/itreservation/app/plugins/bower_components/dropify/dist/css/dropify.min.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+{% block title %} Modification des catégories {% endblock %}
+
+{% block gestion_dispositifs %}
+    <a href="#" class="waves-effect active"><i class="icon-screen-smartphone fa-fw" data-icon="v"></i>
+        <span class="hide-menu"> Gestion Dispositifs <span class="fa arrow"></span></span></a>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Catégories</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="{{ path('liste_dispositif') }}">Dispositifs</a></li>
+                        <li class="active">Gérer les catgories</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"> Ajouter un dispositif</div>
+                        <div class="panel-wrapper collapse in" aria-expanded="true">
+                            <div class="panel-body">
+                                <div class="form-body">
+                                    <h3 class="box-title">Caractéristiques</h3>
+                                    <hr class="m-t-0 m-b-40">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {% form_theme categoryForm
+                                            '::jquery.collection.html.twig'
+                                            '@ITDispositif/Category/formTheme.html.twig' %}
+                                            {{ form(categoryForm) }}
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+    {% block scripts %}
+        {% javascripts
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/jasny-bootstrap.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <script src="{{ asset('bundles/itreservation/app/assets/js/jquery.collection.js') }}"></script>
+        <script type="text/javascript">
+            $('.categoryForm-collection').collection(
+                {
+                    allow_duplicate:true,
+                    allow_delete:false
+                }
+                );
+        </script>
+
+    {% endblock %}
+

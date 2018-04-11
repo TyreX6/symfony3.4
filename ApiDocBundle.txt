@@ -1,0 +1,12 @@
+-composer require nelmio/api-doc-bundle
+-composer require zircote/swagger-php
+-app.swagger_ui:
+    path: /api/doc
+    methods: GET
+    defaults: { _controller: nelmio_api_doc.controller.swagger_ui }
+-composer require symfony/twig-bundle
+-composer require symfony/asset
+
+https://zestedesavoir.com/tutoriels/1280/creez-une-api-rest-avec-symfony-3/amelioration-de-lapi-rest/automatiser-la-documentation-avec-nelmioapidocbundle/
+
+Convert ApiDoc to Swag -->Command folder

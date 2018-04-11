@@ -14,14 +14,14 @@ use Symfony\Component\HttpFoundation\Request;
 class RechercheController extends Controller
 {
     /**
-     * @Route("/recherche/{keyword}" , name="rechercher")
+     * @Route("/recherche/" , name="rechercher")
      * @Template()
      * @internal param Request $request
-     * @param $keyword
      * @return array
      */
-    public function RechercheAction($keyword)
+    public function RechercheAction()
     {
+        $keyword = $_GET["keyword"];
         $em = $this->getDoctrine()->getManager();
         $dispositifs = $em->getRepository("ITDispositifBundle:Dispositif")->rechercheDispositif($keyword);
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->rechercheDispositif($keyword);

@@ -4,10 +4,21 @@ parameters:
     #parameter_name: value
 
 services:
+    fos_user.security.controller:
+        class: IT\UserBundle\Controller\SecurityController
+#    app.tokens.action_listener:
+#        class: IT\UserBundle\EventListener\RedirectUserListener
+#        arguments:
+#            - "@security.csrf.token_manager"
+#            - "@router"
+#        tags:
+#            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
     acme_api.event.authentication_success_listener:
         class: IT\UserBundle\EventListener\AuthenticationSuccessListener
         tags:
             - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_jwt_created, method: onJwtCreated }
 #    app.image_uploader:
 #        class: AppBundle\Services\ImageUpload
 #        arguments: ['%images_directory%']

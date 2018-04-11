@@ -1,0 +1,58 @@
+// Install Apache LAMP
+    sudo apt-get update
+    sudo apt-get install apache2
+	sudo apache2ctl configtest // Error
+	sudo nano /etc/apache2/apache2.conf // Add ServerName ... Localhost.com // ServerName server_domain_or_IP
+	sudo apache2ctl configtest // OK
+	sudo systemctl restart apache2
+	sudo ufw app list // To allow firewall connections
+	sudo ufw app info "Apache Full"
+	sudo ufw allow in "Apache Full"
+	sudo apt-get install mysql-server
+	mysql_secure_installation
+	sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql
+	sudo nano /etc/apache2/mods-enabled/dir.conf
+	/*
+	<IfModule mod_dir.c>
+    DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+	</IfModule>
+	*/
+	sudo systemctl restart apache2
+	sudo systemctl status apache2
+	sudo apt-get install php-cli
+
+// Install OpenLDAP
+	sudo apt-get update
+	sudo apt-get install slapd ldap-utils
+	sudo dpkg-reconfigure slapd
+	sudo ufw allow ldap
+	ldapwhoami -H ldap:// -x // Anonymous
+
+// Install PhpLdapAdmin
+	sudo apt-get install phpldapadmin
+	sudo gedit /etc/phpldapadmin/config.php // Replace "example" by "localhost"
+											  $config->custom->appearance['hide_template_warning'] = true;
+// Access https://example.com/phpldapadmin
+
+// Access guest Localhost from Host Machine
+	File->Preferences->Network->Host-only networks tab->Add
+	Enable Server
+    Server Address: 192.168.56.100
+    Server Mask: 255.255.255.0
+    Lower Address Bound: 192.168.56.101
+    Upper Address Bound: 192.168.56.254
+	Guest machine and navigate to the Network Configuration
+	Attached to->Host-only Adapter
+	ping 192.168.56.101 // Success
+// Port Forwarding
+	Guest machine and navigate to the Network Configuration
+	Advanced
+	Port Forwarding
+	Host Port = 1025
+	Guest Port = 80
+	Save
+//
+	
+
+	
+	fr3d_ldap

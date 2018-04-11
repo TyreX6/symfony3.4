@@ -112,9 +112,37 @@ class ReservationsApiController extends Controller
      * )
      * @return array
      */
-    public function listReservations(){
+    public function listReservationsAction(){
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->findAll() ;
+        return $reservations ;
+    }
+
+    /**
+     * @param $id
+     * @Rest\View()
+     * @Rest\GET("api/reservations/liste/{id}")
+     * @Operation(
+     *  tags={"Reservation"},
+     *     summary="Retreive all reservations for specific dispositif",
+     *     @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     description="id of the dispositif",
+     *     required=true,
+     *     type="integer"
+     *   ),
+     *
+     *  @SWG\Response(response=200,description="Array of reservations",
+     *  @SWG\Schema(type="array",@SWG\Items(ref="#/definitions/Reservation")
+     *  ),
+     * ),
+     * )
+     * @return array
+     */
+    public function listReservationsByDispositifAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $reservations = $em->getRepository("ITReservationBundle:Reservation")->getReservationsByDispositive($id) ;
         return $reservations ;
     }
 

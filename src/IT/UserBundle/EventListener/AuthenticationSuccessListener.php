@@ -9,6 +9,7 @@ namespace IT\UserBundle\EventListener;
 
 use FOS\UserBundle\Model\UserInterface;
 use Lexik\Bundle\JWTAuthenticationBundle\Event\AuthenticationSuccessEvent;
+use Lexik\Bundle\JWTAuthenticationBundle\Event\JWTCreatedEvent;
 
 
 class AuthenticationSuccessListener
@@ -28,9 +29,21 @@ class AuthenticationSuccessListener
         $data['data'] = array(
             'id' => $user->getId(),
             'username' => $user->getUsername(),
+            'email' => $user->getEmail(),
             'roles' => $user->getRoles(),
         );
         $event->setData($data);
+    }
+
+    public function onJwtCreated(JWTCreatedEvent $event)
+    {
+        $user = $event->getUser();
+
+        $payload = $event->getData();
+        $payload['id'] = $user->getId();
+        $payload['email'] = $user->getEmail();
+
+        $event->setData($payload);
     }
 
 

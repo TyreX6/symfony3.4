@@ -61,6 +61,7 @@ interface UserInterface
      */
     public function getPassword();
 
+
     /**
      * Returns the salt that was originally used to encode the password.
      *

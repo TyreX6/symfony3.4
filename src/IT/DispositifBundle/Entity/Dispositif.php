@@ -24,19 +24,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ExclusionPolicy("all")
  * @SWG\Definition(type="object", @SWG\Xml(name="Dispositif"))
  */
-class Dispositif
+class Dispositif extends Ressource
 {
-    /**
-     * @var integer
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @Expose
-     * @SWG\Property(description="Identifiant du dispositif.")
-     */
-    private $id;
-
-
 
     /**
      * @var string
@@ -107,6 +96,16 @@ class Dispositif
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="numero_serie", type="string")
+     * @Expose
+     * @Assert\NotBlank()
+     * @SWG\Property(description="Numero de serie du dispositif.")
+     */
+    private $numero_serie;
+
+    /**
+     * @var string
      * @ORM\Column(name="resolution", type="string" ,length=20)
      * @Expose
      * @Assert\NotBlank()
@@ -117,47 +116,31 @@ class Dispositif
     private $resolution;
 
     /**
+     * @ORM\OneToMany(targetEntity="IT\DispositifBundle\Entity\Application", mappedBy="dispositif" ,cascade={"remove", "persist"},orphanRemoval=true)
+     **/
+    private $apps;
+
+
+
+    /**
      * @ORM\OneToMany(targetEntity="Image", mappedBy="dispositif" ,cascade={"remove", "persist"},orphanRemoval=true)
      **/
     private $images;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="etat", type="string" ,length=20,nullable=false)
-     * @Expose
-     * @Assert\NotBlank()
-     * @Assert\Choice(
-     *     choices={"Fonctionnel", "Détruit","Perdu"},
-     *      message="Choose a valid status."
-     * )
-     * @SWG\Property(type="string",description="Etat du dispositif.")
-     */
-    private $etat;
 
     /**
      * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\Reservation", mappedBy="dispositif",cascade="persist")
      **/
     private $reservation;
 
-    /**
-     * @ORM\Column(type="datetime",nullable=false)
-     */
-    private $dateAtjout ;
+
 
     public function __construct() {
+        parent::__construct();
         $this->reservation = new ArrayCollection();
+        $this->apps = new ArrayCollection();
         $this->images = new ArrayCollection();
-        $this->setDateAtjout($date= new \DateTime(null, new \DateTimeZone("Africa/Tunis"))) ;
     }
 
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
     /**
      * @return string
      */
@@ -174,21 +157,7 @@ class Dispositif
         $this->modele = $modele;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDateAtjout()
-    {
-        return $this->dateAtjout;
-    }
 
-    /**
-     * @param mixed $dateAtjout
-     */
-    public function setDateAtjout($dateAtjout)
-    {
-        $this->dateAtjout = $dateAtjout;
-    }
 
     /**
      * @return string
@@ -238,6 +207,7 @@ class Dispositif
         $this->processeur = $processeur;
     }
 
+
     /**
      * @return float
      */
@@ -271,23 +241,6 @@ class Dispositif
     }
 
     /**
-     * @return mixed
-     */
-    public function getEtat()
-    {
-        return $this->etat;
-    }
-
-    /**
-     * @param mixed $etat
-     */
-    public function setEtat($etat)
-    {
-        $this->etat = $etat;
-    }
-
-
-    /**
      * add image
      *
      * @param Image $image
@@ -299,6 +252,7 @@ class Dispositif
         $this->images[] = $image;
         return $this;
     }
+
     /**
      * Set images
      *
@@ -322,9 +276,51 @@ class Dispositif
         return $this->images;
     }
 
-
     public function removeImage($image) {
         $this->images->removeElement($image);
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumeroSerie()
+    {
+        return $this->numero_serie;
+    }
+
+    /**
+     * @param string $numero_serie
+     */
+    public function setNumeroSerie($numero_serie)
+    {
+        $this->numero_serie = $numero_serie;
+    }
+    /**
+     * @return mixed
+     */
+    public function getApps()
+    {
+        return $this->apps;
+    }
+
+    /**
+     * @param mixed array $apps
+     */
+    public function setApps($apps)
+    {
+        $this->apps = $apps;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addApp($app)
+    {
+        $app = strtoupper($app);
+        if (!in_array($app, $this->apps, true)) {
+            $this->apps[] = $app;
+        }
+        return $this;
     }
 
     /**
@@ -342,6 +338,9 @@ class Dispositif
     {
         $this->reservation = $reservation;
     }
+
+
+
 
 
 }

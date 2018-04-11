@@ -1,0 +1,8 @@
+To override FOS User Bundle:
+	-Twig
+		NewBundle/resources/view/login.html.twig
+	-SecurityController
+		NewBundle/Controller/SecurityController extends FosUserSecurityController
+			In Services.yml
+				fos_user.security.controller:
+					class: IT\UserBundle\Controller\SecurityController

@@ -1,0 +1,47 @@
+{% block Application_widget %}
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_widget(form) }}
+            </div>
+            <div class="col-md-2">
+                {# Note that "city" on classes below are the same as on "prefix" option #}
+                <a href="#" class="Application-remove btn btn-default" title="Delete Application"><span
+                            class="glyphicon glyphicon-trash"></span></a>
+                <a href="#" class="Application-add btn btn-default" title="Add Application"><span
+                            class="glyphicon glyphicon-plus-sign"></span></a>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="Application-up btn btn-default" title="Move Application up"><span class="glyphicon glyphicon-arrow-up"></span></a>
+                <a href="#" class="Application-down btn btn-default" title="Move Application down"><span class="glyphicon glyphicon-arrow-down"></span></a>
+            </div>
+            <div class="col-md-1">
+                <a href="#" class="Application-duplicate btn btn-default" title="Duplicate Application"><span class="glyphicon glyphicon-th-large"></span></a>
+            </div>
+        </div>
+
+
+{% endblock %}
+
+{% block Image_widget %}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_widget(form) }}
+        </div>
+        <div class="col-md-2">
+            {# Note that "hobby" on classes below are the same as on "prefix" option #}
+            <a href="#" class="Image-remove btn btn-default" title="Delete hobby"><span
+                        class="glyphicon glyphicon-trash"></span></a>
+            <a href="#" class="Image-add btn btn-default" title="Add hobby"><span
+                        class="glyphicon glyphicon-plus-sign"></span></a>
+        </div>
+        <div class="col-md-3">
+            <a href="#" class="Image-up btn btn-default" title="Move Image up"><span class="glyphicon glyphicon-arrow-up"></span></a>
+            <a href="#" class="Image-down btn btn-default" title="Move Image down"><span class="glyphicon glyphicon-arrow-down"></span></a>
+        </div>
+        <div class="col-md-1">
+            <a href="#" class="Image-duplicate btn btn-default" title="Duplicate Image"><span class="glyphicon glyphicon-th-large"></span></a>
+        </div>
+    </div>
+
+{% endblock %}

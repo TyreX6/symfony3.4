@@ -35,8 +35,10 @@ class DispositifController extends Controller
             foreach ($dispositif->getImages() as $image) {
                 $dispositif->addImage($image);
             }
+            foreach ($dispositif->getApps() as $app){
+                $app->setDispositif($dispositif);
+            }
 
-            $dispositif->setEtat("Fonctionnel");
             $em->persist($dispositif);
             $em->flush();
             $message = "Dispositif a été crée avec succée";
@@ -49,6 +51,8 @@ class DispositifController extends Controller
     /**
      * @Route("/edit/{id}",name="modifier_dispositif")
      * @Template()
+     * @param $id
+     * @return array
      */
     public function modifier_DispositifAction($id)
     {
@@ -60,10 +64,13 @@ class DispositifController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-
-            foreach ($dispositif->getImages() as $image) {
-                $dispositif->addImage($image);
+            foreach ($dispositif->getApps() as $app){
+                $app->setDispositif($dispositif);
             }
+
+//            foreach ($dispositif->getImages() as $image) {
+//                $dispositif->addImage($image);
+//            }
 
             $em->persist($dispositif);
             $em->flush();
@@ -99,6 +106,8 @@ class DispositifController extends Controller
         $dispositif = $em->getRepository('ITDispositifBundle:Dispositif')->findOneBy(['id' => $id]);
         return array('dispositif' => $dispositif);
     }
+
+
 
 
 }

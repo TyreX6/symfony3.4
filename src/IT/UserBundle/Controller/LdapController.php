@@ -51,7 +51,7 @@ class LdapController extends Controller
             $yaml['parameters']['LDAP_host'] = $ldap->getHost();
             $yaml['parameters']['LDAP_baseDn'] = $ldap->getBaseDn();
             $yaml['parameters']['Port'] = $ldap->getPort();
-            $new_yaml = Yaml::dump($yaml, 5);
+            $new_yaml = Yaml::dump($yaml,5);
             file_put_contents($this->container->get('kernel')->getRootDir() . '/config/parameters.yml', $new_yaml);
         }
         return array('editForm' => $form->createView(), 'message' => $message);
@@ -71,8 +71,6 @@ class LdapController extends Controller
         }
         return JsonResponse::create(array("connected" => $connected), 200)
             ->setSharedMaxAge(300);
-
-
     }
 
     //Une fonction de ping pour tester un serveur LDAP en fournir le host et le port

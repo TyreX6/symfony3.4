@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block gestion_dispositifs %}
-    <a href="index.html" class="waves-effect active"><i class="icon-screen-smartphone fa-fw" data-icon="v"></i>
+    <a href="#" class="waves-effect active"><i class="icon-screen-smartphone fa-fw" data-icon="v"></i>
         <span class="hide-menu"> Gestion Dispositifs <span class="fa arrow"></span></span></a>
 {% endblock %}
 
@@ -57,6 +57,7 @@
                                 <th data-hide="phone"> Localiser</th>
                                 <th data-hide="phone">Verrouiller</th>
                                 <th data-hide="all"> Images</th>
+                                <th data-hide="all"> Applications</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -101,28 +102,37 @@
                                         </a>
                                         {% endif %}
                                     </td>
+                                    {#<td>#}
+                                        {#<div class="row el-element-overlay m-b-40">#}
+                                            {#{% for image in dispositif.images %}#}
+                                                {#<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">#}
+                                                    {#<div class="white-box">#}
+                                                        {#<div class="el-card-item">#}
+                                                            {#<div class="el-card-avatar el-overlay-1"><img#}
+                                                                        {#src="{{ image.path }}{{ image.fileName }}"/>#}
+                                                                {#<div class="el-overlay">#}
+                                                                    {#<ul class="el-info">#}
+                                                                        {#<li><a target="_blank"#}
+                                                                               {#class="btn default btn-outline"#}
+                                                                               {#href="{{ image.path }}{{ image.fileName }}"><i#}
+                                                                                        {#class="icon-link"></i></a></li>#}
+                                                                    {#</ul>#}
+                                                                {#</div>#}
+                                                            {#</div>#}
+                                                        {#</div>#}
+                                                    {#</div>#}
+                                                {#</div>#}
+                                            {#{% endfor %}#}
+                                        {#</div>#}
+                                    {#</td>#}
                                     <td>
-                                        <div class="row el-element-overlay m-b-40">
-                                            {% for image in dispositif.images %}
-                                                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                                    <div class="white-box">
-                                                        <div class="el-card-item">
-                                                            <div class="el-card-avatar el-overlay-1"><img
-                                                                        src="{{ image.path }}{{ image.fileName }}"/>
-                                                                <div class="el-overlay">
-                                                                    <ul class="el-info">
-                                                                        <li><a target="_blank"
-                                                                               class="btn default btn-outline"
-                                                                               href="{{ image.path }}{{ image.fileName }}"><i
-                                                                                        class="icon-link"></i></a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                        <ul class="row el-element-overlay m-b-40">
+                                            {% for app in dispositif.apps %}
+                                                <li class="col-md-12 col-sm-12 col-xs-12">
+                                                {{ app.name }}
+                                                </li>
                                             {% endfor %}
-                                        </div>
+                                        </ul>
                                     </td>
 
                                 </tr>
