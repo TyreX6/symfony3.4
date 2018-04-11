@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5af7c24-abb1-4243-aee1-a66749e4d204" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/parameters.yml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -61,17 +59,26 @@
       <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
+            <state relative-caret-position="128">
               <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parameters.yml.dist" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="101">
+              <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/config.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="196">
-              <caret line="71" column="28" lean-forward="true" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
+              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -109,15 +116,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1024">
               <caret line="32" column="14" selection-start-line="29" selection-start-column="12" selection-end-line="32" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReservationsApiController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReservationsApiController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3840">
-              <caret line="120" column="4" selection-start-line="120" selection-start-column="4" selection-end-line="141" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -208,8 +206,8 @@
         <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php" />
         <option value="$PROJECT_DIR$/src/IT/UserBundle/EventListener/AuthenticationSuccessListener.php" />
         <option value="$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/User/UserInterface.php" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
       </list>
     </option>
   </component>
@@ -229,10 +227,70 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/node_modules/jquery-ui/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/jquery/package.json" />
+      <path value="$PROJECT_DIR$/node_modules/symfony-collection/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/assets/bootstrap/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-treeview-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/chartist-js/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/dropify/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/dropzone-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/flot/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/holderjs/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/jquery-asColorPicker-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/jquery-steps-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/jquery-wizard-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/jqueryui/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/jsgrid/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/lobipanel/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/morrisjs/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/sidebar-nav/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/tablesaw-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/typeahead.js-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/assets/bootstrap/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/Magnific-Popup-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/bootstrap-treeview-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/chartist-js/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/dropify/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/dropzone-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/flot/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/holderjs/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/jquery-asColorPicker-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/jquery-steps-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/jquery-wizard-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/jqueryui/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/jsgrid/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/lobipanel/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/morrisjs/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/sidebar-nav/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/tablesaw-master/package.json" />
+      <path value="$PROJECT_DIR$/src/IT/Resources/public/app/plugins/bower_components/typeahead.js-master/package.json" />
+      <path value="$PROJECT_DIR$/vendor/kriswallsmith/assetic/package.json" />
+      <path value="$PROJECT_DIR$/vendor/ninsuo/symfony-collection/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/assets/bootstrap/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/Magnific-Popup-master/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/bootstrap-treeview-master/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/chartist-js/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/dropify/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/dropzone-master/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/flot/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/holderjs/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/jquery-asColorPicker-master/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/jquery-steps-master/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/jquery-wizard-master/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/jqueryui/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/jsgrid/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/lobipanel/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/morrisjs/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/sidebar-nav/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/tablesaw-master/package.json" />
+      <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/typeahead.js-master/package.json" />
+    </packageJsonPaths>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -518,6 +576,9 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e5af7c24-abb1-4243-aee1-a66749e4d204" name="Default" comment="" />
@@ -603,7 +664,7 @@
       <workItem from="1523355613531" duration="220000" />
       <workItem from="1523439506104" duration="73000" />
       <workItem from="1523441117329" duration="244000" />
-      <workItem from="1523441510423" duration="414000" />
+      <workItem from="1523441510423" duration="1091000" />
     </task>
     <task id="LOCAL-00001" summary="LdapConfig working fine;&#10;To the step of managing devices">
       <created>1519385300544</created>
@@ -665,7 +726,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="679229000" />
+    <option name="totallyTimeSpent" value="679906000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -693,7 +754,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4969743" weight="0.32894737" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.36157337" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20574887" />
       <window_info anchor="right" id="Database" order="5" weight="0.32980332" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
@@ -1049,20 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config_prod.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1072,7 +1119,21 @@
     <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
-          <caret line="71" column="28" lean-forward="true" selection-start-line="71" selection-start-column="28" selection-end-line="71" selection-end-column="28" />
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
         </state>
       </provider>
     </entry>
