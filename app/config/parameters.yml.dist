@@ -4,7 +4,7 @@
 parameters:
     database_host: 127.0.0.1
     database_port: ~
-    database_name: symfony
+    database_name: reservation_ressources
     database_user: root
     database_password: ~
     # You should uncomment this if you want to use pdo_sqlite
@@ -12,11 +12,11 @@ parameters:
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1
-    mailer_user: ~
+    mailer_user: ghandrisemh
     mailer_password: ~
 
     # A secret key that's used to generate certain security-related tokens
-    secret: ThisTokenIsNotSoSecretChangeIt
+    secret: 957fb625c20102a1c6126c82d8a2e70662a08d9d
     LDAP_host: 192.168.56.102
     LDAP_baseDn: ou=People,dc=localhost
     Port: 389
