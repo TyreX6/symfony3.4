@@ -68,24 +68,24 @@
                                             {% for dispositif in dispositifs %}
                                                 <tr>
                                                     <td>
-                                                        <a href="{{ path('modifier_dispositif',{'id':dispositif.id}) }}">{{ dispositif.modele }}</a>
+                                                        <a href="{{ path('modifier_dispositif',{'id':dispositif.id}) }}">{{ dispositif.model }}</a>
                                                     </td>
                                                     <td>{{ dispositif.os }}</td>
-                                                    <td>{{ dispositif.versionOS }}</td>
-                                                    <td>{{ dispositif.processeur }}</td>
+                                                    <td>{{ dispositif.OsVersion }}</td>
+                                                    <td>{{ dispositif.cpu }}</td>
                                                     <td>{{ dispositif.ram }} GB</td>
                                                     <td>{{ dispositif.resolution }}</td>
                                                     <td>
-                                                        {% if dispositif.etat == "Fonctionnel" %}
-                                                            <span class="label label-table label-success">{{ dispositif.etat }}</span>
-                                                        {% elseif dispositif.etat == "Détruit" %}
-                                                            <span class="label label-table label-danger">{{ dispositif.etat }}</span>
+                                                        {% if dispositif.status == "Fonctionnel" %}
+                                                            <span class="label label-table label-success">{{ dispositif.status }}</span>
+                                                        {% elseif dispositif.status == "Détruit" %}
+                                                            <span class="label label-table label-danger">{{ dispositif.status }}</span>
                                                         {% else %}
-                                                            <span class="label label-table label-warning">{{ dispositif.etat }}</span>
+                                                            <span class="label label-table label-warning">{{ dispositif.status }}</span>
                                                         {% endif %}
                                                     </td>
                                                     <td>
-                                                        {% if dispositif.etat == "Fonctionnel" %}
+                                                        {% if dispositif.status == "Fonctionnel" %}
                                                             <a href="{{ path('localiser_dispositif',{'id':dispositif.id}) }}">
                                                                 <button class="btn btn-block btn-outline btn-primary">Localiser</button>
                                                             </a>
@@ -96,7 +96,7 @@
                                                         {% endif %}
                                                     </td>
                                                     <td>
-                                                        {% if dispositif.etat == "Fonctionnel" %}
+                                                        {% if dispositif.status == "Fonctionnel" %}
                                                             <a href="{{ path('localiser_dispositif',{'id':dispositif.id}) }}">
                                                                 <button class="btn btn-block btn-outline btn-danger">Verrouiller</button>
                                                             </a>
@@ -147,14 +147,14 @@
                                                         {{ reservation.dispositif.id }}
                                                     </td>
                                                     <td>
-                                                        <a href="{{ path('modifier_dispositif',{'id':reservation.dispositif.id}) }}">{{ reservation.dispositif.modele }}</a>
+                                                        <a href="{{ path('modifier_dispositif',{'id':reservation.dispositif.id}) }}">{{ reservation.dispositif.model }}</a>
                                                     </td>
                                                     <td>{{ reservation.dateDebut | date }}</td>
                                                     <td>{{ reservation.dateFin | date }}</td>
                                                     <td>{{ reservation.user.username }}</td>
                                                     <td>
                                                             <div>
-                                                                <p><strong>{{ reservation.dispositif.modele }}</strong> <span class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"]}}% Complete</span>
+                                                                <p><strong>{{ reservation.dispositif.model }}</strong> <span class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"]}}% Complete</span>
                                                                 </p>
                                                                 <div class="progress progress-striped active">
                                                                     <div class="progress-bar progress-bar-{{ reservation.getPourcentage["class"]}}" role="progressbar"

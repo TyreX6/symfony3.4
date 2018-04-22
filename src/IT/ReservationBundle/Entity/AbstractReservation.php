@@ -21,7 +21,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Abstract Reservation
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="IT\ReservationBundle\Repository\ReservationsRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({
@@ -29,8 +29,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     "1" = "Reservation",
  *     "2" = "ReservationProjecteur"
  *     })
+ * @SWG\Definition(type="object", @SWG\Xml(name="AbstractReservation"))
  */
-abstract class AbstractReservation
+class AbstractReservation
 {
     /**
      * @var integer
@@ -83,14 +84,14 @@ abstract class AbstractReservation
      * @Assert\NotBlank()
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false,onDelete="CASCADE")
      * @Expose
-     * @SWG\Property(description="L'utilisateur qui a réservé.")
+     * @SWG\Property(type="object", description="L'utilisateur qui a réservé.")
      **/
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="IT\DispositifBundle\Entity\Ressource", inversedBy="abstract_reservation",)
      * @ORM\JoinColumn(name="ressource_id", referencedColumnName="id",onDelete="CASCADE")
-     * @SWG\Property(description="Le ressource réservé.")
+     * @SWG\Property(type="object",description="Le ressource réservé.")
      * @Expose
      **/
     private $ressource;
@@ -157,11 +158,6 @@ abstract class AbstractReservation
     }
 
 
-    public function getDateDebutTimeStamp()
-    {
-        return $this->dateDebut->getTimestamp();
-    }
-
     /**
      * @param \DateTime $dateDebut
      */
@@ -178,10 +174,6 @@ abstract class AbstractReservation
         return $this->dateFin;
     }
 
-    public function getDateFinTimeStamp()
-    {
-        return $this->dateFin->getTimestamp();
-    }
 
     /**
      * @param \DateTime $dateFin

@@ -5,10 +5,10 @@
 
 {% block stylesheets %}
     {% stylesheets
-    'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
-    'bundles/itreservation/app/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css'
-    filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
+        'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
+        'bundles/itreservation/app/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 {% endblock %}
 
@@ -48,7 +48,7 @@
                             <thead>
                             <tr>
                                 <th data-toggle="true"> Modéle</th>
-                                <th> OS</th>
+                                <th data-hide="phone"> OS</th>
                                 <th data-hide="phone"> Version OS</th>
                                 <th data-hide="phone"> Processeur</th>
                                 <th data-hide="phone"> Ram</th>
@@ -56,6 +56,7 @@
                                 <th data-hide="phone"> Statut</th>
                                 <th data-hide="phone"> Localiser</th>
                                 <th data-hide="phone">Verrouiller</th>
+                                <th>Action</th>
                                 <th data-hide="all"> Images</th>
                                 <th data-hide="all"> Applications</th>
                             </tr>
@@ -64,72 +65,85 @@
                             {% for dispositif in dispositifs %}
                                 <tr>
                                     <td>
-                                        <a href="{{ path('modifier_dispositif',{'id':dispositif.id}) }}">{{ dispositif.modele }}</a>
+                                        <a href="{{ path('modifier_dispositif',{'id':dispositif.id}) }}">{{ dispositif.model }}</a>
                                     </td>
                                     <td>{{ dispositif.os }}</td>
-                                    <td>{{ dispositif.versionOS }}</td>
-                                    <td>{{ dispositif.processeur }}</td>
+                                    <td>{{ dispositif.osVersion }}</td>
+                                    <td>{{ dispositif.cpu }}</td>
                                     <td>{{ dispositif.ram }} GB</td>
                                     <td>{{ dispositif.resolution }}</td>
                                     <td>
-                                        {% if dispositif.etat == "Fonctionnel" %}
-                                            <span class="label label-table label-success">{{ dispositif.etat }}</span>
-                                        {% elseif dispositif.etat == "Détruit" %}
-                                            <span class="label label-table label-danger">{{ dispositif.etat }}</span>
+                                        {% if dispositif.status == "Fonctionnel" %}
+                                            <span class="label label-table label-success">{{ dispositif.status }}</span>
+                                        {% elseif dispositif.status == "Détruit" %}
+                                            <span class="label label-table label-danger">{{ dispositif.status }}</span>
                                         {% else %}
-                                            <span class="label label-table label-warning">{{ dispositif.etat }}</span>
+                                            <span class="label label-table label-warning">{{ dispositif.status }}</span>
                                         {% endif %}
                                     </td>
                                     <td>
-                                        {% if dispositif.etat == "Fonctionnel" %}
-                                        <a href="{{ path('localiser_dispositif',{'id':dispositif.id}) }}">
-                                            <button class="btn btn-block btn-outline btn-primary">Localiser</button>
-                                        </a>
+                                        {% if dispositif.status == "Fonctionnel" %}
+                                            <a href="{{ path('localiser_dispositif',{'id':dispositif.id}) }}">
+                                                <button class="btn btn-block btn-outline btn-primary">Localiser</button>
+                                            </a>
                                         {% else %}
-                                        <a href="#">
-                                            <button class="btn btn-block btn-outline btn-primary" disabled>Localiser</button>
-                                        </a>
+                                            <a href="#">
+                                                <button class="btn btn-block btn-outline btn-primary" disabled>
+                                                    Localiser
+                                                </button>
+                                            </a>
                                         {% endif %}
                                     </td>
                                     <td>
-                                        {% if dispositif.etat == "Fonctionnel" %}
-                                        <a href="{{ path('localiser_dispositif',{'id':dispositif.id}) }}">
-                                            <button class="btn btn-block btn-outline btn-danger">Verrouiller</button>
-                                        </a>
+                                        {% if dispositif.status == "Fonctionnel" %}
+                                            <a href="{{ path('localiser_dispositif',{'id':dispositif.id}) }}">
+                                                <button class="btn btn-block btn-outline btn-danger">Verrouiller
+                                                </button>
+                                            </a>
                                         {% else %}
-                                        <a href="#">
-                                            <button class="btn btn-block btn-outline btn-danger" disabled>Verrouiller</button>
-                                        </a>
+                                            <a href="#">
+                                                <button class="btn btn-block btn-outline btn-danger" disabled>
+                                                    Verrouiller
+                                                </button>
+                                            </a>
                                         {% endif %}
+                                    </td>
+
+                                    <td>
+                                        <a href="{{ path('modifier_dispositif',{'id':dispositif.id}) }}">
+                                            <button class="btn btn-block btn-outline btn-secondary">
+                                                Modifier
+                                            </button>
+                                        </a>
                                     </td>
                                     {#<td>#}
-                                        {#<div class="row el-element-overlay m-b-40">#}
-                                            {#{% for image in dispositif.images %}#}
-                                                {#<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">#}
-                                                    {#<div class="white-box">#}
-                                                        {#<div class="el-card-item">#}
-                                                            {#<div class="el-card-avatar el-overlay-1"><img#}
-                                                                        {#src="{{ image.path }}{{ image.fileName }}"/>#}
-                                                                {#<div class="el-overlay">#}
-                                                                    {#<ul class="el-info">#}
-                                                                        {#<li><a target="_blank"#}
-                                                                               {#class="btn default btn-outline"#}
-                                                                               {#href="{{ image.path }}{{ image.fileName }}"><i#}
-                                                                                        {#class="icon-link"></i></a></li>#}
-                                                                    {#</ul>#}
-                                                                {#</div>#}
-                                                            {#</div>#}
-                                                        {#</div>#}
-                                                    {#</div>#}
-                                                {#</div>#}
-                                            {#{% endfor %}#}
-                                        {#</div>#}
+                                    {#<div class="row el-element-overlay m-b-40">#}
+                                    {#{% for image in dispositif.images %}#}
+                                    {#<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">#}
+                                    {#<div class="white-box">#}
+                                    {#<div class="el-card-item">#}
+                                    {#<div class="el-card-avatar el-overlay-1"><img#}
+                                    {#src="{{ image.path }}{{ image.fileName }}"/>#}
+                                    {#<div class="el-overlay">#}
+                                    {#<ul class="el-info">#}
+                                    {#<li><a target="_blank"#}
+                                    {#class="btn default btn-outline"#}
+                                    {#href="{{ image.path }}{{ image.fileName }}"><i#}
+                                    {#class="icon-link"></i></a></li>#}
+                                    {#</ul>#}
+                                    {#</div>#}
+                                    {#</div>#}
+                                    {#</div>#}
+                                    {#</div>#}
+                                    {#</div>#}
+                                    {#{% endfor %}#}
+                                    {#</div>#}
                                     {#</td>#}
                                     <td>
                                         <ul class="row el-element-overlay m-b-40">
                                             {% for app in dispositif.apps %}
                                                 <li class="col-md-12 col-sm-12 col-xs-12">
-                                                {{ app.name }}
+                                                    {{ app.name }}
                                                 </li>
                                             {% endfor %}
                                         </ul>
@@ -160,16 +174,31 @@
 
 {% block scripts %}
     {% javascripts
-    '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
-    '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
 
-    '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js'
-    '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js'
-    %}
-    <script src="{{ asset_url }}"></script>
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js' %}
+        <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
     <!--FooTable init-->
     <!-- Custom Theme JavaScript -->
+    <script>
+        $("#notifier").click(function () {
+            $('.LoadingRoot').show();
+            $.ajax({
+                type: 'POST',
+                url: "http://localhost:8080/message",
+                //TODO parse time
+                data: 'message=' + " Hi everyone",
+                dataType: 'json',
+                success: function (data) {
+                    $('.LoadingRoot').hide();
+                }
+            });
+        });
+
+    </script>
 {% endblock %}
 
 

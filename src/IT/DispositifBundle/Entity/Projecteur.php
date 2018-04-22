@@ -26,7 +26,7 @@ class Projecteur extends Ressource
 
     /**
      * @var string
-     * @ORM\Column(name="modele", type="string", length=50)
+     * @ORM\Column(name="model", type="string", length=50)
      * @Expose
      * @Assert\NotBlank()
      * @Assert\Length(
@@ -35,9 +35,9 @@ class Projecteur extends Ressource
      *      minMessage = "Your model must be at least {{ limit }} characters long",
      *      maxMessage = "Your model cannot be longer than {{ limit }} characters"
      * )
-     * @SWG\Property(property="modele",type="string",description="modele du dispositif.")
+     * @SWG\Property(property="model",type="string",description="modele du projecteur.")
      */
-    private $modele;
+    private $model;
 
     /**
      * @var string
@@ -68,17 +68,17 @@ class Projecteur extends Ressource
     /**
      * @return string
      */
-    public function getModele()
+    public function getModel()
     {
-        return $this->modele;
+        return $this->model;
     }
 
     /**
      * @param string $modele
      */
-    public function setModele($modele)
+    public function setModel($model)
     {
-        $this->modele = $modele;
+        $this->model = $model;
     }
 
     /**
@@ -113,8 +113,10 @@ class Projecteur extends Ressource
         $this->reservationProjecteur = $reservationProjecteur;
     }
 
-
-
+    public function __toString()
+    {
+        return $this->model;
+    }
 
 
 }

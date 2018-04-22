@@ -41,7 +41,7 @@ class Categorie
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="IT\DispositifBundle\Entity\Ressource", mappedBy="categorie",cascade="persist")
+     * @ORM\OneToMany(targetEntity="IT\DispositifBundle\Entity\Ressource", mappedBy="category",cascade="persist")
      * @Expose
      **/
     private $ressource;

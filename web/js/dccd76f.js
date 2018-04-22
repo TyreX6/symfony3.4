@@ -715,19 +715,12 @@ function initCalender() {
                     revertFunc();
                 }
                 var onlyExpandble = (new Date(moment(event.start).format()) > new Date()) && new Date(moment(event.start).subtract(delta.asSeconds(), 'seconds').format()) < new Date();
-                // console.log("new event start");console.log(new Date(event.start.format()));
-                // console.log("old event start");console.log(new Date(moment(event.start).subtract(delta.asSeconds(), 'seconds').format()));
-
 
                 if (onlyExpandble) {
                     alert('Vous ne pouvez pas modifier une "réservation déja démarré" que par une prolongation :)');
                     revertFunc();
                 }
-                // if we do need to prevent event dragging after persisting
-                // if (!!event.id) {
-                //     revertFunc();
-                //     alert("Vous pouvez seulement modifier la réservation par la prolongation :)");
-                // }
+
             },
             header: {
                 left: "prev,next today",

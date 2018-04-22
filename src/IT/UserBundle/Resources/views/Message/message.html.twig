@@ -1,0 +1,29 @@
+<ul class="dropdown-menu mailbox animated bounceInDown">
+    <li>
+        <div class="drop-title">Vous avez {{ messages|length }} nouveaux messages</div>
+    </li>
+    {% for message in messages %}
+    <li>
+        <div class="message-center">
+            <a href="#">
+                <div class="user-img">
+                    <img src="{{ asset('bundles/itreservation/app/plugins/images/users/semh.jpg') }}" alt="user"
+                         class="img-circle">
+                    <span class="profile-status busy pull-right"></span>
+                </div>
+                <div class="mail-contnet">
+                    <h5>{{ message.user.username }}</h5>
+                    <span class="mail-desc">{{ message.message }}</span>
+                    <span class="time">{{ message.dateEnvoi | date  }}</span>
+                </div>
+            </a>
+        </div>
+    </li>
+    {% endfor %}
+    <li>
+        <a class="text-center" href="{{ path('listMessages') }}">
+            <strong>Voir tous les messages</strong>
+            <i class="fa fa-angle-right"></i>
+        </a>
+    </li>
+</ul>

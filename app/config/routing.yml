@@ -1,3 +1,8 @@
+it_inventory:
+    resource: "@ITInventoryBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 it_api:
     resource: "@ITApiBundle/Controller/"
     type:     annotation

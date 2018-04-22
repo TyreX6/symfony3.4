@@ -54,7 +54,7 @@ class CategoryApiController extends Controller
      * @Rest\View()
      * @Rest\Get("api/categories/list/resources")
      * @Operation(
-     *  tags={"Category"},summary="Retreive all categorised resources",
+     *  tags={"Category"},summary="Retreive all resources grouped by Category",
      *@SWG\Schema(
      *         type="Object",
      *         @Model(type=Categorie::class)
@@ -78,7 +78,7 @@ class CategoryApiController extends Controller
      * @Rest\View()
      * @Rest\GET("api/categories/list/resources/{id}")
      * @Operation(
-     *  tags={"Categories"},
+     *  tags={"Category"},
      *     summary="Retreive all resources for specific category",
      *     @SWG\Parameter(
      *     name="id",

@@ -36,7 +36,7 @@ class DispositifApiController extends Controller
      *      @SWG\Parameter(
      *     in="body",
      *     name="body",
-     *     description="order placed for purchasing the pet",
+     *     description="",
      *     required=true,
      *     @SWG\Schema(ref="#/definitions/Dispositif"),
      *
@@ -51,7 +51,59 @@ class DispositifApiController extends Controller
      */
     public function addDispositifsAction(Request $request)
     {
-        return array();
+        //Receive all data
+        $data = $request->request->all();
+
+        $device_name = $data["deviceName"];
+        $device_model = $data["model"];
+        $device_resolution = $data["resolution"];
+        $os = $data["os"];
+        $version_os = $data["OsVersion"];
+        $device_UUID = $data["deviceUUID"];
+        $device_memory = $data["diskSpace"];
+        $freediskspace = $data["freeDiskSpace"];
+        $useddiskspace = $data["usedDiskSpace"];
+        $ramsize = $data["ram"];
+        $cpucore = $data["cpuCores"];
+        $cpuinfo = $data["cpu"];
+
+        //Set new Device
+        $em = $this->getDoctrine()->getManager();
+
+        $dispositif = $em->getRepository("ITDispositifBundle:Dispositif")->findOneBy(["deviceUUID" => $device_UUID]);
+
+        if ($dispositif == null) {
+            $dispositif = new Dispositif();
+        }
+
+        $dispositif->setStatus("Fonctionnel");
+        $dispositif->setLastCheckDate(new \DateTime(null, new \DateTimeZone("Africa/Tunis")));
+        if (strpos(strtolower($os), 'ios') !== false) {
+            //TODO automate categ
+            $categ = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => 1]);
+            $dispositif->setCategory($categ);
+        } else {
+            //TODO automate categ
+            $categ = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => 2]);
+            $dispositif->setCategory($categ);
+        }
+        $dispositif->setDeviceName($device_name);
+        $dispositif->setModel($device_model);
+        $dispositif->setResolution($device_resolution);
+        $dispositif->setOs($os);
+        $dispositif->setOsVersion($version_os);
+        $dispositif->setDeviceUUID($device_UUID);
+        $dispositif->setDiskSpace($device_memory);
+        $dispositif->setFreeDiskSpace($freediskspace);
+        $dispositif->setUsedDiskSpace($useddiskspace);
+        $dispositif->setRam($ramsize);
+        $dispositif->setCpuCores($cpucore);
+        $dispositif->setCpu($cpuinfo);
+
+        $em->persist($dispositif);
+        $em->flush();
+
+        return array("success" => 1);
     }
 
     /**

@@ -1,0 +1,85 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+    Détail message
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets
+        'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
+        'bundles/itreservation/app/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Détail message</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('configLDAP') }}">Accueil</a></li>
+                        <li class="active">Détail message</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- row -->
+            <div class="row">
+                <!-- Left sidebar -->
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mail_listing">
+                                <div class="media m-b-30 p-t-20">
+                                    <a class="pull-left" href="#"> <img class="media-object thumb-sm img-circle" src="{{ asset('bundles/itreservation/app/plugins/images/users/semh.jpg') }}" alt=""> </a>
+                                    <div class="media-body">
+                                        <span class="media-meta pull-right">{{ message.dateEnvoi | date }}</span>
+                                        <h4 class="text-danger m-0">{{ message.user.username }}</h4>
+                                        <small class="text-muted">Email: {{ message.user.email }}</small>
+                                    </div>
+                                </div>
+                                <p><strong>{{ message.message }}</strong></p>
+                                <hr>
+                                        <form class="row" action="{{ path('send_message',{'id':message.id}) }}" method="POST">
+                                            <div class="col-md-10">
+                                            <textarea class="form-control" placeholder="Type your message" name="message"></textarea>
+                                            </div>
+                                            <div class="col-md-2 right">
+                                            <button class="btn btn-danger btn-rounded" type="submit">Envoyer</button>
+                                            </div>
+                                        </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+
+    {{ render(controller('ITUserBundle:Message:unsetMessage', {"message":message})) }}
+{% endblock %}
+
+
+{% block scripts %}
+    {% javascripts
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
+
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <!--FooTable init-->
+    <!-- Custom Theme JavaScript -->
+
+{% endblock %}
+

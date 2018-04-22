@@ -118,7 +118,7 @@ class Message
     }
 
     /**
-     * @return mixed
+     * @return User
      */
     public function getUser()
     {

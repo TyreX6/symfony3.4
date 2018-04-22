@@ -52,7 +52,8 @@
 	Guest Port = 80
 	Save
 //
-	
+	cn=admin,dc=localhost
+	root
 
 	
 	fr3d_ldap

@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -27,18 +28,10 @@ class ProjecteurType extends AbstractType
                 'placeholder' => 'Exp: Projecteur Sharp',
                 'data-errormessage-value-missing' => 'This input is required!')
         ))
-            ->add('categorie', EntityType::class, array(
-                    'attr' => array('class' => 'form-control selectpicker m-b-20 m-r-10',
-                        'data-errormessage-value-missing' => 'This input is required!',
-                        'data-style' => 'btn-info btn-outline'),
-                    'class' => 'IT\DispositifBundle\Entity\Categorie',
-                    'choice_label' => 'name',
-                )
+            ->add('categorie', HiddenType::class, array()
             )
             ->add('etat', ChoiceType::class, array(
-                'attr' => array('class' => 'form-control selectpicker m-b-20 m-r-10',
-                    'data-errormessage-value-missing' => 'This input is required!',
-                    'data-style' => 'btn-info btn-outline'),
+                'attr' => array(),
                 'choices' => array(
                     'Fonctionnel' => "Fonctionnel",
                     'Détruit' => "Détruit",
@@ -50,8 +43,16 @@ class ProjecteurType extends AbstractType
                 'attr' => array('class' => 'form-control  validate[required] ',
                     'placeholder' => 'Exp: 2048x1440',
                     'data-errormessage-value-missing' => 'This input is required!')
+            ))
+            ->add('codeBarre', TextType::class, array(
+                    'attr' => array('class' => 'form-control  validate[required] ',
+                        'placeholder' => 'Exp: 654552626532015614641656',
+                        'data-errormessage-value-missing' => 'This input is required!')
+                )
             )
-            );
+            ->add('Envoyer', SubmitType::class, array(
+                'attr' => array('class' => 'btn btn-primary'),
+            ));
 
     }
 

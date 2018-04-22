@@ -29,7 +29,7 @@ class Dispositif extends Ressource
 
     /**
      * @var string
-     * @ORM\Column(name="modele", type="string", length=50)
+     * @ORM\Column(name="model", type="string", length=50)
      * @Expose
      * @Assert\NotBlank()
      * @Assert\Length(
@@ -38,9 +38,23 @@ class Dispositif extends Ressource
      *      minMessage = "Your model must be at least {{ limit }} characters long",
      *      maxMessage = "Your model cannot be longer than {{ limit }} characters"
      * )
-     * @SWG\Property(property="modele",type="string",description="modele du dispositif.")
+     * @SWG\Property(property="model",type="string",description="The model of the device.")
      */
-    private $modele;
+    private $model;
+
+    /**
+     * @var string
+     * @ORM\Column(name="deviceName", type="string", length=50)
+     * @Expose
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 50,
+     *      minMessage = "Your deviceName must be at least {{ limit }} characters long",
+     *      maxMessage = "Your deviceName cannot be longer than {{ limit }} characters"
+     * )
+     * @SWG\Property(property="deviceName",type="string",description="Nom du dispositif.")
+     */
+    private $deviceName;
 
 
     /**
@@ -59,24 +73,42 @@ class Dispositif extends Ressource
 
     /**
      * @var string
-     * @ORM\Column(name="versionOS", type="string")
+     * @ORM\Column(name="OsVersion", type="string")
      * @Expose
      * @Assert\NotBlank()
      * @Assert\Regex("/(^.+)\.(\w+)/",
      *     message="This is not a valid version")
-     * @SWG\Property(type="string",description="Version du systéme d'exploitation du dispositif.")
+     * @SWG\Property(type="string",description="Version of the system's OS")
      */
-    private $versionOS;
+    private $OsVersion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="processeur", type="string", length=40)
+     * @ORM\Column(name="device_UUID", type="string", length=80)
+     * @Expose
+     * @SWG\Property(type="string",description="Identifiant unique du dispositif.")
+     */
+    private $deviceUUID;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cpu", type="string", length=40)
      * @Expose
      * @Assert\NotBlank()
-     * @SWG\Property(type="string",description="Processeur du dispositif.")
+     * @SWG\Property(type="string",description="Cpu of the device.")
      */
-    private $processeur;
+    private $cpu;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="cpu_cores", type="integer")
+     * @Expose
+     * @SWG\Property(type="number",description="Nombre de coeurs du dispositif.")
+     */
+    private $cpuCores;
 
     /**
      * @var float
@@ -97,21 +129,39 @@ class Dispositif extends Ressource
     /**
      * @var string
      *
-     * @ORM\Column(name="numero_serie", type="string")
+     * @ORM\Column(name="disk_space", type="string")
      * @Expose
-     * @Assert\NotBlank()
-     * @SWG\Property(description="Numero de serie du dispositif.")
+     * @SWG\Property(description="Storage du dispositif.")
      */
-    private $numero_serie;
+    private $diskSpace;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="free_disk_space", type="string")
+     * @Expose
+     * @SWG\Property(description="Storage disponible du dispositif.")
+     */
+    private $freeDiskSpace;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="used_disk_space", type="string")
+     * @Expose
+     * @SWG\Property(description="Storage utilisé du dispositif.")
+     */
+    private $usedDiskSpace;
+
 
     /**
      * @var string
      * @ORM\Column(name="resolution", type="string" ,length=20)
      * @Expose
      * @Assert\NotBlank()
-     * @Assert\Regex("/(^[0-9]{4}+)(x|X)([0-9]{4}$)/",
+     * @Assert\Regex("/(^[0-9]{3,4}+)(x|X)([0-9]{3,4}$)/",
      *     message="This is not a valid resolution")
-     * @SWG\Property(type="string",description="Résolution du dispositif.")
+     * @SWG\Property(type="string",description="Resolution of the device.")
      */
     private $resolution;
 
@@ -120,8 +170,7 @@ class Dispositif extends Ressource
      **/
     private $apps;
 
-
-
+    
     /**
      * @ORM\OneToMany(targetEntity="Image", mappedBy="dispositif" ,cascade={"remove", "persist"},orphanRemoval=true)
      **/
@@ -129,6 +178,7 @@ class Dispositif extends Ressource
 
     /**
      * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\Reservation", mappedBy="dispositif",cascade="persist")
+     * @SWG\Property(description="Reservation of the device.")
      **/
     private $reservation;
 
@@ -139,105 +189,6 @@ class Dispositif extends Ressource
         $this->reservation = new ArrayCollection();
         $this->apps = new ArrayCollection();
         $this->images = new ArrayCollection();
-    }
-
-    /**
-     * @return string
-     */
-    public function getModele()
-    {
-        return $this->modele;
-    }
-
-    /**
-     * @param string $modele
-     */
-    public function setModele($modele)
-    {
-        $this->modele = $modele;
-    }
-
-
-
-    /**
-     * @return string
-     */
-    public function getOs()
-    {
-        return $this->os;
-    }
-
-    /**
-     * @param string $os
-     */
-    public function setOs($os)
-    {
-        $this->os = $os;
-    }
-
-    /**
-     * @return float
-     */
-    public function getVersionOS()
-    {
-        return $this->versionOS;
-    }
-
-    /**
-     * @param float $versionOS
-     */
-    public function setVersionOS($versionOS)
-    {
-        $this->versionOS = $versionOS;
-    }
-
-    /**
-     * @return string
-     */
-    public function getProcesseur()
-    {
-        return $this->processeur;
-    }
-
-    /**
-     * @param string $processeur
-     */
-    public function setProcesseur($processeur)
-    {
-        $this->processeur = $processeur;
-    }
-
-
-    /**
-     * @return float
-     */
-    public function getRam()
-    {
-        return $this->ram;
-    }
-
-    /**
-     * @param float $ram
-     */
-    public function setRam($ram)
-    {
-        $this->ram = $ram;
-    }
-
-    /**
-     * @return string
-     */
-    public function getResolution()
-    {
-        return $this->resolution;
-    }
-
-    /**
-     * @param string $resolution
-     */
-    public function setResolution($resolution)
-    {
-        $this->resolution = $resolution;
     }
 
     /**
@@ -281,21 +232,6 @@ class Dispositif extends Ressource
     }
 
     /**
-     * @return string
-     */
-    public function getNumeroSerie()
-    {
-        return $this->numero_serie;
-    }
-
-    /**
-     * @param string $numero_serie
-     */
-    public function setNumeroSerie($numero_serie)
-    {
-        $this->numero_serie = $numero_serie;
-    }
-    /**
      * @return mixed
      */
     public function getApps()
@@ -324,6 +260,198 @@ class Dispositif extends Ressource
     }
 
     /**
+     * @return string
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * @param string $model
+     */
+    public function setModel(string $model)
+    {
+        $this->model = $model;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeviceName()
+    {
+        return $this->deviceName;
+    }
+
+    /**
+     * @param string $deviceName
+     */
+    public function setDeviceName(string $deviceName)
+    {
+        $this->deviceName = $deviceName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOs()
+    {
+        return $this->os;
+    }
+
+    /**
+     * @param string $os
+     */
+    public function setOs(string $os)
+    {
+        $this->os = $os;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOsVersion()
+    {
+        return $this->OsVersion;
+    }
+
+    /**
+     * @param string $OsVersion
+     */
+    public function setOsVersion(string $OsVersion)
+    {
+        $this->OsVersion = $OsVersion;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeviceUUID()
+    {
+        return $this->deviceUUID;
+    }
+
+    /**
+     * @param string $deviceUUID
+     */
+    public function setDeviceUUID(string $deviceUUID)
+    {
+        $this->deviceUUID = $deviceUUID;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCpu()
+    {
+        return $this->cpu;
+    }
+
+    /**
+     * @param string $processor
+     */
+    public function setCpu(string $cpu)
+    {
+        $this->cpu = $cpu;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCpuCores()
+    {
+        return $this->cpuCores;
+    }
+
+    /**
+     * @param int $cpuCores
+     */
+    public function setCpuCores(int $cpuCores)
+    {
+        $this->cpuCores = $cpuCores;
+    }
+
+    /**
+     * @return float
+     */
+    public function getRam()
+    {
+        return $this->ram;
+    }
+
+    /**
+     * @param float $ram
+     */
+    public function setRam(float $ram)
+    {
+        $this->ram = $ram;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDiskSpace()
+    {
+        return $this->diskSpace;
+    }
+
+    /**
+     * @param string $diskSpace
+     */
+    public function setDiskSpace(string $diskSpace)
+    {
+        $this->diskSpace = $diskSpace;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFreeDiskSpace()
+    {
+        return $this->freeDiskSpace;
+    }
+
+    /**
+     * @param string $freeDiskSpace
+     */
+    public function setFreeDiskSpace(string $freeDiskSpace)
+    {
+        $this->freeDiskSpace = $freeDiskSpace;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsedDiskSpace()
+    {
+        return $this->usedDiskSpace;
+    }
+
+    /**
+     * @param string $usedDiskSpace
+     */
+    public function setUsedDiskSpace(string $usedDiskSpace)
+    {
+        $this->usedDiskSpace = $usedDiskSpace;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResolution()
+    {
+        return $this->resolution;
+    }
+
+    /**
+     * @param string $resolution
+     */
+    public function setResolution(string $resolution)
+    {
+        $this->resolution = $resolution;
+    }
+
+    /**
      * @return mixed
      */
     public function getReservation()
@@ -338,6 +466,16 @@ class Dispositif extends Ressource
     {
         $this->reservation = $reservation;
     }
+
+    public function __toString()
+    {
+        return $this->model;
+    }
+    
+    
+
+
+
 
 
 

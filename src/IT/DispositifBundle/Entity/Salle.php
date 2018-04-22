@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ExclusionPolicy("all")
  * @SWG\Definition(type="object", @SWG\Xml(name="Salle"))
  */
-class Salle
+class Salle extends Ressource
 {
     /**
      * @var integer
@@ -53,6 +53,7 @@ class Salle
      */
     public function __construct()
     {
+        parent::__construct();
     }
 
     /**
@@ -94,6 +95,11 @@ class Salle
     public function setNumeroSalle($numero_salle)
     {
         $this->numero_salle = $numero_salle;
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
 

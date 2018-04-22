@@ -1,0 +1,198 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Liste des Inventaires {% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets
+        'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+{% endblock %}
+
+{% block gestion_inventaires %}
+    <a href="#" class="waves-effect active">
+        <i class="icon-basic-lock-open fa-fw" data-icon="v"></i>
+        <span class="hide-menu"> Gestion Inventaires
+            <span class="fa arrow"></span>
+        </span>
+    </a>
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Réservations</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                        <li><a href="{{ path('liste_reservation') }}">Réservations</a></li>
+                        <li class="active">Liste</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- .row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"> Liste des inventaires</div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                            </div>
+
+                        </div>
+                        <!-- Tabstyle start -->
+                        <div class="panel-wrapper collapse in" aria-expanded="true">
+                            <div class="panel-body">
+                                <label class="form-inline">Afficher
+                                    <select id="demo-show-entries" class="form-control input-sm">
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="20">20</option>
+                                    </select> entrées
+                                    <div class="btn-group right">
+                                        <a class="right">
+                                            <button id="sample_editable_1_new" class="btn btn-success" onclick="return addInventaire()"> Ajouter Inventaire
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </label>
+
+                                <table id="demo-foo-pagination"
+                                       class="table table-bordered color-table success-table m-b-0 toggle-arrow-tiny"
+                                       data-page-size="10">
+                                    <thead>
+                                    <tr>
+                                        <th> ID</th>
+                                        <th data-toggle="true"> Etat </th>
+                                        <th data-hide="phone"> Date début</th>
+                                        <th data-hide="phone"> Date début</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for inventaire in inventaires %}
+                                        <tr>
+                                            <td>
+                                                {{ inventaire.id }}
+                                            </td>
+                                            <td>
+                                                {% if(inventaire.etat == "Terminé") %}
+                                                    <span class="label-inv label-lg bold label-danger center-block">{{ inventaire.etat}} </span>
+                                                {% else %}
+                                                    <span class="label-inv label-lg bold label-success center-block">{{ inventaire.etat}} </span>
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ inventaire.dateInventaire | date }}</td>
+
+                                            <td>
+                                                <a href="{{ path('consulter_inventaire' , {id:inventaire.id}) }}"
+                                                   class="dt-button btn dark btn-outline btn-outline sbold" style="width: 45%">
+                                                    <i class="fa fa-share"></i> Consulter </a>
+                                                {% if(inventaire.etat == "Ouvert") %}
+                                                    <a href="{{ path('cloture_inventaire',{id:inventaire.id}) }}" onclick="return confirm('Voulez Vous cloturer cet inventaire ?')"
+                                                       class="clotureAction dt-button btn btn-danger btn-outline btn-outline sbold" style="width: 45%">
+                                                        <i class="fa fa-archive"></i> Cloturer </a>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="text-right">
+                                                <ul class="pagination pagination-split m-t-30"></ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <!-- /content -->
+                        </div>
+                        <!-- /tabs -->
+
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+
+
+{% endblock %}
+
+
+
+{% block scripts %}
+    {% javascripts
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/cbpFWTabs.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script>
+        function addInventaire() {
+            $(".LoadingRoot").css("display", "block");
+            $.ajax({
+                type: 'post',
+                url: '{{ path('add_inventaire') }}',
+                data: 'mode=' + 2,
+                dataType: 'json',
+                success: function (json) {
+                    $(".LoadingRoot").css("display", "none");
+                    toastr.success("Ajout de l'inventaire avec succée");
+                    console.log(json);
+                    var statu;
+                    if (json.etat === "Ouvert") {
+                        statu = "<span class='label label-lg bold label-success center-block'>Ouvert</span>"
+                    }
+                    else
+                        statu = "<span class='label label-lg bold label-danger center-block'>Terminé</span>";
+
+                    var tr = "<tr id=" + json.id + " class='success gradeX'>" +
+                        "<td><label class='mt-checkbox mt-checkbox-single mt-checkbox-outline'><input type='checkbox' class='checkboxes' value='1'/> <span></span> </label></td>" +
+                        "<td>" + json.id + "</td>" +
+                        "<td>" + statu + "</td>" +
+                        "<td>" + timeConverter(json.dateInventaire.timestamp.toString()) + "</td>" +
+                        "<td>" +
+                        "<a href='/admin/inventaire/" + json.id + "' class='dt-button btn dark btn-outline btn-outline sbold' style='width: 100%'> <i class='fa fa-share'></i> Consulter </a>" +
+                        "</td>" +
+                        "</tr>";
+                    $('#sample_1').find('tbody').append(tr);
+                },
+                error: function (data) {
+                    $(".LoadingRoot").css("display", "none");
+                    toastr.error("Erreur lors de l'insertion du matériel !! Verifier le Code");
+                }
+            });
+        }
+
+        function timeConverter(UNIX_timestamp) {
+            var a = new Date(UNIX_timestamp * 1000);
+            var months = ['Janvier', 'Février', 'Mars', 'Avril', 'May', 'Juin', 'Juillet', 'Aout', 'Sept', 'Oct', 'Nov', 'Dec'];
+            var year = a.getFullYear();
+            var month = months[a.getMonth()];
+            var date = a.getDate();
+            var hour = a.getHours();
+            var min = a.getMinutes();
+            var sec = a.getSeconds();
+            return time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
+        }
+
+    </script>
+
+{% endblock %}

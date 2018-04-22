@@ -95,33 +95,8 @@
                             <span class="point"></span>
                         </div>
                     </a>
-                    <ul class="dropdown-menu mailbox animated bounceInDown">
-                        <li>
-                            <div class="drop-title">Vous avez 4 nouveaux messages</div>
-                        </li>
-                        <li>
-                            <div class="message-center">
-                                <a href="#">
-                                    <div class="user-img">
-                                        <img src="{{ asset('bundles/itreservation/app/plugins/images/users/semh.jpg') }}" alt="user"
-                                             class="img-circle">
-                                        <span class="profile-status busy pull-right"></span>
-                                    </div>
-                                    <div class="mail-contnet">
-                                        <h5>Sonu Nigam</h5>
-                                        <span class="mail-desc">I've sung a song! See you at</span>
-                                        <span class="time">9:10 AM</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <a class="text-center" href="javascript:void(0);">
-                                <strong>See all notifications</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    {{ render(controller('ITUserBundle:Message:message')) }}
+
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->
@@ -209,7 +184,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ path('ajouter_reservation') }}" class="waves-effect">
+                            <a href="{{ path('ajouter_reservation',{'id_categ':1}) }}" class="waves-effect">
                                 <i class="icon-calender fa-fw" data-icon="v"></i>
                                 <span class="hide-menu"> Ajouter réservation </span>
                             </a>
@@ -243,11 +218,39 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ path('ajouter_ressource') }}" class="waves-effect">
+                                <i class="icon-software-pen-add fa-fw" data-icon="v"></i>
+                                <span class="hide-menu"> Ajouter autre ressource </span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ path('modifier_category') }}" class="waves-effect">
                                 <i class="icon-basic-archive fa-fw" data-icon="v"></i>
                                 <span class="hide-menu"> Gestion des catégories </span>
                             </a>
                         </li>
+                    </ul>
+                </li>
+
+                <li>
+                    {% block gestion_inventaires %}
+                        <a href="index.html" class="waves-effect"><i class="icon-chart fa-fw" data-icon="v"></i>
+                            <span class="hide-menu"> Gestion Inventaires <span class="fa arrow"></span></span></a>
+                    {% endblock %}
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="{{ path('list_inventaires') }}" class="waves-effect">
+                                <i class="icon-list fa-fw" data-icon="v"></i>
+                                <span class="hide-menu"> Liste des inventaires </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('add_inventaire') }}" class="waves-effect">
+                                <i class="icon-magnifier-add fa-fw" data-icon="v"></i>
+                                <span class="hide-menu"> Ajouter un inventaire </span>
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
 

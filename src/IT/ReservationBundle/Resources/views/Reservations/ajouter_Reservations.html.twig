@@ -11,13 +11,13 @@
 
 {% block stylesheets %}
     {% stylesheets
-    'bundles/itreservation/app/plugins/bower_components/calendar/dist/fullcalendar.css'
-    'bundles/itreservation/app/plugins/bower_components/toast-master/css/jquery.toast.css'
-    'bundles/itreservation/app/plugins/bower_components/custom-select/custom-select.css'
-    'bundles/itreservation/app/plugins/bower_components/switchery/dist/switchery.min.css'
-    'bundles/itreservation/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css'
-    filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
+        'bundles/itreservation/app/plugins/bower_components/calendar/dist/fullcalendar.css'
+        'bundles/itreservation/app/plugins/bower_components/toast-master/css/jquery.toast.css'
+        'bundles/itreservation/app/plugins/bower_components/custom-select/custom-select.css'
+        'bundles/itreservation/app/plugins/bower_components/switchery/dist/switchery.min.css'
+        'bundles/itreservation/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 
 {% endblock %}
@@ -43,13 +43,30 @@
                     <div class="white-box">
                         <h3 class="box-title">CHOISIR COLLABORATEUR ET DISPOSITIF</h3>
                         <form id="newRes" role="form">
+
+                            <div class="row m-t-10">
+                                <div class="col-md-12">
+                                    <label class="control-label">Choisir la catégorie</label>
+                                    <select name="category-Select" class="form-control select2"
+                                            data-placeholder="">
+                                        {% for category in categories %}
+                                            <option
+                                                    {% if category.id == categ_id %}
+                                                        selected
+                                                    {% endif %}
+                                                    value="{{ category.id }}">{{ category.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+
                             <div class="row m-t-10">
                                 <div class="col-md-12">
                                     <label class="control-label">Choisir le dispositif</label>
-                                    <select name="dispositif-Select" class="form-control select2"
+                                    <select name="dispositif-Select" class="form-control select3"
                                             data-placeholder="">
                                         {% for dispo in dispos %}
-                                            <option value="{{ dispo.id }}">{{ dispo.modele }}</option>
+                                            <option value="{{ dispo.id }}">{{ dispo.model }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -73,7 +90,8 @@
                             </div>
                         </form>
                         <hr>
-                        <button type="button" class="btn btn-1d m-t-10 btn-danger btn-block waves-effect waves-light save-category">
+                        <button type="button"
+                                class="btn btn-1d m-t-10 btn-danger btn-block waves-effect waves-light save-category">
                             <i class="ti-plus"></i> Ajouter une réservation
                         </button>
                         <hr>
@@ -189,6 +207,13 @@
                 fetchReservations();
             });
 
+            $("select[name='category-Select']").change(function () {
+                var id = $("select[name='category-Select'] option:selected").val();
+                var url = "{{ path('ajouter_reservation',{'id_categ':'id'}) }}" ;
+                url = url.replace("id", id);
+                window.location.replace(url);
+            });
+
             function fetchReservations() {
                 $('.LoadingRoot').show();
                 var idDispo = $("select[name='dispositif-Select'] option:selected").val();
@@ -205,8 +230,8 @@
                             CalenderEvents[0].events.push(
                                 {
                                     id: element.id,
-                                    title: element.dispositif.modele + " pour " + element.user.username,
-                                    backTitle:element.dispositif.modele + " pour " + element.user.username,
+                                    title: element.dispositif.model + " pour " + element.user.username,
+                                    backTitle: element.dispositif.model + " pour " + element.user.username,
                                     start: new Date(element.date_debut),
                                     end: new Date(element.date_fin),
                                     className: "bg-warning",
@@ -226,16 +251,16 @@
         </script>
 
         {% javascripts
-        '@ITReservationBundle/Resources/public/app/plugins/bower_components/toast-master/js/jquery.toast.js'
-        '@ITReservationBundle/Resources/public/app/plugins/bower_components/fullcalendar/lib/jquery-ui.min.js'
-        '@ITReservationBundle/Resources/public/app/assets/js/custom.min.js'
-        '@ITReservationBundle/Resources/public/app/plugins/bower_components/switchery/dist/switchery.min.js'
-        '@ITReservationBundle/Resources/public/app/plugins/bower_components/custom-select/custom-select.min.js'
-        '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js'
-        '@ITReservationBundle/Resources/public/app/plugins/bower_components/fullcalendar/lib/moment.min.js'
-        '@ITReservationBundle/Resources/public/app/plugins/bower_components/fullcalendar/fullcalendar.min.js'
-        '@ITReservationBundle/Resources/public/app/plugins/bower_components/calendar/dist/cal-init.js' %}
-        <script src="{{ asset_url }}"></script>
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/toast-master/js/jquery.toast.js'
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/fullcalendar/lib/jquery-ui.min.js'
+            '@ITReservationBundle/Resources/public/app/assets/js/custom.min.js'
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/switchery/dist/switchery.min.js'
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/custom-select/custom-select.min.js'
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js'
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/fullcalendar/lib/moment.min.js'
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/fullcalendar/fullcalendar.min.js'
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/calendar/dist/cal-init.js' %}
+            <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
 
         <script>
@@ -276,6 +301,7 @@
 
             // For select 2
             $(".select2").select2();
+            $(".select3").select2();
             $('.selectpicker').selectpicker();
         </script>
 

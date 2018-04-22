@@ -18,9 +18,10 @@ class DispositifsRepository extends EntityRepository
         $qb = $this->_em->createQueryBuilder();
         $qb->select('d')
             ->from('ITDispositifBundle:Dispositif', 'd')
-            ->where('d.modele LIKE :keyword')
+            ->where('d.model LIKE :keyword')
             ->setParameter('keyword', '%'.$keyword.'%') ;
         return $qb->getQuery()->getResult();
     }
+
 
 }

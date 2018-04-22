@@ -45,23 +45,27 @@ class ReservationsController extends Controller
 
 
     /**
-     * @Route("/ajouter", name="ajouter_reservation")
-     * @param Request $request
+     * @Route("/ajouter/{id_categ}", name="ajouter_reservation")
      * @Template()
-     * @return array
      */
-    public function ajouter_ReservationsAction(Request $request)
+    public function ajouter_ReservationsAction($id_categ)
     {
         $em = $this->getDoctrine()->getManager();
-        $dispos = $em->getRepository("ITDispositifBundle:Dispositif")->findAll();
+
+        $categories = $em->getRepository("ITDispositifBundle:Categorie")->findAll();
+        $category = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => $id_categ]);
+        if ($category == null) {
+            return $this->redirectToRoute("ajouter_reservation", ["id_categ" => 1]);
+        }
+        $dispos = $category->getRessource();
         $utilisateurs = $em->getRepository("ITUserBundle:User")->getUsersByRole("ROLE_USER");
 
-        return array('utilisateurs' => $utilisateurs, 'dispos' => $dispos);
+        return array('utilisateurs' => $utilisateurs, 'dispos' => $dispos, "categories" => $categories, "categ_id" => $id_categ);
     }
 
 
     /**
-     * @Route("/ajouter/ajax", name="ajout_reservation_ajax")
+     * @Route("/add_reservation_ajax", name="ajout_reservation_ajax")
      */
     public function ajouterReservationsAjaxAction()
     {
@@ -79,7 +83,7 @@ class ReservationsController extends Controller
 
 
             //On ne peut pas ajouter un réservation avec un date de début déja passé
-            if ($dateDebut->getTimestamp() < $dateNow->getTimestamp() + 3600) {
+            if ($dateDebut->getTimestamp() < $dateNow->getTimestamp()) {
                 return JsonResponse::create(array("success" => 0), 200)
                     ->setSharedMaxAge(900);
             }
@@ -91,6 +95,7 @@ class ReservationsController extends Controller
             $reservation->setUser($user);
             $reservation->setDateDebut($dateDebut);
             $reservation->setDispositif($dispositif);
+            $reservation->setRessource($dispositif);
             $reservation->setDateFin($dateFin);
             $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
             $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reservation, $regles);
@@ -111,12 +116,12 @@ class ReservationsController extends Controller
             $client = new Client();
             $url = "http://localhost:8080/reservation";
             $data = ["reservation" => $jsonContent];
-            $response = $client->post($url, [
-                'json' => $data
-            ]);
+//            $response = $client->post($url, [
+//                'json' => $data
+//            ]);
 
 
-            $message = $dispositif->getModele() . " réservé pour " . $user->getUsername();
+            $message = $dispositif->getModel() . " réservé pour " . $user->getUsername();
 
             return JsonResponse::create(array("success" => 1, "message" => $message, "id" => $reservation->getId()), 200)->setSharedMaxAge(900);
         } catch (Exception $e) {
@@ -149,7 +154,7 @@ class ReservationsController extends Controller
             //Si la réservation est en cours on ne peut changer que par une prolongation convenable
             //Si date fin réservation est passé , alors on ne peut plus modifier une réservation terminée
             //On peut pas faire une modification en modifiant la date de début du réservation
-            if (($dateFin->getTimestamp() < $dateTimeStamp) ) {
+            if (($dateFin->getTimestamp() < $dateTimeStamp)) {
                 return JsonResponse::create(array("success" => 0, "message" => "reservation passé"), 200)
                     ->setSharedMaxAge(900);
             }
@@ -211,12 +216,26 @@ class ReservationsController extends Controller
             ->setSharedMaxAge(900);
     }
 
+    /**
+     * @Route("/reservations/delete/{id}", name="delete_reservation")
+     */
+    public function delete_ReservationAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $reservation = $em->getRepository("ITReservationBundle:Reservation")->findOneBy(['id' => $id]);
+
+        $em->remove($reservation);
+        $em->flush();
+
+        return $this->redirectToRoute("liste_reservation");
+    }
+
     function CallAPI($method, $url, $data = false)
     {
         $curl = curl_init();
 
-        switch ($method)
-        {
+        switch ($method) {
             case "POST":
                 curl_setopt($curl, CURLOPT_POST, 1);
 

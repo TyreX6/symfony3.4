@@ -8,45 +8,87 @@
 
 namespace IT\DispositifBundle\Controller;
 
+use GuzzleHttp\Psr7\Response;
 use IT\DispositifBundle\Entity\Dispositif;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use IT\DispositifBundle\Entity\Projecteur;
 use IT\DispositifBundle\Entity\Ressource;
+use IT\DispositifBundle\Entity\Salle;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class RessourceController extends Controller
 {
     /**
-     * @Route("/ajouter/categorie/{id}" , name="ajouter_ressource")
+     * @Route("/resource/add" , name="ajouter_ressource")
      * @Template()
      * @param Request $request
-     * @param integer $id
      * @return array
      */
-    public function ajouter_RessourceAction(Request $request, $id)
+    public function ajouter_RessourceAction(Request $request)
     {
         $message = null;
         $em = $this->getDoctrine()->getManager();
-        $category = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => $id]);
-        if ($category->getName() == "Projecteur"){
-            $projecteur = new Projecteur();
-            $projecteur->setCategorie($category);
-            $form = $this->createForm("IT\DispositifBundle\Form\ProjecteurType", $projecteur);
-            $form->handleRequest($request);
-            if ($form->isValid()) {
+        $categories = $em->getRepository("ITDispositifBundle:Categorie")->findAll();
+        return array("categories" => $categories);
+//        if ($category->getName() == "Projecteur"){
+//            $projecteur = new Projecteur();
+//            $projecteur->setCategorie($category);
+//            $form = $this->createForm("IT\DispositifBundle\Form\ProjecteurType", $projecteur);
+//            $form->handleRequest($request);
+//            if ($form->isValid()) {
+//
+//                $em->persist($projecteur);
+//                $em->flush();
+//                $message = "Projecteur crée avec succée";
+//            }
+//
+//            return array('projecteurForm' => $form->createView(), 'message' => $message);
+//        }
+//        return array();
 
-                $em->persist($projecteur);
-                $em->flush();
-                $message = "Projecteur crée avec succée";
-            }
+    }
 
-            return array('projecteurForm' => $form->createView(), 'message' => $message);
+    /**
+     * @Route("/ajouter/categorie/form" , name="add_form_categ")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getAjaxFormAction()
+    {
+        $postData = $this->get('request_stack')->getCurrentRequest()->request->all();
+        $type = $postData["type"];
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id"=>(int)$type]);
+        $form = null;
+        $resource = null;
+        switch ($type) {
+            case '1':
+                $resource = new Dispositif();
+                $form = $this->createForm("IT\DispositifBundle\Form\DispositifType", $resource);
+                break;
+            case '2':
+                $resource = new Dispositif();
+
+                $form = $this->createForm("IT\DispositifBundle\Form\DispositifType", $resource);
+                break;
+            case '3':
+                $resource = new Projecteur();
+                $form = $this->createForm("IT\DispositifBundle\Form\ProjecteurType", $resource);
+                break;
+            case '4':
+                $resource = new Salle();
+                $form = $this->createForm("IT\DispositifBundle\Form\SalleType", $resource);
+                break;
         }
-        return array();
+        $resource->setCategory($category);
 
+        return $this->render('ITDispositifBundle:Dispositif:form_ressource.html.twig', array(
+            'form' => $form->createView(),
+            'category' => $category->getName(),
+        ));
     }
 
 }

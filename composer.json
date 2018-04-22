@@ -9,6 +9,7 @@
             "IT\\DispositifBundle\\": "src/IT/DispositifBundle",
             "IT\\ReservationBundle\\": "src/IT/ReservationBundle",
             "IT\\UserBundle\\": "src/IT/UserBundle",
+            "IT\\InventoryBundle\\": "src/IT/InventoryBundle",
             "IT\\ApiBundle\\": "src/IT/ApiBundle"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
@@ -29,7 +30,7 @@
         "jms/serializer-bundle": "^2.3",
         "lexik/jwt-authentication-bundle": "^2.4",
         "mashape/unirest-php": "^3.0",
-        "nelmio/api-doc-bundle": "^3.0",
+        "nelmio/api-doc-bundle": "^3.2",
         "nelmio/cors-bundle": "^1.5",
         "ninsuo/symfony-collection": "dev-master",
         "sensio/distribution-bundle": "^5.0.19",

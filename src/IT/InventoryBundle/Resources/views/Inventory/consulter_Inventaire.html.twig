@@ -1,0 +1,248 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+    Inventaire Num {{ id }}
+{% endblock %}
+{% block stylesheets %}
+    {% stylesheets
+        'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block gestion_inventaires %}
+    <a href="#" class="waves-effect active">
+        <i class="icon-chart fa-fw" data-icon="v"></i>
+        <span class="hide-menu"> Gestion Inventaires
+            <span class="fa arrow"></span>
+        </span>
+    </a>
+{% endblock %}
+
+{% block content %}
+
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Réservations</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('homepage') }}">Accueil</a></li>
+                        <li><a href="{{ path('liste_reservation') }}">Réservations</a></li>
+                        <li class="active">Liste</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                    <div class="portlet light ">
+                        <div class="portlet-title">
+
+                            <div class="caption font-dark">
+                                <i class="icon-settings font-dark"></i>
+                                <span class="caption-subject bold uppercase"> Inventaire Num:{{ id }}</span>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="table-toolbar">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label class="col-md-5 control-label">Ajouter Materiel à cet
+                                                Inventaire</label>
+                                            <div class="col-md-7">
+                                                <div class="input-group input-medium">
+
+                                                    <input type="text" name="codeBarre" id="codeBarre"
+                                                           class="form-control" placeholder="Code Barre Materiel">
+                                                    <div class="input-group-btn">
+                                                        <button href="" type="button" class="btn btn-success"
+                                                                onclick="return addAction({{ id }})">Ajouter
+                                                        </button>
+                                                    </div>
+                                                    <!-- /btn-group -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- /input-group -->
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="btn-group pull-right">
+                                            <button class="btn green  btn-outline dropdown-toggle"
+                                                    data-toggle="dropdown">Outils
+                                                <i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right">
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-file-excel-o"></i> Cloturer Inventaire </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-print"></i> Imprimer </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-file-pdf-o"></i> Exporter PDF </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-file-excel-o"></i> Exporter Excel </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <table id="demo-foo-pagination"
+                                   class="table table-bordered color-table success-table m-b-0 toggle-arrow-tiny"
+                                   data-page-size="10">
+                                <thead>
+                                <tr>
+                                    <th>Code Barre</th>
+                                    <th data-hide="phone"> Type Materiel</th>
+                                    <th data-hide="phone"> Statut</th>
+                                    <th data-hide="phone"> Date Ajout</th>
+                                    <th data-hide="phone"> Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for ligne in lignes %}
+                                    <tr id="{{ ligne.id }}">
+                                        <td>
+                                            {{ ligne.resource.CodeBarre }}
+                                        </td>
+                                        <td>
+                                            {{ ligne.resource.categorie }}
+                                        </td>
+                                        <td class="statut">{{ ligne.etat }}</td>
+                                        <td>{{ ligne.resource.dateAtjout | date }}</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button"
+                                                        class="btn btn-primary dropdown-toggle waves-effect waves-light m-r-5"
+                                                        data-toggle="dropdown" aria-expanded="false"> Actions <b
+                                                            class="caret"></b></button>
+                                                {% if(etat == "Ouvert") %}
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li>
+                                                            <a href="#"
+                                                               onclick="return changerStatut({{ ligne.id }},'Fonctionnel')">Fonctionnel</a>
+                                                        </li>
+                                                        <li href="#" class="divider"></li>
+                                                        <li><a href="#" onclick="return changerStatut({{ ligne.id }},'Perdu')">Perdu</a>
+                                                        </li>
+                                                        <li><a href="#"
+                                                               onclick="return changerStatut({{ ligne.id }},'Détruit')">Détruit</a>
+                                                        </li>
+                                                    </ul>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="5">
+                                        <div class="text-right">
+                                            <ul class="pagination pagination-split m-t-30"></ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    </div>
+                    <!-- END EXAMPLE TABLE PORTLET-->
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+{% endblock %}
+
+
+
+{% block scripts %}
+    {% javascripts
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/cbpFWTabs.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+
+    <script>
+        function addAction(InvId) {
+            $(".LoadingRoot").show();
+            var codeBarre = $('#codeBarre').val();
+            console.log(codeBarre);
+            $.ajax({
+                type: 'post',
+                url: '{{ path('addMat_inventaire') }}',
+                data: 'id=' + InvId + '&codeBarre=' + codeBarre,
+                dataType: 'json',
+                success: function (json) {
+                    $(".LoadingRoot").hide();
+                    //toastr.success("Ajout du matériel à l'inventaire avec succée") ;
+                    console.log(json);
+                    var tr = "<tr id="+json.id+">" +
+                        "<td>"+json.materiel.bar_code+"</td>" +
+                        "<td>"+json.materiel.category.name+"</td>" +
+                        "<td>"+json.materiel.etat+"</td>" +
+                        "<td>"+json.materiel.date_atjout+"</td>" +
+                        "<td>" +
+                        "</td>" +
+                        "</tr>" ;
+                    $('#demo-foo-pagination').find('tbody').append(tr);
+                },
+                error: function (data) {
+                    $(".LoadingRoot").hide();
+                    //toastr.error("Erreur lors de l'insertion du matériel !! Verifier le Code") ;
+                }
+            });
+        }
+
+        function changerStatut(InvId, statut) {
+            $(".LoadingRoot").css("display", "block");
+            $.ajax({
+                type: 'post',
+                url: '{{ path('changer_statutPost') }}',
+                data: 'id=' + InvId + '&statut=' + statut,
+                success: function (json) {
+                    $(".LoadingRoot").css("display", "none");
+                    //toastr.success("Statut du matériel changé avec succée :)") ;
+                    console.log(json);
+                    var statutDiv;
+                    if (statut === "Fonctionnel")
+                        statutDiv = "<span class='label-inv label-sm label-success center-block text-center'> Fonctionnel </span>";
+                    else if (statut === "Perdu")
+                        statutDiv = "<span class='label-inv label-sm label-warning center-block text-center'> Perdu </span>";
+                    else
+                        statutDiv = "<span class='label-inv label-sm label-danger center-block text-center'> Detruit </span>";
+                    $('#demo-foo-pagination').find('tbody').find("#" + InvId + "").find(".statut").html(statutDiv);
+                },
+                error: function (data) {
+                    $(".LoadingRoot").css("display", "none");
+                    //toastr.success("Erreur lors du changement du Statut du matériel !!") ;
+                }
+            });
+        }
+
+    </script>
+
+{% endblock %}

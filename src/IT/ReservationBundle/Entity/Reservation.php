@@ -42,7 +42,10 @@ class Reservation extends AbstractReservation
 
     public function __construct() {
         parent::__construct();
+
     }
+
+
 
     /**
      * @return mixed
@@ -59,7 +62,6 @@ class Reservation extends AbstractReservation
     {
         $this->dispositif = $dispositif;
     }
-
 
 
 

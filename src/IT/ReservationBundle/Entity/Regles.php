@@ -9,6 +9,7 @@
 namespace IT\ReservationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Swagger\Annotations as SWG;
 
 /**
  * Class Regles
@@ -16,6 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity()
  * @ORM\Table(name="Regles")
  * @ORM\InheritanceType("SINGLE_TABLE")
+ * @SWG\Definition(type="object", @SWG\Xml(name="Regles"))
  */
 class Regles
 {

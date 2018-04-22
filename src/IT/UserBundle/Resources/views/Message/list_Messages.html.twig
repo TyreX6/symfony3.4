@@ -1,0 +1,130 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+    Liste des messages
+{% endblock %}
+
+{% block stylesheets %}
+    {% stylesheets
+        'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
+        'bundles/itreservation/app/plugins/bower_components/Magnific-Popup-master/dist/magnific-popup.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Inbox</h4> </div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('configLDAP') }}">Accueil</a></li>
+                        <li class="active">Messages</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- row -->
+            <div class="row">
+                <!-- Left sidebar -->
+                <div class="col-md-12">
+                    <div class="white-box">
+                        <!-- row -->
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mail_listing">
+                                <div class="inbox-center">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th width="30">
+                                                <div class="checkbox m-t-0 m-b-0 ">
+                                                    <input id="checkbox0" type="checkbox" class="checkbox-toggle" value="check all">
+                                                    <label for="checkbox0"></label>
+                                                </div>
+                                            </th>
+                                            <th colspan="4">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-primary dropdown-toggle waves-effect waves-light m-r-5" data-toggle="dropdown" aria-expanded="false"> Filter <b class="caret"></b> </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#fakelink">Read</a></li>
+                                                        <li><a href="#fakelink">Unread</a></li>
+                                                        <li><a href="#fakelink">Something else here</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="#fakelink">Separated link</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default waves-effect waves-light  dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-refresh"></i> </button>
+                                                </div>
+                                            </th>
+                                            <th class="hidden-xs" width="100">
+                                                <div class="btn-group pull-right">
+                                                    <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-left"></i></button>
+                                                    <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-right"></i></button>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for message in messages %}
+                                        <tr class="unread">
+                                            <td>
+                                                <div class="checkbox m-t-0 m-b-0">
+                                                    <input type="checkbox">
+                                                    <label for="checkbox0"></label>
+                                                </div>
+                                            </td>
+                                            {% if message.vu != 0 %}
+                                            <td class="hidden-xs"><i class="fa fa-star-o"></i></td>
+                                            {% else %}
+                                            <td class="hidden-xs"><i class="fa fa-star text-warning"></i></td>
+                                            {% endif %}
+                                            <td class="hidden-xs">{{ message.user.username }}</td>
+                                            <td>
+                                            <a class="max-texts" href="{{ path('detailMessage',{'id':message.id}) }}" > {{ message.message }} </a>
+                                            </td>
+
+                                            <td class="text-right"> {{ message.dateEnvoi | date }} </td>
+                                        </tr>
+                                        {% endfor %}
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-7 m-t-20"> Showing 1 - 15 of 200 </div>
+                                    <div class="col-xs-5 m-t-20">
+                                        <div class="btn-group pull-right">
+                                            <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-left"></i></button>
+                                            <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+{% endblock %}
+
+
+{% block scripts %}
+    {% javascripts
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
+
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <!--FooTable init-->
+    <!-- Custom Theme JavaScript -->
+
+{% endblock %}

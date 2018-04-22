@@ -8,9 +8,12 @@
 
 namespace IT\ApiBundle\Controller;
 
+use Doctrine\DBAL\DBALException;
 use Exception;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
+use GuzzleHttp\Client;
+use JMS\Serializer\SerializerBuilder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
@@ -141,6 +144,60 @@ class LdapApiController extends FOSRestController
         $data = $request->request->all();
         $login = $data["username"];
         $password = $data["password"];
+        $UUID = $data["deviceid"];
+
+        $ldap_dn = "uid=" . $login . "," . $ldapConfig->getBaseDn();
+        $ldaphost = "ldap://" . $ldapConfig->getHost();  // votre serveur LDAP
+        $ldap_con = ldap_connect($ldaphost, $ldapConfig->getPort());
+        ldap_set_option($ldap_con, LDAP_OPT_PROTOCOL_VERSION, 3);
+
+        if (@ldap_bind($ldap_con, $ldap_dn, $password)) {
+
+            $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
+            $user = $em->getRepository("ITUserBundle:User")->findOneBy(["username" => $login]);
+            $jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
+
+            try {
+                $count = $em->getRepository("ITReservationBundle:Reservation")->getActualReservationByUserRawSql($UUID, $login, $regles);
+            } catch (DBALException $e) {
+                return array("success" => 0, "exception" => $e, "data" => $data);
+            }
+            if (count($count) > 0) {
+                return array("success" => 1, "id_res" => (int)$count[0]["id"], 'token' => $jwtManager->create($user));
+            } else {
+                return array("success" => 0);
+            }
+        } else {
+            return array("success" => 0, "data" => $data);
+        }
+    }
+
+    /**
+     * @Rest\View()
+     * @Rest\Post("/api/token/loginRes_check")
+     * @param Request $request
+     * @return array|Response
+     */
+    public function tokenLoginAction(Request $request)
+    {
+        $data = $request->request->all();
+        $login = $data["username"];
+        $password = $data["password"];
+        $UUID = $data["deviceid"];
+
+////        $serializer = SerializerBuilder::create()->build();
+////        $jsonContent = $serializer->serialize($user, 'json');
+//        $client = new Client();
+//        $url = "http://192.168.137.1:8000/api/doc";
+////        $data = ["user" => $jsonContent];
+//        $response = $client->get($url);
+//        return array("response" => $response);
+
+        $em = $this->getDoctrine()->getManager();
+        $ldapConfig = $em->getRepository("ITUserBundle:LdapConfig")->findAll()[0];
+
+
+        $device = $em->getRepository("ITDispositifBundle:Dispositif")->findOneBy(["deviceUUID" => $UUID]);
 
         $ldap_dn = "uid=" . $login . "," . $ldapConfig->getBaseDn();
         $ldaphost = "ldap://" . $ldapConfig->getHost();  // votre serveur LDAP
@@ -149,8 +206,15 @@ class LdapApiController extends FOSRestController
 
         if (@ldap_bind($ldap_con, $ldap_dn, $password)) {
             $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
-            $count = $em->getRepository("ITReservationBundle:Reservation")->getActualReservationByUserRawSql($login, $regles);
-            return array("success" => 1, "sql" => $count);
+            $user = $em->getRepository("ITUserBundle:User")->findOneBy(["username" => $login]);
+            $jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
+            try {
+                $count = $em->getRepository("ITReservationBundle:Reservation")->getActualReservationByUserRawSql($UUID, $login, $regles);
+                $count = count($count);
+            } catch (DBALException $e) {
+                return array("success" => 0, "exception" => $e, 'token' => $jwtManager->create($user));
+            }
+            return array("success" => $count > 0 ? 1 : 0, "sql" => $count, 'token' => $jwtManager->create($user));
         } else {
             return array("success" => 0);
         }

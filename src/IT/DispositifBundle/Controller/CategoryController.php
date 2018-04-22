@@ -7,10 +7,7 @@
  */
 namespace IT\DispositifBundle\Controller;
 
-use IT\DispositifBundle\Entity\Categories;
-use IT\DispositifBundle\Entity\Fruit;
 use IT\DispositifBundle\Form\CategoryType;
-use IT\DispositifBundle\Form\FruitType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

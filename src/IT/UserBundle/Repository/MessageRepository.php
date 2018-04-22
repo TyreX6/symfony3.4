@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class MessageRepository extends EntityRepository
 {
+    public function getLatestMessages($number) {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('m')
+            ->from('ITUserBundle:Message', 'm')
+            ->where('m.vu = false')
+            ->orderBy('m.dateEnvoi', 'ASC')
+            ->setMaxResults($number);
+        return $qb->getQuery()->getResult();
+    }
 }

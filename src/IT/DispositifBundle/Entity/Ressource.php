@@ -13,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\InheritanceType;
+use IT\ReservationBundle\Entity\AbstractReservation;
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Swagger\Annotations as SWG;
@@ -28,7 +30,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     {
  *     "0" = "Ressource",
  *     "1" = "Dispositif",
- *     "2" = "Projecteur"
+ *     "2" = "Projecteur",
+ *     "3" = "Salle"
  *     })
  * @SWG\Definition(type="object", @SWG\Xml(name="Ressource"))
  */
@@ -47,16 +50,16 @@ class Ressource
 
     /**
      * @var string
-     * @ORM\Column(name="code_barre", type="string",nullable=true)
+     * @ORM\Column(name="bar_code", type="string",nullable=true)
      * @Expose
-     * @SWG\Property(property="code_barre",type="string",description="code barre de ressource.")
+     * @SWG\Property(property="bar_code",type="string",description="Bar code of the resource.")
      */
-    private $code_barre;
+    private $bar_code;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="etat", type="string" ,length=20,nullable=false)
+     * @ORM\Column(name="status", type="string" ,length=20,nullable=false)
      * @Expose
      * @Assert\Choice(
      *     choices={"Fonctionnel", "Détruit","Perdu"},
@@ -64,17 +67,26 @@ class Ressource
      * )
      * @SWG\Property(type="string",description="Etat du dispositif.")
      */
-    private $etat;
+    private $status;
 
     /**
      * @ORM\Column(type="datetime",nullable=false)
+     * @Expose
      */
-    private $dateAtjout;
+    private $dateAdd;
+
+    /**
+     * @var \DateTime
+     * @Expose
+     * @ORM\Column(name="last_check_date", type="datetime",nullable=true)
+     */
+    private $lastCheckDate;
 
 
 
     /**
      * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\AbstractReservation", mappedBy="ressource",cascade="persist")
+     * @SWG\Property(type="object",description="reservation of the resource.")
      **/
     private $abstract_reservation;
 
@@ -82,11 +94,10 @@ class Ressource
     /**
      * @ORM\ManyToOne(targetEntity="IT\DispositifBundle\Entity\Categorie", inversedBy="ressource")
      * @Assert\NotBlank()
-     * @Expose
      * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id",onDelete="CASCADE",nullable=false)
      * @SWG\Property(description="Le categorie.")
      **/
-    private $categorie;
+    private $category;
 
     /**
      * Ressource constructor.
@@ -94,7 +105,7 @@ class Ressource
     public function __construct()
     {
         $this->abstract_reservation = new ArrayCollection();
-        $this->setDateAtjout($date = new \DateTime(null, new \DateTimeZone("Africa/Tunis")));
+        $this->setDateAdd($date = new \DateTime(null, new \DateTimeZone("Africa/Tunis")));
     }
 
     /**
@@ -105,57 +116,72 @@ class Ressource
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
+    public function getBarCode()
+    {
+        return $this->bar_code;
+    }
+
+    /**
+     * @param string $bar_code
+     */
+    public function setBarCode(string $bar_code)
+    {
+        $this->bar_code = $bar_code;
+    }
 
     /**
      * @return string
      */
-    public function getCodeBarre()
+    public function getStatus()
     {
-        return $this->code_barre;
+        return $this->status;
     }
 
     /**
-     * @param string $code_barre
+     * @param string $status
      */
-    public function setCodeBarre($code_barre)
+    public function setStatus(string $status)
     {
-        $this->code_barre = $code_barre;
+        $this->status = $status;
     }
 
     /**
      * @return mixed
      */
-    public function getEtat()
+    public function getDateAdd()
     {
-        return $this->etat;
+        return $this->dateAdd;
     }
 
     /**
-     * @param mixed $etat
+     * @param mixed $dateAdd
      */
-    public function setEtat($etat)
+    public function setDateAdd($dateAdd)
     {
-        $this->etat = $etat;
+        $this->dateAdd = $dateAdd;
     }
 
     /**
-     * @return mixed
+     * @return \DateTime
      */
-    public function getDateAtjout()
+    public function getLastCheckDate()
     {
-        return $this->dateAtjout;
+        return $this->lastCheckDate;
     }
 
     /**
-     * @param mixed $dateAtjout
+     * @param \DateTime $lastCheckDate
      */
-    public function setDateAtjout($dateAtjout)
+    public function setLastCheckDate(\DateTime $lastCheckDate)
     {
-        $this->dateAtjout = $dateAtjout;
+        $this->lastCheckDate = $lastCheckDate;
     }
 
     /**
-     * @return mixed
+     * @return ArrayCollection
      */
     public function getAbstractReservation()
     {
@@ -170,22 +196,24 @@ class Ressource
         $this->abstract_reservation = $abstract_reservation;
     }
 
-
     /**
      * @return mixed
      */
-    public function getCategorie()
+    public function getCategory()
     {
-        return $this->categorie;
+        return $this->category;
     }
 
     /**
-     * @param mixed $categorie
+     * @param mixed $category
      */
-    public function setCategorie($categorie)
+    public function setCategory($category)
     {
-        $this->categorie = $categorie;
+        $this->category = $category;
     }
+
+    
+
 
 
 

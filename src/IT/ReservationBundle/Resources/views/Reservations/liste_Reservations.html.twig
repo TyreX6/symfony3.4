@@ -2,9 +2,9 @@
 
 {% block stylesheets %}
     {% stylesheets
-    'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
-    filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
+        'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 {% endblock %}
 
@@ -57,6 +57,7 @@
                                         <th data-hide="phone"> Date fin</th>
                                         <th data-hide="phone"> Collaborateur</th>
                                         <th data-hide="phone"> Pourcentage</th>
+                                        <th data-hide="phone"> Supprimer</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -66,14 +67,14 @@
                                                 {{ reservation.dispositif.id }}
                                             </td>
                                             <td>
-                                                <a href="{{ path('modifier_dispositif',{'id':reservation.dispositif.id}) }}">{{ reservation.dispositif.modele }}</a>
+                                                <a href="{{ path('modifier_dispositif',{'id':reservation.dispositif.id}) }}">{{ reservation.dispositif.model }}</a>
                                             </td>
                                             <td>{{ reservation.dateDebut | date }}</td>
                                             <td>{{ reservation.dateFin | date }}</td>
                                             <td>{{ reservation.user.username }}</td>
                                             <td>
                                                 <div>
-                                                    <p><strong>{{ reservation.dispositif.modele }}</strong> <span
+                                                    <p><strong>{{ reservation.dispositif.model }}</strong> <span
                                                                 class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"] }}
                                                             % Complete</span>
                                                     </p>
@@ -87,6 +88,15 @@
                                                     </div>
                                                 </div>
 
+                                            </td>
+                                            <td>
+                                                {% if(reservation.getPourcentage["pourcentage"]==0) %}
+                                                    <a href="{{ path('delete_reservation',{'id':reservation.id}) }}">
+                                                        <button id="delete"
+                                                                class="btn btn-block btn-outline btn-danger">Supprimer
+                                                        </button>
+                                                    </a>
+                                                {% endif %}
                                             </td>
                                         </tr>
                                     {% endfor %}
@@ -120,11 +130,10 @@
 
 {% block scripts %}
     {% javascripts
-    '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
-    '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
-    '@ITReservationBundle/Resources/public/app/assets/js/cbpFWTabs.js'
-    %}
-    <script src="{{ asset_url }}"></script>
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/cbpFWTabs.js' %}
+        <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
     <script type="text/javascript">
         (function () {
@@ -132,6 +141,24 @@
                 new CBPFWTabs(el);
             });
         })();
+
+        function notifier(user_id, date_debut) {
+            $('.LoadingRoot').show();
+            $.ajax({
+                type: 'POST',
+                url: "http://localhost:8080/notification",
+                //TODO parse time
+                data: 'user_id=' + user_id + '&date_debut=' + date_debut,
+                dataType: 'json',
+                success: function (data) {
+                    $('.LoadingRoot').hide();
+                },
+                error: function (data) {
+                    $('.LoadingRoot').hide();
+                }
+
+            });
+        }
     </script>
 {% endblock %}
 

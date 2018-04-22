@@ -24,7 +24,7 @@ class DispositifType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('modele', TextType::class, array(
+        $builder->add('model', TextType::class, array(
             'attr' => array('class' => 'form-control  validate[required] ',
                 'placeholder' => 'Exp: Samsung Note 4',
                 'data-errormessage-value-missing' => 'This input is required!')
@@ -41,7 +41,7 @@ class DispositifType extends AbstractType
                 ),
 
             ))
-            ->add('categorie', EntityType::class, array(
+            ->add('category', EntityType::class, array(
                     'attr' => array('class' => 'form-control selectpicker m-b-20 m-r-10',
                         'data-errormessage-value-missing' => 'This input is required!',
                         'data-style' => 'btn-info btn-outline'),
@@ -49,7 +49,7 @@ class DispositifType extends AbstractType
                     'choice_label' => 'name',
                 )
             )
-            ->add('etat', ChoiceType::class, array(
+            ->add('status', ChoiceType::class, array(
                 'attr' => array('class' => 'form-control selectpicker m-b-20 m-r-10',
                     'data-errormessage-value-missing' => 'This input is required!',
                     'data-style' => 'btn-info btn-outline'),
@@ -60,12 +60,12 @@ class DispositifType extends AbstractType
                 ),
 
             ))
-            ->add('versionOS', TextType::class, array(
+            ->add('osVersion', TextType::class, array(
                 'attr' => array('class' => 'form-control  validate[required] ',
                     'placeholder' => 'Exp: Marshmallow 6.0',
                     'data-errormessage-value-missing' => 'This input is required!')
             ))
-            ->add('processeur', TextType::class, array(
+            ->add('cpu', TextType::class, array(
                 'attr' => array('class' => 'form-control  validate[required] ',
                     'placeholder' => 'Exp: Intel Core I7',
                     'data-errormessage-value-missing' => 'This input is required!')
@@ -80,7 +80,7 @@ class DispositifType extends AbstractType
                     'placeholder' => 'Exp: 2048x1440',
                     'data-errormessage-value-missing' => 'This input is required!')
             ))
-            ->add('numeroSerie', TextType::class, array(
+            ->add('deviceUUID', TextType::class, array(
                 'attr' => array('class' => 'form-control  validate[required] ',
                     'placeholder' => '295295192599459521',
                     'data-errormessage-value-missing' => 'This input is required!')

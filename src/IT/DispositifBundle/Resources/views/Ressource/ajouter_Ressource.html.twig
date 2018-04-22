@@ -34,85 +34,19 @@
                 <div class="col-md-12">
                     <div class="panel panel-info">
                         <div class="panel-heading"> Ajouter un dispositif</div>
-                        {% if (message) %}
-                            <h3 class="center-block alert alert-success alert-dismissable">{{ message }}</h3>
-                        {% endif %}
+
                         <div class="panel-wrapper collapse in" aria-expanded="true">
                             <div class="panel-body">
-                                {{ form_start(projecteurForm, {'attr' : {'id':'formID','class':'form-horizontal form-bordered'} }) }}
-                                <div class="form-body">
-                                    <h3 class="box-title">Caractéristiques</h3>
-                                    <hr class="m-t-0 m-b-40">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-4">Modéle</label>
-                                                <div class="col-md-8">
-                                                    {{ form_widget (projecteurForm.modele) }}
-                                                    <div class="has-danger">
-                                                        <span class="form-control-feedback"> {{ form_errors (projecteurForm.modele) }} </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-4">Résolution</label>
-                                                <div class="col-md-8">
-                                                    {{ form_widget (projecteurForm.resolution) }}
-                                                    <div class="has-danger">
-                                                        <span class="form-control-feedback"> {{ form_errors (projecteurForm.resolution) }} </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/span-->
-                                    </div>
-                                    <!--/row-->
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-4">Etat</label>
-                                                <div class="col-md-8">
-                                                    {{ form_widget (projecteurForm.etat) }}
-                                                    <div class="has-danger">
-                                                        <span class="form-control-feedback"> {{ form_errors (projecteurForm.etat) }}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-4">Categorie</label>
-                                                <div class="col-md-8">
-                                                    {{ form_widget (projecteurForm.categorie) }}
-                                                    <div class="has-danger">
-                                                        <span class="form-control-feedback"> {{ form_errors (projecteurForm.categorie) }}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div id="select-type">
+                                    {% for category in categories %}
+                                        {% if category.id >2 %}
+                                    <button class="btn btn-success" value="{{ category.id }}" type="button">Ajouter {{ category.name }}</button>
+                                        {% endif %}
+                                    {% endfor %}
 
                                 </div>
-                                <hr class="m-t-0 m-b-40">
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-offset-3 col-md-9">
-                                                    <button type="submit" class="btn btn-success">Envoyer</button>
-                                                    <button type="button" class="btn btn-default">Annuler</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{ form_end(projecteurForm) }}
+                                <div id="form-container"></div>
+
                             </div>
                         </div>
                     </div>
@@ -207,5 +141,20 @@
                 prefix: 'Image' /* will use hobby-add instead of collection-add for add button, etc) */
             });
 
+        </script>
+
+        <script>
+            $('#select-type button').on('click', function(event) {
+                event.preventDefault();
+                console.log("hi");
+                var getAjaxUrl = "{{ path('add_form_categ') }}" ;
+                $.post(getAjaxUrl, {
+                    type: $(this).val()
+                    },
+                    function(data) {
+                    console.log(data);
+                    $('#form-container').html(data);
+                });
+            });
         </script>
     {% endblock %}

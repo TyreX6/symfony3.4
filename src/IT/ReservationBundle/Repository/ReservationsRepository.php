@@ -10,13 +10,16 @@ namespace IT\ReservationBundle\Repository;
 
 use DateInterval;
 use DateTime;
+use Doctrine\DBAL\DBALException;
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\Query;
 use IT\ReservationBundle\Entity\Regles;
 use IT\ReservationBundle\Entity\Reservation;
 use Doctrine\ORM\Query\ResultSetMapping;
+
 class ReservationsRepository extends EntityRepository
 {
     public function getReservationsByDispositive($id)
@@ -30,27 +33,57 @@ class ReservationsRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getReservationsByDeviceUuid($uuid)
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('r')
+            ->from('ITReservationBundle:Reservation', 'r')
+            ->innerJoin('r.dispositif', 'd')
+            ->where('d.deviceUUID = :uuid')
+            ->setParameter('uuid', $uuid);
+        return $qb->getQuery()->getResult();
+    }
+
     public function rechercheDispositif($keyword)
     {
         $qb = $this->_em->createQueryBuilder();
         $qb->select('r')
             ->from('ITReservationBundle:Reservation', 'r')
             ->innerJoin('r.dispositif', 'd')
-            ->where('d.modele LIKE :keyword')
+            ->where('d.model LIKE :keyword')
             ->setParameter('keyword', '%' . $keyword . '%');
         return $qb->getQuery()->getResult();
     }
 
     /**
+     * @param $UUID
      * @param $username
      * @param $regles Regles
-     * @return int
+     * @return array
+     * @throws DBALException
      */
-    public function getActualReservationByUserRawSql($username, $regles)
+    public function getActualReservationByUserRawSql($UUID,$username, $regles)
     {
         $timeout = $regles->getDureeTimeout();
         $conn = $this->getEntityManager()->getConnection();
-        $sql = "SELECT * FROM `reservation` AS r LEFT JOIN `fos_user` as f ON r.user_id=f.id WHERE f.username='".$username."' AND NOW() > r.date_debut AND NOW() < ADDTIME(r.date_debut,'0 0:$timeout:00.00')";
+        $sql = "SELECT r.id FROM `abstract_reservation` AS r LEFT JOIN `fos_user` as f ON r.user_id=f.id LEFT JOIN `dispositif` d on r.`ressource_id` = d.`id` WHERE f.username='" . $username . "' AND d.device_uuid='" . $UUID . "' AND NOW() > r.date_debut AND NOW() < ADDTIME(r.date_debut,'0 0:$timeout:00.00')";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+
+    /**
+     * @param $username
+     * @param $regles Regles
+     * @return array
+     * @throws DBALException
+     */
+    public function getActualReservationRawSql($username, $regles)
+    {
+        $timeout = $regles->getDureeTimeout();
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT * FROM `abstract_reservation` AS r LEFT JOIN `fos_user` as f ON r.user_id=f.id WHERE f.username='" . $username . "' AND NOW() > r.date_debut AND NOW() < ADDTIME(r.date_debut,'0 0:$timeout:00.00')";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -96,12 +129,19 @@ class ReservationsRepository extends EntityRepository
             return array("success" => 0, "message" => $arrayResult["message"]);
         }
 
-        $arrayResult = $this->verifNbrMaxJour($reservation, $regles);
-        if ($arrayResult["success"] === 0) {
-            return array("success" => 0, "message" => $arrayResult["message"]);
+        try {
+            $arrayResult = $this->verifNbrMaxJour($reservation, $regles);
+            if ($arrayResult["success"] === 0) {
+                return array("success" => 0, "message" => $arrayResult["message"]);
+            }
+        } catch (NonUniqueResultException $e) {
         }
 
-        $arrayResult = $this->verifNbrMaxSemaine($reservation, $regles);
+
+        try {
+            $arrayResult = $this->verifNbrMaxSemaine($reservation, $regles);
+        } catch (NonUniqueResultException $e) {
+        }
         if ($arrayResult["success"] === 0) {
             return array("success" => 0, "message" => $arrayResult["message"]);
         }
@@ -121,7 +161,7 @@ class ReservationsRepository extends EntityRepository
         $message = "";
         $success = null;
         $dureeSec = $regles->getLimDureeReservation() * 3600;
-        if (($reservation->getDateFinTimeStamp() - $reservation->getDateDebutTimeStamp()) > $dureeSec) {
+        if (($reservation->getDateFin()->getTimestamp() - $reservation->getDateDebut()->getTimestamp()) > $dureeSec) {
             $message = "Durée limite de " . $regles->getLimDureeReservation() . " heures est dépassé";
             $success = 0;
         } else {
@@ -137,29 +177,40 @@ class ReservationsRepository extends EntityRepository
      * @param $reservation Reservation
      * @param $regles Regles
      * @return array
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function verifNbrMaxJour($reservation, $regles)
     {
         $message = "";
         $success = null;
+        $id = $reservation->getId();
+        if ($id == null) {
+            $id = 0;
+        }
+
 
         //reference problem
         $now = new DateTime($reservation->getDateDebut()->format("Y-m-d H:i:s"));
-        $oneDayAgo = new DateTime($reservation->getDateDebut()->format("Y-m-d"));
+        $dayStart = new DateTime($reservation->getDateDebut()->format("Y-m-d"));
+        $dayEnd = new DateTime($reservation->getDateDebut()->format("Y-m-d"));
+        $dayEnd->setTime(23, 59, 59);
         //$oneDayAgo = $oneDayAgo->sub(new DateInterval("PT24H"));
         $qb = $this->_em->createQueryBuilder();
 
         $qb->select('count(r.id)')
             ->from('ITReservationBundle:Reservation', 'r')
-            ->where('r.dateDebut BETWEEN :yesterday AND :today')
+            ->where('r.dateDebut BETWEEN :start AND :end')
             ->andWhere('r.user = :user')
             ->andWhere('r.dispositif = :dispositif')
+            ->andWhere('r.id != :id')
             ->setParameter('user', $reservation->getUser())
             ->setParameter('dispositif', $reservation->getDispositif())
-            ->setParameter('today', $now->format('Y-m-d H:i:s'))
-            ->setParameter('yesterday', $oneDayAgo->format('Y-m-d H:i:s'));
+            ->setParameter('start', $dayStart->format('Y-m-d H:i:s'))
+            ->setParameter('end', $dayEnd->format('Y-m-d H:i:s'))
+            ->setParameter('id', $id);
 
         $count = (int)$qb->getQuery()->getSingleScalarResult();
+
 
         if ($count >= $regles->getNbrLimiteParJour()) {
             $message = "Nombre max de " . $regles->getNbrLimiteParJour() . " réservation par jour est dépassé";
@@ -177,11 +228,17 @@ class ReservationsRepository extends EntityRepository
      * @param $reservation Reservation
      * @param $regles Regles
      * @return array
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function verifNbrMaxSemaine($reservation, $regles)
     {
         $message = "";
         $success = null;
+
+        $id = $reservation->getId();
+        if ($id == null) {
+            $id = 0;
+        }
 
         //reference problem
         $now = new DateTime($reservation->getDateDebut()->format("Y-m-d H:i:s"));
@@ -194,10 +251,12 @@ class ReservationsRepository extends EntityRepository
             ->where('r.dateDebut BETWEEN :lastWeek AND :today')
             ->andWhere('r.user = :user')
             ->andWhere('r.dispositif = :dispositif')
+            ->andWhere('r.id != :reservation_id')
             ->setParameter('user', $reservation->getUser())
             ->setParameter('dispositif', $reservation->getDispositif())
             ->setParameter('today', $now->format('Y-m-d H:i:s'))
-            ->setParameter('lastWeek', $oneWeekAgo->format('Y-m-d H:i:s'));
+            ->setParameter('lastWeek', $oneWeekAgo->format('Y-m-d H:i:s'))
+            ->setParameter('reservation_id', $id);
 
         $count = (int)$qb->getQuery()->getSingleScalarResult();
 

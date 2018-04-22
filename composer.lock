@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2df4f9ce0719ab2f5c1d81f0c78cd8f",
+    "content-hash": "f42bd475873c83402f222c98e9411244",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2109,23 +2109,24 @@
         },
         {
             "name": "nelmio/api-doc-bundle",
-            "version": "v3.1.0",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "dad7f7735132b48b4ccaeff41ddefd1ce71eda2a"
+                "reference": "a356221c6769988712295a16bc5896b8265e8029"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/dad7f7735132b48b4ccaeff41ddefd1ce71eda2a",
-                "reference": "dad7f7735132b48b4ccaeff41ddefd1ce71eda2a",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/a356221c6769988712295a16bc5896b8265e8029",
+                "reference": "a356221c6769988712295a16bc5896b8265e8029",
                 "shasum": ""
             },
             "require": {
-                "exsyst/swagger": "~0.3",
+                "exsyst/swagger": "~0.3|~0.4",
                 "php": "^7.0",
                 "phpdocumentor/reflection-docblock": "^3.1|^4.0",
                 "symfony/framework-bundle": "^3.4|^4.0",
+                "symfony/options-resolver": "^3.4.4|^4.0",
                 "symfony/property-info": "^3.4|^4.0",
                 "zircote/swagger-php": "^2.0.9"
             },
@@ -2157,7 +2158,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1.x-dev"
+                    "dev-master": "3.2.x-dev"
                 }
             },
             "autoload": {
@@ -2186,7 +2187,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2018-01-26T16:09:38+00:00"
+            "time": "2018-03-24T10:23:14+00:00"
         },
         {
             "name": "nelmio/cors-bundle",

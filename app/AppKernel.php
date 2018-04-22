@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new IT\ReservationBundle\ITReservationBundle(),
             new IT\UserBundle\ITUserBundle(),
             new IT\ApiBundle\ITApiBundle(),
+            new IT\InventoryBundle\ITInventoryBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
