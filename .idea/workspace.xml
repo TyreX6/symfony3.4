@@ -3,909 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e5af7c24-abb1-4243-aee1-a66749e4d204" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/.csslintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/.jscsrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/.jshintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/.mailmap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/AUTHORS.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/Gruntfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/build/release-test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/build/release.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/build/tasks/build.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/build/tasks/testswarm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/build/themes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/accordion/collapsible.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/accordion/custom-icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/accordion/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/accordion/fillspace.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/accordion/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/accordion/no-auto-height.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/accordion/sortable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/categories.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/combobox.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/custom-data.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/folding.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/images/jquery_32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/images/jqueryui_32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/images/sizzlejs_32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/images/transparent_1x1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/images/ui-anim_basic_16x16.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/london.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/maxheight.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/multiple-remote.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/multiple.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/remote-jsonp.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/remote-with-cache.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/remote.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/search.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/autocomplete/xml.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/button/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/button/icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/button/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/images/jquery-mobile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/images/jquery-ui.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/images/jquery.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/images/qunit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/images/sizzle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/no-icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/product-selector.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/checkboxradio/radiogroup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/controlgroup/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/controlgroup/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/controlgroup/splitbutton.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/controlgroup/toolbar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/alt-field.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/animation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/buttonbar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/date-formats.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/date-range.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/dropdown-month-year.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/icon-trigger.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/images/calendar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/inline.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/localization.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/min-max.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/multiple-calendars.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/other-months.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/datepicker/show-week.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/demos.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/dialog/animated.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/dialog/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/dialog/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/dialog/modal-confirmation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/dialog/modal-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/dialog/modal-message.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/constrain-movement.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/cursor-style.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/events.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/handle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/revert.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/scroll.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/snap-to.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/sortable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/draggable/visual-feedback.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/accepted-elements.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/images/high_tatras.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/images/high_tatras2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/images/high_tatras2_min.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/images/high_tatras3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/images/high_tatras3_min.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/images/high_tatras4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/images/high_tatras4_min.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/images/high_tatras_min.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/photo-manager.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/propagation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/revert.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/droppable/visual-feedback.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/addClass.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/animate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/easing.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/hide.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/removeClass.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/show.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/switchClass.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/toggle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/effect/toggleClass.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/images/calendar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/images/demo-config-on-tile.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/images/demo-config-on.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/images/demo-spindown-closed.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/images/demo-spindown-open.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/images/icon-docs-info.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/images/pbar-ani.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/menu/categories.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/menu/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/menu/icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/menu/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/position/cycler.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/position/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/position/images/earth.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/position/images/flight.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/position/images/rocket.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/position/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/progressbar/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/progressbar/download.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/progressbar/images/pbar-ani.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/progressbar/indeterminate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/progressbar/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/progressbar/label.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/animate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/aspect-ratio.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/constrain-area.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/helper.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/max-min.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/snap-to-grid.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/synchronous-resize.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/textarea.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/resizable/visual-feedback.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectable/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectable/display-grid.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectable/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectable/serialize.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectmenu/custom_render.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectmenu/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectmenu/images/24-podcast-square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectmenu/images/24-rss-square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectmenu/images/24-video-square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectmenu/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/selectmenu/product-selection.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/colorpicker.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/custom-handle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/hotelrooms.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/multiple-vertical.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/range-vertical.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/range.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/rangemax.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/rangemin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/slider-vertical.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/slider/steps.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/sortable/connect-lists.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/sortable/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/sortable/display-grid.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/sortable/empty-lists.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/sortable/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/sortable/items.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/sortable/placeholder.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/sortable/portlets.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/spinner/currency.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/spinner/decimal.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/spinner/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/spinner/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/spinner/latlong.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/spinner/overflow.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/spinner/time.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/ajax.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/ajax/content1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/ajax/content2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/ajax/content3-slow.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/ajax/content4-broken.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/collapsible.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/manipulation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/mouseover.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/sortable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tabs/vertical.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/ajax/content1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/ajax/content2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/custom-animation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/custom-content.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/custom-style.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/forms.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/images/st-stephens.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/images/tower-bridge.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/tracking.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/tooltip/video-player.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/widget/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/demos/widget/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/globalize/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/globalize/globalize.culture.de-DE.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/globalize/globalize.culture.ja-JP.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/globalize/globalize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.10.0/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.10.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.10.1/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.10.1/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.10.2/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.10.2/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.11.0/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.11.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.11.1/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.11.1/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.11.2/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.11.2/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.11.3/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.11.3/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.0/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.1/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.1/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.2/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.2/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.3/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.3/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.4/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.12.4/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.7.0/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.7.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.7.1/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.7.1/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.7.2/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.7.2/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.8.0/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.8.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.8.1/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.8.1/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.8.2/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.8.2/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.8.3/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.8.3/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.9.0/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.9.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.9.1/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-1.9.1/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.0.0/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.0.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.0.1/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.0.1/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.0.2/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.0.2/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.0.3/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.0.3/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.0/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.1/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.1/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.2/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.2/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.3/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.3/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.4/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.1.4/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.0/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.1/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.1/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.2/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.2/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.3/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.3/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.4/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-2.2.4/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-3.0.0/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-3.0.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-3.1.0/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-3.1.0/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-custom/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-custom/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-mousewheel/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-mousewheel/jquery.mousewheel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-simulate/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery-simulate/jquery.simulate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jquery/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jshint/LICENSE/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/jshint/jshint.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit-assert-classes/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit-assert-classes/qunit-assert-classes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit-assert-close/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit-assert-close/qunit-assert-close.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit-composite/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit-composite/qunit-composite.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit-composite/qunit-composite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit/MIT-LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit/qunit.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/qunit/qunit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/external/requirejs/require.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/.jshintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/images/jquery_521x191.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/images/jqueryui_32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/lib/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/lib/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/lib/css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/lib/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/lib/qunit-assert-domequal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/lib/qunit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/accordion/accordion.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/accordion/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/accordion/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/accordion/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/accordion/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/accordion/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/accordion/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/accordion/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/autocomplete.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/remote_object_array_labels.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/remote_object_array_values.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/autocomplete/remote_string_array.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/button.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/common-deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/deprecated.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/button/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/checkboxradio/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/checkboxradio/checkboxradio.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/checkboxradio/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/checkboxradio/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/checkboxradio/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/checkboxradio/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/checkboxradio/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/controlgroup/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/controlgroup/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/controlgroup/controlgroup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/controlgroup/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/controlgroup/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/controlgroup/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/core/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/core/core.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/core/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/core/selector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/datepicker/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/datepicker/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/datepicker/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/datepicker/datepicker.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/datepicker/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/datepicker/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/datepicker/images/calendar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/datepicker/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/datepicker/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/common-deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/deprecated.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/dialog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/dialog/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/draggable/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/draggable/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/draggable/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/draggable/draggable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/draggable/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/draggable/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/draggable/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/draggable/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/common-deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/deprecated.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/droppable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/droppable/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/effects/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/effects/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/effects/effects.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/effects/scale.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/form-reset-mixin/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/form-reset-mixin/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/form-reset-mixin/form-reset-mixin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/menu/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/menu/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/menu/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/menu/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/menu/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/menu/menu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/menu/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/menu/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/position/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/position/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/position/position.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/progressbar/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/progressbar/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/progressbar/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/progressbar/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/progressbar/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/progressbar/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/progressbar/progressbar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/resizable/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/resizable/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/resizable/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/resizable/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/resizable/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/resizable/images/test.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/resizable/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/resizable/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/resizable/resizable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectable/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectable/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectable/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectable/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectable/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectable/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectable/selectable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectmenu/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectmenu/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectmenu/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectmenu/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectmenu/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectmenu/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/selectmenu/selectmenu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/slider/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/slider/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/slider/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/slider/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/slider/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/slider/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/slider/slider.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/sortable/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/sortable/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/sortable/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/sortable/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/sortable/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/sortable/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/sortable/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/sortable/sortable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/common-deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/deprecated.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/spinner/spinner.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/subsuite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tabs/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tabs/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tabs/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tabs/data/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tabs/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tabs/helper.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tabs/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tabs/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tabs/tabs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/common-deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/common.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/deprecated.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/events.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/methods.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/options.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/tooltip/tooltip.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/widget/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/widget/animation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/widget/classes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/widget/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/widget/extend.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/unit/widget/widget.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/accordion/icons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/addClass/queue.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/checkboxradio/checkboxradio.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/accordion_tabs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/datepicker_dialog.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/dialog_widgets.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/draggable_accordion.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/draggable_accordion_accordion_tabs_draggable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/draggable_resizable.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/sortable_accordion_sortable_tabs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/tabs_selectmenu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/tabs_tabs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/compound/tabs_tooltips.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/dialog/animated.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/dialog/complex-dialogs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/dialog/form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/dialog/performance.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/dialog/stacking.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/draggable/replaced.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/effects/all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/effects/clip.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/effects/effects.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/effects/effects.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/effects/image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/effects/scale.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/effects/shake.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/menu/menu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/position/position.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/position/position_feedback.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/selectmenu/selectmenu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/slider/range_slider.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/tooltip/animations.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/tooltip/tooltip.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/tests/visual/visual.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/accordion.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/all.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/autocomplete.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/base.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/button.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/checkboxradio.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/controlgroup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/core.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/datepicker.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/dialog.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/draggable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/images/ui-icons_444444_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/images/ui-icons_555555_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/images/ui-icons_777620_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/images/ui-icons_777777_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/images/ui-icons_cc0000_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/menu.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/progressbar.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/resizable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/selectable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/selectmenu.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/slider.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/sortable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/spinner.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/tabs.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/themes/base/tooltip.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/.jshintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/disable-selection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effect.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-blind.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-bounce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-clip.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-drop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-explode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-fade.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-fold.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-highlight.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-puff.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-pulsate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-scale.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-shake.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-size.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-slide.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/effects/effect-transfer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/escape-selector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/focusable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/form-reset-mixin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-af.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ar-DZ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-az.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-be.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-bg.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-bs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ca.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-cs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-cy-GB.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-da.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-de.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-el.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-en-AU.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-en-GB.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-en-NZ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-eo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-es.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-et.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-eu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-fa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-fi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-fo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-fr-CA.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-fr-CH.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-fr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-gl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-he.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-hi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-hr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-hu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-hy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-id.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-is.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-it-CH.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-it.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ja.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ka.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-kk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-km.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ko.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ky.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-lb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-lt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-lv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-mk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ml.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ms.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-nb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-nl-BE.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-nl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-nn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-no.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-pl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-pt-BR.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-pt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-rm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ro.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ru.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-sk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-sl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-sq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-sr-SR.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-sr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-sv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-ta.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-th.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-tj.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-tr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-uk.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-vi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-zh-CN.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-zh-HK.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/i18n/datepicker-zh-TW.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/ie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/jquery-1-7.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/keycode.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/labels.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/plugin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/position.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/safe-active-element.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/safe-blur.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/scroll-parent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/tabbable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/unique-id.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/version.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widget.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/accordion.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/autocomplete.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/checkboxradio.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/controlgroup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/datepicker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/dialog.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/draggable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/droppable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/menu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/mouse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/progressbar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/resizable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/selectable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/selectmenu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/slider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/sortable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/spinner.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/tabs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery-ui/ui/widgets/tooltip.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/AUTHORS.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/dist/jquery.slim.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/external/sizzle/dist/sizzle.min.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/jsonp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/load.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/parseXML.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/var/location.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/var/nonce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/var/rquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/ajax/xhr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/attr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/classes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/prop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/attributes/val.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/callbacks.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/DOMEval.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/access.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/camelCase.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/init.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/nodeName.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/parseHTML.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/ready-no-deferred.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/ready.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/readyException.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/stripAndCollapse.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/toType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/core/var/rsingleTag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/addGetHookIf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/adjustCSS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/curCSS.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/hiddenVisibleSelectors.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/showHide.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/cssExpand.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/getStyles.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/isHiddenWithinTree.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/rboxStyle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/rnumnonpx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/css/var/swap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data/Data.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data/var/acceptData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data/var/dataPriv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/data/var/dataUser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/deferred.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/deferred/exceptionHook.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/deprecated.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/dimensions.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/effects.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/effects/Tween.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/effects/animatedSelector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/ajax.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/alias.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/focusin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/event/trigger.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/exports/amd.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/exports/global.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/_evalUrl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/buildFragment.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/getAll.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/setGlobalEval.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rcheckableType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rscriptType.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/var/rtagName.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/manipulation/wrapMap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/offset.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/queue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/queue/delay.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/selector-native.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/selector-sizzle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/selector.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/serialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing/findFilter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing/var/dir.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing/var/rneedsContext.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/traversing/var/siblings.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/ObjectFunctionString.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/arr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/class2type.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/concat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/document.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/documentElement.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/fnToString.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/getProto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/hasOwn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/indexOf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/isFunction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/isWindow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/pnum.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/push.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/rcssNum.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/rnothtmlwhite.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/slice.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/support.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/var/toString.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/jquery/src/wrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/InventoryBundle/Resources/views/Inventory/consulter_Inventaire.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/InventoryBundle/Resources/views/Inventory/consulter_Inventaire.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/InventoryBundle/Resources/views/Inventory/list_Inventaire.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/InventoryBundle/Resources/views/Inventory/list_Inventaire.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/073374e4e6c9b9f42e5e550c27f9c8a1b6764526.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/0b393472443b7be8a1d240129d5645bf09153c00.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/10.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/139464125e9a7477501ed748ce9777ad005bcdb9.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/15da1e6e234572d34b22d63090e90f7b99a991c7.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/17fed5fad3f99c59d7683c200de1b639bdd3fbee.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/1932f970a2873f95a5c95955b957cce75c840807.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/22876c553c877cb426f3ac1b292bba671ddf23d8.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/22e35dd1a55439c70e022a3b77050d9cb39396f2.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/26af157809c618a366c801f690a404bf4c99669b.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/282c090b7892d35ba95c77acb6cc673620fe722d.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/2cd61e8884855bbae57da5b38371230b2b36b18d.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/2d3deb468b5bfd790e65d54603c979844c67dd9f.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/314681ab4d61ad3cad8e32770b52d2582ce99153.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/32eb1f86f4fd3c3b83626746bfde443529aa9801.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/360aae00c1769c50df2f81b0082da8ea9a6fd84f.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/4.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/429fab9d3cef298a5db2f32927536b0415e65546.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/4d11322c7d4f8d33b8fe8d7c592fd4ffdf81a0a0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/5.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/5019ffe8fdf92d80c22da7f933e7ff6726fb487c.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/6b4b42c2517eb75facd5eb0c80d8b77548105d9a.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/7.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/73f1ca0889c4043a690ba4646bd5ee0a5a9b078e.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/74761eab29b7ca08c860fcae26c34221fadd4913.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/8f8fd4c4706e315a9a07babe341d3f653a5e283b.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/8fb9d5867002876b4f19da4919f528d9271ef51f.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/8fe8d96b60a26ea5ed0197c51bd8fd0258af014d.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/9.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/932e0e138259915de665294df65a0b76814a7642.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/96f8f4932bad646200411a894a9a8fc4d34aae15.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/9a0dd0a39b3bf9516e97d49bdbade3924678c5dd.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/ab4e99f20bc7574a04c02b5749257250094013a4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/b22457e0503513d94869fc1c1589108ae7f005a2.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/b766db46c658d94c09e56af93ae8fe7531fb614d.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/bac3ce345dda8a177a786046a70b42c6d71122f9.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/c70511eaffd8736c1debfafab8ba56c2190ee469.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/c85ab41b68d01ceb35ce25b6aedf9aff7267af6f.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/c8a054285e33926f70eb6e400a5de8df3b5b1844.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/c9d9b91cdbd6e62b5bbaf601f97ac318c2533000.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/e70c331f78c3a6ffdabfd753a51e526b4c8ae0b5.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/f1d6dcda676fc338dfe83009b4395c35cb6c3004.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/uploads/documents/fa19e5a30c481d1c42729100bac648bc5056af27.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/add_Reservations.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/add_Reservations.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list_By_Device.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list_By_Device.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/add_device.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/add_device.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/edit_device.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/edit_device.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/geolocate_device.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/geolocate_device.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devices.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devices.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/localiser_Dispositif.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/localiser_Dispositif.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Recherche/Recherche.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Recherche/Recherche.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Ressource/ajouter_Ressource.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Ressource/ajouter_Ressource.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Ldap/config_LDAP.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Ldap/config_LDAP.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Message/detail_Message.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Message/detail_Message.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -916,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <pharConfigPath />
     <executablePath>composer</executablePath>
   </component>
   <component name="DatabaseView">
@@ -958,11 +56,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="reservations_list.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="reservations_list.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
               <caret line="70" column="80" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DispositifApiController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="163" column="7" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryApiController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -973,8 +89,8 @@
     <findStrings>
       <find>login_check</find>
       <find>undoFun</find>
-      <find>: void</find>
-      <find>: int</find>
+      <find />
+      <find />
       <find>code_barre</find>
       <find>Reservation</find>
       <find>path('liste_reservation')</find>
@@ -992,7 +108,7 @@
       <find>DispositifBundle</find>
       <find>ITDispositifBundle</find>
       <find>ITDispositif</find>
-      <find>Gestion dispositifs</find>
+      <find />
       <find>ajouter_dispositif</find>
       <find>localiser_dispositif</find>
       <find>liste_dispositif</find>
@@ -1000,10 +116,10 @@
       <find>modifier_dispositif</find>
       <find>list_devicess</find>
       <find>DispositifController</find>
-      <find>Elite Admin brought to you by themedesigner.in</find>
+      <find />
     </findStrings>
     <replaceStrings>
-      <replace>{{ asset('bundles/app/</replace>
+      <replace />
       <replace>bundles/itreservation/app</replace>
       <replace>path('reservations_list')</replace>
       <replace>path('add_reservation')</replace>
@@ -1017,20 +133,20 @@
       <replace>verifyMaxPerDay</replace>
       <replace>ResourceBundle</replace>
       <replace>ITResource</replace>
-      <replace>Gestion Ressources</replace>
+      <replace />
       <replace>add_device</replace>
       <replace>edit_device</replace>
       <replace>geolocate_device</replace>
       <replace>list_devices</replace>
       <replace />
-      <replace>Gestion de réservation des ressources</replace>
+      <replace />
     </replaceStrings>
     <dirStrings>
-      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\AppBundle\Resources\views</dir>
-      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\</dir>
-      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4</dir>
-      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src</dir>
-      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT</dir>
+      <dir />
+      <dir />
+      <dir />
+      <dir />
+      <dir />
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -1039,13 +155,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Repository/MessageRepository.php" />
         <option value="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Message/list_Messages.html.twig" />
         <option value="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Message/message.html.twig" />
         <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Resources/views/Recherche/Recherche.html.twig" />
         <option value="$PROJECT_DIR$/src/IT/UserBundle/Entity/Message.php" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Message/detail_Message.html.twig" />
         <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Form/SalleAbType.php" />
         <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Resources/views/Ressource/ajouter_Ressource.html.twig" />
@@ -1078,7 +192,6 @@
         <option value="$PROJECT_DIR$/app/AppKernel.php" />
         <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReservationsApiController.php" />
         <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReglesApiController.php" />
-        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php" />
         <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/add_device.html.twig" />
         <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/edit_device.html.twig" />
         <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/geolocate_device.html.twig" />
@@ -1090,6 +203,9 @@
         <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devices.html.twig" />
         <option value="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Ldap/config_LDAP.html.twig" />
         <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
       </list>
     </option>
   </component>
@@ -1223,7 +339,7 @@
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1380" />
@@ -1269,170 +385,7 @@
               <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
               <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ApiBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ApiBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Notification" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Regles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Reservations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Dispositif" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Ldap" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1651,7 +604,7 @@
       <workItem from="1524424580626" duration="13362000" />
       <workItem from="1524470402730" duration="17637000" />
       <workItem from="1524606751346" duration="3610000" />
-      <workItem from="1524645804978" duration="19890000" />
+      <workItem from="1524645804978" duration="23224000" />
     </task>
     <task id="LOCAL-00001" summary="LdapConfig working fine;&#10;To the step of managing devices">
       <created>1519385300544</created>
@@ -1720,7 +673,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="889250000" />
+    <option name="totallyTimeSpent" value="892584000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1793,18 +746,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Command/SwaggerDocblockConvertCommand.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Entity/ReservationTimeout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Entity/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -2004,13 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReglesApiController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -2142,13 +1076,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="163" column="14" lean-forward="true" selection-start-line="163" selection-start-column="14" selection-end-line="163" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/bundles/itreservation/app/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -2189,10 +1116,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="70" column="80" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="163" column="7" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="19" />
         </state>
       </provider>
     </entry>

@@ -2,18 +2,19 @@
 # Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
 # https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
 parameters:
-    database_host: http://mysql-test-app-reservation.193b.starter-ca-central-1.openshiftapps.com/reservation_ressource
+    database_host: 127.0.0.1
     database_port: 3306
     database_name: reservation_ressources
     database_user: root
-    database_password: root
+    database_password: null
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: '%kernel.project_dir%/var/data/data.sqlite'
 
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: ghandrisemh
-    mailer_password: ~
+    mailer_password: gfrtvyvgyaapcjei
+    mailer_auth_mod: login
 
     # A secret key that's used to generate certain security-related tokens
     secret: 957fb625c20102a1c6126c82d8a2e70662a08d9d
