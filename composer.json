@@ -6,7 +6,7 @@
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
-            "IT\\DispositifBundle\\": "src/IT/DispositifBundle",
+            "IT\\ResourceBundle\\": "src/IT/ResourceBundle",
             "IT\\ReservationBundle\\": "src/IT/ReservationBundle",
             "IT\\UserBundle\\": "src/IT/UserBundle",
             "IT\\InventoryBundle\\": "src/IT/InventoryBundle",

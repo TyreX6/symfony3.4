@@ -30,7 +30,7 @@ class LineInventory
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="IT\DispositifBundle\Entity\Ressource")
+     * @ORM\ManyToOne(targetEntity="IT\ResourceBundle\Entity\Ressource")
      **/
     private $resource;
 

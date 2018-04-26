@@ -24,7 +24,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new \Lexik\Bundle\JWTAuthenticationBundle\LexikJWTAuthenticationBundle(),
             new FR3D\LdapBundle\FR3DLdapBundle(),
-            new IT\DispositifBundle\ITDispositifBundle(),
+            new IT\ResourceBundle\ITResourceBundle(),
             new IT\ReservationBundle\ITReservationBundle(),
             new IT\UserBundle\ITUserBundle(),
             new IT\ApiBundle\ITApiBundle(),

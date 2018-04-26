@@ -14,7 +14,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use IT\DispositifBundle\Entity\Dispositif;
+use IT\ResourceBundle\Entity\Dispositif;
 
 /**
  * Class DispositifApiController
@@ -70,7 +70,7 @@ class DispositifApiController extends Controller
         //Set new Device
         $em = $this->getDoctrine()->getManager();
 
-        $dispositif = $em->getRepository("ITDispositifBundle:Dispositif")->findOneBy(["deviceUUID" => $device_UUID]);
+        $dispositif = $em->getRepository("ITResourceBundle:Dispositif")->findOneBy(["deviceUUID" => $device_UUID]);
 
         if ($dispositif == null) {
             $dispositif = new Dispositif();
@@ -80,11 +80,11 @@ class DispositifApiController extends Controller
         $dispositif->setLastCheckDate(new \DateTime(null, new \DateTimeZone("Africa/Tunis")));
         if (strpos(strtolower($os), 'ios') !== false) {
             //TODO automate categ
-            $categ = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => 1]);
+            $categ = $em->getRepository("ITResourceBundle:Categorie")->findOneBy(["id" => 1]);
             $dispositif->setCategory($categ);
         } else {
             //TODO automate categ
-            $categ = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => 2]);
+            $categ = $em->getRepository("ITResourceBundle:Categorie")->findOneBy(["id" => 2]);
             $dispositif->setCategory($categ);
         }
         $dispositif->setDeviceName($device_name);
@@ -156,7 +156,7 @@ class DispositifApiController extends Controller
     public function listDispositifsAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $dispositifs = $em->getRepository("ITDispositifBundle:Dispositif")->findAll();
+        $dispositifs = $em->getRepository("ITResourceBundle:Dispositif")->findAll();
         return $dispositifs;
     }
 
@@ -189,7 +189,7 @@ class DispositifApiController extends Controller
 
     /**
      * @Rest\View()
-     * @Rest\GET("api/dispositif/geolocate/{id}")
+     * @Rest\Get("api/dispositif/geolocate/{id}")
      * @Operation(
      *     tags={"Device"},
      *     summary="Get the location of the device with the ID passed into parameters",
@@ -209,14 +209,14 @@ class DispositifApiController extends Controller
     public function geolocateDispositif($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $dispositif = $em->getRepository("ITDispositifBundle:Dispositif")->findOneBy(['id' => $id]);
+        $dispositif = $em->getRepository("ITResourceBundle:Dispositif")->findOneBy(['id' => $id]);
         //TODO Get device location and send it
         return $dispositif;
     }
 
     /**
      * @Rest\View()
-     * @Rest\POST("api/dispositif/lock/{id}")
+     * @Rest\Post("api/dispositif/lock/{id}")
      * @Operation(
      *     tags={"Device"},
      *     summary="Lock the device",
@@ -250,7 +250,7 @@ class DispositifApiController extends Controller
     public function lockDispositif($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $dispositif = $em->getRepository("ITDispositifBundle:Dispositif")->findOneBy(['id' => $id]);
+        $dispositif = $em->getRepository("ITResourceBundle:Dispositif")->findOneBy(['id' => $id]);
         return $dispositif;
     }
 

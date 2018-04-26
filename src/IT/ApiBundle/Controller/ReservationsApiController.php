@@ -60,7 +60,7 @@ class ReservationsApiController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $user = $em->getRepository("ITUserBundle:User")->findOneBy(['id' => $user_id]);
-            $dispositif = $em->getRepository("ITDispositifBundle:Dispositif")->findOneBy(['id' => $dispositif_id]);
+            $dispositif = $em->getRepository("ITResourceBundle:Dispositif")->findOneBy(['id' => $dispositif_id]);
 
 
             $dateNow = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
@@ -105,7 +105,7 @@ class ReservationsApiController extends Controller
 
     /**
      * @Rest\View()
-     * @Rest\GET("api/reservations/liste")
+     * @Rest\Get("api/reservations/liste")
      * @Operation(
      *  tags={"Reservation"},summary="Retreive all reservations",
      *
@@ -126,7 +126,7 @@ class ReservationsApiController extends Controller
     /**
      * @param $id
      * @Rest\View()
-     * @Rest\GET("api/reservations/liste/{id}")
+     * @Rest\Get("api/reservations/liste/{id}")
      * @Operation(
      *  tags={"Reservation"},
      *     summary="Retreive all reservations for specific dispositif",
@@ -155,7 +155,7 @@ class ReservationsApiController extends Controller
     /**
      * @param $id
      * @Rest\View()
-     * @Rest\GET("api/reservations/liste/user/{id}")
+     * @Rest\Get("api/reservations/liste/user/{id}")
      * @Operation(
      *  tags={"Reservation"},
      *     summary="Retreive all reservations for specific user",
@@ -185,7 +185,7 @@ class ReservationsApiController extends Controller
      * @param Request $request
      * @return array
      * @Rest\View()
-     * @Rest\POST("api/reservations/listeByUuid")
+     * @Rest\Post("api/reservations/listeByUuid")
      * @Operation(
      *  tags={"Reservation"},
      *     summary="Retreive all reservations for specific device By its UUID",
@@ -215,7 +215,7 @@ class ReservationsApiController extends Controller
      * @param $id
      * @param $request Request
      * @Rest\View()
-     * @Rest\PUT("api/reservations/modify/{id}")
+     * @Rest\Put("api/reservations/modify/{id}")
      * @Operation(
      *     tags={"Reservation"},
      *     summary="Edit the reservation with the ID passed into parameters",

@@ -19,9 +19,9 @@ it_reservation:
     prefix:   /admin/reservations
 
 it_dispositif:
-    resource: "@ITDispositifBundle/Controller/"
+    resource: "@ITResourceBundle/Controller/"
     type:     annotation
-    prefix:   /admin/dispositifs
+    prefix:   /admin/resources
 
 it_users:
     resource: '@ITUserBundle/Controller/'

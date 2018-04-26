@@ -67,7 +67,7 @@
                                                 {{ reservation.id }}
                                             </td>
                                             <td>
-                                                <a href="{{ path('modifier_dispositif',{'id':reservation.ressource.id}) }}">{{ reservation.ressource }}</a>
+                                                <a href="{{ path('edit_device',{'id':reservation.ressource.id}) }}">{{ reservation.ressource }}</a>
                                             </td>
                                             <td>{{ reservation.dateDebut | date }}</td>
                                             <td>{{ reservation.dateFin | date }}</td>

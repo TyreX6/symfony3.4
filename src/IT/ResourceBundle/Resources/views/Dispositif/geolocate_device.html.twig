@@ -1,0 +1,119 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+
+{% endblock %}
+{% block stylesheets %}
+    {% stylesheets
+        'bundles/itreservation/app/plugins/bower_components/vect-map/jqvmap.min.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block gestion_dispositifs %}
+    <a href="#" class="waves-effect active"><i class="icon-screen-smartphone fa-fw" data-icon="v"></i>
+        <span class="hide-menu"> Gestion Ressources <span class="fa arrow"></span></span></a>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Vector Page</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Dashboard</a></li>
+                        <li class="active">Vector Page</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- row -->
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Proym IT</h3>
+                        <div id="proxym" style="height: 450px"></div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- row -->
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="white-box">
+                        <h3 class="box-title">Tunisia</h3>
+                        <div id="vmap" style="width: 600px; height: 400px;"></div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {% javascripts
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/vect-map/jquery.vmap.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/vect-map/maps/jquery.vmap.tunisia.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/vect-map/maps/jquery.vmap.proxym.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        jQuery('#vmap').vectorMap({
+            map: 'tunisia',
+            backgroundColor: null,
+            color: '#bdaa36',
+            hoverOpacity: 0.7,
+            selectedColor: '#355876',
+            enableZoom: true,
+            showTooltip: true,
+//            values: sample_data,
+            scaleColors: ['#C8EEFF', '#006491'],
+            normalizeFunction: 'polynomial',
+            multiSelectRegion:false,
+            onRegionClick: function(element, code, region)
+            {
+                var message = 'You clicked "'
+                    + region
+                    + '" which has the code: '
+                    + code.toUpperCase();
+
+                alert(message);
+            }
+        });
+
+        jQuery('#proxym').vectorMap({
+            map: 'proxym',
+            backgroundColor: null,
+            color: '#bdaa36',
+            hoverOpacity: 0.7,
+            selectedColor: '#355876',
+            enableZoom: true,
+            showTooltip: true,
+//            values: sample_data,
+            scaleColors: ['#C8EEFF', '#006491'],
+            normalizeFunction: 'polynomial',
+            multiSelectRegion:false,
+            onRegionClick: function(element, code, region)
+            {
+                var message = 'You clicked "'
+                    + region
+                    + '" which has the code: '
+                    + code.toUpperCase();
+
+                alert(message);
+            }
+        });
+    </script>
+    {#<script src="{{ asset('bundles/app/assets/js/jvectormap.custom.js') }}"></script>#}
+{% endblock %}
+
+
+

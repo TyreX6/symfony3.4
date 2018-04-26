@@ -14,7 +14,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use IT\DispositifBundle\Entity\Ressource;
+use IT\ResourceBundle\Entity\Ressource;
 
 /**
  * Class ResourcesApiController
@@ -72,7 +72,7 @@ class ResourcesApiController extends Controller
 //    public function listDispositifsAction()
 //    {
 //        $em = $this->getDoctrine()->getManager();
-//        $dispositifs = $em->getRepository("ITDispositifBundle:Ressource")->findAll();
+//        $dispositifs = $em->getRepository("ITResourceBundle:Ressource")->findAll();
 //        return $dispositifs;
 //    }
 

@@ -62,8 +62,8 @@ class ReservationsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $categories = $em->getRepository("ITDispositifBundle:Categorie")->findAll();
-        $category = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => $id_categ]);
+        $categories = $em->getRepository("ITResourceBundle:Categorie")->findAll();
+        $category = $em->getRepository("ITResourceBundle:Categorie")->findOneBy(["id" => $id_categ]);
         if ($category == null) {
             return $this->redirectToRoute("add_reservation", ["id_categ" => 1]);
         }
@@ -85,7 +85,7 @@ class ReservationsController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $user = $em->getRepository("ITUserBundle:User")->findOneBy(['id' => $postData['user']]);
-            $resource = $em->getRepository("ITDispositifBundle:Ressource")->findOneBy(['id' => $postData['dispositif']]);
+            $resource = $em->getRepository("ITResourceBundle:Ressource")->findOneBy(['id' => $postData['dispositif']]);
 
             $dateDebut = DateTime::createFromFormat('Y-m-d H:i:s', $postData['dateDebut']);
             $dateFin = DateTime::createFromFormat('Y-m-d H:i:s', $postData['dateFin']);

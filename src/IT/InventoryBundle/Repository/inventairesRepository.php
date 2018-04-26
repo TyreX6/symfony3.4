@@ -35,7 +35,7 @@ class inventairesRepository extends EntityRepository
     {
         $qb = $this->_em->createQueryBuilder();
         $qb->select('Count(m.id) as cnt')
-            ->from('ITDispositifBundle:Ressource', 'm')
+            ->from('ITResourceBundle:Ressource', 'm')
             ->where('m.bar_code = :code')
             ->setParameter('code', $code) ;
         $query = $qb->getQuery();

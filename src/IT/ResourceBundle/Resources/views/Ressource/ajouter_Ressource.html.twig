@@ -1,0 +1,169 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {% stylesheets
+    'bundles/itreservation/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css'
+    'bundles/itreservation/app/plugins/bower_components/dropify/dist/css/dropify.min.css'
+    filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+{% block title %} Ajouter Dispositif {% endblock %}
+
+{% block gestion_dispositifs %}
+    <a href="#" class="waves-effect active"><i class="icon-screen-smartphone fa-fw" data-icon="v"></i>
+        <span class="hide-menu"> Gestion Ressources <span class="fa arrow"></span></span></a>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Dispositifs</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="{{ path('list_devices') }}">Dispositifs</a></li>
+                        <li class="active">Ajouter Dispositif</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"> Ajouter un dispositif</div>
+                        {% if (message) %}
+                            <h3 class="center-block alert alert-success alert-dismissable">{{ message }}</h3>
+                        {% endif %}
+                        <div class="panel-wrapper collapse in" aria-expanded="true">
+                            <div class="panel-body">
+                                <div id="select-type">
+                                    {% for category in categories %}
+                                        {% if category.id >2 %}
+                                    <a href="{{ path('ajouter_ressource',{'id':category.id}) }}"> <button class="btn btn-success" value="{{ category.id }}" type="button">Ajouter {{ category.name }}</button></a>
+                                        {% endif %}
+                                    {% endfor %}
+
+                                </div>
+                                <div id="form-container">
+                                    <h3>{{ category }}</h3>
+                                    {% if (form) %}
+                                    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+                                    {{ form_start(form, {'attr' : {'id':'formID','class':'form-bordered'} }) }}
+                                    {{ form_end(form) }}
+                                    {% endif %}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--./row-->
+
+
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+{% endblock %}
+    {% block scripts %}
+        {% javascripts
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/jasny-bootstrap.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/dropify/dist/js/dropify.min.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <!-- Custom Theme JavaScript -->
+
+        <script>
+
+            jQuery(document).ready(function () {
+                $("input[name='appbundle_dispositif[ram]']").TouchSpin({
+                    min: 0,
+                    max: 32,
+                    step: 0.512,
+                    decimals: 3,
+                    boostat: 5,
+                    maxboostedstep: 10,
+                    postfix: 'RAM'
+                });
+            });
+        </script>
+
+        <!-- jQuery file upload -->
+        <script>
+            $(document).ready(function () {
+                // Basic
+                $('.dropify').dropify();
+                // Translated
+                $('.dropify-fr').dropify({
+                    messages: {
+                        default: 'Glissez-déposez un fichier ici ou cliquez',
+                        replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                        remove: 'Supprimer',
+                        error: 'Désolé, le fichier trop volumineux'
+                    }
+                });
+                // Used events
+                var drEvent = $('#input-file-events').dropify();
+                drEvent.on('dropify.beforeClear', function (event, element) {
+                    return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                });
+                drEvent.on('dropify.afterClear', function (event, element) {
+                    alert('File deleted');
+                });
+                drEvent.on('dropify.errors', function (event, element) {
+                    console.log('Has Errors');
+                });
+                var drDestroy = $('#input-file-to-destroy').dropify();
+                drDestroy = drDestroy.data('dropify');
+                $('#toggleDropify').on('click', function (e) {
+                    e.preventDefault();
+                    if (drDestroy.isDropified()) {
+                        drDestroy.destroy();
+                    } else {
+                        drDestroy.init();
+                    }
+                })
+            });
+        </script>
+
+        <script src="{{ asset('bundles/itreservation/app/assets/js/jquery.collection.js') }}"></script>
+        <script type="text/javascript">
+            $('.my-apps-selector').collection({ /* same selector as declared in TravelType */
+                allow_up: true,
+                allow_down: true,
+                allow_duplicate:true,
+                prefix: 'Application', /* will use city-add instead of collection-add for add button, etc) */
+            });
+
+            $('.my-images-selector').collection({ /* same selector as declared in TravelType */
+                allow_up: true,
+                allow_down: true,
+                allow_duplicate:true,
+                prefix: 'Image' /* will use hobby-add instead of collection-add for add button, etc) */
+            });
+
+        </script>
+
+        <script>
+            {#$('#select-type button').on('click', function(event) {#}
+                {#event.preventDefault();#}
+                {#console.log("hi");#}
+                {#var getAjaxUrl = "{{ path('add_form_categ') }}" ;#}
+                {#$.post(getAjaxUrl, {#}
+                    {#type: $(this).val()#}
+                    {#},#}
+                    {#function(data) {#}
+                    {#console.log(data);#}
+                    {#$('#form-container').html(data);#}
+                {#});#}
+            {#});#}
+        </script>
+    {% endblock %}

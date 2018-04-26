@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <skipper version="3.2.12.1400" mvc="Symfony" orm="Doctrine2" name="Symfony3.4" uuid="275a1137-585b-4a29-8573-315044357a36">
-  <module name="\src/IT/DispositifBundle/Entity" local-name="src/IT/DispositifBundle/Entity" namespace="\IT\DispositifBundle\Entity" local-namespace="\IT\DispositifBundle\Entity" export-format="Doctrine2Php" export-path="src/IT/DispositifBundle/Entity" uuid="6d14c0ad-0335-4bbd-954e-7f69aacf1047">
-    <entity name="\IT\DispositifBundle\Entity\Application" local-name="Application" namespace="\IT\DispositifBundle\Entity" uuid="b1b9bbf4-d36e-4296-9ecc-531ba16fed1d">
+  <module name="\src/IT/ResourceBundle/Entity" local-name="src/IT/ResourceBundle/Entity" namespace="\IT\ResourceBundle\Entity" local-namespace="\IT\ResourceBundle\Entity" export-format="Doctrine2Php" export-path="src/IT/ResourceBundle/Entity" uuid="6d14c0ad-0335-4bbd-954e-7f69aacf1047">
+    <entity name="\IT\ResourceBundle\Entity\Application" local-name="Application" namespace="\IT\ResourceBundle\Entity" uuid="b1b9bbf4-d36e-4296-9ecc-531ba16fed1d">
       <field name="id" type="integer" required="true" primary="true" uuid="3444d1bf-2db5-4c08-a6c9-f53ee1b0991e">
         <orm-attributes>
           <attribute name="column">id</attribute>
@@ -20,7 +20,7 @@
         <attribute name="export-file-name">Application.php</attribute>
       </orm-attributes>
     </entity>
-    <association from="\IT\DispositifBundle\Entity\Application" to="\IT\DispositifBundle\Entity\Dispositif" owner-alias="apps" inverse-alias="dispositif" many-owner="true" many-inverse="false" uuid="9e470da9-2b0e-4574-a1c2-157b65ab7eb4">
+    <association from="\IT\ResourceBundle\Entity\Application" to="\IT\ResourceBundle\Entity\Dispositif" owner-alias="apps" inverse-alias="dispositif" many-owner="true" many-inverse="false" uuid="9e470da9-2b0e-4574-a1c2-157b65ab7eb4">
       <association-field from="dispositif_id" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>
@@ -38,7 +38,7 @@
         </attribute>
       </orm-attributes>
     </association>
-    <entity name="\IT\DispositifBundle\Entity\Categorie" local-name="Categorie" namespace="\IT\DispositifBundle\Entity" uuid="02c74fe3-3fe6-4353-8f1e-f1c7ca521df2">
+    <entity name="\IT\ResourceBundle\Entity\Categorie" local-name="Categorie" namespace="\IT\ResourceBundle\Entity" uuid="02c74fe3-3fe6-4353-8f1e-f1c7ca521df2">
       <field name="id" type="integer" required="true" primary="true" uuid="dce6b454-b8e8-4627-9ddb-bc81936ad06b">
         <orm-attributes>
           <attribute name="column">id</attribute>
@@ -56,7 +56,7 @@
         <attribute name="export-file-name">Categorie.php</attribute>
       </orm-attributes>
     </entity>
-    <entity name="\IT\DispositifBundle\Entity\Dispositif" local-name="Dispositif" namespace="\IT\DispositifBundle\Entity" uuid="ca7021fc-4255-4bc9-9ef1-f7ee0a5e4450">
+    <entity name="\IT\ResourceBundle\Entity\Dispositif" local-name="Dispositif" namespace="\IT\ResourceBundle\Entity" uuid="ca7021fc-4255-4bc9-9ef1-f7ee0a5e4450">
       <field name="model" type="string" size="50" uuid="17fd4b74-bbd9-45d9-806c-1e9b7ef001ad">
         <orm-attributes>
           <attribute name="column">model</attribute>
@@ -118,13 +118,13 @@
         </orm-attributes>
       </field>
       <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="26ac0780-359e-41ff-bba5-2b2f2072cbc8"/>
-      <inheritance-child derived-from="\IT\DispositifBundle\Entity\Ressource" discriminator-value="1" uuid="5c54fd33-1d96-4926-87a7-2d2f37a47b18"/>
+      <inheritance-child derived-from="\IT\ResourceBundle\Entity\Ressource" discriminator-value="1" uuid="5c54fd33-1d96-4926-87a7-2d2f37a47b18"/>
       <orm-attributes>
-        <attribute name="repository-class">IT\DispositifBundle\Repository\DispositifsRepository</attribute>
+        <attribute name="repository-class">IT\ResourceBundle\Repository\DispositifsRepository</attribute>
         <attribute name="export-file-name">Dispositif.php</attribute>
       </orm-attributes>
     </entity>
-    <entity name="\IT\DispositifBundle\Entity\Image" local-name="Image" namespace="\IT\DispositifBundle\Entity" uuid="90344b80-4720-44bb-b266-7a09671b6587">
+    <entity name="\IT\ResourceBundle\Entity\Image" local-name="Image" namespace="\IT\ResourceBundle\Entity" uuid="90344b80-4720-44bb-b266-7a09671b6587">
       <field name="id" type="integer" required="true" primary="true" uuid="be9acd0d-2b7f-470c-84d0-b96480e196e8">
         <orm-attributes>
           <attribute name="column">id</attribute>
@@ -167,7 +167,7 @@
         </attribute>
       </orm-attributes>
     </entity>
-    <association from="\IT\DispositifBundle\Entity\Image" to="\IT\DispositifBundle\Entity\Dispositif" owner-alias="images" inverse-alias="dispositif" many-owner="true" many-inverse="false" uuid="2bdff0d0-ff3a-43c1-8c94-2f7e43022431">
+    <association from="\IT\ResourceBundle\Entity\Image" to="\IT\ResourceBundle\Entity\Dispositif" owner-alias="images" inverse-alias="dispositif" many-owner="true" many-inverse="false" uuid="2bdff0d0-ff3a-43c1-8c94-2f7e43022431">
       <association-field from="dispositive_id" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>
@@ -185,7 +185,7 @@
         </attribute>
       </orm-attributes>
     </association>
-    <entity name="\IT\DispositifBundle\Entity\Projecteur" local-name="Projecteur" namespace="\IT\DispositifBundle\Entity" uuid="b13da8b9-ae30-40ff-86a7-eb2af4c818bd">
+    <entity name="\IT\ResourceBundle\Entity\Projecteur" local-name="Projecteur" namespace="\IT\ResourceBundle\Entity" uuid="b13da8b9-ae30-40ff-86a7-eb2af4c818bd">
       <field name="modele" type="string" size="50" uuid="48bcb012-5448-459b-b191-d8ff03e2b52e">
         <orm-attributes>
           <attribute name="column">modele</attribute>
@@ -197,12 +197,12 @@
         </orm-attributes>
       </field>
       <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="93dfd3fd-7514-4037-8594-5dcd38ce0de8"/>
-      <inheritance-child derived-from="\IT\DispositifBundle\Entity\Ressource" discriminator-value="2" uuid="125c0914-6562-4d36-925b-85cbf265ee75"/>
+      <inheritance-child derived-from="\IT\ResourceBundle\Entity\Ressource" discriminator-value="2" uuid="125c0914-6562-4d36-925b-85cbf265ee75"/>
       <orm-attributes>
         <attribute name="export-file-name">Projecteur.php</attribute>
       </orm-attributes>
     </entity>
-    <entity name="\IT\DispositifBundle\Entity\Ressource" local-name="Ressource" namespace="\IT\DispositifBundle\Entity" uuid="47d62c8c-7471-4603-a131-cf3c04651dce">
+    <entity name="\IT\ResourceBundle\Entity\Ressource" local-name="Ressource" namespace="\IT\ResourceBundle\Entity" uuid="47d62c8c-7471-4603-a131-cf3c04651dce">
       <field name="id" type="integer" required="true" primary="true" uuid="473cb990-5cba-4899-9eff-f0810b839329">
         <orm-attributes>
           <attribute name="column">id</attribute>
@@ -234,7 +234,7 @@
         <attribute name="export-file-name">Ressource.php</attribute>
       </orm-attributes>
     </entity>
-    <association from="\IT\DispositifBundle\Entity\Ressource" to="\IT\DispositifBundle\Entity\Categorie" owner-alias="ressource" inverse-alias="category" many-owner="true" many-inverse="false" parent-required="true" uuid="7992742b-e91b-43d5-ba57-f295dc1b4674">
+    <association from="\IT\ResourceBundle\Entity\Ressource" to="\IT\ResourceBundle\Entity\Categorie" owner-alias="ressource" inverse-alias="category" many-owner="true" many-inverse="false" parent-required="true" uuid="7992742b-e91b-43d5-ba57-f295dc1b4674">
       <association-field from="categorie_id" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>
@@ -242,7 +242,7 @@
         <attribute name="side-inverse"/>
       </orm-attributes>
     </association>
-    <entity name="\IT\DispositifBundle\Entity\Salle" local-name="Salle" namespace="\IT\DispositifBundle\Entity" uuid="944cee45-1fa0-4dcf-966e-4acd981832b3">
+    <entity name="\IT\ResourceBundle\Entity\Salle" local-name="Salle" namespace="\IT\ResourceBundle\Entity" uuid="944cee45-1fa0-4dcf-966e-4acd981832b3">
       <field name="id" type="integer" required="true" primary="true" uuid="1f044dc5-5691-4d03-9d3b-22cae0b17fc9">
         <orm-attributes>
           <attribute name="column">id</attribute>
@@ -261,7 +261,7 @@
           <attribute name="column">numero_salle</attribute>
         </orm-attributes>
       </field>
-      <inheritance-child derived-from="\IT\DispositifBundle\Entity\Ressource" discriminator-value="3" uuid="17fe03ed-ab1d-45c9-a5eb-733223d9264c"/>
+      <inheritance-child derived-from="\IT\ResourceBundle\Entity\Ressource" discriminator-value="3" uuid="17fe03ed-ab1d-45c9-a5eb-733223d9264c"/>
       <orm-attributes>
         <attribute name="export-file-name">Salle.php</attribute>
       </orm-attributes>
@@ -312,7 +312,7 @@
         <attribute name="export-file-name">LineInventory.php</attribute>
       </orm-attributes>
     </entity>
-    <association from="\IT\InventoryBundle\Entity\LineInventory" to="\IT\DispositifBundle\Entity\Ressource" owner-alias="" inverse-alias="resource" many-owner="true" many-inverse="false" uuid="5606a10c-1d28-4cf1-a1dd-0a1c7984dd69">
+    <association from="\IT\InventoryBundle\Entity\LineInventory" to="\IT\ResourceBundle\Entity\Ressource" owner-alias="" inverse-alias="resource" many-owner="true" many-inverse="false" uuid="5606a10c-1d28-4cf1-a1dd-0a1c7984dd69">
       <association-field from="resource_id" to="id"/>
       <orm-attributes>
         <attribute name="side-owning"/>
@@ -369,7 +369,7 @@
         <attribute name="side-inverse"/>
       </orm-attributes>
     </association>
-    <association from="\IT\ReservationBundle\Entity\AbstractReservation" to="\IT\DispositifBundle\Entity\Ressource" owner-alias="abstract_reservation" inverse-alias="ressource" many-owner="true" many-inverse="false" uuid="6af4089d-5dc6-49a1-b7fb-d502d905d085">
+    <association from="\IT\ReservationBundle\Entity\AbstractReservation" to="\IT\ResourceBundle\Entity\Ressource" owner-alias="abstract_reservation" inverse-alias="ressource" many-owner="true" many-inverse="false" uuid="6af4089d-5dc6-49a1-b7fb-d502d905d085">
       <association-field from="ressource_id" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>
@@ -450,7 +450,7 @@
         <attribute name="export-file-name">Reservation.php</attribute>
       </orm-attributes>
     </entity>
-    <association from="\IT\ReservationBundle\Entity\Reservation" to="\IT\DispositifBundle\Entity\Dispositif" owner-alias="reservation" inverse-alias="dispositif" many-owner="true" many-inverse="false" parent-required="true" uuid="7b6171fa-0bcb-4be6-9c9f-4a3de360218c">
+    <association from="\IT\ReservationBundle\Entity\Reservation" to="\IT\ResourceBundle\Entity\Dispositif" owner-alias="reservation" inverse-alias="dispositif" many-owner="true" many-inverse="false" parent-required="true" uuid="7b6171fa-0bcb-4be6-9c9f-4a3de360218c">
       <association-field from="dispositif_id" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>
@@ -466,7 +466,7 @@
         <attribute name="export-file-name">ReservationProjecteur.php</attribute>
       </orm-attributes>
     </entity>
-    <association from="\IT\ReservationBundle\Entity\ReservationProjecteur" to="\IT\DispositifBundle\Entity\Projecteur" owner-alias="reservationProjecteur" inverse-alias="projecteur" many-owner="true" many-inverse="false" parent-required="true" uuid="39ccab99-5358-4a3d-9933-364eabf73c77">
+    <association from="\IT\ReservationBundle\Entity\ReservationProjecteur" to="\IT\ResourceBundle\Entity\Projecteur" owner-alias="reservationProjecteur" inverse-alias="projecteur" many-owner="true" many-inverse="false" parent-required="true" uuid="39ccab99-5358-4a3d-9933-364eabf73c77">
       <association-field from="projecteur_id" to="id"/>
       <orm-attributes>
         <attribute name="on-delete">CASCADE</attribute>

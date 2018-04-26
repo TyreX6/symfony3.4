@@ -223,17 +223,17 @@
                     {% block gestion_dispositifs %}
                         <a href="index.html" class="waves-effect"><i class="icon-screen-smartphone fa-fw"
                                                                      data-icon="v"></i>
-                            <span class="hide-menu"> Gestion Dispositifs <span class="fa arrow"></span></span></a>
+                            <span class="hide-menu"> Gestion Ressources <span class="fa arrow"></span></span></a>
                     {% endblock %}
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{ path('liste_dispositif') }}" class="waves-effect">
+                            <a href="{{ path('list_devices') }}" class="waves-effect">
                                 <i class="icon-list fa-fw" data-icon="v"></i>
                                 <span class="hide-menu"> Liste des dispositifs </span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ path('ajouter_dispositif') }}" class="waves-effect">
+                            <a href="{{ path('add_device') }}" class="waves-effect">
                                 <i class="icon-software-add-vectorpoint fa-fw" data-icon="v"></i>
                                 <span class="hide-menu"> Ajouter un dispositif </span>
                             </a>

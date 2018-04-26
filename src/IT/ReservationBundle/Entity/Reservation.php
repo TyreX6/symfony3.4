@@ -8,7 +8,7 @@
 
 namespace IT\ReservationBundle\Entity;
 
-use IT\DispositifBundle\Entity\Ressource;
+use IT\ResourceBundle\Entity\Ressource;
 use IT\UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\RestBundle\Context\Context;
@@ -83,7 +83,7 @@ class Reservation
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="IT\DispositifBundle\Entity\Ressource", inversedBy="reservations",)
+     * @ORM\ManyToOne(targetEntity="IT\ResourceBundle\Entity\Ressource", inversedBy="reservations",)
      * @ORM\JoinColumn(name="ressource_id", referencedColumnName="id",onDelete="CASCADE")
      * @SWG\Property(type="object",description="Le ressource réservé.")
      * @Expose

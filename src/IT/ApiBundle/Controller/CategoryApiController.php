@@ -12,7 +12,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use IT\DispositifBundle\Entity\Categorie;
+use IT\ResourceBundle\Entity\Categorie;
 
 /**
  * Created by IntelliJ IDEA.
@@ -45,7 +45,7 @@ class CategoryApiController extends Controller
     public function listCategoriesAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository("ITDispositifBundle:Categorie")->findAll();
+        $categories = $em->getRepository("ITResourceBundle:Categorie")->findAll();
         return $categories;
     }
 
@@ -68,7 +68,7 @@ class CategoryApiController extends Controller
     public function listCategoriesWithResourcesAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository("ITDispositifBundle:Categorie")->findAll();
+        $categories = $em->getRepository("ITResourceBundle:Categorie")->findAll();
         return $categories;
     }
 
@@ -98,7 +98,7 @@ class CategoryApiController extends Controller
     public function listResourcesByCategoryAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $category = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id"=>$id]);
+        $category = $em->getRepository("ITResourceBundle:Categorie")->findOneBy(["id"=>$id]);
         return $category;
     }
 }

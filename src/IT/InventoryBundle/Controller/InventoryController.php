@@ -2,7 +2,7 @@
 
 namespace IT\InventoryBundle\Controller;
 
-use IT\DispositifBundle\Entity\Ressource;
+use IT\ResourceBundle\Entity\Ressource;
 use DateTimeZone;
 use JMS\Serializer\SerializerBuilder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -89,7 +89,7 @@ class InventoryController extends Controller
         $serializer = new Serializer($normalizers, $encoders);
         $em = $this->getDoctrine()->getManager();
         $inventaire = $em->getRepository("ITInventoryBundle:Inventory")->find($id);
-        $materiel = $em->getRepository("ITDispositifBundle:Ressource")->findOneBy(array('bar_code' => $codeBarre));
+        $materiel = $em->getRepository("ITResourceBundle:Ressource")->findOneBy(array('bar_code' => $codeBarre));
 //        return JsonResponse::create(array("id" => $materiel->getId()), 200)
 //            ->setSharedMaxAge(900);
         if ($materiel) {
@@ -154,7 +154,7 @@ class InventoryController extends Controller
         $ligneInv = $inventaire->getLigneInventaire();
         foreach ($ligneInv as &$ligne) {
             $materielLigne = $ligne->getResource();
-            $materiel = $em->getRepository("ITDispositifBundle:Ressource")->find($materielLigne->getId());
+            $materiel = $em->getRepository("ITResourceBundle:Ressource")->find($materielLigne->getId());
             $materiel->setEtat($ligne->getEtat());
             $em->persist($materiel);
             $em->flush();

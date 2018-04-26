@@ -1,0 +1,338 @@
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+    {% stylesheets
+        'bundles/itreservation/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css'
+        'bundles/itreservation/app/plugins/bower_components/dropify/dist/css/dropify.min.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+{% block title %} Ajouter Dispositif {% endblock %}
+
+{% block gestion_dispositifs %}
+    <a href="#" class="waves-effect active"><i class="icon-screen-smartphone fa-fw" data-icon="v"></i>
+        <span class="hide-menu"> Gestion Ressources <span class="fa arrow"></span></span></a>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title">Dispositifs</h4></div>
+                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="{{ path('list_devices') }}">Dispositifs</a></li>
+                        <li class="active">Ajouter Dispositif</li>
+                    </ol>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading"> Ajouter un dispositif</div>
+                        {% if (message) %}
+                            <h3 class="center-block alert alert-success alert-dismissable">{{ message }}</h3>
+                        {% endif %}
+                        <div class="panel-wrapper collapse in" aria-expanded="true">
+                            <div class="panel-body">
+                                {{ form_start(dispositifForm, {'attr' : {'id':'formID','class':'form-horizontal form-bordered'} }) }}
+                                <div class="form-body">
+                                    <h3 class="box-title">Caractéristiques</h3>
+                                    <hr class="m-t-0 m-b-40">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Modéle</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.model) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.model) }} </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Résolution</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.resolution) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.resolution) }} </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Systéme d'exploitation</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.os) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.os) }} </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Version Systéme</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.osVersion) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.osVersion) }} </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Processeur</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.cpu) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.cpu) }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">RAM</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.ram) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.ram) }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Identifiant Unique</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.deviceUUID) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.deviceUUID) }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Etat</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.status) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.status) }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Categorie</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.category) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.category) }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="box-title">Applications installées</h3>
+
+                                    {%
+                                        form_theme dispositifForm.apps
+                                        '::jquery.collection.html.twig'
+                                        '@ITResource/Dispositif/formThemeWithButtons.html.twig'
+                                    %}
+                                    {{ form_widget (dispositifForm.apps) }}
+
+
+                                    {#<hr class="m-t-0 m-b-40">#}
+                                    {#<div id="app-fields-list" class="row" data-counter="0"#}
+                                    {#data-prototype="{{ form_widget(dispositifForm.apps.vars.prototype)|e }}"#}
+                                    {#data-widget-tags="{{ '<li class="col-sm-4 col-md-4 col-xs-12"></li>'|e }}">#}
+
+                                    {#{% for app in dispositifForm.apps %}#}
+                                    {#<li class="col-sm-4 col-md-4 col-xs-12">#}
+                                    {#{{ form_widget(app) }}#}
+                                    {#</li>#}
+                                    {#<button class="btn btn-danger waves-effect waves-light"#}
+                                    {#type="button">#}
+                                    {#<span class="btn-label">#}
+                                    {#<i class="fa fa-minus-circle"></i>#}
+                                    {#</span>#}
+                                    {#</button>#}
+                                    {#{% endfor %}#}
+                                    {#</div>#}
+
+                                    {#<h3 class="box-title">Gallery</h3>#}
+                                    {#{%#}
+                                    {#form_theme dispositifForm.images#}
+                                    {#'::jquery.collection.html.twig'#}
+                                    {#'@ITResource/Dispositif/formThemeWithButtons.html.twig'#}
+                                    {#%}#}
+                                    {#{{ form(dispositifForm.images) }}#}
+                                    {#<button class="btn btn-info waves-effect waves-light add-another-collection-widget"#}
+                                    {#data-list="#image-fields-list" type="button"><span class="btn-label"><i#}
+                                    {#class="fa fa-plus-circle"></i></span>Ajouter Image#}
+                                    {#</button>#}
+                                    {#<button class="btn btn-warning waves-effect waves-light remove-collection-widget"#}
+                                    {#data-list="#image-fields-list" type="button"><span class="btn-label"><i#}
+                                    {#class="fa fa-minus-circle"></i></span>Supprimer Image#}
+                                    {#</button>#}
+                                    {#<hr class="m-t-0 m-b-40">#}
+
+                                    {#<div id="image-fields-list" class="row"#}
+                                    {#data-prototype="{{ form_widget(dispositifForm.images.vars.prototype)|e }}"#}
+                                    {#data-widget-tags="{{ '<li class="col-sm-6 col-md-6 col-xs-12"></li>'|e }}">#}
+
+                                    {#{% for image in dispositifForm.images %}#}
+                                    {#<li class="col-sm-6 col-md-6 col-xs-12">#}
+                                    {#<div class="white-box">#}
+                                    {#{{ form_widget(image) }}#}
+                                    {#</div>#}
+                                    {#<hr class="m-t-0 m-b-40">#}
+                                    {#</li>#}
+                                    {#{% endfor %}#}
+                                    {#</div>#}
+
+                                </div>
+                                <hr class="m-t-0 m-b-40">
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-9">
+                                                    <button type="submit" class="btn btn-success">Envoyer</button>
+                                                    <button type="button" class="btn btn-default">Annuler</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {#{% do dispositifForm.etat.setRendered() %}#}
+                                {#{{ form_widget(dispositifForm.etat, { 'attr': {'class': 'hidden'} }) }}#}
+                                {{ form_end(dispositifForm) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--./row-->
+
+
+        </div>
+        <!-- /.container-fluid -->
+        <footer class="footer text-center"> 2017 &copy; Elite Admin brought to you by themedesigner.in</footer>
+    </div>
+{% endblock %}
+    {% block scripts %}
+        {% javascripts
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js'
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js'
+            '@ITReservationBundle/Resources/public/app/assets/js/jasny-bootstrap.js'
+            '@ITReservationBundle/Resources/public/app/plugins/bower_components/dropify/dist/js/dropify.min.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+        <!-- Custom Theme JavaScript -->
+
+        <script>
+
+            jQuery(document).ready(function () {
+                $("input[name='appbundle_dispositif[ram]']").TouchSpin({
+                    min: 0,
+                    max: 32,
+                    step: 0.512,
+                    decimals: 3,
+                    boostat: 5,
+                    maxboostedstep: 10,
+                    postfix: 'RAM'
+                });
+            });
+        </script>
+
+        <!-- jQuery file upload -->
+        <script>
+            $(document).ready(function () {
+                // Basic
+                $('.dropify').dropify();
+                // Translated
+                $('.dropify-fr').dropify({
+                    messages: {
+                        default: 'Glissez-déposez un fichier ici ou cliquez',
+                        replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                        remove: 'Supprimer',
+                        error: 'Désolé, le fichier trop volumineux'
+                    }
+                });
+                // Used events
+                var drEvent = $('#input-file-events').dropify();
+                drEvent.on('dropify.beforeClear', function (event, element) {
+                    return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                });
+                drEvent.on('dropify.afterClear', function (event, element) {
+                    alert('File deleted');
+                });
+                drEvent.on('dropify.errors', function (event, element) {
+                    console.log('Has Errors');
+                });
+                var drDestroy = $('#input-file-to-destroy').dropify();
+                drDestroy = drDestroy.data('dropify');
+                $('#toggleDropify').on('click', function (e) {
+                    e.preventDefault();
+                    if (drDestroy.isDropified()) {
+                        drDestroy.destroy();
+                    } else {
+                        drDestroy.init();
+                    }
+                })
+            });
+        </script>
+
+        <script src="{{ asset('bundles/itreservation/app/assets/js/jquery.collection.js') }}"></script>
+        <script type="text/javascript">
+            $('.my-apps-selector').collection({ /* same selector as declared in TravelType */
+                allow_up: true,
+                allow_down: true,
+                allow_duplicate:true,
+                prefix: 'Application', /* will use city-add instead of collection-add for add button, etc) */
+            });
+
+            $('.my-images-selector').collection({ /* same selector as declared in TravelType */
+                allow_up: true,
+                allow_down: true,
+                allow_duplicate:true,
+                prefix: 'Image' /* will use hobby-add instead of collection-add for add button, etc) */
+            });
+
+        </script>
+    {% endblock %}

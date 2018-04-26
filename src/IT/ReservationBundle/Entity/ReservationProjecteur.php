@@ -30,7 +30,7 @@ class ReservationProjecteur extends Reservation
 {
 
     /**
-     * @ORM\ManyToOne(targetEntity="IT\DispositifBundle\Entity\Projecteur", inversedBy="reservationProjecteur",)
+     * @ORM\ManyToOne(targetEntity="IT\ResourceBundle\Entity\Projecteur", inversedBy="reservationProjecteur",)
      * @Assert\NotBlank()
      * @ORM\JoinColumn(name="projecteur_id", referencedColumnName="id",onDelete="CASCADE",nullable=false)
      * @SWG\Property(description="Le projecteur réservé.")

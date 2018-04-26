@@ -21,7 +21,7 @@ class ReglesApiController extends Controller
 {
     /**
      * @Rest\View()
-     * @Rest\GET("api/regles/")
+     * @Rest\Get("api/regles/")
      *
      */
     public function getReglesAction()
