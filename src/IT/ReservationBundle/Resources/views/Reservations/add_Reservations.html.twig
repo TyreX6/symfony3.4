@@ -41,7 +41,7 @@
             <div class="row ">
                 <div class="col-md-3">
                     <div class="white-box">
-                        <h3 class="box-title">CHOISIR COLLABORATEUR ET DISPOSITIF</h3>
+                        <h3 class="box-title">CHOISIR COLLABORATEUR ET RESSOURCE</h3>
                         <form id="newRes" role="form">
 
                             <div class="row m-t-10">
@@ -62,7 +62,7 @@
 
                             <div class="row m-t-10">
                                 <div class="col-md-12">
-                                    <label class="control-label">Choisir le dispositif</label>
+                                    <label class="control-label">Choisir la ressource</label>
                                     <select name="dispositif-Select" class="form-control select3"
                                             data-placeholder="">
                                         {% for dispo in dispos %}
@@ -82,10 +82,10 @@
                                         {% endfor %}
 
                                     </select>
-                                    <a data-dismiss="modal" data-toggle="modal" data-target="#login-user"
-                                       class="btn btn-1b m-t-10 btn-warning btn-block" id="connect-user">Utilisateur
-                                        non trouvé ?
-                                    </a>
+                                    {#<a data-dismiss="modal" data-toggle="modal" data-target="#login-user"#}
+                                       {#class="btn btn-1b m-t-10 btn-warning btn-block" id="connect-user">Utilisateur#}
+                                        {#non trouvé ?#}
+                                    {#</a>#}
                                 </div>
                             </div>
                         </form>
