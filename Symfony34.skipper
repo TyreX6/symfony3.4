@@ -1,0 +1,1214 @@
+<?xml version="1.0"?>
+<skipper version="3.2.12.1400" mvc="Symfony" orm="Doctrine2" name="Symfony3.4" uuid="275a1137-585b-4a29-8573-315044357a36">
+  <module name="\src/IT/DispositifBundle/Entity" local-name="src/IT/DispositifBundle/Entity" namespace="\IT\DispositifBundle\Entity" local-namespace="\IT\DispositifBundle\Entity" export-format="Doctrine2Php" export-path="src/IT/DispositifBundle/Entity" uuid="6d14c0ad-0335-4bbd-954e-7f69aacf1047">
+    <entity name="\IT\DispositifBundle\Entity\Application" local-name="Application" namespace="\IT\DispositifBundle\Entity" uuid="b1b9bbf4-d36e-4296-9ecc-531ba16fed1d">
+      <field name="id" type="integer" required="true" primary="true" uuid="3444d1bf-2db5-4c08-a6c9-f53ee1b0991e">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="name" type="string" required="true" uuid="1d53086d-033d-4deb-8b41-c1baef7c5034">
+        <orm-attributes>
+          <attribute name="column">name</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dispositif_id" uuid="5db31fba-1684-46fe-a04a-1c8b9d110807"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Application.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\IT\DispositifBundle\Entity\Application" to="\IT\DispositifBundle\Entity\Dispositif" owner-alias="apps" inverse-alias="dispositif" many-owner="true" many-inverse="false" uuid="9e470da9-2b0e-4574-a1c2-157b65ab7eb4">
+      <association-field from="dispositif_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-remove">true</attribute>
+            <attribute name="cascade-persist">true</attribute>
+          </attribute>
+          <attribute name="orphan-removal">true</attribute>
+        </attribute>
+      </orm-attributes>
+    </association>
+    <entity name="\IT\DispositifBundle\Entity\Categorie" local-name="Categorie" namespace="\IT\DispositifBundle\Entity" uuid="02c74fe3-3fe6-4353-8f1e-f1c7ca521df2">
+      <field name="id" type="integer" required="true" primary="true" uuid="dce6b454-b8e8-4627-9ddb-bc81936ad06b">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="name" type="string" required="true" uuid="c116cffa-dd97-48c4-83e0-59b1cb2fd46e">
+        <orm-attributes>
+          <attribute name="column">name</attribute>
+        </orm-attributes>
+      </field>
+      <orm-attributes>
+        <attribute name="export-file-name">Categorie.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\IT\DispositifBundle\Entity\Dispositif" local-name="Dispositif" namespace="\IT\DispositifBundle\Entity" uuid="ca7021fc-4255-4bc9-9ef1-f7ee0a5e4450">
+      <field name="model" type="string" size="50" uuid="17fd4b74-bbd9-45d9-806c-1e9b7ef001ad">
+        <orm-attributes>
+          <attribute name="column">model</attribute>
+        </orm-attributes>
+      </field>
+      <field name="deviceName" type="string" size="50" uuid="935323d5-c183-4ae2-8775-1684b97e3a98">
+        <orm-attributes>
+          <attribute name="column">deviceName</attribute>
+        </orm-attributes>
+      </field>
+      <field name="os" type="string" size="20" uuid="b5cbd07d-e3c7-4ba3-bc7f-5b80451482bc">
+        <orm-attributes>
+          <attribute name="column">os</attribute>
+        </orm-attributes>
+      </field>
+      <field name="OsVersion" type="string" uuid="40ed9f23-7b4d-4f91-a020-add1a3ecbc0a">
+        <orm-attributes>
+          <attribute name="column">OsVersion</attribute>
+        </orm-attributes>
+      </field>
+      <field name="deviceUUID" type="string" size="80" uuid="dd8aabf8-334d-4226-ab0d-e0bd4ed78cb1">
+        <orm-attributes>
+          <attribute name="column">device_UUID</attribute>
+        </orm-attributes>
+      </field>
+      <field name="cpu" type="string" size="40" uuid="5d07703e-8acd-41eb-99b6-c0b57791a92b">
+        <orm-attributes>
+          <attribute name="column">cpu</attribute>
+        </orm-attributes>
+      </field>
+      <field name="cpuCores" type="integer" uuid="02156a37-5bde-4cb6-90f6-ea018387d26e">
+        <orm-attributes>
+          <attribute name="column">cpu_cores</attribute>
+        </orm-attributes>
+      </field>
+      <field name="ram" type="float" uuid="3a4b6b04-1953-45a5-bef2-b4c78f89e295">
+        <orm-attributes>
+          <attribute name="column">ram</attribute>
+        </orm-attributes>
+      </field>
+      <field name="diskSpace" type="string" uuid="87480849-e8e0-46e4-bad4-4d57332a8ab6">
+        <orm-attributes>
+          <attribute name="column">disk_space</attribute>
+        </orm-attributes>
+      </field>
+      <field name="freeDiskSpace" type="string" uuid="892c09c3-0b0b-49b3-8384-d7220cf4f44c">
+        <orm-attributes>
+          <attribute name="column">free_disk_space</attribute>
+        </orm-attributes>
+      </field>
+      <field name="usedDiskSpace" type="string" uuid="5cbb1c5d-5650-44f1-b0d5-6d3e92bcd495">
+        <orm-attributes>
+          <attribute name="column">used_disk_space</attribute>
+        </orm-attributes>
+      </field>
+      <field name="resolution" type="string" size="20" uuid="c17c887c-5678-495a-a47a-621b1ea5a36f">
+        <orm-attributes>
+          <attribute name="column">resolution</attribute>
+        </orm-attributes>
+      </field>
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="26ac0780-359e-41ff-bba5-2b2f2072cbc8"/>
+      <inheritance-child derived-from="\IT\DispositifBundle\Entity\Ressource" discriminator-value="1" uuid="5c54fd33-1d96-4926-87a7-2d2f37a47b18"/>
+      <orm-attributes>
+        <attribute name="repository-class">IT\DispositifBundle\Repository\DispositifsRepository</attribute>
+        <attribute name="export-file-name">Dispositif.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\IT\DispositifBundle\Entity\Image" local-name="Image" namespace="\IT\DispositifBundle\Entity" uuid="90344b80-4720-44bb-b266-7a09671b6587">
+      <field name="id" type="integer" required="true" primary="true" uuid="be9acd0d-2b7f-470c-84d0-b96480e196e8">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="fileName" type="string" size="45" uuid="12db1400-33c0-4df1-946f-c7ecf0fdde76"/>
+      <field name="path" type="string" size="255" uuid="1403963a-74a4-40fe-b6a5-7fb441f9e009"/>
+      <field name="dateAjout" type="datetime" required="true" uuid="89b73533-b194-4bbd-bb12-56d511b38ab8"/>
+      <field name="dispositive_id" uuid="b6d7bdae-7475-435b-b55c-573eb484955c"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Image.php</attribute>
+        <attribute name="lifecycle-callbacks">
+          <attribute name="lifecycle-callback">
+            <attribute name="type">prePersist</attribute>
+            <attribute name="method">preUpload</attribute>
+          </attribute>
+          <attribute name="lifecycle-callback">
+            <attribute name="type">preUpdate</attribute>
+            <attribute name="method">preUpload</attribute>
+          </attribute>
+          <attribute name="lifecycle-callback">
+            <attribute name="type">postPersist</attribute>
+            <attribute name="method">upload</attribute>
+          </attribute>
+          <attribute name="lifecycle-callback">
+            <attribute name="type">postUpdate</attribute>
+            <attribute name="method">upload</attribute>
+          </attribute>
+          <attribute name="lifecycle-callback">
+            <attribute name="type">preRemove</attribute>
+            <attribute name="method">removeUpload</attribute>
+          </attribute>
+          <attribute name="lifecycle-callback">
+            <attribute name="type">postRemove</attribute>
+            <attribute name="method">removeUpload</attribute>
+          </attribute>
+        </attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\IT\DispositifBundle\Entity\Image" to="\IT\DispositifBundle\Entity\Dispositif" owner-alias="images" inverse-alias="dispositif" many-owner="true" many-inverse="false" uuid="2bdff0d0-ff3a-43c1-8c94-2f7e43022431">
+      <association-field from="dispositive_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse">
+          <attribute name="cascade">
+            <attribute name="cascade-remove">true</attribute>
+            <attribute name="cascade-persist">true</attribute>
+          </attribute>
+          <attribute name="orphan-removal">true</attribute>
+        </attribute>
+      </orm-attributes>
+    </association>
+    <entity name="\IT\DispositifBundle\Entity\Projecteur" local-name="Projecteur" namespace="\IT\DispositifBundle\Entity" uuid="b13da8b9-ae30-40ff-86a7-eb2af4c818bd">
+      <field name="modele" type="string" size="50" uuid="48bcb012-5448-459b-b191-d8ff03e2b52e">
+        <orm-attributes>
+          <attribute name="column">modele</attribute>
+        </orm-attributes>
+      </field>
+      <field name="resolution" type="string" size="20" uuid="5d578406-e6ca-4975-befe-cdc475477e58">
+        <orm-attributes>
+          <attribute name="column">resolution</attribute>
+        </orm-attributes>
+      </field>
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="93dfd3fd-7514-4037-8594-5dcd38ce0de8"/>
+      <inheritance-child derived-from="\IT\DispositifBundle\Entity\Ressource" discriminator-value="2" uuid="125c0914-6562-4d36-925b-85cbf265ee75"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Projecteur.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\IT\DispositifBundle\Entity\Ressource" local-name="Ressource" namespace="\IT\DispositifBundle\Entity" uuid="47d62c8c-7471-4603-a131-cf3c04651dce">
+      <field name="id" type="integer" required="true" primary="true" uuid="473cb990-5cba-4899-9eff-f0810b839329">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="bar_code" type="string" uuid="531f4ddc-0dc3-4dac-9046-1a7a44ff941e">
+        <orm-attributes>
+          <attribute name="column">bar_code</attribute>
+        </orm-attributes>
+      </field>
+      <field name="status" type="string" size="20" required="true" uuid="ecac4bb8-70fb-4b02-b255-799e75cdeedf">
+        <orm-attributes>
+          <attribute name="column">status</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dateAdd" type="datetime" required="true" uuid="a68b7fdd-f803-4178-81e7-71efc65d5a22"/>
+      <field name="lastCheckDate" type="datetime" uuid="2e015c4c-094e-492b-8b0e-75201a8355fc">
+        <orm-attributes>
+          <attribute name="column">last_check_date</attribute>
+        </orm-attributes>
+      </field>
+      <field name="categorie_id" required="true" uuid="f5236217-0883-4630-bbc8-7bc131e27811"/>
+      <field name="discr" type="string" uuid="9d992e28-dd33-4877-8ce4-8703f7216b96"/>
+      <inheritance-parent discriminator-field="discr" type="JOINED" discriminator-value-base="0" uuid="01cc6229-63b6-4b11-a56d-11d923af73d1"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Ressource.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\IT\DispositifBundle\Entity\Ressource" to="\IT\DispositifBundle\Entity\Categorie" owner-alias="ressource" inverse-alias="category" many-owner="true" many-inverse="false" parent-required="true" uuid="7992742b-e91b-43d5-ba57-f295dc1b4674">
+      <association-field from="categorie_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\IT\DispositifBundle\Entity\Salle" local-name="Salle" namespace="\IT\DispositifBundle\Entity" uuid="944cee45-1fa0-4dcf-966e-4acd981832b3">
+      <field name="id" type="integer" required="true" primary="true" uuid="1f044dc5-5691-4d03-9d3b-22cae0b17fc9">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="name" type="string" required="true" uuid="c7db0e67-78a9-4a3c-9c3a-8ba2ba5cb752">
+        <orm-attributes>
+          <attribute name="column">name</attribute>
+        </orm-attributes>
+      </field>
+      <field name="numero_salle" type="integer" uuid="a51825c9-a757-48a5-afc8-7c81ee7a6f89">
+        <orm-attributes>
+          <attribute name="column">numero_salle</attribute>
+        </orm-attributes>
+      </field>
+      <inheritance-child derived-from="\IT\DispositifBundle\Entity\Ressource" discriminator-value="3" uuid="17fe03ed-ab1d-45c9-a5eb-733223d9264c"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Salle.php</attribute>
+      </orm-attributes>
+    </entity>
+  </module>
+  <module name="\src/IT/InventoryBundle/Entity" local-name="src/IT/InventoryBundle/Entity" namespace="\IT\InventoryBundle\Entity" local-namespace="\IT\InventoryBundle\Entity" export-format="Doctrine2Php" export-path="src/IT/InventoryBundle/Entity" uuid="3a7b3b58-bc4b-4db5-8f99-e839f422b659">
+    <entity name="\IT\InventoryBundle\Entity\Inventory" local-name="Inventory" namespace="\IT\InventoryBundle\Entity" uuid="67abaf8f-f751-4e95-9236-71b7ef08119f">
+      <field name="id" type="integer" required="true" primary="true" uuid="ee302bc5-a4d8-44a2-b96c-92f6cbbf63ad">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="etat" type="string" size="30" uuid="2ac87a1e-0b5b-4043-ba02-a3c50fd29932">
+        <orm-attributes>
+          <attribute name="column">etat_inventaire</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dateInventaire" type="datetime" uuid="75716431-7456-43a1-9b3a-0064f61c6909">
+        <orm-attributes>
+          <attribute name="column">date_inventaire</attribute>
+        </orm-attributes>
+      </field>
+      <orm-attributes>
+        <attribute name="repository-class">IT\InventoryBundle\Repository\inventairesRepository</attribute>
+        <attribute name="export-file-name">Inventory.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\IT\InventoryBundle\Entity\LineInventory" local-name="LineInventory" namespace="\IT\InventoryBundle\Entity" uuid="ffc97cba-0087-4634-aaaa-39693c0369e5">
+      <field name="id" type="integer" required="true" primary="true" uuid="fa78d612-e26c-4975-8f8b-4938c43d99e1">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="etat" type="string" size="20" uuid="34ecf677-9a90-4d0f-ae71-ece05a9e8134">
+        <orm-attributes>
+          <attribute name="column">etat</attribute>
+        </orm-attributes>
+      </field>
+      <field name="resource_id" uuid="3aaafa02-f380-451a-a35d-3616f8e1ce06"/>
+      <field name="inventaire_id" uuid="f8d5d6c8-c329-491e-8ea5-ba058ccd62f8"/>
+      <orm-attributes>
+        <attribute name="export-file-name">LineInventory.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\IT\InventoryBundle\Entity\LineInventory" to="\IT\DispositifBundle\Entity\Ressource" owner-alias="" inverse-alias="resource" many-owner="true" many-inverse="false" uuid="5606a10c-1d28-4cf1-a1dd-0a1c7984dd69">
+      <association-field from="resource_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <association from="\IT\InventoryBundle\Entity\LineInventory" to="\IT\InventoryBundle\Entity\Inventory" owner-alias="ligneInventaire" inverse-alias="inventaire" many-owner="true" many-inverse="false" uuid="5470c190-b124-4c54-b92c-b4acf58e0f40">
+      <association-field from="inventaire_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+  </module>
+  <module name="\src/IT/ReservationBundle/Entity" local-name="src/IT/ReservationBundle/Entity" namespace="\IT\ReservationBundle\Entity" local-namespace="\IT\ReservationBundle\Entity" export-format="Doctrine2Php" export-path="src/IT/ReservationBundle/Entity" uuid="c35d53d0-65c5-44db-9e65-6e7383f477f6">
+    <entity name="\IT\ReservationBundle\Entity\AbstractReservation" local-name="AbstractReservation" namespace="\IT\ReservationBundle\Entity" uuid="6d3e3155-c67b-4ed6-98ea-b3de1ebbc63c">
+      <field name="id" type="integer" required="true" primary="true" uuid="1893f4af-c2a2-4cf2-b120-fcbd244a9706">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="statut" type="string" size="20" uuid="a2bb39be-5528-404c-878c-3d8c032ce511">
+        <orm-attributes>
+          <attribute name="column">statut</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dateDebut" type="datetime" required="true" uuid="1cedad79-00da-412f-b52d-58c703b0f2a5">
+        <orm-attributes>
+          <attribute name="column">date_debut</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dateFin" type="datetime" required="true" uuid="ba7e3e88-ae12-4cc7-85c0-2d051066a94c">
+        <orm-attributes>
+          <attribute name="column">date_fin</attribute>
+        </orm-attributes>
+      </field>
+      <field name="user_id" required="true" uuid="e65a5e71-ce57-4fcf-a202-1ee24708dbea"/>
+      <field name="ressource_id" uuid="399fd47d-df0c-4a11-938b-f222ae1791d5"/>
+      <field name="discr" type="string" uuid="c393e508-7c4c-46c1-8ad3-2f48209c7580"/>
+      <inheritance-parent discriminator-field="discr" type="JOINED" discriminator-value-base="0" uuid="48559f61-ca57-48b3-a62f-9b830ac8f648"/>
+      <orm-attributes>
+        <attribute name="repository-class">IT\ReservationBundle\Repository\ReservationsRepository</attribute>
+        <attribute name="export-file-name">AbstractReservation.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\IT\ReservationBundle\Entity\AbstractReservation" to="\IT\UserBundle\Entity\User" owner-alias="" inverse-alias="user" many-owner="true" many-inverse="false" parent-required="true" uuid="d97e44e7-270b-4f34-b517-c51951b1c849">
+      <association-field from="user_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <association from="\IT\ReservationBundle\Entity\AbstractReservation" to="\IT\DispositifBundle\Entity\Ressource" owner-alias="abstract_reservation" inverse-alias="ressource" many-owner="true" many-inverse="false" uuid="6af4089d-5dc6-49a1-b7fb-d502d905d085">
+      <association-field from="ressource_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\IT\ReservationBundle\Entity\Notification" local-name="Notification" namespace="\IT\ReservationBundle\Entity" uuid="7faa4567-7a2e-4bf7-9e3f-f6651dafc40d">
+      <field name="id" type="integer" required="true" primary="true" uuid="33f22203-d323-4c09-85fe-e83597d7e46b">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="vu" type="boolean" size="20" uuid="1125c3ed-176e-4089-aafd-a6b4b6b71175">
+        <orm-attributes>
+          <attribute name="column">vu</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dateRes" type="datetime" required="true" uuid="03abcb06-f79a-42db-96a1-b5e7fc660520">
+        <orm-attributes>
+          <attribute name="column">date_res</attribute>
+        </orm-attributes>
+      </field>
+      <field name="reservation_id" required="true" unique="true" uuid="cb5488e8-94fe-4012-81bc-2ba9ec3a6fb0"/>
+      <orm-attributes>
+        <attribute name="repository-class">IT\ReservationBundle\Repository\NotificationRepository</attribute>
+        <attribute name="export-file-name">Notification.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\IT\ReservationBundle\Entity\Notification" to="\IT\ReservationBundle\Entity\Reservation" owner-alias="" inverse-alias="reservation" many-owner="false" many-inverse="false" parent-required="true" uuid="f399057d-6777-402e-82ec-7a40afc1c103">
+      <association-field from="reservation_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\IT\ReservationBundle\Entity\Regles" local-name="Regles" namespace="\IT\ReservationBundle\Entity" uuid="3a8d379f-dbce-4b16-bfb8-bc1a4cd559b0">
+      <field name="id" type="integer" required="true" primary="true" uuid="f07c47e6-b71c-4cca-8898-11a0f0be616d">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="limDureeReservation" type="integer" uuid="8278b841-9d9e-4179-ab7c-a76a29609750"/>
+      <field name="nbrLimiteParJour" type="integer" uuid="78d406c7-05d7-495d-b5cb-bbc4a81bd075"/>
+      <field name="nbrLimiteParSemaine" type="integer" uuid="09e1551f-479f-4d69-8fb7-4514332c1a54"/>
+      <field name="nbrMaxReservParallelPar" type="integer" uuid="1c25ccfc-9f58-404d-a0af-c5cd6a0c5ca6"/>
+      <field name="dateCrea" type="datetime" required="true" uuid="c5fd27f8-a1ef-41a2-9671-05599602cf92">
+        <orm-attributes>
+          <attribute name="column">date_crea</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dateModif" type="datetime" uuid="09e0a6ff-eb6d-4194-91d4-6309d6687948">
+        <orm-attributes>
+          <attribute name="column">date_modif</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dureeTimeout" type="integer" uuid="0f127f57-4f32-45a5-83d1-d0b9c354c231"/>
+      <field name="maxResParall" type="integer" uuid="cea76f8d-ccac-4426-9507-0e8a0131064d"/>
+      <inheritance-parent type="SINGLE_TABLE" uuid="f537476a-9d1b-4e50-900e-92d68c728767"/>
+      <orm-attributes>
+        <attribute name="table">Regles</attribute>
+        <attribute name="export-file-name">Regles.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\IT\ReservationBundle\Entity\Reservation" local-name="Reservation" namespace="\IT\ReservationBundle\Entity" uuid="cf293d9e-05f1-428c-a779-e556d497739f">
+      <field name="dispositif_id" required="true" uuid="3f76f143-f439-4070-9f48-fb697eba2bda"/>
+      <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="069c5006-c152-4ff6-b992-8799e42d127c"/>
+      <inheritance-child derived-from="\IT\ReservationBundle\Entity\AbstractReservation" discriminator-value="1" uuid="8d145477-dc89-4121-8bda-5bc0f9b83955"/>
+      <orm-attributes>
+        <attribute name="repository-class">IT\ReservationBundle\Repository\ReservationsRepository</attribute>
+        <attribute name="table">Reservation</attribute>
+        <attribute name="export-file-name">Reservation.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\IT\ReservationBundle\Entity\Reservation" to="\IT\DispositifBundle\Entity\Dispositif" owner-alias="reservation" inverse-alias="dispositif" many-owner="true" many-inverse="false" parent-required="true" uuid="7b6171fa-0bcb-4be6-9c9f-4a3de360218c">
+      <association-field from="dispositif_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\IT\ReservationBundle\Entity\ReservationProjecteur" local-name="ReservationProjecteur" namespace="\IT\ReservationBundle\Entity" uuid="26bd26c9-7a57-4d59-89cb-401677d41f4b">
+      <field name="projecteur_id" required="true" uuid="38434eb0-948b-4484-8b1b-287fecf88c79"/>
+      <inheritance-child derived-from="\IT\ReservationBundle\Entity\AbstractReservation" discriminator-value="2" uuid="afed4de2-a26f-4486-9ac1-0b5fd9cdfd6c"/>
+      <orm-attributes>
+        <attribute name="table">ReservationProjecteur</attribute>
+        <attribute name="export-file-name">ReservationProjecteur.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\IT\ReservationBundle\Entity\ReservationProjecteur" to="\IT\DispositifBundle\Entity\Projecteur" owner-alias="reservationProjecteur" inverse-alias="projecteur" many-owner="true" many-inverse="false" parent-required="true" uuid="39ccab99-5358-4a3d-9933-364eabf73c77">
+      <association-field from="projecteur_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+  </module>
+  <module name="\src/IT/UserBundle/Entity" local-name="src/IT/UserBundle/Entity" namespace="\IT\UserBundle\Entity" local-namespace="\IT\UserBundle\Entity" export-format="Doctrine2Php" export-path="src/IT/UserBundle/Entity" uuid="9055ac32-72fa-4043-af4b-7e6bb4725fc6">
+    <entity name="\IT\UserBundle\Entity\Admin" local-name="Admin" namespace="\IT\UserBundle\Entity" uuid="da3f0c06-c20a-41b9-9d35-202afa9a3453">
+      <field name="id" type="integer" required="true" primary="true" uuid="0c8016e5-53bd-45bc-a396-8338cc8a9d5f">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <orm-attributes>
+        <attribute name="export-file-name">Admin.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\IT\UserBundle\Entity\LdapConfig" local-name="LdapConfig" namespace="\IT\UserBundle\Entity" uuid="7684cb54-0a8d-447b-a554-10e77f003d4d">
+      <field name="id" type="integer" required="true" primary="true" uuid="a29aa254-79ac-48c5-9d42-07455611e656">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="host" type="string" uuid="77f32fa0-b03c-4aae-847b-3bda4c221213"/>
+      <field name="baseDn" type="string" uuid="f79caa3b-926d-41d1-a3b4-9d7914259272"/>
+      <field name="port" type="integer" uuid="8033689d-7753-4fca-8110-bbe498552719"/>
+      <orm-attributes>
+        <attribute name="table">LdapConfig</attribute>
+        <attribute name="export-file-name">LdapConfig.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\IT\UserBundle\Entity\Message" local-name="Message" namespace="\IT\UserBundle\Entity" uuid="ef59c38e-1851-48e2-ab08-724efe43c0e8">
+      <field name="id" type="integer" required="true" primary="true" uuid="5639da6b-45b3-464f-aeec-4c673153f2a5">
+        <orm-attributes>
+          <attribute name="column">id</attribute>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="vu" type="boolean" size="20" uuid="aaea5f37-e1c5-4c96-b484-0d08d7fcd49d">
+        <orm-attributes>
+          <attribute name="column">vu</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dateEnvoi" type="datetime" required="true" uuid="5d6a54dd-269b-4841-9178-c301736a8490">
+        <orm-attributes>
+          <attribute name="column">date_envoi</attribute>
+        </orm-attributes>
+      </field>
+      <field name="message" type="string" size="255" uuid="00014749-22a3-46f7-b70a-eee7ec450c93">
+        <orm-attributes>
+          <attribute name="column">message</attribute>
+        </orm-attributes>
+      </field>
+      <field name="user_id" required="true" unique="true" uuid="eb535634-0fa8-442c-93b8-6310941561ee"/>
+      <orm-attributes>
+        <attribute name="repository-class">IT\UserBundle\Repository\MessageRepository</attribute>
+        <attribute name="export-file-name">Message.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\IT\UserBundle\Entity\Message" to="\IT\UserBundle\Entity\User" owner-alias="" inverse-alias="user" many-owner="false" many-inverse="false" parent-required="true" uuid="709d464b-7b3f-42dc-b554-a3c5e253f1e0">
+      <association-field from="user_id" to="id"/>
+      <orm-attributes>
+        <attribute name="on-delete">CASCADE</attribute>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\IT\UserBundle\Entity\User" local-name="User" namespace="\IT\UserBundle\Entity" uuid="e097cb47-a0e5-4940-b4f8-5deb59e4d66f">
+      <field name="id" type="integer" required="true" primary="true" uuid="7a71dc19-4d38-4ffa-b053-718cb0ddcf64">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="dn" type="string" uuid="5529f9dc-10d8-423b-be09-7546216dd8f4"/>
+      <orm-attributes>
+        <attribute name="repository-class">IT\UserBundle\Repository\UsersRepository</attribute>
+        <attribute name="table">fos_user</attribute>
+        <attribute name="export-file-name">User.php</attribute>
+      </orm-attributes>
+    </entity>
+  </module>
+  <module name="\vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping" local-name="vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping" namespace="\FOS\UserBundle\Model" local-namespace="\FOS\UserBundle\Model" export-format="Doctrine2Xml" export-path="vendor/friendsofsymfony/user-bundle/Resources/config/doctrine-mapping" uuid="2b42e335-be6e-4768-a49e-9d61bbc2021b">
+    <entity name="\FOS\UserBundle\Model\Group" local-name="Group" namespace="\FOS\UserBundle\Model" uuid="e306e609-30d1-4b7b-9d0e-f38f9640f46f">
+      <field name="name" type="string" size="180" unique="true" uuid="4aadb351-640a-45a8-8a60-e8e0084cc430">
+        <orm-attributes>
+          <attribute name="column">name</attribute>
+        </orm-attributes>
+      </field>
+      <field name="roles" type="array" uuid="08a95a23-db4c-4650-b5c5-492374d25000">
+        <orm-attributes>
+          <attribute name="column">roles</attribute>
+        </orm-attributes>
+      </field>
+      <inheritance-parent type="MAPPED_SUPERCLASS" uuid="4c795e26-f282-418c-ab7c-d077df92ea05"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Group.orm.xml</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\FOS\UserBundle\Model\User" local-name="User" namespace="\FOS\UserBundle\Model" uuid="1c27e095-97b0-4ae7-8f88-73457bf5680c">
+      <field name="username" type="string" size="180" uuid="4bb67cf1-fd06-453c-9b89-006aa97a3e5e">
+        <orm-attributes>
+          <attribute name="column">username</attribute>
+        </orm-attributes>
+      </field>
+      <field name="usernameCanonical" type="string" size="180" unique="true" uuid="68606202-e2bd-48ba-be68-b649c25b8055">
+        <orm-attributes>
+          <attribute name="column">username_canonical</attribute>
+        </orm-attributes>
+      </field>
+      <field name="email" type="string" size="180" uuid="e48a0e64-c961-4d30-8d80-90a2636bbbbc">
+        <orm-attributes>
+          <attribute name="column">email</attribute>
+        </orm-attributes>
+      </field>
+      <field name="emailCanonical" type="string" size="180" unique="true" uuid="2766c1d6-4493-4b61-95d9-3840397b4486">
+        <orm-attributes>
+          <attribute name="column">email_canonical</attribute>
+        </orm-attributes>
+      </field>
+      <field name="enabled" type="boolean" uuid="ac8fab9f-ce94-4441-adaf-565d4360eb2c">
+        <orm-attributes>
+          <attribute name="column">enabled</attribute>
+        </orm-attributes>
+      </field>
+      <field name="salt" type="string" uuid="0d977f68-c15d-40f3-929c-50470935d95a">
+        <orm-attributes>
+          <attribute name="column">salt</attribute>
+        </orm-attributes>
+      </field>
+      <field name="password" type="string" uuid="f2c5ba20-2e28-4819-8306-20dc6778aca4">
+        <orm-attributes>
+          <attribute name="column">password</attribute>
+        </orm-attributes>
+      </field>
+      <field name="lastLogin" type="datetime" uuid="9beb0742-8596-4507-b3f5-cdb857d2ba07">
+        <orm-attributes>
+          <attribute name="column">last_login</attribute>
+        </orm-attributes>
+      </field>
+      <field name="confirmationToken" type="string" size="180" unique="true" uuid="50a097ec-9b8b-44b4-a5b6-95f910e3ba88">
+        <orm-attributes>
+          <attribute name="column">confirmation_token</attribute>
+        </orm-attributes>
+      </field>
+      <field name="passwordRequestedAt" type="datetime" uuid="fec4545a-10a9-45ce-9a5a-5a5e087d310f">
+        <orm-attributes>
+          <attribute name="column">password_requested_at</attribute>
+        </orm-attributes>
+      </field>
+      <field name="roles" type="array" uuid="e5d8d5e3-e229-4fbf-8d33-f966a8d78146">
+        <orm-attributes>
+          <attribute name="column">roles</attribute>
+        </orm-attributes>
+      </field>
+      <inheritance-parent type="MAPPED_SUPERCLASS" uuid="84772d51-9362-4d14-8b3a-1c006cc2cf64"/>
+      <orm-attributes>
+        <attribute name="export-file-name">User.orm.xml</attribute>
+      </orm-attributes>
+    </entity>
+  </module>
+  <module name="\vendor/jms/serializer/tests/Fixtures/Doctrine" local-name="vendor/jms/serializer/tests/Fixtures/Doctrine" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine" local-namespace="\JMS\Serializer\Tests\Fixtures\Doctrine" export-format="Doctrine2Php" export-path="vendor/jms/serializer/tests/Fixtures/Doctrine" uuid="28d673e9-eafe-4299-a60b-b469bff9e3df">
+    <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\ClazzStudent" local-name="ClazzStudent" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine" uuid="e0544cf6-3a8f-4ab1-9bb4-fec080e3c1c6">
+      <field name="Clazz_id" type="integer" uuid="cfba6490-160b-4f70-9b04-932c43cedec2"/>
+    </entity>
+    <many-to-many mn-entity="\JMS\Serializer\Tests\Fixtures\Doctrine\ClazzStudent" uuid="bb38146b-ae4d-4f52-8b75-69c8d7c2f5eb">
+      <many-to-many-entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Clazz" owning-side="true" uuid="fcaaad8a-e795-4710-bea6-f9161516bbd6">
+        <many-to-many-field from="Clazz_id" to="id"/>
+      </many-to-many-entity>
+      <many-to-many-entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Student" owning-side="false" alias="students" uuid="1de278b1-da8a-440d-830d-8aaf27f6654d"/>
+    </many-to-many>
+    <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\Author" local-name="Author" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine" uuid="497a5aee-5237-496d-a3da-553b28e05caf">
+      <field name="id" type="integer" required="true" primary="true" uuid="c4bb8281-3b2c-4aea-9a33-977c3622a1dd"/>
+      <field name="name" type="string" uuid="777f9ede-8a12-4aca-ae80-96d03eff937c"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Author.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\BlogPost" local-name="BlogPost" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine" uuid="5226e6a9-786e-47d7-8d8a-7bb2c384ea03">
+      <field name="id" type="guid" required="true" primary="true" uuid="a1b0fe5f-d8bd-4070-8f7f-3b5784670d01">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">UUID</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="title" type="string" uuid="3f8fa4bd-5d09-4048-8183-723d12b2ede5"/>
+      <field name="slug" type="some_custom_type" uuid="a7596e1e-32c4-43a6-a104-690e279506ed"/>
+      <field name="createdAt" type="datetime" uuid="0e421d36-51ac-49be-8c14-048d3169834d"/>
+      <field name="published" type="boolean" uuid="2c6ff9e4-8f98-442d-8181-786b502c077d"/>
+      <field name="ref" type="integer" uuid="886fbf62-05ac-4e90-8ad1-35ff26237241"/>
+      <field name="author_id" uuid="a93c6b03-c369-4187-9480-7f2528e87cca"/>
+      <orm-attributes>
+        <attribute name="export-file-name">BlogPost.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\JMS\Serializer\Tests\Fixtures\Doctrine\BlogPost" to="\JMS\Serializer\Tests\Fixtures\Doctrine\Author" owner-alias="" inverse-alias="author" many-owner="true" many-inverse="false" uuid="1b86a574-4a42-46c4-b733-7807dad0897f">
+      <association-field from="author_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\Comment" local-name="Comment" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine" uuid="c22e3f58-841a-4adc-b6fd-22d58b233563">
+      <field name="id" type="integer" required="true" primary="true" uuid="f3b36499-8603-4e5a-a62a-8037e0cc1e16"/>
+      <field name="author" type="Author" uuid="206641e6-fbf6-402d-b739-2830375a4937"/>
+      <field name="text" type="string" uuid="1a204b6b-76aa-4b92-8c9e-564d652563e8"/>
+      <field name="blogPost_id" uuid="370c981b-04f6-4731-b04d-d7c4c5ef0adf"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Comment.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\JMS\Serializer\Tests\Fixtures\Doctrine\Comment" to="\JMS\Serializer\Tests\Fixtures\Doctrine\BlogPost" owner-alias="comments" inverse-alias="blogPost" many-owner="true" many-inverse="false" uuid="515c6a39-3175-4014-b554-1eb75adbd328">
+      <association-field from="blogPost_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <region namespace="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance" local-namespace="SingleTableInheritance" export-path="SingleTableInheritance" caption="vendor/jms/serializer/tests/Fixtures/Doctrine/SingleTableInheritance" uuid="121cc6b9-2d6c-4519-a7da-1a9149c3a83d">
+      <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Clazz" local-name="Clazz" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance" uuid="9febd1c3-a1e9-493a-ae79-290130545a1d">
+        <field name="id" type="integer" required="true" primary="true" uuid="2e9af771-6c23-48bd-b6fe-3b6218f22360">
+          <orm-attributes>
+            <attribute name="generator">
+              <attribute name="strategy">AUTO</attribute>
+            </attribute>
+          </orm-attributes>
+        </field>
+        <field name="teacher_id" uuid="b257a300-f95d-4ffb-a7b5-841f3b204eb7"/>
+        <orm-attributes>
+          <attribute name="export-file-name">Clazz.php</attribute>
+        </orm-attributes>
+      </entity>
+      <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Organization" local-name="Organization" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance" uuid="acd8ea96-a60a-469c-b5f4-0009df81cd2a">
+        <field name="id" type="integer" required="true" primary="true" uuid="7db287d2-cfef-4498-bca7-b110b3e22da1">
+          <orm-attributes>
+            <attribute name="generator">
+              <attribute name="strategy">AUTO</attribute>
+            </attribute>
+          </orm-attributes>
+        </field>
+        <field name="type" type="string" uuid="61f4d0ad-c092-4f96-adaa-5aa5ea132856"/>
+        <inheritance-parent discriminator-field="type" type="SINGLE_TABLE" uuid="5813759f-239d-4143-9184-4f46604320b4"/>
+        <orm-attributes>
+          <attribute name="export-file-name">Organization.php</attribute>
+        </orm-attributes>
+      </entity>
+      <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Person" local-name="Person" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance" uuid="6cdc8db5-1a51-468c-bdc5-21c316bf9823">
+        <field name="id" type="integer" required="true" primary="true" uuid="fc1fce3a-0045-4e4b-a42b-a6236e1f24bf">
+          <orm-attributes>
+            <attribute name="generator">
+              <attribute name="strategy">AUTO</attribute>
+            </attribute>
+          </orm-attributes>
+        </field>
+        <field name="type" type="string" uuid="067a7fc0-6ce5-4e64-860b-594e75f8ea10"/>
+        <inheritance-parent discriminator-field="type" type="SINGLE_TABLE" uuid="dd9db5df-56af-4102-a2df-c3f9d0dfe31b"/>
+        <orm-attributes>
+          <attribute name="export-file-name">Person.php</attribute>
+        </orm-attributes>
+      </entity>
+      <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\School" local-name="School" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance" uuid="faf2e3cc-c86a-48c4-bf34-026aa298edb1">
+        <inheritance-child derived-from="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Organization" discriminator-value="school" uuid="03bef3a9-8faf-49a5-8132-dcdfc4fb13bb"/>
+        <orm-attributes>
+          <attribute name="export-file-name">School.php</attribute>
+        </orm-attributes>
+      </entity>
+      <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Student" local-name="Student" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance" uuid="3822e9d9-ccad-4816-b7da-21f72903168d">
+        <inheritance-child derived-from="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Person" discriminator-value="student" uuid="01123fdc-0ef4-49e1-a499-b8c3ca682a1a"/>
+        <orm-attributes>
+          <attribute name="export-file-name">Student.php</attribute>
+        </orm-attributes>
+      </entity>
+      <entity name="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Teacher" local-name="Teacher" namespace="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance" uuid="2bb25ad8-25af-478a-977d-4dc20f7d82c0">
+        <field name="id" type="integer" required="true" unique="true" primary="true" auto-increment="true" uuid="496c7cab-4918-47bb-81a4-f1f0a7128eb8"/>
+        <inheritance-child derived-from="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Person" discriminator-value="teacher" uuid="4bb7ca5a-c09e-4a8b-b305-03045491f986"/>
+        <orm-attributes>
+          <attribute name="export-file-name">Teacher.php</attribute>
+        </orm-attributes>
+      </entity>
+    </region>
+    <association from="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Clazz" to="\JMS\Serializer\Tests\Fixtures\Doctrine\SingleTableInheritance\Teacher" owner-alias="" inverse-alias="teacher" many-owner="true" many-inverse="false" uuid="a97d55fe-96f9-4544-85b6-16a016187ea1">
+      <association-field from="teacher_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+  </module>
+  <module name="\vendor/sensio/framework-extra-bundle/Tests/Fixtures/FooBundle/Entity" local-name="vendor/sensio/framework-extra-bundle/Tests/Fixtures/FooBundle/Entity" namespace="\Tests\Fixtures\FooBundle\Entity" local-namespace="\Tests\Fixtures\FooBundle\Entity" export-format="Doctrine2Php" export-path="vendor/sensio/framework-extra-bundle/Tests/Fixtures/FooBundle/Entity" uuid="96ea2434-81b6-4506-8502-2087ccb7d800">
+    <entity name="\Tests\Fixtures\FooBundle\Entity\Foo" local-name="Foo" namespace="\Tests\Fixtures\FooBundle\Entity" uuid="1a187568-d79e-4b53-8e84-34704fd132e4">
+      <field name="id" type="integer" required="true" primary="true" uuid="6dad4d65-3273-452a-92ed-54fb448b99f1">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <orm-attributes>
+        <attribute name="export-file-name">Foo.php</attribute>
+      </orm-attributes>
+    </entity>
+  </module>
+  <module name="\vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Tests/Fixtures" local-name="vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Tests/Fixtures" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" local-namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" export-format="Doctrine2Php" export-path="vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Tests/Fixtures" uuid="e0651cb9-d6c5-4b66-8a79-c506fe0214bc">
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\AssociationEntity" local-name="AssociationEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="034da039-695f-41a1-a015-c51f81625fe3">
+      <field name="id" type="integer" required="true" primary="true" uuid="df4fc902-3ef9-437c-bdd9-511379cc3b87">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="composite_id1" uuid="571a4987-d99f-407e-b761-b32b4fa0b896"/>
+      <field name="composite_id2" uuid="bf39ad7f-a3fe-4705-897b-f35d2084e29a"/>
+      <field name="single_id" uuid="9ff3204d-fcf0-4d9c-8599-ca138b034fa4"/>
+      <orm-attributes>
+        <attribute name="export-file-name">AssociationEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\Symfony\Bridge\Doctrine\Tests\Fixtures\AssociationEntity" to="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity" owner-alias="" inverse-alias="single" many-owner="true" many-inverse="false" uuid="5869b5d6-16f7-4b2f-ab0d-d325522c5e66">
+      <association-field from="single_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <association from="\Symfony\Bridge\Doctrine\Tests\Fixtures\AssociationEntity" to="\Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity" owner-alias="" inverse-alias="composite" many-owner="true" many-inverse="false" uuid="e322208c-cca1-4e94-95ed-2fd5b2976bae">
+      <association-field from="composite_id1" to="id1"/>
+      <association-field from="composite_id2" to="id2"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\AssociationEntity2" local-name="AssociationEntity2" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="76a8887c-33c8-43aa-b095-a8d942d172b5">
+      <field name="id" type="integer" required="true" primary="true" uuid="51caf06a-17a8-4577-a52c-9411cf34d098">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">AUTO</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="composite_id1" uuid="0ff4dbbd-ca40-4b6f-848d-2b1a1690c679"/>
+      <field name="composite_id2" uuid="89f6755d-cefc-44d9-8d70-8e9b6a2299c7"/>
+      <field name="single_id" uuid="62127e6c-c377-4529-a9ae-55ae88724ff6"/>
+      <orm-attributes>
+        <attribute name="export-file-name">AssociationEntity2.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\Symfony\Bridge\Doctrine\Tests\Fixtures\AssociationEntity2" to="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity" owner-alias="" inverse-alias="single" many-owner="true" many-inverse="false" uuid="cf0dcc9e-50b3-41d9-8ae7-6aa2f5b1c7d7">
+      <association-field from="single_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <association from="\Symfony\Bridge\Doctrine\Tests\Fixtures\AssociationEntity2" to="\Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity" owner-alias="" inverse-alias="composite" many-owner="true" many-inverse="false" uuid="6eda45fe-d52e-46dc-9c45-d466b311a0f5">
+      <association-field from="composite_id1" to="id1"/>
+      <association-field from="composite_id2" to="id2"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeIntIdEntity" local-name="CompositeIntIdEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="abdd56ea-cb04-4036-9e1a-f6011b7b6fd8">
+      <field name="id1" type="integer" required="true" primary="true" uuid="348d030e-aa1d-410f-bdbb-3b9c75ed2ddc"/>
+      <field name="id2" type="integer" required="true" primary="true" uuid="8e04df11-61e5-439e-b0c3-5fe0663e32cf"/>
+      <field name="name" type="string" uuid="82bde5f3-8d43-478a-ac7a-030a532bd117"/>
+      <orm-attributes>
+        <attribute name="export-file-name">CompositeIntIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeObjectNoToStringIdEntity" local-name="CompositeObjectNoToStringIdEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="ed729c9c-2dd9-4821-a0a2-f0bcd78c1626">
+      <field name="object_one_id" required="true" primary="true" uuid="1aa55c54-98a2-48d3-9f4b-d473ac5f339e"/>
+      <field name="object_two_id" required="true" primary="true" uuid="0a5c0b25-bb2d-457e-8329-7999165a4bc8"/>
+      <orm-attributes>
+        <attribute name="export-file-name">CompositeObjectNoToStringIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeObjectNoToStringIdEntity" to="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity" owner-alias="" inverse-alias="objectOne" many-owner="true" many-inverse="false" parent-required="true" uuid="1e8ee93d-7b18-4d8f-8fb9-1bd4ceffc041">
+      <association-field from="object_one_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-persist">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <association from="\Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeObjectNoToStringIdEntity" to="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity" owner-alias="" inverse-alias="objectTwo" many-owner="true" many-inverse="false" parent-required="true" uuid="8d15a3ea-af74-4339-a9e7-1e7c7a3ecf85">
+      <association-field from="object_two_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-persist">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\CompositeStringIdEntity" local-name="CompositeStringIdEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="0c88c429-6bab-4d6c-b41b-ceab3628a0a7">
+      <field name="id1" type="string" required="true" primary="true" uuid="2b694015-d184-4d25-8bdb-e7ced5ed838a"/>
+      <field name="id2" type="string" required="true" primary="true" uuid="85f1e6f8-8e7e-40f5-b528-3210eacb3277"/>
+      <field name="name" type="string" uuid="0f062acf-174e-49b0-8b64-a1f85811a843"/>
+      <orm-attributes>
+        <attribute name="export-file-name">CompositeStringIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\DoubleNameEntity" local-name="DoubleNameEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="05560b7e-5929-4d72-9686-5849ede81d71">
+      <field name="id" type="integer" required="true" primary="true" uuid="8800bb48-ff53-4ef1-ba77-9e12f8d4e7f3"/>
+      <field name="name" type="string" uuid="3de09b2c-9ce1-41c5-9f57-289960c2a8cf"/>
+      <field name="name2" type="string" uuid="cd3c70a1-2034-4acb-9397-00c18a67da99"/>
+      <orm-attributes>
+        <attribute name="export-file-name">DoubleNameEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\DoubleNullableNameEntity" local-name="DoubleNullableNameEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="41f8d0de-5d70-4ca3-989a-4ad15997f02e">
+      <field name="id" type="integer" required="true" primary="true" uuid="08918e9b-c39a-42db-9293-079c644e37d0"/>
+      <field name="name" type="string" uuid="01cc017b-a526-4e5f-8785-edc9aef12114"/>
+      <field name="name2" type="string" uuid="089be09c-d64b-452c-ac06-694bf7bfbcba"/>
+      <orm-attributes>
+        <attribute name="export-file-name">DoubleNullableNameEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\EmbeddedIdentifierEntity" local-name="EmbeddedIdentifierEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="8bb108eb-6a3a-4176-8417-4fd7fb43df76">
+      <orm-attributes>
+        <attribute name="export-file-name">EmbeddedIdentifierEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <embedded from="\Symfony\Bridge\Doctrine\Tests\Fixtures\EmbeddedIdentifierEntity" to="\Symfony\Bridge\Doctrine\Tests\Fixtures\Embeddable\Identifier" inverse-alias="id" many="false" uuid="7421470a-e68b-4bc2-abd7-86b6c8e8141f"/>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\Employee" local-name="Employee" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="a38f3af3-24e3-4c33-8529-835c7f2e05ab">
+      <inheritance-child derived-from="\Symfony\Bridge\Doctrine\Tests\Fixtures\Person" discriminator-value="employee" uuid="00822494-4458-4cb1-8d99-e91a81cc6134"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Employee.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\GroupableEntity" local-name="GroupableEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="6b277870-ca4f-4318-9e20-888b539720f7">
+      <field name="id" type="integer" required="true" primary="true" uuid="8e22c5d0-a74d-4bfd-a86d-5622762faad0"/>
+      <field name="name" type="string" uuid="6085fa73-1cd3-4ba6-8a2a-8137a2f4ec85"/>
+      <field name="groupName" type="string" uuid="1a9cf78f-c564-401a-abb2-bb2dca6be3da"/>
+      <orm-attributes>
+        <attribute name="export-file-name">GroupableEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\GuidIdEntity" local-name="GuidIdEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="9ec9d88e-be5b-49ab-b54a-189319ba5cf9">
+      <field name="id" type="guid" required="true" primary="true" uuid="7c40f76d-3939-4e18-a04a-cef70c5082a9"/>
+      <orm-attributes>
+        <attribute name="export-file-name">GuidIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\Person" local-name="Person" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="7b622d92-bb6e-4df8-a41f-a18c0a5879dc">
+      <field name="id" type="integer" required="true" primary="true" uuid="99e43284-da08-4f12-84c5-b0729d494d80"/>
+      <field name="name" type="string" uuid="64868e39-afb8-4d72-a58a-af60edc1d52a"/>
+      <field name="discr" type="string" uuid="8057fa49-1ce6-4ff0-8e50-6e149e1fb07f"/>
+      <inheritance-parent discriminator-field="discr" type="SINGLE_TABLE" discriminator-value-base="person" uuid="bddb7f9a-596b-4357-9617-d6c356559d94"/>
+      <orm-attributes>
+        <attribute name="export-file-name">Person.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleAssociationToIntIdEntity" local-name="SingleAssociationToIntIdEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="1c6c1506-979e-4f72-9318-90b793a675b7">
+      <field name="entity" required="true" primary="true" uuid="8518a19f-ae5b-49d1-9c3b-8b0aa50fb0d3"/>
+      <field name="name" type="string" uuid="809e9371-a83b-46d7-839c-40e9b3c645a5"/>
+      <orm-attributes>
+        <attribute name="export-file-name">SingleAssociationToIntIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleAssociationToIntIdEntity" to="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity" owner-alias="" inverse-alias="entity" many-owner="true" many-inverse="false" parent-required="true" uuid="cbb0bcba-7fb7-461d-987b-d7ff84756e0e">
+      <association-field from="entity" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning">
+          <attribute name="cascade">
+            <attribute name="cascade-all">true</attribute>
+          </attribute>
+        </attribute>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdEntity" local-name="SingleIntIdEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="47ad1104-70e5-42b8-85d9-8b999bf2ef42">
+      <field name="id" type="integer" required="true" primary="true" uuid="80ed3550-2f35-4c35-8aff-54db6baaa528"/>
+      <field name="name" type="string" uuid="6e205378-706f-4a5b-98bf-a69b1e8c3b32"/>
+      <field name="phoneNumbers" type="array" uuid="ff93bfd1-6d46-4f68-b946-460869248157"/>
+      <orm-attributes>
+        <attribute name="export-file-name">SingleIntIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdNoToStringEntity" local-name="SingleIntIdNoToStringEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="eeb55611-e35e-40c6-8b15-75974b341300">
+      <field name="id" type="integer" required="true" primary="true" uuid="2bd41a13-8828-4d88-83ad-8f568f4c1a27"/>
+      <field name="name" type="string" uuid="9d9caaa5-560f-44ba-98f6-d62c02da33b7"/>
+      <orm-attributes>
+        <attribute name="export-file-name">SingleIntIdNoToStringEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleIntIdStringWrapperNameEntity" local-name="SingleIntIdStringWrapperNameEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="c7f2c87c-1038-47a1-9dbc-af9e4d8d6791">
+      <field name="id" type="integer" required="true" primary="true" uuid="69d46b20-3dd8-415d-89e7-3606d347ad64"/>
+      <field name="name" type="string_wrapper" uuid="bf02643c-d97c-4933-ac9f-e677d31bf80a"/>
+      <orm-attributes>
+        <attribute name="export-file-name">SingleIntIdStringWrapperNameEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleStringCastableIdEntity" local-name="SingleStringCastableIdEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="cc4ff296-f975-4e85-afc4-f377f17aaa4c">
+      <field name="id" type="string" required="true" primary="true" uuid="31d18399-307a-4371-82ab-54d295e92f18">
+        <orm-attributes>
+          <attribute name="generator">
+            <attribute name="strategy">NONE</attribute>
+          </attribute>
+        </orm-attributes>
+      </field>
+      <field name="name" type="string" uuid="d80fadfd-1e4d-427b-a4e7-0ddddf30f517"/>
+      <orm-attributes>
+        <attribute name="export-file-name">SingleStringCastableIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\SingleStringIdEntity" local-name="SingleStringIdEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="f3f7cd7d-96d7-4dd9-bcad-59e7cf0226ab">
+      <field name="id" type="string" required="true" primary="true" uuid="6ff5ed2b-b617-4cd4-b902-df714b2daa0d"/>
+      <field name="name" type="string" uuid="e8e3913f-7b1f-4a88-ac87-c1e7fd56cd55"/>
+      <orm-attributes>
+        <attribute name="export-file-name">SingleStringIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\User" local-name="User" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="def030e8-5ba5-4b41-ae7e-1eb1c727d56b">
+      <field name="id1" type="integer" required="true" primary="true" uuid="0e9378db-8fdb-49c5-858b-959efeff7ec6"/>
+      <field name="id2" type="integer" required="true" primary="true" uuid="133c856d-719c-4eae-9ea3-2838518230fd"/>
+      <field name="name" type="string" uuid="ea2b13c7-69c3-4c98-a22a-2758ca9de1d1"/>
+      <orm-attributes>
+        <attribute name="export-file-name">User.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\UuidIdEntity" local-name="UuidIdEntity" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures" uuid="329102ed-debb-4bc2-9c81-90c8fd085300">
+      <field name="id" type="uuid" required="true" primary="true" uuid="9fab1a32-87fe-481a-b3c3-e0946760fbb5"/>
+      <orm-attributes>
+        <attribute name="export-file-name">UuidIdEntity.php</attribute>
+      </orm-attributes>
+    </entity>
+    <region namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures\Embeddable" local-namespace="Embeddable" export-path="Embeddable" caption="vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Tests/Fixtures/Embeddable" uuid="71be8ad2-71bb-4254-b6e5-75a94abf18bc">
+      <entity name="\Symfony\Bridge\Doctrine\Tests\Fixtures\Embeddable\Identifier" local-name="Identifier" namespace="\Symfony\Bridge\Doctrine\Tests\Fixtures\Embeddable" uuid="8450ef98-3a65-415d-9a4c-7bca48b1a0e0">
+        <field name="value" type="integer" required="true" primary="true" uuid="ab1f00ef-bae8-4be1-b65b-72f10407eeb7"/>
+        <orm-attributes>
+          <attribute name="export-file-name">Identifier.php</attribute>
+        </orm-attributes>
+      </entity>
+    </region>
+  </module>
+  <module name="\vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Tests/PropertyInfo/Fixtures" local-name="vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Tests/PropertyInfo/Fixtures" namespace="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures" local-namespace="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures" export-format="Doctrine2Php" export-path="vendor/symfony/symfony/src/Symfony/Bridge/Doctrine/Tests/PropertyInfo/Fixtures" uuid="c61785a5-f9d5-4de3-b6f9-a01eb491abdb">
+    <entity name="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineDummy" local-name="DoctrineDummy" namespace="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures" uuid="78d4a794-96be-4d46-8578-b1a7bc657886">
+      <field name="id" type="smallint" required="true" primary="true" uuid="ad98c9cc-0de0-4b4e-ab3d-d01282c0d34a"/>
+      <field name="guid" type="guid" uuid="bacfa91d-20cc-4c72-8f44-277d7b003a9d"/>
+      <field name="time" type="time" uuid="150a6b06-a165-4007-ad46-60a6a21465d9"/>
+      <field name="timeImmutable" type="time_immutable" uuid="58575cb9-0641-4da5-823b-a76d14cad0bc"/>
+      <field name="dateInterval" type="dateinterval" uuid="5dd483a6-3d9c-4b92-92c7-fdef5f31e008"/>
+      <field name="json" type="json_array" uuid="3147a81b-cb04-4da7-ad23-53b4a20f2937"/>
+      <field name="simpleArray" type="simple_array" uuid="a952afd5-50ac-4fe8-9939-414e423f2676"/>
+      <field name="float" type="float" uuid="46c58ba5-f487-41a7-8b07-d32bef8e6ba1"/>
+      <field name="decimal" type="decimal" uuid="198b3895-6cd4-4426-8939-69a98df9d6ad">
+        <orm-attributes>
+          <attribute name="precision">10</attribute>
+          <attribute name="scale">2</attribute>
+        </orm-attributes>
+      </field>
+      <field name="bool" type="boolean" uuid="272e3e3c-f5bb-4fb4-a4b0-1f20e2149a8a"/>
+      <field name="binary" type="binary" uuid="3edab162-25a1-460d-ae4b-a6b8fc076347"/>
+      <field name="customFoo" type="custom_foo" uuid="aa7ee262-2d61-4167-ad77-7a94d0a7a27a"/>
+      <field name="bigint" type="bigint" uuid="5f41ae05-2de5-4921-a9de-c5c52f102143"/>
+      <field name="foo_id" uuid="30a494ce-56a9-44d4-8498-fdcb5d98f0c2"/>
+      <orm-attributes>
+        <attribute name="export-file-name">DoctrineDummy.php</attribute>
+      </orm-attributes>
+    </entity>
+    <association from="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineDummy" to="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineRelation" owner-alias="" inverse-alias="foo" many-owner="true" many-inverse="false" uuid="5d5747c1-c666-46f2-9082-5a9182dc1e63">
+      <association-field from="foo_id" to="id"/>
+      <orm-attributes>
+        <attribute name="side-owning"/>
+        <attribute name="side-inverse"/>
+      </orm-attributes>
+    </association>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineEmbeddable" local-name="DoctrineEmbeddable" namespace="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures" uuid="51633bb2-b52b-4f2f-bfd5-dace7779846a">
+      <field name="field" type="string" uuid="47204569-de65-4f83-b8ba-9674fd281242"/>
+      <orm-attributes>
+        <attribute name="export-file-name">DoctrineEmbeddable.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineRelation" local-name="DoctrineRelation" namespace="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures" uuid="c8a59e22-d57a-4b33-94c1-351957a03359">
+      <field name="id" type="smallint" required="true" primary="true" uuid="29e57534-2760-4aae-ad58-dc8269b7dc78"/>
+      <field name="rguid" type="guid" uuid="cecd4990-f77e-4fc7-8c37-c1543ae040d9"/>
+      <orm-attributes>
+        <attribute name="export-file-name">DoctrineRelation.php</attribute>
+      </orm-attributes>
+    </entity>
+    <entity name="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineWithEmbedded" local-name="DoctrineWithEmbedded" namespace="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures" uuid="051b9ecf-4b20-485c-957f-bc627e702ddd">
+      <field name="id" type="smallint" required="true" primary="true" uuid="c9d7c47e-b975-49d2-a2c7-09992467f4c3"/>
+      <orm-attributes>
+        <attribute name="export-file-name">DoctrineWithEmbedded.php</attribute>
+      </orm-attributes>
+    </entity>
+    <embedded from="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineWithEmbedded" to="\Symfony\Bridge\Doctrine\Tests\PropertyInfo\Fixtures\DoctrineEmbeddable" inverse-alias="embedded" many="false" uuid="80dc07b5-f5aa-488a-abbb-d91720197606"/>
+  </module>
+  <module name="\vendor/vich/uploader-bundle/Entity" local-name="vendor/vich/uploader-bundle/Entity" namespace="\Vich\UploaderBundle\Entity" local-namespace="\Vich\UploaderBundle\Entity" export-format="Doctrine2Php" export-path="vendor/vich/uploader-bundle/Entity" uuid="e7d2715e-ae98-4e19-b9d9-1b42d08ca308">
+    <entity name="\Vich\UploaderBundle\Entity\File" local-name="File" namespace="\Vich\UploaderBundle\Entity" uuid="f84f329a-8498-47f1-a354-9ad2f6d2e037">
+      <field name="name" uuid="d6989f9f-2e06-4832-8cf9-5a1a3310022a">
+        <orm-attributes>
+          <attribute name="column">name</attribute>
+        </orm-attributes>
+      </field>
+      <field name="originalName" uuid="91a21382-419f-40fb-92ad-58e48613396a">
+        <orm-attributes>
+          <attribute name="column">original_name</attribute>
+        </orm-attributes>
+      </field>
+      <field name="mimeType" uuid="375cbecc-6083-48a2-b30c-d2e7498be118">
+        <orm-attributes>
+          <attribute name="column">mime_type</attribute>
+        </orm-attributes>
+      </field>
+      <field name="size" type="integer" uuid="697615f2-4d03-46a9-942b-f31833e4f17c">
+        <orm-attributes>
+          <attribute name="column">size</attribute>
+        </orm-attributes>
+      </field>
+      <field name="dimensions" type="simple_array" uuid="2ff8e33a-9964-42fb-ab4a-18a63303c45b">
+        <orm-attributes>
+          <attribute name="column">dimensions</attribute>
+        </orm-attributes>
+      </field>
+      <orm-attributes>
+        <attribute name="export-file-name">File.php</attribute>
+      </orm-attributes>
+    </entity>
+  </module>
+  <visual-data>
+    <association uuid="1b86a574-4a42-46c4-b733-7807dad0897f" color="#B31F24"/>
+    <association uuid="1e8ee93d-7b18-4d8f-8fb9-1bd4ceffc041" color="#61D351"/>
+    <association uuid="2bdff0d0-ff3a-43c1-8c94-2f7e43022431" color="#B31F24"/>
+    <association uuid="39ccab99-5358-4a3d-9933-364eabf73c77" color="#CDC32B"/>
+    <association uuid="515c6a39-3175-4014-b554-1eb75adbd328" color="#C774AF"/>
+    <association uuid="5470c190-b124-4c54-b92c-b4acf58e0f40" color="#2E63AF"/>
+    <association uuid="5606a10c-1d28-4cf1-a1dd-0a1c7984dd69" color="#8A54A2"/>
+    <association uuid="5869b5d6-16f7-4b2f-ab0d-d325522c5e66" color="#2E63AF"/>
+    <association uuid="5d5747c1-c666-46f2-9082-5a9182dc1e63" color="#B31F24"/>
+    <association uuid="6af4089d-5dc6-49a1-b7fb-d502d905d085" color="#A8A8A8"/>
+    <association uuid="6eda45fe-d52e-46dc-9c45-d466b311a0f5" color="#0A783D"/>
+    <association uuid="709d464b-7b3f-42dc-b554-a3c5e253f1e0" color="#F4931F"/>
+    <association uuid="7992742b-e91b-43d5-ba57-f295dc1b4674" color="#C774AF"/>
+    <association uuid="7b6171fa-0bcb-4be6-9c9f-4a3de360218c" color="#61D351"/>
+    <association uuid="8d15a3ea-af74-4339-a9e7-1e7c7a3ecf85" color="#CDC32B"/>
+    <association uuid="9e470da9-2b0e-4574-a1c2-157b65ab7eb4" color="#F4931F"/>
+    <association uuid="a97d55fe-96f9-4544-85b6-16a016187ea1" color="#8A54A2"/>
+    <association uuid="cbb0bcba-7fb7-461d-987b-d7ff84756e0e" color="#F4931F"/>
+    <association uuid="cf0dcc9e-50b3-41d9-8ae7-6aa2f5b1c7d7" color="#A8A8A8"/>
+    <association uuid="d97e44e7-270b-4f34-b517-c51951b1c849" color="#00B4D0"/>
+    <association uuid="e322208c-cca1-4e94-95ed-2fd5b2976bae" color="#00B4D0"/>
+    <association uuid="f399057d-6777-402e-82ec-7a40afc1c103" color="#0A783D"/>
+    <embedded uuid="7421470a-e68b-4bc2-abd7-86b6c8e8141f" color="#C774AF"/>
+    <embedded uuid="80dc07b5-f5aa-488a-abbb-d91720197606" color="#8A54A2"/>
+    <entity uuid="02c74fe3-3fe6-4353-8f1e-f1c7ca521df2" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="218" position-y="40" size-x="0" size-x2="80" size-y="0" size-y2="45"/>
+    <entity uuid="034da039-695f-41a1-a015-c51f81625fe3" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="294" position-y="40" size-x="0" size-x2="86" size-y="0" size-y2="73"/>
+    <entity uuid="051b9ecf-4b20-485c-957f-bc627e702ddd" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="245" position-y="293" size-x="0" size-x2="116" size-y="0" size-y2="31"/>
+    <entity uuid="05560b7e-5929-4d72-9686-5849ede81d71" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="291" position-y="231" size-x="0" size-x2="92" size-y="0" size-y2="59"/>
+    <entity uuid="0c88c429-6bab-4d6c-b41b-ceab3628a0a7" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="52" position-y="231" size-x="0" size-x2="120" size-y="0" size-y2="59"/>
+    <entity uuid="1a187568-d79e-4b53-8e84-34704fd132e4" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="69" size-y="0" size-y2="31"/>
+    <entity uuid="1c27e095-97b0-4ae7-8f88-73457bf5680c" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="223" position-y="40" size-x="0" size-x2="163" size-y="0" size-y2="171"/>
+    <entity uuid="1c6c1506-979e-4f72-9318-90b793a675b7" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="714" position-y="422" size-x="0" size-x2="146" size-y="0" size-y2="45"/>
+    <entity uuid="26bd26c9-7a57-4d59-89cb-401677d41f4b" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="49" position-y="406" size-x="0" size-x2="109" size-y="0" size-y2="31"/>
+    <entity uuid="2bb25ad8-25af-478a-977d-4dc20f7d82c0" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="139" position-y="210" size-x="0" size-x2="69" size-y="0" size-y2="31"/>
+    <entity uuid="329102ed-debb-4bc2-9c81-90c8fd085300" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="80" position-y="804" size-x="0" size-x2="65" size-y="0" size-y2="31"/>
+    <entity uuid="3822e9d9-ccad-4816-b7da-21f72903168d" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="36" position-y="210" size-x="0" size-x2="43" size-y="0" size-y2="20"/>
+    <entity uuid="3a8d379f-dbce-4b16-bfb8-bc1a4cd559b0" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="223" size-x="0" size-x2="167" size-y="0" size-y2="143"/>
+    <entity uuid="41f8d0de-5d70-4ca3-989a-4ad15997f02e" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="497" position-y="231" size-x="0" size-x2="130" size-y="0" size-y2="59"/>
+    <entity uuid="47ad1104-70e5-42b8-85d9-8b999bf2ef42" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="953" position-y="422" size-x="0" size-x2="119" size-y="0" size-y2="59"/>
+    <entity uuid="47d62c8c-7471-4603-a131-cf3c04651dce" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="364" position-y="279" size-x="0" size-x2="132" size-y="0" size-y2="115"/>
+    <entity uuid="497a5aee-5237-496d-a3da-553b28e05caf" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="458" position-y="40" size-x="0" size-x2="80" size-y="0" size-y2="45"/>
+    <entity uuid="51633bb2-b52b-4f2f-bfd5-dace7779846a" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="251" position-y="40" size-x="0" size-x2="103" size-y="0" size-y2="31"/>
+    <entity uuid="5226e6a9-786e-47d7-8d8a-7bb2c384ea03" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="763" position-y="40" size-x="0" size-x2="134" size-y="0" size-y2="115"/>
+    <entity uuid="67abaf8f-f751-4e95-9236-71b7ef08119f" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="130" size-y="0" size-y2="59"/>
+    <entity uuid="6b277870-ca4f-4318-9e20-888b539720f7" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="60" position-y="422" size-x="0" size-x2="105" size-y="0" size-y2="59"/>
+    <entity uuid="6cdc8db5-1a51-468c-bdc5-21c316bf9823" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="125" size-x="0" size-x2="76" size-y="0" size-y2="45"/>
+    <entity uuid="6d3e3155-c67b-4ed6-98ea-b3de1ebbc63c" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="47" position-y="40" size-x="0" size-x2="113" size-y="0" size-y2="115"/>
+    <entity uuid="7684cb54-0a8d-447b-a554-10e77f003d4d" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="189" position-y="40" size-x="0" size-x2="89" size-y="0" size-y2="73"/>
+    <entity uuid="76a8887c-33c8-43aa-b095-a8d942d172b5" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="517" position-y="40" size-x="0" size-x2="91" size-y="0" size-y2="73"/>
+    <entity uuid="78d4a794-96be-4d46-8578-b1a7bc657886" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="162" size-y="0" size-y2="213"/>
+    <entity uuid="7b622d92-bb6e-4df8-a41f-a18c0a5879dc" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="522" position-y="422" size-x="0" size-x2="80" size-y="0" size-y2="59"/>
+    <entity uuid="7faa4567-7a2e-4bf7-9e3f-f6651dafc40d" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="258" position-y="40" size-x="0" size-x2="105" size-y="0" size-y2="73"/>
+    <entity uuid="8450ef98-3a65-415d-9a4c-7bca48b1a0e0" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="85" size-y="0" size-y2="31"/>
+    <entity uuid="8bb108eb-6a3a-4176-8417-4fd7fb43df76" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="726" position-y="231" size-x="0" size-x2="123" size-y="0" size-y2="20"/>
+    <entity uuid="90344b80-4720-44bb-b266-7a09671b6587" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="30" position-y="279" size-x="0" size-x2="111" size-y="0" size-y2="87"/>
+    <entity uuid="944cee45-1fa0-4dcf-966e-4acd981832b3" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="27" position-y="518" size-x="0" size-x2="117" size-y="0" size-y2="59"/>
+    <entity uuid="9ec9d88e-be5b-49ab-b54a-189319ba5cf9" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="305" position-y="422" size-x="0" size-x2="65" size-y="0" size-y2="31"/>
+    <entity uuid="9febd1c3-a1e9-493a-ae79-290130545a1d" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="23" position-y="40" size-x="0" size-x2="69" size-y="0" size-y2="45"/>
+    <entity uuid="a38f3af3-24e3-4c33-8529-835c7f2e05ab" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="986" position-y="231" size-x="0" size-x2="52" size-y="0" size-y2="20"/>
+    <entity uuid="abdd56ea-cb04-4036-9e1a-f6011b7b6fd8" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="735" position-y="40" size-x="0" size-x2="104" size-y="0" size-y2="59"/>
+    <entity uuid="acd8ea96-a60a-469c-b5f4-0009df81cd2a" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="136" position-y="40" size-x="0" size-x2="76" size-y="0" size-y2="45"/>
+    <entity uuid="b13da8b9-ae30-40ff-86a7-eb2af4c818bd" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="201" position-y="279" size-x="0" size-x2="113" size-y="0" size-y2="59"/>
+    <entity uuid="b1b9bbf4-d36e-4296-9ecc-531ba16fed1d" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="46" position-y="40" size-x="0" size-x2="80" size-y="0" size-y2="59"/>
+    <entity uuid="c22e3f58-841a-4adc-b6fd-22d58b233563" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="122" position-y="415" size-x="0" size-x2="87" size-y="0" size-y2="73"/>
+    <entity uuid="c7f2c87c-1038-47a1-9dbc-af9e4d8d6791" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="249" position-y="613" size-x="0" size-x2="176" size-y="0" size-y2="45"/>
+    <entity uuid="c8a59e22-d57a-4b33-94c1-351957a03359" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="58" position-y="293" size-x="0" size-x2="85" size-y="0" size-y2="45"/>
+    <entity uuid="ca7021fc-4255-4bc9-9ef1-f7ee0a5e4450" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="367" position-y="40" size-x="0" size-x2="126" size-y="0" size-y2="199"/>
+    <entity uuid="cc4ff296-f975-4e85-afc4-f377f17aaa4c" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="493" position-y="613" size-x="0" size-x2="139" size-y="0" size-y2="45"/>
+    <entity uuid="cf293d9e-05f1-428c-a779-e556d497739f" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="273" position-y="223" size-x="0" size-x2="75" size-y="0" size-y2="45"/>
+    <entity uuid="da3f0c06-c20a-41b9-9d35-202afa9a3453" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="43" position-y="40" size-x="0" size-x2="69" size-y="0" size-y2="31"/>
+    <entity uuid="def030e8-5ba5-4b41-ae7e-1eb1c727d56b" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="972" position-y="613" size-x="0" size-x2="80" size-y="0" size-y2="59"/>
+    <entity uuid="e0544cf6-3a8f-4ab1-9bb4-fec080e3c1c6" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="450" position-y="415" size-x="0" size-x2="96" size-y="0" size-y2="31"/>
+    <entity uuid="e097cb47-a0e5-4940-b4f8-5deb59e4d66f" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="199" position-y="167" size-x="0" size-x2="69" size-y="0" size-y2="45"/>
+    <entity uuid="e306e609-30d1-4b7b-9d0e-f38f9640f46f" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="51" position-y="40" size-x="0" size-x2="101" size-y="0" size-y2="45"/>
+    <entity uuid="ed729c9c-2dd9-4821-a0a2-f0bcd78c1626" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="926" position-y="40" size-x="0" size-x2="172" size-y="0" size-y2="45"/>
+    <entity uuid="eeb55611-e35e-40c6-8b15-75974b341300" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="45" position-y="613" size-x="0" size-x2="135" size-y="0" size-y2="45"/>
+    <entity uuid="ef59c38e-1851-48e2-ab08-724efe43c0e8" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="167" size-x="0" size-x2="116" size-y="0" size-y2="87"/>
+    <entity uuid="f3f7cd7d-96d7-4dd9-bcad-59e7cf0226ab" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="737" position-y="613" size-x="0" size-x2="100" size-y="0" size-y2="45"/>
+    <entity uuid="f84f329a-8498-47f1-a354-9ad2f6d2e037" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="20" position-y="40" size-x="0" size-x2="135" size-y="0" size-y2="87"/>
+    <entity uuid="faf2e3cc-c86a-48c4-bf34-026aa298edb1" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="154" position-y="125" size-x="0" size-x2="40" size-y="0" size-y2="20"/>
+    <entity uuid="ffc97cba-0087-4634-aaaa-39693c0369e5" bg-color="#FFFFFF" hdr-color="#D2D2D2" position-x="40" position-y="153" size-x="0" size-x2="89" size-y="0" size-y2="73"/>
+    <inheritance-child uuid="00822494-4458-4cb1-8d99-e91a81cc6134" color="#B31F24"/>
+    <inheritance-child uuid="01123fdc-0ef4-49e1-a499-b8c3ca682a1a" color="#CDC32B"/>
+    <inheritance-child uuid="03bef3a9-8faf-49a5-8132-dcdfc4fb13bb" color="#61D351"/>
+    <inheritance-child uuid="125c0914-6562-4d36-925b-85cbf265ee75" color="#2E63AF"/>
+    <inheritance-child uuid="17fe03ed-ab1d-45c9-a5eb-733223d9264c" color="#00B4D0"/>
+    <inheritance-child uuid="4bb7ca5a-c09e-4a8b-b305-03045491f986" color="#F4931F"/>
+    <inheritance-child uuid="5c54fd33-1d96-4926-87a7-2d2f37a47b18" color="#8A54A2"/>
+    <inheritance-child uuid="8d145477-dc89-4121-8bda-5bc0f9b83955" color="#A8A8A8"/>
+    <inheritance-child uuid="afed4de2-a26f-4486-9ac1-0b5fd9cdfd6c" color="#0A783D"/>
+    <many-to-many-association uuid="bb38146b-ae4d-4f52-8b75-69c8d7c2f5eb" color="#C774AF"/>
+    <module uuid="28d673e9-eafe-4299-a60b-b469bff9e3df" bg-color="#FEEFE3" position-x="50" position-y="1125" size-x="0" size-x2="996" size-y="0" size-y2="770"/>
+    <module uuid="2b42e335-be6e-4768-a49e-9d61bbc2021b" bg-color="#FEFCE8" position-x="2266" position-y="1794" size-x="0" size-x2="406" size-y="0" size-y2="231"/>
+    <module uuid="3a7b3b58-bc4b-4db5-8f99-e839f422b659" bg-color="#EAE4F1" position-x="2266" position-y="2499" size-x="0" size-x2="170" size-y="0" size-y2="246"/>
+    <module uuid="6d14c0ad-0335-4bbd-954e-7f69aacf1047" bg-color="#FDEBEF" position-x="1146" position-y="1125" size-x="0" size-x2="516" size-y="0" size-y2="737"/>
+    <module uuid="9055ac32-72fa-4043-af4b-7e6bb4725fc6" bg-color="#E7F3E7" position-x="2266" position-y="2125" size-x="0" size-x2="312" size-y="0" size-y2="274"/>
+    <module uuid="96ea2434-81b6-4506-8502-2087ccb7d800" bg-color="#FDEBEF" position-x="2536" position-y="2746" size-x="0" size-x2="109" size-y="0" size-y2="100"/>
+    <module uuid="c35d53d0-65c5-44db-9e65-6e7383f477f6" bg-color="#E7F5FD" position-x="1762" position-y="1125" size-x="0" size-x2="414" size-y="0" size-y2="569"/>
+    <module uuid="c61785a5-f9d5-4de3-b6f9-a01eb491abdb" bg-color="#E7F5FD" position-x="1762" position-y="1794" size-x="0" size-x2="404" size-y="0" size-y2="526"/>
+    <module uuid="e0651cb9-d6c5-4b66-8a79-c506fe0214bc" bg-color="#EAE4F1" position-x="50" position-y="50" size-x="0" size-x2="1125" size-y="0" size-y2="975"/>
+    <module uuid="e7d2715e-ae98-4e19-b9d9-1b42d08ca308" bg-color="#E7F3E7" position-x="2536" position-y="2499" size-x="0" size-x2="175" size-y="0" size-y2="147"/>
+    <project uuid="275a1137-585b-4a29-8573-315044357a36" size-x="0" size-x2="2761" size-y="0" size-y2="2896"/>
+    <region uuid="121cc6b9-2d6c-4519-a7da-1a9149c3a83d" bg-color="#FEFCE8" position-x="50" position-y="70" size-x="0" size-x2="232" size-y="0" size-y2="275"/>
+    <region uuid="71be8ad2-71bb-4254-b6e5-75a94abf18bc" bg-color="#FEEFE3" position-x="50" position-y="70" size-x="0" size-x2="125" size-y="0" size-y2="91"/>
+  </visual-data>
+</skipper>

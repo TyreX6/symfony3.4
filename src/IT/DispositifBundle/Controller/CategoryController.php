@@ -27,6 +27,7 @@ class CategoryController extends Controller
     /**
      * @Route("/category/modifier" , name="modifier_category")
      * @Template()
+     * @param Request $request
      * @return array
      */
     public function modifier_categoryAction(Request $request)

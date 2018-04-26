@@ -2,7 +2,7 @@
 <li>
     <a href="#">
         <div>
-            <p><strong>{{ notif.reservation.user.username }} a réservé {{ notif.reservation.dispositif.model }} à {{ notif.dateRes | date }}</strong> <span class="pull-right text-muted">{{ notif.reservation.getPourcentage['pourcentage'] }}% Complete</span>
+            <p><strong>{{ notif.reservation.user.username }} a réservé {{ notif.reservation.ressource }} à {{ notif.dateRes | date }}</strong> <span class="pull-right text-muted">{{ notif.reservation.getPourcentage['pourcentage'] }}% Complete</span>
             </p>
             <div class="progress progress-striped active">
                 <div class="progress-bar progress-bar-{{ notif.reservation.getPourcentage['class'] }}" role="progressbar"

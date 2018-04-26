@@ -9,6 +9,7 @@
 namespace IT\UserBundle\Controller;
 
 use IT\UserBundle\Form\LdapConfigType;
+use IT\UserBundle\Service\PingService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -66,7 +67,8 @@ class LdapController extends Controller
         $host = $postData['host'];
         $port = (int)$postData["port"];
         $connected = 0;
-        if ($this->serviceping($host, $port)) {
+        $pingService = new PingService();
+        if ($pingService->serviceping($host, $port)) {
             $connected = 1;
         }
         return JsonResponse::create(array("connected" => $connected), 200)

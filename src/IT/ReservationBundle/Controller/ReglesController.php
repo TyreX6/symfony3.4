@@ -17,10 +17,10 @@ use Symfony\Component\HttpFoundation\Response;
 class ReglesController extends Controller
 {
     /**
-     * @Route("/regles/" , name="afficher_regles")
+     * @Route("/rules/" , name="show_rules")
      * @Template()
      */
-    public function reglesAction() {
+    public function rulesAction() {
         $message = null;
         $em = $this->getDoctrine()->getManager();
         $regles = $em->getRepository('ITReservationBundle:Regles')->findAll()[0];
@@ -30,7 +30,7 @@ class ReglesController extends Controller
         if ($form->isValid()) {
             $em->persist($regles);
             $em->flush();
-            $message = "Le dispositif a étè bien modifié";
+            $message = "Les régles sont mis à jour";
         }
 
         return array('reglesForm' => $form->createView(), 'message' => $message);
@@ -38,7 +38,7 @@ class ReglesController extends Controller
 
 
     /**
-     * @Route("/regles/fixer" , name="fixer_regles")
+     * @Route("/rules/fix" , name="fix_rules")
      */
     public function reglesFixedAction()
     {
@@ -66,7 +66,7 @@ class ReglesController extends Controller
 
 
     /**
-     * @Route("/regles/setDefault" , name="set_regles")
+     * @Route("/rules/setDefault" , name="set_rules")
      */
     public function setReglesAction()
     {

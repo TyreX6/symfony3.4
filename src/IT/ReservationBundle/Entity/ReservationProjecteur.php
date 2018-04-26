@@ -26,7 +26,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @SWG\Definition(type="object", @SWG\Xml(name="ReservationProjecteur"))
  * @ExclusionPolicy("all")
  */
-class ReservationProjecteur extends AbstractReservation
+class ReservationProjecteur extends Reservation
 {
 
     /**

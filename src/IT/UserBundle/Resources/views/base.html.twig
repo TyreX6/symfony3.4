@@ -131,7 +131,7 @@
                     <ul class="dropdown-menu dropdown-tasks animated slideInUp">
                         {{ render(controller('ITReservationBundle:Notification:notification')) }}
                         <li>
-                            <a class="text-center" href="{{ path('liste_reservation') }}"> <strong>Voir les
+                            <a class="text-center" href="{{ path('reservations_list') }}"> <strong>Voir les
                                     réservations</strong> <i
                                         class="fa fa-angle-right"></i> </a>
                         </li>
@@ -199,13 +199,13 @@
                     {% endblock %}
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="{{ path('liste_reservation') }}" class="waves-effect">
+                            <a href="{{ path('reservations_list') }}" class="waves-effect">
                                 <i class="icon-list fa-fw" data-icon="v"></i>
                                 <span class="hide-menu"> Liste réservations </span>
                             </a>
                         </li>
                         <li>
-                            <a href="{{ path('ajouter_reservation') }}" class="waves-effect">
+                            <a href="{{ path('add_reservation')) }}" class="waves-effect">
                                 <i class="icon-calender fa-fw" data-icon="v"></i>
                                 <span class="hide-menu"> Ajouter réservation </span>
                             </a>

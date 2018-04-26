@@ -1,12 +1,12 @@
 {% extends '::base.html.twig' %}
 {% block stylesheets %}
-        {% stylesheets
+    {% stylesheets
         'bundles/itreservation/app/plugins/bower_components/toast-master/css/jquery.toast.css'
         'bundles/itreservation/app/plugins/bower_components/custom-select/custom-select.css'
         'bundles/itreservation/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.css'
         filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}" />
-        {% endstylesheets %}
+    {% endstylesheets %}
 
 {% endblock %}
 
@@ -37,75 +37,75 @@
                     <div class="panel panel-info">
                         <div class="panel-heading"> Fixer les régles</div>
                         {{ form_start(reglesForm, {'attr' : {'id':'regles','class':'form-horizontal form-bordered'} }) }}
-                            <div class="panel-wrapper collapse in" aria-expanded="true">
-                                <div class="panel-body">
+                        <div class="panel-wrapper collapse in" aria-expanded="true">
+                            <div class="panel-body">
 
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-12">
-                                            <div class="white-box">
-                                                <h2>Régles pour la durée maximale d'une
-                                                    réservation</h2>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-5 col-md-5">La durée maximale d'une réservation
-                                                        est : </label>
-                                                    {{ form_widget (reglesForm.limDureeReservation) }}
-                                                    Heures
-                                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="white-box">
+                                            <h2>Régles pour la durée maximale d'une
+                                                réservation</h2>
+                                            <div class="form-group row">
+                                                <label class="col-sm-5 col-md-5">La durée maximale d'une réservation
+                                                    est : </label>
+                                                {{ form_widget (reglesForm.limDureeReservation) }}
+                                                Heures
                                             </div>
                                         </div>
                                     </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-12">
-                                            <div class="white-box">
-                                                <h2>Régles pour les réservations d'une journée</h2>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-5 col-md-5">Le nombre maximale de réservation
-                                                        d'un dispositif par jour est : </label>
-                                                    {{ form_widget (reglesForm.nbrLimiteParJour) }}
-                                                    Fois
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-12">
-                                            <div class="white-box">
-                                                <h2>Régles pour les réservations d'une semaine</h2>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-5 col-md-5">Le nombre maxiamel de réservation
-                                                        d'un dispositif par semaine est : </label>
-                                                    {{ form_widget (reglesForm.nbrLimiteParSemaine) }}
-                                                    Fois
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-12">
-                                            <div class="white-box">
-                                                <h2>Régles pour le timeout d'une réservation</h2>
-                                                <div class="form-group row">
-                                                    <label class="col-sm-5 col-md-5">Le timeout d'une réservation avant
-                                                        de l'annuler est : </label>
-                                                    {{ form_widget (reglesForm.dureeTimeout) }}
-                                                    Minutes
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-offset-3 col-md-9">
-                                            <button type="submit" class="btn btn-success">Envoyer</button>
-                                            <button type="button" class="btn btn-default">Annuler</button>
-                                        </div>
-                                    </div>
-                                    <hr>
                                 </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="white-box">
+                                            <h2>Régles pour les réservations d'une journée</h2>
+                                            <div class="form-group row">
+                                                <label class="col-sm-5 col-md-5">Le nombre maximale de réservation
+                                                    d'un dispositif par jour est : </label>
+                                                {{ form_widget (reglesForm.nbrLimiteParJour) }}
+                                                Fois
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="white-box">
+                                            <h2>Régles pour les réservations d'une semaine</h2>
+                                            <div class="form-group row">
+                                                <label class="col-sm-5 col-md-5">Le nombre maxiamel de réservation
+                                                    d'un dispositif par semaine est : </label>
+                                                {{ form_widget (reglesForm.nbrLimiteParSemaine) }}
+                                                Fois
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-12">
+                                        <div class="white-box">
+                                            <h2>Régles pour le timeout d'une réservation</h2>
+                                            <div class="form-group row">
+                                                <label class="col-sm-5 col-md-5">Le timeout d'une réservation avant
+                                                    de l'annuler est : </label>
+                                                {{ form_widget (reglesForm.dureeTimeout) }}
+                                                Minutes
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button type="submit" class="btn btn-success">Envoyer</button>
+                                        <button type="button" class="btn btn-default">Annuler</button>
+                                    </div>
+                                </div>
+                                <hr>
                             </div>
+                        </div>
                         {{ form_end(reglesForm) }}
                     </div>
                 </div>
@@ -118,9 +118,9 @@
 {% block scripts %}
     {% javascripts
         '@ITReservationBundle/Resources/public/app/plugins/bower_components/bootstrap-select/bootstrap-select.min.js'
-    '@ITReservationBundle/Resources/public/app/plugins/bower_components/toast-master/js/jquery.toast.js'
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/toast-master/js/jquery.toast.js'
     %}
-    <script src="{{ asset_url }}"></script>
+        <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
     <script>

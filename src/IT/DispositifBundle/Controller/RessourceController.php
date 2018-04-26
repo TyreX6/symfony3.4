@@ -23,17 +23,58 @@ use Symfony\Component\HttpFoundation\Request;
 class RessourceController extends Controller
 {
     /**
-     * @Route("/resource/add" , name="ajouter_ressource")
+     * @Route("/resource/add/{id}" , name="ajouter_ressource")
      * @Template()
      * @param Request $request
      * @return array
      */
-    public function ajouter_RessourceAction(Request $request)
+    public function ajouter_RessourceAction(Request $request, $id)
     {
-        $message = null;
+        $message = '';
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository("ITDispositifBundle:Categorie")->findAll();
-        return array("categories" => $categories);
+        $message = '';
+        $postData = $this->get('request_stack')->getCurrentRequest()->request->all();
+//        $type = $postData["type"];
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => $id]);
+        $form = null;
+        $resource = null;
+        switch ($id) {
+            case '1':
+                $resource = new Dispositif();
+                $resource->setCategory($category);
+                $form = $this->createForm("IT\DispositifBundle\Form\DispositifType", $resource);
+                break;
+            case '2':
+                $resource = new Dispositif();
+                $resource->setCategory($category);
+                $form = $this->createForm("IT\DispositifBundle\Form\DispositifType", $resource);
+                break;
+            case '3':
+                $resource = new Projecteur();
+                $resource->setCategory($category);
+                $form = $this->createForm("IT\DispositifBundle\Form\ProjecteurType", $resource);
+                break;
+            case '4':
+                $resource = new Salle();
+                $resource->setCategory($category);
+                $form = $this->createForm("IT\DispositifBundle\Form\SalleType", $resource);
+                break;
+        }
+        $resource->setCategory($category);
+        $request = $this->get('request_stack')->getCurrentRequest();
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em->persist($resource);
+            $em->flush();
+            $message = "Le ressource a été crée correctement";
+        }
+
+        return array('form' => $form->createView(),
+            'category' => $category->getName(),
+            'message' => $message,
+            "categories" => $categories);
 //        if ($category->getName() == "Projecteur"){
 //            $projecteur = new Projecteur();
 //            $projecteur->setCategorie($category);
@@ -58,10 +99,11 @@ class RessourceController extends Controller
      */
     public function getAjaxFormAction()
     {
+        $message = '';
         $postData = $this->get('request_stack')->getCurrentRequest()->request->all();
         $type = $postData["type"];
         $em = $this->getDoctrine()->getManager();
-        $category = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id"=>(int)$type]);
+        $category = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => (int)$type]);
         $form = null;
         $resource = null;
         switch ($type) {
@@ -84,10 +126,18 @@ class RessourceController extends Controller
                 break;
         }
         $resource->setCategory($category);
+        $request = $this->get('request_stack')->getCurrentRequest();
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em->persist($resource);
+            $em->flush();
+            $message = "Le ressource a été crée correctement";
+        }
 
         return $this->render('ITDispositifBundle:Dispositif:form_ressource.html.twig', array(
             'form' => $form->createView(),
             'category' => $category->getName(),
+            'message' => $message
         ));
     }
 

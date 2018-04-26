@@ -77,7 +77,7 @@ class ReservationsApiController extends Controller
 
             $reservation->setUser($user);
             $reservation->setRessource($dispositif);
-            $reservation->setDispositif($dispositif);
+            $reservation->setRessource($dispositif);
             $reservation->setDateDebut($date_debut);
             $reservation->setDateFin($date_fin);
 
@@ -149,6 +149,35 @@ class ReservationsApiController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->getReservationsByDispositive($id);
+        return $reservations;
+    }
+
+    /**
+     * @param $id
+     * @Rest\View()
+     * @Rest\GET("api/reservations/liste/user/{id}")
+     * @Operation(
+     *  tags={"Reservation"},
+     *     summary="Retreive all reservations for specific user",
+     *     @SWG\Parameter(
+     *     name="id",
+     *     in="path",
+     *     description="id of the user",
+     *     required=true,
+     *     type="integer"
+     *   ),
+     *
+     *  @SWG\Response(response=200,description="Array of reservations",
+     *  @SWG\Schema(type="array",@SWG\Items(ref="#/definitions/Reservation")
+     *  ),
+     * ),
+     * )
+     * @return array
+     */
+    public function listReservationsByUser($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $reservations = $em->getRepository("ITReservationBundle:Reservation")->getReservationsByUser($id);
         return $reservations;
     }
 

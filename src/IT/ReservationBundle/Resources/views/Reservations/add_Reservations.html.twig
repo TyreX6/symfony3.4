@@ -66,7 +66,7 @@
                                     <select name="dispositif-Select" class="form-control select3"
                                             data-placeholder="">
                                         {% for dispo in dispos %}
-                                            <option value="{{ dispo.id }}">{{ dispo.model }}</option>
+                                            <option value="{{ dispo.id }}">{{ dispo }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -190,8 +190,8 @@
         <script>
             var newRes = $("#newRes").html();
             //TODO work with API to get events with structure like this
-            var apiPathAdd = "{{ path('ajout_reservation_ajax') }}";
-            var apiPathUpdate = "{{ path('modifier_reservation_ajax') }}";
+            var apiPathAdd = "{{ path('add_reservation_ajax') }}";
+            var apiPathUpdate = "{{ path('modify_reservation_ajax') }}";
             var apiPathDelete = "{{ path('delete_reservations') }}";
             var apiFetchReservation = "{{ path('fetch_reservation') }}";
             var CalenderEvents = [
@@ -209,7 +209,7 @@
 
             $("select[name='category-Select']").change(function () {
                 var id = $("select[name='category-Select'] option:selected").val();
-                var url = "{{ path('ajouter_reservation',{'id_categ':'id'}) }}" ;
+                var url = "{{ path('add_reservation',{'id_categ':'id'}) }}";
                 url = url.replace("id", id);
                 window.location.replace(url);
             });
@@ -217,6 +217,7 @@
             function fetchReservations() {
                 $('.LoadingRoot').show();
                 var idDispo = $("select[name='dispositif-Select'] option:selected").val();
+                console.log(idDispo);
                 CalenderEvents[0].events = [];
                 $.ajax({
                     type: 'post',
@@ -230,12 +231,12 @@
                             CalenderEvents[0].events.push(
                                 {
                                     id: element.id,
-                                    title: element.dispositif.model + " pour " + element.user.username,
-                                    backTitle: element.dispositif.model + " pour " + element.user.username,
+                                    title: "Réservé pour " + element.user.username,
+                                    backTitle: "Réservé pour " + element.user.username,
                                     start: new Date(element.date_debut),
                                     end: new Date(element.date_fin),
                                     className: "bg-warning",
-                                    dispId: element.dispositif.id,
+                                    dispId: element.ressource.id,
                                     editable: Date.parse(element.date_fin) > Date.now()
                                 }
                             )

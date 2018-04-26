@@ -13,11 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\DiscriminatorColumn;
 use Doctrine\ORM\Mapping\DiscriminatorMap;
 use Doctrine\ORM\Mapping\InheritanceType;
-use IT\ReservationBundle\Entity\AbstractReservation;
 use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Swagger\Annotations as SWG;
+use IT\ReservationBundle\Entity\Reservation ;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -46,7 +46,7 @@ class Ressource
      * @Expose
      * @SWG\Property(description="Identifiant du ressource.")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -54,7 +54,7 @@ class Ressource
      * @Expose
      * @SWG\Property(property="bar_code",type="string",description="Bar code of the resource.")
      */
-    private $bar_code;
+    protected $bar_code;
 
     /**
      * @var string
@@ -67,28 +67,27 @@ class Ressource
      * )
      * @SWG\Property(type="string",description="Etat du dispositif.")
      */
-    private $status;
+    protected $status;
 
     /**
      * @ORM\Column(type="datetime",nullable=false)
      * @Expose
      */
-    private $dateAdd;
+    protected $dateAdd;
 
     /**
      * @var \DateTime
      * @Expose
      * @ORM\Column(name="last_check_date", type="datetime",nullable=true)
      */
-    private $lastCheckDate;
-
+    protected $lastCheckDate;
 
 
     /**
-     * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\AbstractReservation", mappedBy="ressource",cascade="persist")
+     * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\Reservation", mappedBy="ressource",cascade="persist")
      * @SWG\Property(type="object",description="reservation of the resource.")
      **/
-    private $abstract_reservation;
+    protected $reservations;
 
 
     /**
@@ -97,14 +96,14 @@ class Ressource
      * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id",onDelete="CASCADE",nullable=false)
      * @SWG\Property(description="Le categorie.")
      **/
-    private $category;
+    protected $category;
 
     /**
      * Ressource constructor.
      */
     public function __construct()
     {
-        $this->abstract_reservation = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
         $this->setDateAdd($date = new \DateTime(null, new \DateTimeZone("Africa/Tunis")));
     }
 
@@ -183,17 +182,17 @@ class Ressource
     /**
      * @return ArrayCollection
      */
-    public function getAbstractReservation()
+    public function getReservations()
     {
-        return $this->abstract_reservation;
+        return $this->reservations;
     }
 
     /**
-     * @param mixed $abstract_reservation
+     * @param mixed $reservations
      */
-    public function setAbstractReservation($abstract_reservation)
+    public function setReservations($reservations)
     {
-        $this->abstract_reservation = $abstract_reservation;
+        $this->reservations = $reservations;
     }
 
     /**

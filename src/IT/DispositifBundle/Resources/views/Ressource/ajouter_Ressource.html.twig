@@ -34,18 +34,27 @@
                 <div class="col-md-12">
                     <div class="panel panel-info">
                         <div class="panel-heading"> Ajouter un dispositif</div>
-
+                        {% if (message) %}
+                            <h3 class="center-block alert alert-success alert-dismissable">{{ message }}</h3>
+                        {% endif %}
                         <div class="panel-wrapper collapse in" aria-expanded="true">
                             <div class="panel-body">
                                 <div id="select-type">
                                     {% for category in categories %}
                                         {% if category.id >2 %}
-                                    <button class="btn btn-success" value="{{ category.id }}" type="button">Ajouter {{ category.name }}</button>
+                                    <a href="{{ path('ajouter_ressource',{'id':category.id}) }}"> <button class="btn btn-success" value="{{ category.id }}" type="button">Ajouter {{ category.name }}</button></a>
                                         {% endif %}
                                     {% endfor %}
 
                                 </div>
-                                <div id="form-container"></div>
+                                <div id="form-container">
+                                    <h3>{{ category }}</h3>
+                                    {% if (form) %}
+                                    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+                                    {{ form_start(form, {'attr' : {'id':'formID','class':'form-bordered'} }) }}
+                                    {{ form_end(form) }}
+                                    {% endif %}
+                                </div>
 
                             </div>
                         </div>
@@ -144,17 +153,17 @@
         </script>
 
         <script>
-            $('#select-type button').on('click', function(event) {
-                event.preventDefault();
-                console.log("hi");
-                var getAjaxUrl = "{{ path('add_form_categ') }}" ;
-                $.post(getAjaxUrl, {
-                    type: $(this).val()
-                    },
-                    function(data) {
-                    console.log(data);
-                    $('#form-container').html(data);
-                });
-            });
+            {#$('#select-type button').on('click', function(event) {#}
+                {#event.preventDefault();#}
+                {#console.log("hi");#}
+                {#var getAjaxUrl = "{{ path('add_form_categ') }}" ;#}
+                {#$.post(getAjaxUrl, {#}
+                    {#type: $(this).val()#}
+                    {#},#}
+                    {#function(data) {#}
+                    {#console.log(data);#}
+                    {#$('#form-container').html(data);#}
+                {#});#}
+            {#});#}
         </script>
     {% endblock %}

@@ -18,7 +18,7 @@ class NotificationController extends Controller
     public function notificationAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $notifications = $em->getRepository('ITReservationBundle:Notification')->getLatestNotifications(5) ;
+        $notifications = $em->getRepository('ITReservationBundle:Notification')->getLatestNotifications(5);
         return array('notifications' => $notifications);
     }
 
@@ -26,13 +26,14 @@ class NotificationController extends Controller
      * @param $notifications Notification[]
      * @return Response
      */
-    public function unsetNotificationAction($notifications) {
+    public function unsetNotificationAction($notifications)
+    {
         $em = $this->getDoctrine()->getManager();
-         foreach ($notifications as $notif) {
-            $notif->setVu(true) ;
+        foreach ($notifications as $notif) {
+            $notif->setVu(true);
             $em->persist($notif);
         }
         $em->flush();
-         return new Response() ;
+        return new Response();
     }
 }

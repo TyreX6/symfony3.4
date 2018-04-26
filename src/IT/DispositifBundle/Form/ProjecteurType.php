@@ -23,14 +23,14 @@ class ProjecteurType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('modele', TextType::class, array(
+        $builder->add('model', TextType::class, array(
             'attr' => array('class' => 'form-control  validate[required] ',
                 'placeholder' => 'Exp: Projecteur Sharp',
                 'data-errormessage-value-missing' => 'This input is required!')
         ))
-            ->add('categorie', HiddenType::class, array()
+            ->add('category', HiddenType::class, array()
             )
-            ->add('etat', ChoiceType::class, array(
+            ->add('status', ChoiceType::class, array(
                 'attr' => array(),
                 'choices' => array(
                     'Fonctionnel' => "Fonctionnel",
@@ -44,12 +44,13 @@ class ProjecteurType extends AbstractType
                     'placeholder' => 'Exp: 2048x1440',
                     'data-errormessage-value-missing' => 'This input is required!')
             ))
-            ->add('codeBarre', TextType::class, array(
+            ->add('barCode', TextType::class, array(
                     'attr' => array('class' => 'form-control  validate[required] ',
                         'placeholder' => 'Exp: 654552626532015614641656',
                         'data-errormessage-value-missing' => 'This input is required!')
                 )
             )
+            ->add('category')
             ->add('Envoyer', SubmitType::class, array(
                 'attr' => array('class' => 'btn btn-primary'),
             ));

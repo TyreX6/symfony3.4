@@ -54,17 +54,17 @@ class DispositifApiController extends Controller
         //Receive all data
         $data = $request->request->all();
 
-        $device_name = $data["deviceName"];
+        $device_name = $data["device_name"];
         $device_model = $data["model"];
         $device_resolution = $data["resolution"];
         $os = $data["os"];
-        $version_os = $data["OsVersion"];
-        $device_UUID = $data["deviceUUID"];
-        $device_memory = $data["diskSpace"];
-        $freediskspace = $data["freeDiskSpace"];
-        $useddiskspace = $data["usedDiskSpace"];
+        $version_os = $data["_os_version"];
+        $device_UUID = $data["device_u_u_i_d"];
+        $device_memory = $data["disk_space"];
+        $freediskspace = $data["free_disk_space"];
+        $useddiskspace = $data["used_disk_space"];
         $ramsize = $data["ram"];
-        $cpucore = $data["cpuCores"];
+        $cpucore = $data["cpu_cores"];
         $cpuinfo = $data["cpu"];
 
         //Set new Device
@@ -166,7 +166,7 @@ class DispositifApiController extends Controller
      * @param Request $request
      * @Operation(
      *     tags={"Device"},
-     *     summary="Edit the device with the ID passed into parameters",
+     *     summary="Delete the device with the ID passed into parameters",
      * @SWG\Parameter(
      *     name="id",
      *     in="path",
@@ -181,7 +181,7 @@ class DispositifApiController extends Controller
      *
      * @return array
      */
-    public function supprimerDispositifAction(Request $request)
+    public function deleteDispositifAction(Request $request)
     {
         return array();
     }
@@ -206,7 +206,7 @@ class DispositifApiController extends Controller
      * )
      * @return Dispositif|null|object
      */
-    public function localiserDispositif($id)
+    public function geolocateDispositif($id)
     {
         $em = $this->getDoctrine()->getManager();
         $dispositif = $em->getRepository("ITDispositifBundle:Dispositif")->findOneBy(['id' => $id]);
@@ -216,7 +216,7 @@ class DispositifApiController extends Controller
 
     /**
      * @Rest\View()
-     * @Rest\POST("api/dispositif/verrouiller/{id}")
+     * @Rest\POST("api/dispositif/lock/{id}")
      * @Operation(
      *     tags={"Device"},
      *     summary="Lock the device",
@@ -230,7 +230,7 @@ class DispositifApiController extends Controller
      *     @SWG\Parameter(
      *     name="device_id",
      *     in="formData",
-     *     description="Serie number of the device",
+     *     description="UUID of the device",
      *     required=true,
      *     type="integer"
      *   ),
@@ -247,7 +247,7 @@ class DispositifApiController extends Controller
      * )
      * @return Dispositif|null|object
      */
-    public function verrouillerDispositif($id)
+    public function lockDispositif($id)
     {
         $em = $this->getDoctrine()->getManager();
         $dispositif = $em->getRepository("ITDispositifBundle:Dispositif")->findOneBy(['id' => $id]);

@@ -83,7 +83,6 @@ class User extends BaseUser implements LdapUserInterface,\JsonSerializable
      */
     public function jsonSerialize()
     {
-        // TODO: Implement jsonSerialize() method.
         return [
             'id' => $this->getId(),
             'username' => $this->getUsername(),

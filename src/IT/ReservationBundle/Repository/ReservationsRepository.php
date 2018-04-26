@@ -17,8 +17,8 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\Query;
 use IT\ReservationBundle\Entity\Regles;
-use IT\ReservationBundle\Entity\Reservation;
 use Doctrine\ORM\Query\ResultSetMapping;
+use IT\ReservationBundle\Entity\Reservation as Reservation;
 
 class ReservationsRepository extends EntityRepository
 {
@@ -27,8 +27,19 @@ class ReservationsRepository extends EntityRepository
         $qb = $this->_em->createQueryBuilder();
         $qb->select('r')
             ->from('ITReservationBundle:Reservation', 'r')
-            ->innerJoin('r.dispositif', 'd')
-            ->where('d.id = :id')
+            ->innerJoin('r.ressource', 'rs')
+            ->where('rs.id = :id')
+            ->setParameter('id', $id);
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getReservationsByUser($id)
+    {
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('r')
+            ->from('ITReservationBundle:Reservation', 'r')
+            ->innerJoin('r.user', 'u')
+            ->where('u.id = :id')
             ->setParameter('id', $id);
         return $qb->getQuery()->getResult();
     }
@@ -38,8 +49,8 @@ class ReservationsRepository extends EntityRepository
         $qb = $this->_em->createQueryBuilder();
         $qb->select('r')
             ->from('ITReservationBundle:Reservation', 'r')
-            ->innerJoin('r.dispositif', 'd')
-            ->where('d.deviceUUID = :uuid')
+            ->join('r.ressource', 'rs')
+            ->where('rs.deviceUUID = :uuid ')
             ->setParameter('uuid', $uuid);
         return $qb->getQuery()->getResult();
     }
@@ -49,7 +60,7 @@ class ReservationsRepository extends EntityRepository
         $qb = $this->_em->createQueryBuilder();
         $qb->select('r')
             ->from('ITReservationBundle:Reservation', 'r')
-            ->innerJoin('r.dispositif', 'd')
+            ->innerJoin('r.ressource', 'd')
             ->where('d.model LIKE :keyword')
             ->setParameter('keyword', '%' . $keyword . '%');
         return $qb->getQuery()->getResult();
@@ -62,32 +73,16 @@ class ReservationsRepository extends EntityRepository
      * @return array
      * @throws DBALException
      */
-    public function getActualReservationByUserRawSql($UUID,$username, $regles)
+    public function getActualReservationByUserRawSql($UUID, $username, $regles)
     {
         $timeout = $regles->getDureeTimeout();
         $conn = $this->getEntityManager()->getConnection();
-        $sql = "SELECT r.id FROM `abstract_reservation` AS r LEFT JOIN `fos_user` as f ON r.user_id=f.id LEFT JOIN `dispositif` d on r.`ressource_id` = d.`id` WHERE f.username='" . $username . "' AND d.device_uuid='" . $UUID . "' AND NOW() > r.date_debut AND NOW() < ADDTIME(r.date_debut,'0 0:$timeout:00.00')";
+        $sql = "SELECT r.id,r.date_debut,r.date_fin FROM `reservation` AS r LEFT JOIN `fos_user` as f ON r.user_id=f.id LEFT JOIN `dispositif` d on r.`ressource_id` = d.`id` WHERE f.username='" . $username . "' AND d.device_uuid='" . $UUID . "' AND NOW() > r.date_debut AND NOW() < ADDTIME(r.date_debut,'0 0:$timeout:00.00')";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
     }
 
-
-    /**
-     * @param $username
-     * @param $regles Regles
-     * @return array
-     * @throws DBALException
-     */
-    public function getActualReservationRawSql($username, $regles)
-    {
-        $timeout = $regles->getDureeTimeout();
-        $conn = $this->getEntityManager()->getConnection();
-        $sql = "SELECT * FROM `abstract_reservation` AS r LEFT JOIN `fos_user` as f ON r.user_id=f.id WHERE f.username='" . $username . "' AND NOW() > r.date_debut AND NOW() < ADDTIME(r.date_debut,'0 0:$timeout:00.00')";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
 
     public function getIncomingReservationsOrdererByDate()
     {
@@ -95,7 +90,7 @@ class ReservationsRepository extends EntityRepository
         $qb = $this->_em->createQueryBuilder();
         $qb->select('r')
             ->from('ITReservationBundle:Reservation', 'r')
-            ->where('r.dateFin >= :now')
+            ->where('r.dateDebut >= :now')
             ->orderBy('r.dateDebut', 'ASC')
             ->setParameter('now', $date);
         return $qb->getQuery()->getResult();
@@ -130,7 +125,15 @@ class ReservationsRepository extends EntityRepository
         }
 
         try {
-            $arrayResult = $this->verifNbrMaxJour($reservation, $regles);
+            $arrayResult = $this->verifCrossReservation($reservation);
+        } catch (NonUniqueResultException $e) {
+        }
+        if ($arrayResult["success"] === 0) {
+            return array("success" => 0, "message" => $arrayResult["message"]);
+        }
+
+        try {
+            $arrayResult = $this->verifyMaxPerDay($reservation, $regles);
             if ($arrayResult["success"] === 0) {
                 return array("success" => 0, "message" => $arrayResult["message"]);
             }
@@ -139,12 +142,13 @@ class ReservationsRepository extends EntityRepository
 
 
         try {
-            $arrayResult = $this->verifNbrMaxSemaine($reservation, $regles);
+            $arrayResult = $this->verifyMaxPerWeek($reservation, $regles);
         } catch (NonUniqueResultException $e) {
         }
         if ($arrayResult["success"] === 0) {
             return array("success" => 0, "message" => $arrayResult["message"]);
         }
+
 
         return array("success" => 1, "message" => $message);
 
@@ -172,14 +176,71 @@ class ReservationsRepository extends EntityRepository
         return array("message" => $message, "success" => $success);
     }
 
+    /**
+     * Verify if an existant reservation cros the new reservation
+     * passed in parameter or not.
+     * Of course do not count the existant reservation
+     *
+     * @param $reservation Reservation
+     * @return array
+     */
+    public function verifCrossReservation($reservation)
+    {
+        $message = "";
+        $success = null;
+        $id = $reservation->getId();
+        if ($id == null) {
+            $id = 0;
+        }
+
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('count(r.id)')
+            ->from('ITReservationBundle:Reservation', 'r')
+            ->where('r.ressource = :resource')
+            ->andWhere('r.id != :id')
+            ->andWhere($qb->expr()->orX(
+                $qb->expr()->between(
+                    'r.dateDebut',
+                    ':start',
+                    ':end'),
+                $qb->expr()->between(
+                    'r.dateFin',
+                    ':start',
+                    ':end')
+            ))
+            ->setParameter('resource', $reservation->getRessource())
+            ->setParameter('start', $reservation->getDateDebut()->format('Y-m-d H:i:s'))
+            ->setParameter('end', $reservation->getDateFin()->format('Y-m-d H:i:s'))
+            ->setParameter('id', $id);
+
+        try {
+            $count = (int)$qb->getQuery()->getSingleScalarResult();
+        } catch (NonUniqueResultException $e) {
+            $count = 0;
+        }
+
+        if ($count > 0) {
+            $message = "Réservation déja existe";
+            $success = 0;
+        } else {
+            $message = "Régle respecté";
+            $success = 1;
+        }
+
+        return array("message" => $message, "success" => $success);
+    }
+
 
     /**
+     * Verify the maximum number of reservations in a day
+     * Of course do not count the existant reservation
+     *
      * @param $reservation Reservation
      * @param $regles Regles
      * @return array
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function verifNbrMaxJour($reservation, $regles)
+    public function verifyMaxPerDay($reservation, $regles)
     {
         $message = "";
         $success = null;
@@ -201,10 +262,10 @@ class ReservationsRepository extends EntityRepository
             ->from('ITReservationBundle:Reservation', 'r')
             ->where('r.dateDebut BETWEEN :start AND :end')
             ->andWhere('r.user = :user')
-            ->andWhere('r.dispositif = :dispositif')
+            ->andWhere('r.ressource = :resource')
             ->andWhere('r.id != :id')
             ->setParameter('user', $reservation->getUser())
-            ->setParameter('dispositif', $reservation->getDispositif())
+            ->setParameter('resource', $reservation->getRessource())
             ->setParameter('start', $dayStart->format('Y-m-d H:i:s'))
             ->setParameter('end', $dayEnd->format('Y-m-d H:i:s'))
             ->setParameter('id', $id);
@@ -225,12 +286,15 @@ class ReservationsRepository extends EntityRepository
 
 
     /**
+     * Verify the maximum number of reservations in a week
+     * Of course do not count the existant reservation
+     *
      * @param $reservation Reservation
      * @param $regles Regles
      * @return array
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function verifNbrMaxSemaine($reservation, $regles)
+    public function verifyMaxPerWeek($reservation, $regles)
     {
         $message = "";
         $success = null;
@@ -250,10 +314,10 @@ class ReservationsRepository extends EntityRepository
             ->from('ITReservationBundle:Reservation', 'r')
             ->where('r.dateDebut BETWEEN :lastWeek AND :today')
             ->andWhere('r.user = :user')
-            ->andWhere('r.dispositif = :dispositif')
+            ->andWhere('r.ressource = :resource')
             ->andWhere('r.id != :reservation_id')
             ->setParameter('user', $reservation->getUser())
-            ->setParameter('dispositif', $reservation->getDispositif())
+            ->setParameter('resource', $reservation->getRessource())
             ->setParameter('today', $now->format('Y-m-d H:i:s'))
             ->setParameter('lastWeek', $oneWeekAgo->format('Y-m-d H:i:s'))
             ->setParameter('reservation_id', $id);

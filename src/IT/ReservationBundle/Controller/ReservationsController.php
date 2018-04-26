@@ -2,8 +2,8 @@
 
 namespace IT\ReservationBundle\Controller;
 
-use IT\ReservationBundle\Entity\Notification;
 use IT\ReservationBundle\Entity\Reservation;
+use IT\ReservationBundle\Entity\Notification;
 use DateTime;
 use JMS\Serializer\SerializerBuilder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -22,7 +22,6 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Request as GuzzleRequest;
 
 
-//TODO verify reservations with administrator contraints
 
 /**
  * Class ReservationsController
@@ -31,31 +30,42 @@ use GuzzleHttp\Psr7\Request as GuzzleRequest;
 class ReservationsController extends Controller
 {
     /**
-     * @Route("/liste", name="liste_reservation")
+     * @Route("/list", name="reservations_list")
      * @Template()
      * @return array
      */
-    public function liste_ReservationsAction()
+    public function reservations_listAction()
     {
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->getIncomingReservationsOrdererByDate();
+        return array("reservations" => $reservations);
+    }
 
+    /**
+     * @Route("/list/{id}", name="reservations_resource_list")
+     * @Template()
+     * @return array
+     */
+    public function reservations_list_By_DeviceAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $reservations = $em->getRepository("ITReservationBundle:Reservation")->getIncomingReservationsOrdererByDate();
         return array("reservations" => $reservations);
     }
 
 
     /**
-     * @Route("/ajouter/{id_categ}", name="ajouter_reservation")
+     * @Route("/add/{id_categ}", name="add_reservation")
      * @Template()
      */
-    public function ajouter_ReservationsAction($id_categ)
+    public function add_ReservationsAction($id_categ)
     {
         $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository("ITDispositifBundle:Categorie")->findAll();
         $category = $em->getRepository("ITDispositifBundle:Categorie")->findOneBy(["id" => $id_categ]);
         if ($category == null) {
-            return $this->redirectToRoute("ajouter_reservation", ["id_categ" => 1]);
+            return $this->redirectToRoute("add_reservation", ["id_categ" => 1]);
         }
         $dispos = $category->getRessource();
         $utilisateurs = $em->getRepository("ITUserBundle:User")->getUsersByRole("ROLE_USER");
@@ -65,9 +75,9 @@ class ReservationsController extends Controller
 
 
     /**
-     * @Route("/add_reservation_ajax", name="ajout_reservation_ajax")
+     * @Route("/add_reservation_ajax", name="add_reservation_ajax")
      */
-    public function ajouterReservationsAjaxAction()
+    public function addReservationsAjaxAction()
     {
 
         try {
@@ -75,7 +85,7 @@ class ReservationsController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $user = $em->getRepository("ITUserBundle:User")->findOneBy(['id' => $postData['user']]);
-            $dispositif = $em->getRepository("ITDispositifBundle:Dispositif")->findOneBy(['id' => $postData['dispositif']]);
+            $resource = $em->getRepository("ITDispositifBundle:Ressource")->findOneBy(['id' => $postData['dispositif']]);
 
             $dateDebut = DateTime::createFromFormat('Y-m-d H:i:s', $postData['dateDebut']);
             $dateFin = DateTime::createFromFormat('Y-m-d H:i:s', $postData['dateFin']);
@@ -94,8 +104,7 @@ class ReservationsController extends Controller
 
             $reservation->setUser($user);
             $reservation->setDateDebut($dateDebut);
-            $reservation->setDispositif($dispositif);
-            $reservation->setRessource($dispositif);
+            $reservation->setRessource($resource);
             $reservation->setDateFin($dateFin);
             $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
             $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reservation, $regles);
@@ -110,18 +119,8 @@ class ReservationsController extends Controller
             $em->persist($reservation);
             $em->persist($notification);
             $em->flush();
-            $serializer = SerializerBuilder::create()->build();
-            $jsonContent = $serializer->serialize($reservation, 'json');
 
-            $client = new Client();
-            $url = "http://localhost:8080/reservation";
-            $data = ["reservation" => $jsonContent];
-//            $response = $client->post($url, [
-//                'json' => $data
-//            ]);
-
-
-            $message = $dispositif->getModel() . " réservé pour " . $user->getUsername();
+            $message = $resource." réservé pour " . $user->getUsername();
 
             return JsonResponse::create(array("success" => 1, "message" => $message, "id" => $reservation->getId()), 200)->setSharedMaxAge(900);
         } catch (Exception $e) {
@@ -132,9 +131,9 @@ class ReservationsController extends Controller
     }
 
     /**
-     * @Route("/modifier/ajax", name="modifier_reservation_ajax")
+     * @Route("/modify/ajax", name="modify_reservation_ajax")
      */
-    public function modifierReservationsAjaxAction()
+    public function modifyReservationsAjaxAction()
     {
         try {
             $data = $this->get('request_stack')->getCurrentRequest()->request->all();
@@ -167,7 +166,7 @@ class ReservationsController extends Controller
                     ->setSharedMaxAge(900);
             }
 
-            //Si contraintes validés , on passe à la modification
+            // if valid, pass to modification
             $em->persist($reser);
             $em->flush();
 
@@ -228,7 +227,7 @@ class ReservationsController extends Controller
         $em->remove($reservation);
         $em->flush();
 
-        return $this->redirectToRoute("liste_reservation");
+        return $this->redirectToRoute("reservations_list");
     }
 
     function CallAPI($method, $url, $data = false)

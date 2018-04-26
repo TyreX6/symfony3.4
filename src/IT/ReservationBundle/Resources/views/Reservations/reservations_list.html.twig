@@ -26,7 +26,7 @@
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="{{ path('homepage') }}">Accueil</a></li>
-                        <li><a href="{{ path('liste_reservation') }}">Réservations</a></li>
+                        <li><a href="{{ path('reservations_list') }}">Réservations</a></li>
                         <li class="active">Liste</li>
                     </ol>
                 </div>
@@ -52,7 +52,7 @@
                                     <thead>
                                     <tr>
                                         <th> ID</th>
-                                        <th data-toggle="true"> Modéle</th>
+                                        <th data-toggle="true"> Ressource</th>
                                         <th data-hide="phone"> Date début</th>
                                         <th data-hide="phone"> Date fin</th>
                                         <th data-hide="phone"> Collaborateur</th>
@@ -64,17 +64,17 @@
                                     {% for reservation in reservations %}
                                         <tr>
                                             <td>
-                                                {{ reservation.dispositif.id }}
+                                                {{ reservation.id }}
                                             </td>
                                             <td>
-                                                <a href="{{ path('modifier_dispositif',{'id':reservation.dispositif.id}) }}">{{ reservation.dispositif.model }}</a>
+                                                <a href="{{ path('modifier_dispositif',{'id':reservation.ressource.id}) }}">{{ reservation.ressource }}</a>
                                             </td>
                                             <td>{{ reservation.dateDebut | date }}</td>
                                             <td>{{ reservation.dateFin | date }}</td>
                                             <td>{{ reservation.user.username }}</td>
                                             <td>
                                                 <div>
-                                                    <p><strong>{{ reservation.dispositif.model }}</strong> <span
+                                                    <p><strong>{{ reservation.ressource }}</strong> <span
                                                                 class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"] }}
                                                             % Complete</span>
                                                     </p>

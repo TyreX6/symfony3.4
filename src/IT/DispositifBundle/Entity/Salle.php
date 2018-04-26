@@ -7,6 +7,7 @@
  */
 namespace IT\DispositifBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Swagger\Annotations as SWG;
@@ -21,15 +22,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Salle extends Ressource
 {
-    /**
-     * @var integer
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @Expose
-     * @SWG\Property(description="Identifiant de la salle.")
-     */
-    private $id;
 
     /**
      * @var string
@@ -54,14 +46,6 @@ class Salle extends Ressource
     public function __construct()
     {
         parent::__construct();
-    }
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
     }
 
 

@@ -68,7 +68,7 @@ class Regles
 
     /**
      * The duration of the timeout before cancelling a reservation
-     * User can not start the reservation if he submit after + "$dureeTimeout" + of the StartTime of his reservation
+     * User can not start the reservation if he submits after + "$dureeTimeout" + of the StartTime of his reservation
      *
      * @var integer
      * @ORM\Column(type="integer")

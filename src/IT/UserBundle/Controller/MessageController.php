@@ -55,8 +55,6 @@ class MessageController extends Controller
 
         $this->get('mailer')->send($message);
 
-        // or, you can also fetch the mailer service this way
-        // $this->get('mailer')->send($message);
         return $this->redirectToRoute("detailMessage",['id'=>$id]);
 
     }

@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
-use IT\DispositifBundle\Entity\Image ;
+use IT\DispositifBundle\Entity\Image;
 use Swagger\Annotations as SWG;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -56,6 +56,10 @@ class Dispositif extends Ressource
      */
     private $deviceName;
 
+    /**
+     * @var string
+     **/
+    private $name;
 
     /**
      * @var string
@@ -170,21 +174,15 @@ class Dispositif extends Ressource
      **/
     private $apps;
 
-    
+
     /**
      * @ORM\OneToMany(targetEntity="Image", mappedBy="dispositif" ,cascade={"remove", "persist"},orphanRemoval=true)
      **/
     private $images;
 
-    /**
-     * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\Reservation", mappedBy="dispositif",cascade="persist")
-     * @SWG\Property(description="Reservation of the device.")
-     **/
-    private $reservation;
 
-
-
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->reservation = new ArrayCollection();
         $this->apps = new ArrayCollection();
@@ -192,12 +190,32 @@ class Dispositif extends Ressource
     }
 
     /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->deviceName;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
+
+
+
+    /**
      * add image
      *
      * @param Image $image
      * @return Dispositif
      */
-    public function addImage($image) {
+    public function addImage($image)
+    {
 
         $image->setDispositif($this);
         $this->images[] = $image;
@@ -227,7 +245,8 @@ class Dispositif extends Ressource
         return $this->images;
     }
 
-    public function removeImage($image) {
+    public function removeImage($image)
+    {
         $this->images->removeElement($image);
     }
 
@@ -348,7 +367,7 @@ class Dispositif extends Ressource
     }
 
     /**
-     * @param string $processor
+     * @param string $cpu
      */
     public function setCpu(string $cpu)
     {
@@ -451,34 +470,11 @@ class Dispositif extends Ressource
         $this->resolution = $resolution;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getReservation()
-    {
-        return $this->reservation;
-    }
-
-    /**
-     * @param mixed $reservation
-     */
-    public function setReservation($reservation)
-    {
-        $this->reservation = $reservation;
-    }
 
     public function __toString()
     {
         return $this->model;
     }
-    
-    
-
-
-
-
-
-
 
 
 }
