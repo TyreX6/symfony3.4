@@ -3748,7 +3748,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath />
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <executablePath>composer</executablePath>
   </component>
   <component name="DatabaseView">
@@ -3790,20 +3790,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add_Reservations.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="add_Reservations.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/add_Reservations.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-379">
-              <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="160" column="67" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="67" />
+            <state relative-caret-position="5">
+              <caret line="49" column="36" lean-forward="true" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -3815,8 +3806,8 @@
       <find>/api/login_check</find>
       <find>login_check</find>
       <find>undoFun</find>
-      <find />
-      <find />
+      <find>: void</find>
+      <find>: int</find>
       <find>code_barre</find>
       <find>Reservation</find>
       <find>path('liste_reservation')</find>
@@ -3834,7 +3825,7 @@
       <find>DispositifBundle</find>
       <find>ITDispositifBundle</find>
       <find>ITDispositif</find>
-      <find />
+      <find>Gestion dispositifs</find>
       <find>ajouter_dispositif</find>
       <find>localiser_dispositif</find>
       <find>liste_dispositif</find>
@@ -3844,7 +3835,7 @@
       <find>DispositifController</find>
     </findStrings>
     <replaceStrings>
-      <replace />
+      <replace>{{ asset('bundles/app/</replace>
       <replace>bundles/itreservation/app</replace>
       <replace>path('reservations_list')</replace>
       <replace>path('add_reservation')</replace>
@@ -3858,7 +3849,7 @@
       <replace>verifyMaxPerDay</replace>
       <replace>ResourceBundle</replace>
       <replace>ITResource</replace>
-      <replace />
+      <replace>Gestion Ressources</replace>
       <replace>add_device</replace>
       <replace>edit_device</replace>
       <replace>geolocate_device</replace>
@@ -3866,11 +3857,11 @@
       <replace />
     </replaceStrings>
     <dirStrings>
-      <dir />
-      <dir />
-      <dir />
-      <dir />
-      <dir />
+      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\AppBundle\Resources\views</dir>
+      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\</dir>
+      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4</dir>
+      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT</dir>
+      <dir>C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -4417,7 +4408,7 @@
       <workItem from="1524424580626" duration="13362000" />
       <workItem from="1524470402730" duration="17637000" />
       <workItem from="1524606751346" duration="3610000" />
-      <workItem from="1524645804978" duration="18116000" />
+      <workItem from="1524645804978" duration="18554000" />
     </task>
     <task id="LOCAL-00001" summary="LdapConfig working fine;&#10;To the step of managing devices">
       <created>1519385300544</created>
@@ -4486,7 +4477,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="887476000" />
+    <option name="totallyTimeSpent" value="887914000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -4498,7 +4489,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -4559,13 +4550,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Service/ApiCall.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Command/SwaggerDocblockConvertCommand.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -4952,17 +4936,20 @@
     <entry file="file://$PROJECT_DIR$/web/bundles/itreservation/app/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/add_Reservations.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-379">
-          <caret line="31" column="43" selection-start-line="31" selection-start-column="43" selection-end-line="31" selection-end-column="43" />
+        <state relative-caret-position="-3410">
+          <caret line="160" column="67" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="67" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/jquery.collection.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/add_Reservations.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="160" column="67" selection-start-line="160" selection-start-column="16" selection-end-line="160" selection-end-column="67" />
+        <state relative-caret-position="5">
+          <caret line="49" column="36" lean-forward="true" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
         </state>
       </provider>
     </entry>
