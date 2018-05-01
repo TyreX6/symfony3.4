@@ -8,6 +8,7 @@ use JMS\Serializer\SerializerBuilder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use IT\UserBundle\Entity\User;
 use IT\InventoryBundle\Entity\Inventory;
@@ -24,27 +25,41 @@ class InventoryController extends Controller
     /**
      * @Route("/admin/inventaire/" , name="list_inventaires")
      * @Template()
+     * @param Request $request
+     * @return array
      */
-    public function list_InventaireAction()
+    public function list_InventaireAction(Request $request)
     {
-
         $inventaires = $this->getDoctrine()->getRepository("ITInventoryBundle:Inventory")->findAll();
-        return array('inventaires' => $inventaires);
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $inventaires,
+            $request->query->get('page', 1)/*page number*/,
+            5/*limit per page*/
+        );
+        return array('inventaires' => $pagination);
     }
 
     /**
      * @Route("/admin/inventaire/{id}" , name="consulter_inventaire")
      * @Template()
      */
-    public function consulterInventaireAction($id)
+    public function consulterInventaireAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
         $inventaire = $em->getRepository("ITInventoryBundle:Inventory")->find($id);
         $etat = $inventaire->getEtat();
         $lignesInventaire = $inventaire->getLigneInventaire();
-        if ($lignesInventaire != null)
-            return array('lignes' => $lignesInventaire, 'id' => $id, 'etat' => $etat);
-        else
+        if ($lignesInventaire != null) {
+            $paginator = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $lignesInventaire,
+                $request->query->get('page', 1)/*page number*/,
+                5/*limit per page*/
+            );
+
+            return array('lignes' => $pagination, 'id' => $id, 'etat' => $etat);
+        } else
             return $this->redirect($this->generateUrl("list_inventaires"));
 
     }
@@ -56,7 +71,7 @@ class InventoryController extends Controller
     public function add_InventaireAction()
     {
         $inventaire = new Inventory();
-        $inventaire->setEtat("Ouvert");
+        $inventaire->setEtat(1);
         $inventaire->setDateInventaire(new \DateTime('now', new DateTimeZone('Africa/Tunis')));
         $em = $this->getDoctrine()->getManager();
         $em->persist($inventaire);
@@ -111,12 +126,12 @@ class InventoryController extends Controller
                 $ligneInventaire = new LineInventory();
                 $ligneInventaire->setInventaire($inventaire);
                 $ligneInventaire->setResource($materiel);
-                $ligneInventaire->setEtat($materiel->getEtat());
+                $ligneInventaire->setEtat($materiel->getStatus());
                 $em->persist($ligneInventaire);
                 $em->flush();
 
-                $ressource = $em->getRepository(get_class($materiel))->findOneBy(["id"=>$materiel->getId()]) ;
-                $result = array("result" => 1,"id" => $ligneInventaire->getId(), "materiel" => $ressource);
+                $ressource = $em->getRepository(get_class($materiel))->findOneBy(["id" => $materiel->getId()]);
+                $result = array("result" => 1, "id" => $ligneInventaire->getId(), "materiel" => $ressource);
                 $serializer = SerializerBuilder::create()->build();
                 $jsonContent = $serializer->serialize($result, 'json');
                 //$jsonContent = $serializer->serialize($result, 'json');
@@ -148,7 +163,8 @@ class InventoryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $inventaire = $em->getRepository("ITInventoryBundle:Inventory")->find($id);
-        $inventaire->setEtat("Terminé");
+        $inventaire->setEtat(0);
+        $inventaire->setDateCloture(new \DateTime('now', new DateTimeZone('Africa/Tunis')));
         $em->persist($inventaire);
         $em->flush();
         $ligneInv = $inventaire->getLigneInventaire();
@@ -170,7 +186,7 @@ class InventoryController extends Controller
         $postData = $this->get('request_stack')->getCurrentRequest()->request->all();
         $id = $postData['id'];
         $id = (int)$id;
-        $statut = $postData['statut'];
+        $statut = (int)$postData['statut'];
         $em = $this->getDoctrine()->getManager();
         $ligneInventaire = $em->getRepository("ITInventoryBundle:LineInventory")->find($id);
         $ligneInventaire->setEtat($statut);

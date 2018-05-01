@@ -40,9 +40,9 @@ class LineInventory
     private $inventaire;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="etat", type="string", length=20)
+     * @ORM\Column(name="etat", type="integer", length=20)
      */
     private $etat;
 

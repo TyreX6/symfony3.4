@@ -40,12 +40,20 @@
                         <!-- Tabstyle start -->
                         <div class="panel-wrapper collapse in" aria-expanded="true">
                             <div class="panel-body">
-                                <label class="form-inline">Afficher
-                                    <select id="demo-show-entries" class="form-control input-sm">
-                                        <option value="10">10</option>
-                                        <option value="15">15</option>
-                                        <option value="20">20</option>
-                                    </select> entrées </label>
+                                {#<label class="form-inline">Afficher#}
+                                    {#<select id="demo-show-entries" class="form-control input-sm">#}
+                                        {#<option value="10">10</option>#}
+                                        {#<option value="15">15</option>#}
+                                        {#<option value="20">20</option>#}
+                                    {#</select> entrées </label>#}
+                                <div class="btn-group">
+                                    <a href="{{ path('add_reservation',{'id_categ':1}) }}" class="right">
+                                        <button id="sample_editable_1_new" class="btn btn-default"> Ajouter Réservation
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </a>
+                                </div>
+                                <hr>
                                 <table id="demo-foo-pagination"
                                        class="table table-bordered color-table success-table m-b-0 toggle-arrow-tiny"
                                        data-page-size="10">
@@ -68,14 +76,16 @@
                                                 {{ reservation.id }}
                                             </td>
                                             <td>
-                                               {{ reservation.ressource.category }}
+                                                {{ reservation.ressource.category }}
                                             </td>
                                             <td>
-                                                <a href="{{ path('edit_device',{'id':reservation.ressource.id}) }}">{{ reservation.ressource }}</a>
+                                                <a href="{{ path('reservations_resource_list',{'id':reservation.ressource.id}) }}">{{ reservation.ressource }}</a>
                                             </td>
                                             <td>{{ reservation.dateDebut | date }}</td>
                                             <td>{{ reservation.dateFin | date }}</td>
-                                            <td>{{ reservation.user.username }}</td>
+                                            <td>
+                                                <a href="{{ path('reservations_user_list',{'id':reservation.user.id}) }}">{{ reservation.user.username }}</a>
+                                            </td>
                                             <td>
                                                 <div>
                                                     <p><strong>{{ reservation.ressource }}</strong> <span
@@ -107,14 +117,22 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <td colspan="5">
-                                            <div class="text-right">
-                                                <ul class="pagination pagination-split m-t-30"></ul>
+                                        <td colspan="8" class="hidden">
+                                            <div class="text-center">
+                                                <ul class="pagination pagination-split m-t-30">
+                                                </ul>
                                             </div>
                                         </td>
                                     </tr>
+
                                     </tfoot>
+
                                 </table>
+                                <div class="navigation row">
+                                    <div class="center-block">
+                                    {{ knp_pagination_render(reservations) }}
+                                    </div>
+                                </div>
                             </div>
                             <!-- /content -->
                         </div>
@@ -127,7 +145,7 @@
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-        <footer class="footer text-center"> 2017 &copy; Gestion de réservation des ressources</footer>
+        <footer class="footer text-center"> 2018 &copy; Gestion de réservation des ressources</footer>
     </div>
 {% endblock %}
 

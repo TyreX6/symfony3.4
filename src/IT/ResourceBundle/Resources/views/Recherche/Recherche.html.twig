@@ -5,9 +5,9 @@
 
 {% block stylesheets %}
     {% stylesheets
-    'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
-    filter='cssrewrite' %}
-    <link rel="stylesheet" href="{{ asset_url }}" />
+        'bundles/itreservation/app/plugins/bower_components/footable/css/footable.core.css'
+        filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 {% endblock %}
 
@@ -19,9 +19,8 @@
                     <h4 class="page-title">Stylish Tabs</h4></div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Ui Elements</a></li>
-                        <li class="active">Stylish Tabs</li>
+                        <li><a href="{{ path('configLDAP') }}">Accueil</a></li>
+                        <li class="active">Recherche</li>
                     </ol>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -49,7 +48,8 @@
                                                 <option value="15">15</option>
                                                 <option value="20">20</option>
                                             </select> entrés </label>
-                                        <table id="demo-foo-pagination" class="table color-table info-table m-b-0 toggle-arrow-tiny"
+                                        <table id="demo-foo-pagination"
+                                               class="table color-table info-table m-b-0 toggle-arrow-tiny"
                                                data-page-size="10">
                                             <thead>
                                             <tr>
@@ -76,33 +76,39 @@
                                                     <td>{{ dispositif.ram }} GB</td>
                                                     <td>{{ dispositif.resolution }}</td>
                                                     <td>
-                                                        {% if dispositif.status == "Fonctionnel" %}
-                                                            <span class="label label-table label-success">{{ dispositif.status }}</span>
-                                                        {% elseif dispositif.status == "Détruit" %}
-                                                            <span class="label label-table label-danger">{{ dispositif.status }}</span>
-                                                        {% else %}
-                                                            <span class="label label-table label-warning">{{ dispositif.status }}</span>
+                                                        {% if dispositif.status == 1 %}
+                                                            <span class="label label-table label-success">Fonctionnel</span>
+                                                        {% elseif dispositif.status == 0 %}
+                                                            <span class="label label-table label-danger">Détruit</span>
                                                         {% endif %}
                                                     </td>
                                                     <td>
-                                                        {% if dispositif.status == "Fonctionnel" %}
+                                                        {% if dispositif.status == 1 %}
                                                             <a href="{{ path('geolocate_device',{'id':dispositif.id}) }}">
-                                                                <button class="btn btn-block btn-outline btn-primary">Localiser</button>
+                                                                <button class="btn btn-block btn-outline btn-primary">
+                                                                    Localiser
+                                                                </button>
                                                             </a>
                                                         {% else %}
                                                             <a href="#">
-                                                                <button class="btn btn-block btn-outline btn-primary" disabled>Localiser</button>
+                                                                <button class="btn btn-block btn-outline btn-primary"
+                                                                        disabled>Localiser
+                                                                </button>
                                                             </a>
                                                         {% endif %}
                                                     </td>
                                                     <td>
-                                                        {% if dispositif.status == "Fonctionnel" %}
+                                                        {% if dispositif.status == 1 %}
                                                             <a href="{{ path('geolocate_device',{'id':dispositif.id}) }}">
-                                                                <button class="btn btn-block btn-outline btn-danger">Verrouiller</button>
+                                                                <button class="btn btn-block btn-outline btn-danger">
+                                                                    Verrouiller
+                                                                </button>
                                                             </a>
                                                         {% else %}
                                                             <a href="#">
-                                                                <button class="btn btn-block btn-outline btn-danger" disabled>Verrouiller</button>
+                                                                <button class="btn btn-block btn-outline btn-danger"
+                                                                        disabled>Verrouiller
+                                                                </button>
                                                             </a>
                                                         {% endif %}
                                                     </td>
@@ -128,7 +134,8 @@
                                                 <option value="15">15</option>
                                                 <option value="20">20</option>
                                             </select> entrées </label>
-                                        <table id="demo-foo-pagination" class="table color-table info-table m-b-0 toggle-arrow-tiny"
+                                        <table id="demo-foo-pagination"
+                                               class="table color-table info-table m-b-0 toggle-arrow-tiny"
                                                data-page-size="10">
                                             <thead>
                                             <tr>
@@ -153,16 +160,20 @@
                                                     <td>{{ reservation.dateFin | date }}</td>
                                                     <td>{{ reservation.user.username }}</td>
                                                     <td>
-                                                            <div>
-                                                                <p><strong>{{ reservation.dispositif.model }}</strong> <span class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"]}}% Complete</span>
-                                                                </p>
-                                                                <div class="progress progress-striped active">
-                                                                    <div class="progress-bar progress-bar-{{ reservation.getPourcentage["class"]}}" role="progressbar"
-                                                                         aria-valuenow="{{ reservation.getPourcentage["pourcentage"]}}" aria-valuemin="0" aria-valuemax="100"
-                                                                         style="width: {{ reservation.getPourcentage["pourcentage"]}}%">
-                                                                    </div>
+                                                        <div>
+                                                            <p><strong>{{ reservation.dispositif.model }}</strong> <span
+                                                                        class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"] }}
+                                                                    % Complete</span>
+                                                            </p>
+                                                            <div class="progress progress-striped active">
+                                                                <div class="progress-bar progress-bar-{{ reservation.getPourcentage["class"] }}"
+                                                                     role="progressbar"
+                                                                     aria-valuenow="{{ reservation.getPourcentage["pourcentage"] }}"
+                                                                     aria-valuemin="0" aria-valuemax="100"
+                                                                     style="width: {{ reservation.getPourcentage["pourcentage"] }}%">
                                                                 </div>
                                                             </div>
+                                                        </div>
 
                                                     </td>
                                                 </tr>
@@ -199,15 +210,14 @@
 
 {% block scripts %}
     {% javascripts
-    '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
-    '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
-    '@ITReservationBundle/Resources/public/app/assets/js/cbpFWTabs.js'
-    %}
-    <script src="{{ asset_url }}"></script>
+        '@ITReservationBundle/Resources/public/app/plugins/bower_components/footable/js/footable.all.min.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/footable-init.js'
+        '@ITReservationBundle/Resources/public/app/assets/js/cbpFWTabs.js' %}
+        <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
     <script type="text/javascript">
-        (function() {
-            [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
+        (function () {
+            [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                 new CBPFWTabs(el);
             });
         })();

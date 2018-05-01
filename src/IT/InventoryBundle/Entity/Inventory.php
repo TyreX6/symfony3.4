@@ -38,8 +38,8 @@ class Inventory
     private $ligneInventaire;
 
     /**
-     * @var string
-     * @ORM\Column(name="etat_inventaire", type="string" , length=30)
+     * @var bool
+     * @ORM\Column(name="etat_inventaire", type="boolean")
      */
     private $etat ;
 
@@ -48,6 +48,12 @@ class Inventory
      * @ORM\Column(name="date_inventaire", type="datetime")
      */
     private $dateInventaire ;
+
+    /**
+     * @var DateTime
+     * @ORM\Column(name="date_cloture", type="datetime",nullable=true)
+     */
+    private $dateCloture ;
 
     /**
      * @return int
@@ -112,5 +118,22 @@ class Inventory
     {
         $this->dateInventaire = $dateInventaire;
     }
+
+    /**
+     * @return DateTime
+     */
+    public function getDateCloture()
+    {
+        return $this->dateCloture;
+    }
+
+    /**
+     * @param \DateTime $dateInventaire
+     */
+    public function setDateCloture($dateCloture)
+    {
+        $this->dateCloture = $dateCloture;
+    }
+
 
 }

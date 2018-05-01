@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5af7c24-abb1-4243-aee1-a66749e4d204" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/parameters.yml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" afterDir="false" />
-    </list>
+    <list default="true" id="95eba96f-0a33-4d83-9c5c-262449d710c4" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,199 +10,97 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath />
-    <executablePath>composer</executablePath>
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="reservation_ressources@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="reservation_ressources@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="reservation_ressources@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="reservation_ressources: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="reservation_ressources@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="reservation_ressources: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="reservation: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-    </expand>
-    <select />
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="reservations_list.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig">
+    <leaf>
+      <file leaf-file-name="DispositifController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/DispositifController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="70" column="80" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
+            <state relative-caret-position="494">
+              <caret line="120" selection-start-line="120" selection-end-line="120" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DispositifApiController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php">
+      <file leaf-file-name="Ressource.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="163" column="7" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="19" />
+            <state relative-caret-position="590">
+              <caret line="214" column="1" selection-start-line="214" selection-start-column="1" selection-end-line="214" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryApiController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php">
+      <file leaf-file-name="DispositifsRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Repository/DispositifsRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+            <state relative-caret-position="174">
+              <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+              <folding>
+                <element signature="e#134#168#0#PHP" expanded="true" />
+                <element signature="e#456#485#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateReservationCommand.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Command/UpdateReservationCommand.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="366">
+              <caret line="163" selection-start-line="163" selection-end-line="163" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>login_check</find>
-      <find>undoFun</find>
-      <find />
-      <find />
-      <find>code_barre</find>
-      <find>Reservation</find>
-      <find>path('liste_reservation')</find>
-      <find>path('ajouter_reservations'</find>
-      <find>ajout_reservation_ajax</find>
-      <find>modifier_reservation_ajax</find>
-      <find>afficher_regles</find>
-      <find>'afficher_regles'</find>
-      <find>fixer_regles</find>
-      <find>set_regles</find>
-      <find>path('ajouter_reservation'</find>
-      <find>verifNbrMaxSemaine</find>
-      <find>verifNbrMaxJour</find>
-      <find>supprimerDispositifAction</find>
-      <find>DispositifBundle</find>
-      <find>ITDispositifBundle</find>
-      <find>ITDispositif</find>
-      <find />
-      <find>ajouter_dispositif</find>
-      <find>localiser_dispositif</find>
-      <find>liste_dispositif</find>
-      <find>list_device</find>
-      <find>modifier_dispositif</find>
-      <find>list_devicess</find>
-      <find>DispositifController</find>
-      <find />
-    </findStrings>
-    <replaceStrings>
-      <replace />
-      <replace>bundles/itreservation/app</replace>
-      <replace>path('reservations_list')</replace>
-      <replace>path('add_reservation')</replace>
-      <replace>add_reservation_ajax</replace>
-      <replace>modify_reservation_ajax</replace>
-      <replace>'show_rules'</replace>
-      <replace>fix_rules</replace>
-      <replace>set_rules</replace>
-      <replace>path('add_reservation'</replace>
-      <replace>verifyMaxPerWeek</replace>
-      <replace>verifyMaxPerDay</replace>
-      <replace>ResourceBundle</replace>
-      <replace>ITResource</replace>
-      <replace />
-      <replace>add_device</replace>
-      <replace>edit_device</replace>
-      <replace>geolocate_device</replace>
-      <replace>list_devices</replace>
-      <replace />
-      <replace />
-    </replaceStrings>
-    <dirStrings>
-      <dir />
-      <dir />
-      <dir />
-      <dir />
-      <dir />
-    </dirStrings>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Message/list_Messages.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Message/message.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Resources/views/Recherche/Recherche.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Entity/Message.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Message/detail_Message.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Form/SalleAbType.php" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Resources/views/Ressource/ajouter_Ressource.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Form/ProjecteurType.php" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Controller/RessourceController.php" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Form/SalleType.php" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Entity/Salle.php" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Entity/Dispositif.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Entity/Notification.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Notification/notification.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Service/PingService.php" />
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Controller/LdapController.php" />
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Controller/MessageController.php" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Controller/CategoryController.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Entity/Regles.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Service/ApiCall.php" />
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/ajouter_Reservations.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Entity/Reservation.php" />
-        <option value="$PROJECT_DIR$/src/IT/DispositifBundle/Entity/Ressource.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/liste_Reservations.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/LdapApiController.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_listByDevice.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list_By_Device.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Controller/ReservationsController.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Controller/NotificationController.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Controller/ReglesController.php" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Regles/rules.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Repository/ReservationsRepository.php" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReservationsApiController.php" />
-        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReglesApiController.php" />
-        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/add_device.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/edit_device.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/geolocate_device.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devicess.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Controller/DispositifController.php" />
-        <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/add_Reservations.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devices.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Ldap/config_LDAP.html.twig" />
-        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml.dist" />
+        <option value="$PROJECT_DIR$/app/config/routing.yml" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Controller/DispositifController.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Controller/RechercheController.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Repository/DispositifsRepository.php" />
       </list>
     </option>
   </component>
@@ -214,15 +109,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
-  </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
@@ -245,6 +131,8 @@
       <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/sidebar-nav/package.json" />
       <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/tablesaw-master/package.json" />
       <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/typeahead.js-master/package.json" />
+      <path value="$PROJECT_DIR$/vendor/kriswallsmith/assetic/package.json" />
+      <path value="$PROJECT_DIR$/vendor/ninsuo/symfony-collection/package.json" />
       <path value="$PROJECT_DIR$/web/bundles/itreservation/app/assets/bootstrap/package.json" />
       <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/Magnific-Popup-master/package.json" />
       <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/bootstrap-treeview-master/package.json" />
@@ -267,83 +155,90 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
       <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
-      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
-      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
       <path value="$PROJECT_DIR$/vendor/jms/serializer-bundle" />
-      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
-      <path value="$PROJECT_DIR$/vendor/jms/parser-lib" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/psr/link" />
-      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/fr3d/ldap-bundle" />
-      <path value="$PROJECT_DIR$/vendor/twig/twig" />
-      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
-      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
-      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
-      <path value="$PROJECT_DIR$/vendor/exsyst/swagger" />
       <path value="$PROJECT_DIR$/vendor/namshi/jose" />
-      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
-      <path value="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle" />
-      <path value="$PROJECT_DIR$/vendor/ninsuo/symfony-collection" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fr3d/ldap-bundle" />
+      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
       <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
-      <path value="$PROJECT_DIR$/vendor/mashape/unirest-php" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
-      <path value="$PROJECT_DIR$/vendor/symfony/assetic-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/exsyst/swagger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/psr/link" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/mashape/unirest-php" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
+      <path value="$PROJECT_DIR$/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
+      <path value="$PROJECT_DIR$/vendor/phpcollection/phpcollection" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/ninsuo/symfony-collection" />
+      <path value="$PROJECT_DIR$/vendor/jms/parser-lib" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
       <path value="$PROJECT_DIR$/vendor/zircote/swagger-php" />
       <path value="$PROJECT_DIR$/vendor/lexik/jwt-authentication-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
-      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
-      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
-      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
-      <path value="$PROJECT_DIR$/vendor/willdurand/jsonp-callback-validator" />
-      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
-      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/kriswallsmith/assetic" />
-      <path value="$PROJECT_DIR$/vendor/phpcollection/phpcollection" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/symfony/assetic-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-ldap" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/kriswallsmith/assetic" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/jsonp-callback-validator" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/api-doc-bundle" />
+      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
       <path value="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle" />
-      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/jms/job-queue-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/cg" />
+      <path value="$PROJECT_DIR$/vendor/jms/di-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/aop-bundle" />
+      <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1380" />
-    <option name="height" value="735" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -361,62 +256,134 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Default" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../.." />
-    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\UserBundle\Controller" />
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\DispositifBundle\Resources\views\Category" />
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\ApiBundle\Command" />
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\ApiBundle" />
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\ApiBundle\Controller" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\ReservationBundle\Controller" />
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\ApiBundle\Controller" />
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\InventoryBundle\Repository" />
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\InventoryBundle\Controller" />
-      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\InventoryBundle\Entity" />
+      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\testGithub\symfony3.4-master\src\IT" />
+      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\testGithub\symfony3.4-master\src\IT\ReservationBundle" />
+      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\testGithub\symfony3.4-master\src\IT\ResourceBundle\Resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -482,12 +449,14 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
+      <method />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -495,224 +464,47 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e5af7c24-abb1-4243-aee1-a66749e4d204" name="Default" comment="" />
-      <created>1518080448293</created>
+      <changelist id="95eba96f-0a33-4d83-9c5c-262449d710c4" name="Default" comment="" />
+      <created>1525165392954</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1518080448293</updated>
-      <workItem from="1518080453298" duration="14267000" />
-      <workItem from="1518163637699" duration="5974000" />
-      <workItem from="1518423397326" duration="2410000" />
-      <workItem from="1519048911265" duration="1850000" />
-      <workItem from="1519114506506" duration="10339000" />
-      <workItem from="1519139240278" duration="78000" />
-      <workItem from="1519201151459" duration="89000" />
-      <workItem from="1519205111867" duration="1708000" />
-      <workItem from="1519212428226" duration="1112000" />
-      <workItem from="1519219709738" duration="2400000" />
-      <workItem from="1519227277984" duration="2770000" />
-      <workItem from="1519254253301" duration="123000" />
-      <workItem from="1519290345421" duration="6136000" />
-      <workItem from="1519297670260" duration="1369000" />
-      <workItem from="1519305191888" duration="23125000" />
-      <workItem from="1519373942988" duration="7627000" />
-      <workItem from="1519419952781" duration="8726000" />
-      <workItem from="1519466083042" duration="27647000" />
-      <workItem from="1519555879286" duration="548000" />
-      <workItem from="1519597142472" duration="5850000" />
-      <workItem from="1519634242619" duration="19251000" />
-      <workItem from="1519670759252" duration="20883000" />
-      <workItem from="1519725213148" duration="30926000" />
-      <workItem from="1519855992847" duration="41793000" />
-      <workItem from="1519992403040" duration="21486000" />
-      <workItem from="1520119056170" duration="1600000" />
-      <workItem from="1520171606410" duration="2465000" />
-      <workItem from="1520189473426" duration="124000" />
-      <workItem from="1520194900945" duration="14501000" />
-      <workItem from="1520249193152" duration="568000" />
-      <workItem from="1520260922230" duration="18082000" />
-      <workItem from="1520296551607" duration="100000" />
-      <workItem from="1520324700728" duration="1119000" />
-      <workItem from="1520345828057" duration="600000" />
-      <workItem from="1520375775914" duration="3421000" />
-      <workItem from="1520414474575" duration="29755000" />
-      <workItem from="1520519178105" duration="12117000" />
-      <workItem from="1520585325908" duration="4903000" />
-      <workItem from="1520601843155" duration="7147000" />
-      <workItem from="1520627261417" duration="34908000" />
-      <workItem from="1520769601605" duration="44887000" />
-      <workItem from="1521017375797" duration="134000" />
-      <workItem from="1521041317722" duration="6000" />
-      <workItem from="1521041787954" duration="1621000" />
-      <workItem from="1521191877574" duration="3914000" />
-      <workItem from="1521625380592" duration="23895000" />
-      <workItem from="1521724886320" duration="13873000" />
-      <workItem from="1521752072864" duration="6955000" />
-      <workItem from="1521802225108" duration="2545000" />
-      <workItem from="1521817287583" duration="19248000" />
-      <workItem from="1521893606894" duration="9441000" />
-      <workItem from="1521918164103" duration="6207000" />
-      <workItem from="1522052715923" duration="4437000" />
-      <workItem from="1522076508899" duration="29140000" />
-      <workItem from="1522224693061" duration="8760000" />
-      <workItem from="1522242952441" duration="10633000" />
-      <workItem from="1522259233100" duration="9260000" />
-      <workItem from="1522331211465" duration="7625000" />
-      <workItem from="1522414401149" duration="13000000" />
-      <workItem from="1522454659829" duration="7411000" />
-      <workItem from="1522496234140" duration="16849000" />
-      <workItem from="1522580345393" duration="22061000" />
-      <workItem from="1522704587106" duration="5422000" />
-      <workItem from="1522712799480" duration="101000" />
-      <workItem from="1522866406235" duration="1411000" />
-      <workItem from="1522883905948" duration="712000" />
-      <workItem from="1522952440532" duration="3748000" />
-      <workItem from="1523053135873" duration="1498000" />
-      <workItem from="1523103419833" duration="99000" />
-      <workItem from="1523144410708" duration="223000" />
-      <workItem from="1523180823726" duration="6575000" />
-      <workItem from="1523221858274" duration="3944000" />
-      <workItem from="1523304320503" duration="1590000" />
-      <workItem from="1523319994084" duration="1100000" />
-      <workItem from="1523354570345" duration="56000" />
-      <workItem from="1523355613531" duration="220000" />
-      <workItem from="1523439506104" duration="73000" />
-      <workItem from="1523441117329" duration="244000" />
-      <workItem from="1523441510423" duration="4587000" />
-      <workItem from="1523453800456" duration="2157000" />
-      <workItem from="1523483793856" duration="9201000" />
-      <workItem from="1523523511949" duration="15876000" />
-      <workItem from="1523612031015" duration="7738000" />
-      <workItem from="1523662250383" duration="1470000" />
-      <workItem from="1523718934042" duration="2546000" />
-      <workItem from="1523722597012" duration="1833000" />
-      <workItem from="1523752790369" duration="497000" />
-      <workItem from="1523801161948" duration="25420000" />
-      <workItem from="1523871812097" duration="6689000" />
-      <workItem from="1523907334583" duration="2161000" />
-      <workItem from="1523916427296" duration="2813000" />
-      <workItem from="1523953680885" duration="9571000" />
-      <workItem from="1524042483218" duration="3704000" />
-      <workItem from="1524048644467" duration="948000" />
-      <workItem from="1524049947305" duration="669000" />
-      <workItem from="1524055449146" duration="2672000" />
-      <workItem from="1524083731408" duration="2416000" />
-      <workItem from="1524126137487" duration="2583000" />
-      <workItem from="1524151314883" duration="3587000" />
-      <workItem from="1524212433064" duration="32751000" />
-      <workItem from="1524361779797" duration="14047000" />
-      <workItem from="1524424580626" duration="13362000" />
-      <workItem from="1524470402730" duration="17637000" />
-      <workItem from="1524606751346" duration="3610000" />
-      <workItem from="1524645804978" duration="23224000" />
+      <updated>1525165392954</updated>
+      <workItem from="1525165398956" duration="3578000" />
     </task>
-    <task id="LOCAL-00001" summary="LdapConfig working fine;&#10;To the step of managing devices">
-      <created>1519385300544</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1519385300544</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Working on adding devices with collection of images">
-      <created>1519422769025</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1519422769025</updated>
-    </task>
-    <task id="LOCAL-00003" summary="LDAP Config&#10;FosUser Config&#10;LexikAuthent Config&#10;NelmioCors Config&#10;adding Admin_Role restriction in security file&#10;New Controller for devices (adding device - listing devices details)&#10;Configuring Route for LDAP config&#10;Creating Device Entity(id,modele,os,OS version,processeur,ram,collection of images)&#10;Creating Image Entity for upload images&#10;Modify User Entity to configure default Role for new users from LDAP&#10;Creating Device Form Type for TWIG&#10;Creating Image Form Type to make collection&#10;Add TWIG interfaces for /-Adding Device&#10;                        /-Listing Devices&#10;                        /-Config LDAP">
-      <created>1519638961105</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1519638961105</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Create an API for listing devices,&#10;Working on adding reservation,&#10;  Implementing fullCalender.js&#10;  Configuring the calender to render the reservations from the database,&#10;  implementing the possibility to add reservation on the calender by selecting the range from it directly , or adding an event and drag and drop the event on the calender&#10;Create the reservation entity&#10;Modify the user entity to join Reservation Entity&#10;Adding Reservation Repository for the custom query&#10;Adding User Repository for the custom query&#10;Listing devices">
-      <created>1519807498247</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1519807498247</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Adding  device localisation controller&#10;Handling reservation controller&#10;  -Handling AJAX requests&#10;  -verifying reservations&#10;    -star time, end time, modifiyng autorisation, deleting autorisation, etc ...&#10;    -handling timezone problems&#10;Implementing JsonSerializable interfaces on Entities to handle relation cycles problems&#10;Changing Views&#10;And the most important thing : Implementing a good calender for reservation , intialized with the reservations from the database , and giving possbilities to modify , delete , add , managing those reservations">
-      <created>1520172407612</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1520172407612</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Adding  device localisation controller&#10;Handling reservation controller&#10;  -Handling AJAX requests&#10;  -verifying reservations&#10;    -star time, end time, modifiyng autorisation, deleting autorisation, etc ...&#10;    -handling timezone problems&#10;Implementing JsonSerializable interfaces on Entities to handle relation cycles problems&#10;Changing Views&#10;And the most important thing : Implementing a good calender for reservation , intialized with the reservations from the database , and giving possbilities to modify , delete , add , managing those reservations">
-      <created>1520172623174</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1520172623174</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Adding &quot;etat&quot; attribute to Device Entity&#10;Adding &quot;dateAjout&quot; attribute to Device and Image Entity&#10;Adding &quot;Etat&quot; ChoiceType to Device FormType&#10;Modifying some UI elements in TWIG">
-      <created>1520325195069</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1520325195070</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Reorganizing project bundles :&#10;    -UserBundle&#10;    -DispositifBundle&#10;    -ReservationBundle&#10;    -ApiBundle&#10;Reorganizing User providers&#10;Adding Bundles services&#10;Moving base.html.twig to be global&#10;Adding Bundles to AppKernel&#10;Adding Some web Services&#10;Set Rules page to personalize the rules and save them to the DB&#10;Implemeting reservation verification through admin rules setted">
-      <created>1520868239031</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1520868239031</updated>
-    </task>
-    <task id="LOCAL-00009" summary="mailer changes&#10;messages changes&#10;web services changes">
-      <created>1524412068163</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1524412068164</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="892584000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="3578000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32838285" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info id="Image Layers" order="6" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5030257" side_tool="true" weight="0.32838285" />
-      <window_info anchor="right" id="Maven Projects" order="4" weight="0.32980332" />
-      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.32838285" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4969743" weight="0.32894737" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4969743" weight="0.32838285" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2602118" />
-      <window_info anchor="right" id="Database" order="5" weight="0.32980332" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32838285" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.24924242" />
-      <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
-      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" />
+      <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
@@ -723,433 +515,89 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="LdapConfig working fine;&#10;To the step of managing devices" />
-    <MESSAGE value="W" />
-    <MESSAGE value="Working on adding devices with collection of images" />
-    <MESSAGE value="LDAP Config&#10;FosUser Config&#10;LexikAuthent Config&#10;NelmioCors Config&#10;adding Admin_Role restriction in security file&#10;New Controller for devices (adding device - listing devices details)&#10;Configuring Route for LDAP config&#10;Creating Device Entity(id,modele,os,OS version,processeur,ram,collection of images)&#10;Creating Image Entity for upload images&#10;Modify User Entity to configure default Role for new users from LDAP&#10;Creating Device Form Type for TWIG&#10;Creating Image Form Type to make collection&#10;Add TWIG interfaces for /-Adding Device&#10;                        /-Listing Devices&#10;                        /-Config LDAP" />
-    <MESSAGE value="Create an API for listing devices,&#10;Working on adding reservation,&#10;  Implementing fullCalender.js&#10;  Configuring the calender to render the reservations from the database,&#10;  implementing the possibility to add reservation on the calender by selecting the range from it directly , or adding an event and drag and drop the event on the calender&#10;Create the reservation entity&#10;Modify the user entity to join Reservation Entity&#10;Adding Reservation Repository for the custom query&#10;Adding User Repository for the custom query&#10;Listing devices" />
-    <MESSAGE value="Adding  device localisation controller&#10;Handling reservation controller&#10;  -Handling AJAX requests&#10;  -verifying reservations&#10;    -star time, end time, modifiyng autorisation, deleting autorisation, etc ...&#10;    -handling timezone problems&#10;Implementing JsonSerializable interfaces on Entities to handle relation cycles problems&#10;Changing Views&#10;And the most important thing : Implementing a good calender for reservation , intialized with the reservations from the database , and giving possbilities to modify , delete , add , managing those reservations" />
-    <MESSAGE value="Adding &quot;etat&quot; attribute to Device Entity&#10;Adding &quot;dateAjout&quot; attribute to Device and Image Entity&#10;Adding &quot;Etat&quot; ChoiceType to Device FormType&#10;Modifying some UI elements in TWIG" />
-    <MESSAGE value="Reorganizing project bundles :&#10;    -UserBundle&#10;    -DispositifBundle&#10;    -ReservationBundle&#10;    -ApiBundle&#10;Reorganizing User providers&#10;Adding Bundles services&#10;Moving base.html.twig to be global&#10;Adding Bundles to AppKernel&#10;Adding Some web Services&#10;Set Rules page to personalize the rules and save them to the DB&#10;Implemeting reservation verification through admin rules setted" />
-    <MESSAGE value="Add assert on entities //For attributes verification (Regex, minLength, maxLength, &#10;Add assetic tool to manage css and js files&#10;Add NelmioDocApiBundle configuration for Api documentation&#10;Add NelmioDoc Routings&#10;Add default target path after login&#10;Add Security guards for some routes&#10;Refactoring stylesheets and Javascripts files for all twig views&#10;Add Swag Command to transform all ApiDoc annotations to Swag annotations&#10;Add Swag annotations to Api controllers&#10;Add Swag annotation to Entities&#10;Implement Reservation autorisation Api controller(login, password, NowDate, device_id)" />
-    <MESSAGE value="mailer changes&#10;messages changes&#10;web services changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="mailer changes&#10;messages changes&#10;web services changes" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="1" />
-    </breakpoint-manager>
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
-          <folding>
-            <element signature="e#126#174#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="113" column="5" lean-forward="true" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
-          <folding>
-            <element signature="e#133#181#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/liste_Reservations.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="103" column="36" selection-end-line="164" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_listByDevice.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="164" selection-end-line="164" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Notification/notification.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="4" column="101" selection-start-line="4" selection-start-column="101" selection-end-line="4" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list_By_Device.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="164" selection-start-line="164" selection-end-line="164" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/ajouter_Reservations.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="234" column="55" selection-end-line="309" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Controller/NotificationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Controller/ReservationsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-274">
-          <caret line="232" column="20" selection-start-line="232" selection-start-column="13" selection-end-line="232" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Controller/ReglesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Regles/regles.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="178" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Regles/rules.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="178" selection-start-line="178" selection-end-line="178" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Controller/DefaultController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-530">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Controller/LdapController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Controller/MessageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Controller/SecurityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-338">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/DependencyInjection/Configuration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-665">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="8" column="47" selection-start-line="8" selection-start-column="47" selection-end-line="8" selection-end-column="47" />
+        <state relative-caret-position="371">
+          <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding>
-            <element signature="e#7#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Tests/Controller/DefaultControllerTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="6" column="27" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Repository/DispositifsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/ITResourceBundle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="71" column="9" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
-          <folding>
-            <element signature="e#134#174#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Repository/ReservationsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding>
-            <element signature="e#718#751#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/LdapApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1490">
-          <caret line="113" column="16" selection-start-line="113" selection-start-column="16" selection-end-line="113" selection-end-column="16" />
-          <folding>
-            <element signature="e#130#162#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReglesApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReservationsApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="316" column="5" lean-forward="true" selection-start-line="316" selection-start-column="5" selection-end-line="316" selection-end-column="5" />
-          <folding>
-            <element signature="e#4933#4966#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Entity/Reservation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1358">
-          <caret line="85" column="100" selection-start-line="85" selection-start-column="100" selection-end-line="85" selection-end-column="100" />
-          <folding>
-            <element signature="e#6#92#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/ajouter_Dispositif.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="338" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/add_device.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="338" selection-start-line="338" selection-end-line="338" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/modifier_Dispositif.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="23" selection-end-line="321" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/edit_device.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="366">
-          <caret line="321" selection-start-line="321" selection-end-line="321" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/lister_dispositif.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" selection-end-line="205" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/localiser_Dispositif.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="119" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/geolocate_device.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="116" lean-forward="true" selection-start-line="116" selection-end-line="116" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devicess.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/ResourcesApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/DispositifController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="29" />
-          <folding>
-            <element signature="e#48#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle/Controller/Annotations/View.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3186">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/bundles/itreservation/app/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/jquery.collection.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/add_Reservations.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="62" column="28" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="160" column="57" selection-start-line="160" selection-start-column="57" selection-end-line="160" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devices.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Resources/views/Ldap/config_LDAP.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="114" column="19" selection-start-line="114" selection-start-column="19" selection-end-line="114" selection-end-column="19" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state relative-caret-position="494">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/RechercheController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/DispositifController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="214" column="1" selection-start-line="214" selection-start-column="1" selection-end-line="214" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Repository/DispositifsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+          <folding>
+            <element signature="e#134#168#0#PHP" expanded="true" />
+            <element signature="e#456#485#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/InventoryBundle/Tests/Controller/DefaultControllerTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
-          <caret line="70" column="80" selection-start-line="70" selection-start-column="80" selection-end-line="70" selection-end-column="80" />
+          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="163" column="7" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="19" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Command/UpdateReservationCommand.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
@@ -1157,17 +605,6 @@
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ScopeChooserConfigurable.UI">
-        <settings>
           <splitter-proportions>
             <option name="proportions">
               <list>

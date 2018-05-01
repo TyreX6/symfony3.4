@@ -29,6 +29,10 @@ class AppKernel extends Kernel
             new IT\UserBundle\ITUserBundle(),
             new IT\ApiBundle\ITApiBundle(),
             new IT\InventoryBundle\ITInventoryBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new JMS\JobQueueBundle\JMSJobQueueBundle(),
+            new JMS\AopBundle\JMSAopBundle(),
+//            new JMS\DiExtraBundle\JMSDiExtraBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

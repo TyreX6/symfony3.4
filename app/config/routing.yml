@@ -40,6 +40,11 @@ NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
     prefix:   /api/doc
 
+JMSJobQueueBundle:
+    resource: "@JMSJobQueueBundle/Controller/"
+    type: annotation
+    prefix: /jobs
+
 #users:
 #    type:     rest #Optional
 #    resource: IT\ApiBundle\Controller\DispositifApiController

@@ -51,20 +51,24 @@
                         <!-- Tabstyle start -->
                         <div class="panel-wrapper collapse in" aria-expanded="true">
                             <div class="panel-body">
-                                <label class="form-inline">Afficher
-                                    <select id="demo-show-entries" class="form-control input-sm">
-                                        <option value="10">10</option>
-                                        <option value="15">15</option>
-                                        <option value="20">20</option>
-                                    </select> entrées
-                                    <div class="btn-group right">
+                                <div class="row">
+                                    <div class="btn-group">
                                         <a class="right">
                                             <button id="sample_editable_1_new" class="btn btn-success" onclick="return addInventaire()"> Ajouter Inventaire
                                                 <i class="fa fa-plus"></i>
                                             </button>
                                         </a>
                                     </div>
-                                </label>
+                                </div>
+                                <hr>
+                                {#<label class="form-inline">Afficher#}
+                                    {#<select id="demo-show-entries" class="form-control input-sm">#}
+                                        {#<option value="10">10</option>#}
+                                        {#<option value="15">15</option>#}
+                                        {#<option value="20">20</option>#}
+                                    {#</select> entrées#}
+
+                                {#</label>#}
 
                                 <table id="demo-foo-pagination"
                                        class="table table-bordered color-table success-table m-b-0 toggle-arrow-tiny"
@@ -73,8 +77,8 @@
                                     <tr>
                                         <th> ID</th>
                                         <th data-toggle="true"> Etat </th>
-                                        <th data-hide="phone"> Date début</th>
-                                        <th data-hide="phone"> Date début</th>
+                                        <th data-hide="phone"> Date début</th><th data-hide="phone"> Date cloture</th>
+                                        <th data-hide="phone"> Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -84,21 +88,26 @@
                                                 {{ inventaire.id }}
                                             </td>
                                             <td>
-                                                {% if(inventaire.etat == "Terminé") %}
-                                                    <span class="label-inv label-lg bold label-danger center-block">{{ inventaire.etat}} </span>
+                                                {% if(inventaire.etat == 0) %}
+                                                    <span class="label-inv label-lg bold label-danger center-block">Terminé</span>
                                                 {% else %}
-                                                    <span class="label-inv label-lg bold label-success center-block">{{ inventaire.etat}} </span>
+                                                    <span class="label-inv label-lg bold label-success center-block">Ouvert </span>
                                                 {% endif %}
                                             </td>
                                             <td>{{ inventaire.dateInventaire | date }}</td>
+                                            <td>
+                                                {% if (inventaire.dateCloture) %}
+                                                {{ inventaire.dateCloture | date }}
+                                                {% endif %}
+                                            </td>
 
                                             <td>
                                                 <a href="{{ path('consulter_inventaire' , {id:inventaire.id}) }}"
-                                                   class="dt-button btn dark btn-outline btn-outline sbold" style="width: 45%">
+                                                   class="dt-button btn dark btn-outline btn-outline sbold col-md-6">
                                                     <i class="fa fa-share"></i> Consulter </a>
-                                                {% if(inventaire.etat == "Ouvert") %}
+                                                {% if(inventaire.etat == 1) %}
                                                     <a href="{{ path('cloture_inventaire',{id:inventaire.id}) }}" onclick="return confirm('Voulez Vous cloturer cet inventaire ?')"
-                                                       class="clotureAction dt-button btn btn-danger btn-outline btn-outline sbold" style="width: 45%">
+                                                       class="clotureAction dt-button btn btn-outline btn-danger col-md-6">
                                                         <i class="fa fa-archive"></i> Cloturer </a>
                                                 {% endif %}
                                             </td>
@@ -107,7 +116,7 @@
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <td colspan="5">
+                                        <td colspan="5" class="hidden">
                                             <div class="text-right">
                                                 <ul class="pagination pagination-split m-t-30"></ul>
                                             </div>
@@ -115,6 +124,11 @@
                                     </tr>
                                     </tfoot>
                                 </table>
+                                <div class="navigation row">
+                                    <div class="center-block">
+                                        {{ knp_pagination_render(inventaires) }}
+                                    </div>
+                                </div>
                             </div>
                             <!-- /content -->
                         </div>
@@ -146,6 +160,9 @@
 
     <script>
         function addInventaire() {
+            if ( confirm("Voulez vous confirmer l'ouverture d'un nouveau inventaire ?")){
+
+
             $(".LoadingRoot").css("display", "block");
             $.ajax({
                 type: 'post',
@@ -192,7 +209,7 @@
             var sec = a.getSeconds();
             return time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
         }
-
+        }
     </script>
 
 {% endblock %}

@@ -76,7 +76,7 @@ class DispositifApiController extends Controller
             $dispositif = new Dispositif();
         }
 
-        $dispositif->setStatus("Fonctionnel");
+        $dispositif->setStatus(1);
         $dispositif->setLastCheckDate(new \DateTime(null, new \DateTimeZone("Africa/Tunis")));
         if (strpos(strtolower($os), 'ios') !== false) {
             //TODO automate categ
@@ -156,7 +156,7 @@ class DispositifApiController extends Controller
     public function listDispositifsAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $dispositifs = $em->getRepository("ITResourceBundle:Dispositif")->findAll();
+        $dispositifs = $em->getRepository("ITResourceBundle:Dispositif")->findBy(["status"=>1]);
         return $dispositifs;
     }
 

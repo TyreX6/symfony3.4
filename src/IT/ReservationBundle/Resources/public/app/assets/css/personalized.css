@@ -5,19 +5,20 @@
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
-  .notShown{
-      display: none;
-  }
+}
+
+.notShown {
+    display: none;
+}
 
 .LoadingRoot {
     z-index: 999999999;
@@ -104,4 +105,11 @@
 input[type="text"] {
     color: #03a9f3;
     border: 2px solid #03a9f3;
+}
+
+.label-inv {
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
 }

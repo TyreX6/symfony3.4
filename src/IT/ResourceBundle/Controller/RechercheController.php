@@ -25,6 +25,6 @@ class RechercheController extends Controller
         $em = $this->getDoctrine()->getManager();
         $dispositifs = $em->getRepository("ITResourceBundle:Dispositif")->rechercheDispositif($keyword);
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->rechercheDispositif($keyword);
-        return array("keyword"=>$keyword,"dispositifs"=>$dispositifs,"reservations"=>$reservations) ;
+        return array("keyword" => $keyword, "dispositifs" => $dispositifs, "reservations" => $reservations);
     }
 }

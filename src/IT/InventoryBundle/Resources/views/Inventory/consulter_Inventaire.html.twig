@@ -25,12 +25,15 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Réservations</h4></div>
+                    <h4 class="page-title">
+                        <i class="icon-settings font-dark"></i>
+                        Inventaire Num : {{ id }}</h4>
+                </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="{{ path('homepage') }}">Accueil</a></li>
-                        <li><a href="{{ path('reservations_list') }}">Réservations</a></li>
-                        <li class="active">Liste</li>
+                        <li><a href="{{ path('list_inventaires') }}">Inventaire</a></li>
+                        <li class="active">{{ id }}</li>
                     </ol>
                 </div>
                 <!-- /.col-lg-12 -->
@@ -39,13 +42,6 @@
                 <div class="col-md-12">
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet light ">
-                        <div class="portlet-title">
-
-                            <div class="caption font-dark">
-                                <i class="icon-settings font-dark"></i>
-                                <span class="caption-subject bold uppercase"> Inventaire Num:{{ id }}</span>
-                            </div>
-                        </div>
                         <div class="portlet-body">
                             <div class="table-toolbar">
                                 <div class="row">
@@ -72,26 +68,17 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="btn-group pull-right">
-                                            <button class="btn green  btn-outline dropdown-toggle"
+                                            <button class="btn green btn-outline btn-dropbox dropdown-toggle"
                                                     data-toggle="dropdown">Outils
-                                                <i class="fa fa-angle-down"></i>
                                             </button>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
-                                                    <a href="javascript:;">
+                                                    <a href="{{ path('cloture_inventaire',{id:id}) }}" onclick="return confirm('Voulez Vous cloturer cet inventaire ?')">
                                                         <i class="fa fa-file-excel-o"></i> Cloturer Inventaire </a>
                                                 </li>
                                                 <li>
                                                     <a href="javascript:;">
-                                                        <i class="fa fa-print"></i> Imprimer </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
                                                         <i class="fa fa-file-pdf-o"></i> Exporter PDF </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;">
-                                                        <i class="fa fa-file-excel-o"></i> Exporter Excel </a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -115,30 +102,27 @@
                                 {% for ligne in lignes %}
                                     <tr id="{{ ligne.id }}">
                                         <td>
-                                            {{ ligne.resource.CodeBarre }}
+                                            {{ ligne.resource.barCode }}
                                         </td>
                                         <td>
-                                            {{ ligne.resource.categorie }}
+                                            {{ ligne.resource.category }}
                                         </td>
                                         <td class="statut">{{ ligne.etat }}</td>
-                                        <td>{{ ligne.resource.dateAtjout | date }}</td>
+                                        <td>{{ ligne.resource.DateAdd | date }}</td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button"
                                                         class="btn btn-primary dropdown-toggle waves-effect waves-light m-r-5"
                                                         data-toggle="dropdown" aria-expanded="false"> Actions <b
                                                             class="caret"></b></button>
-                                                {% if(etat == "Ouvert") %}
+                                                {% if(etat == 1) %}
                                                     <ul class="dropdown-menu" role="menu">
                                                         <li>
                                                             <a href="#"
-                                                               onclick="return changerStatut({{ ligne.id }},'Fonctionnel')">Fonctionnel</a>
-                                                        </li>
-                                                        <li href="#" class="divider"></li>
-                                                        <li><a href="#" onclick="return changerStatut({{ ligne.id }},'Perdu')">Perdu</a>
+                                                               onclick="return changerStatut({{ ligne.id }},1)">Fonctionnel</a>
                                                         </li>
                                                         <li><a href="#"
-                                                               onclick="return changerStatut({{ ligne.id }},'Détruit')">Détruit</a>
+                                                               onclick="return changerStatut({{ ligne.id }},0)">Détruit</a>
                                                         </li>
                                                     </ul>
                                                 {% endif %}
@@ -166,7 +150,7 @@
 
         </div>
         <!-- /.container-fluid -->
-        <footer class="footer text-center"> 2017 &copy; Gestion de réservation des ressources</footer>
+        <footer class="footer text-center"> 2018 &copy; Gestion de réservation des ressources</footer>
     </div>
 {% endblock %}
 
@@ -198,21 +182,21 @@
                 dataType: 'json',
                 success: function (json) {
                     $(".LoadingRoot").hide();
-                    //toastr.success("Ajout du matériel à l'inventaire avec succée") ;
+                    toastr.success("Ajout du matériel à l'inventaire avec succée") ;
                     console.log(json);
-                    var tr = "<tr id="+json.id+">" +
-                        "<td>"+json.materiel.bar_code+"</td>" +
-                        "<td>"+json.materiel.category.name+"</td>" +
-                        "<td>"+json.materiel.etat+"</td>" +
-                        "<td>"+json.materiel.date_atjout+"</td>" +
+                    var tr = "<tr id=" + json.id + ">" +
+                        "<td>" + json.materiel.bar_code + "</td>" +
+                        "<td>" + json.materiel.category.name + "</td>" +
+                        "<td>" + json.materiel.etat + "</td>" +
+                        "<td>" + json.materiel.date_atjout + "</td>" +
                         "<td>" +
                         "</td>" +
-                        "</tr>" ;
+                        "</tr>";
                     $('#demo-foo-pagination').find('tbody').append(tr);
                 },
                 error: function (data) {
                     $(".LoadingRoot").hide();
-                    //toastr.error("Erreur lors de l'insertion du matériel !! Verifier le Code") ;
+                    toastr.error("Erreur lors de l'insertion du matériel !! Verifier le Code") ;
                 }
             });
         }
@@ -228,12 +212,10 @@
                     //toastr.success("Statut du matériel changé avec succée :)") ;
                     console.log(json);
                     var statutDiv;
-                    if (statut === "Fonctionnel")
+                    if (statut === 1)
                         statutDiv = "<span class='label-inv label-sm label-success center-block text-center'> Fonctionnel </span>";
-                    else if (statut === "Perdu")
+                    else if (statut === 0)
                         statutDiv = "<span class='label-inv label-sm label-warning center-block text-center'> Perdu </span>";
-                    else
-                        statutDiv = "<span class='label-inv label-sm label-danger center-block text-center'> Detruit </span>";
                     $('#demo-foo-pagination').find('tbody').find("#" + InvId + "").find(".statut").html(statutDiv);
                 },
                 error: function (data) {

@@ -4,6 +4,7 @@ namespace IT\ApiBundle\Controller;
 
 use DateTime;
 use Exception;
+use JMS\JobQueueBundle\Entity\Job;
 use JMS\Serializer\SerializerBuilder;
 use IT\ReservationBundle\Entity\Notification;
 use IT\ReservationBundle\Entity\Reservation;
@@ -60,7 +61,7 @@ class ReservationsApiController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $user = $em->getRepository("ITUserBundle:User")->findOneBy(['id' => $user_id]);
-            $dispositif = $em->getRepository("ITResourceBundle:Dispositif")->findOneBy(['id' => $dispositif_id]);
+            $ressource = $em->getRepository("ITResourceBundle:Ressource")->findOneBy(['id' => $dispositif_id]);
 
 
             $dateNow = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
@@ -76,8 +77,7 @@ class ReservationsApiController extends Controller
 
 
             $reservation->setUser($user);
-            $reservation->setRessource($dispositif);
-            $reservation->setRessource($dispositif);
+            $reservation->setRessource($ressource);
             $reservation->setDateDebut($date_debut);
             $reservation->setDateFin($date_fin);
 
@@ -95,6 +95,12 @@ class ReservationsApiController extends Controller
             $em->persist($reservation);
             $em->persist($notification);
             $em->flush();
+
+//            $job = new Job('reservation:update', array($reservation->getId()));
+//            $job->setExecuteAfter($reservation->getDateFin());
+//            $job->addRelatedEntity($reservation);
+//            $em->persist($job);
+//            $em->flush();
 
             return array("success" => 1, "reservation_id" => $reservation->getId(), "message" => "Réservation ajouté avec succé");
 
@@ -206,8 +212,12 @@ class ReservationsApiController extends Controller
     {
         $data = $request->request->all();
         $device_UUID = $data["deviceUUID"];
+
         $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository("ITReservationBundle:Reservation")->getReservationsByDeviceUuid($device_UUID);
+        $resource = $em->getRepository("ITResourceBundle:Dispositif")->findOneBy(["deviceUUID"=>$device_UUID]);
+
+        $reservations = $em->getRepository("ITReservationBundle:Reservation")->getReservationsByDispositive($resource->getId());
+
         return $reservations;
     }
 
@@ -254,8 +264,8 @@ class ReservationsApiController extends Controller
             $dateNow = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
 
             //On ne peut pas ajouter un réservation avec un date de début déja passé
-            if ($date_debut->getTimestamp() < $dateNow->getTimestamp()) {
-                return array("success" => 0, "message" => "On ne peut pas réserver dans le passé");
+            if ($date_fin->getTimestamp() < $dateNow->getTimestamp()) {
+                return array("success" => 0, "message" => "Vous ne pouvez pas faire ça !");
             }
 
 

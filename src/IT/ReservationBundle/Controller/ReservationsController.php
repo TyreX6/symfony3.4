@@ -5,7 +5,10 @@ namespace IT\ReservationBundle\Controller;
 use IT\ReservationBundle\Entity\Reservation;
 use IT\ReservationBundle\Entity\Notification;
 use DateTime;
+use IT\ReservationBundle\Service\LoggerService;
+use JMS\JobQueueBundle\Entity\Job;
 use JMS\Serializer\SerializerBuilder;
+use JMS\Serializer\Tests\Fixtures\Log;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -13,13 +16,7 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Unirest;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\Request as GuzzleRequest;
+use Psr\Log\LoggerInterface;
 
 
 
@@ -34,24 +31,65 @@ class ReservationsController extends Controller
      * @Template()
      * @return array
      */
-    public function reservations_listAction()
+    public function reservations_listAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->getIncomingReservationsOrdererByDate();
-        return array("reservations" => $reservations);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $reservations,
+            $request->query->get('page', 1)/*page number*/,
+            5/*limit per page*/
+        );
+        return array("reservations" => $pagination);
+    }
+
+    /**
+     * @Route("/list/user/{id}", name="reservations_user_list")
+     * @Template("@ITReservation/Reservations/reservations_list.html.twig")
+     * @param Request $request
+     * @param $id
+     * @return array
+     */
+    public function reservations_list_By_User(Request $request,$id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("ITUserBundle:User")->findOneBy(["id"=>$id]);
+        $reservations = $em->getRepository("ITReservationBundle:Reservation")->getReservationsByUser($id);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $reservations,
+            $request->query->get('page', 1)/*page number*/,
+            5/*limit per page*/
+        );
+
+        return array("reservations" => $pagination);
     }
 
     /**
      * @Route("/list/{id}", name="reservations_resource_list")
-     * @Template()
+     * @Template("@ITReservation/Reservations/reservations_list.html.twig")
+     * @param Request $request
+     * @param $id
      * @return array
      */
-    public function reservations_list_By_DeviceAction()
+    public function reservations_list_By_DeviceAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
-        $reservations = $em->getRepository("ITReservationBundle:Reservation")->getIncomingReservationsOrdererByDate();
-        return array("reservations" => $reservations);
+        $resource = $em->getRepository("ITResourceBundle:Ressource")->findOneBy(["id"=>$id]);
+        $reservations = $em->getRepository("ITReservationBundle:Reservation")->getDeviceReservationsOrdererByDate($resource);
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $reservations,
+            $request->query->get('page', 1)/*page number*/,
+            5/*limit per page*/
+        );
+        return array("reservations" => $pagination);
     }
+
+
 
 
     /**
@@ -76,6 +114,7 @@ class ReservationsController extends Controller
 
     /**
      * @Route("/add_reservation_ajax", name="add_reservation_ajax")
+     * @return JsonResponse
      */
     public function addReservationsAjaxAction()
     {
@@ -98,7 +137,6 @@ class ReservationsController extends Controller
                     ->setSharedMaxAge(900);
             }
 
-
             $reservation = new Reservation();
             $notification = new Notification();
 
@@ -109,6 +147,7 @@ class ReservationsController extends Controller
             $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
             $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reservation, $regles);
 
+
             if ($result["success"] === 0) {
                 return JsonResponse::create(array("success" => 0, "message" => $result["message"]), 200)
                     ->setSharedMaxAge(900);
@@ -118,6 +157,12 @@ class ReservationsController extends Controller
 
             $em->persist($reservation);
             $em->persist($notification);
+            $em->flush();
+
+            $job = new Job('reservation:update', array($reservation->getId()));
+            $job->setExecuteAfter($reservation->getDateFin());
+            $job->addRelatedEntity($reservation);
+            $em->persist($job);
             $em->flush();
 
             $message = $resource." réservé pour " . $user->getUsername();

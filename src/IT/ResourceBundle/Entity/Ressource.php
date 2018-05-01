@@ -17,7 +17,7 @@ use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Swagger\Annotations as SWG;
-use IT\ReservationBundle\Entity\Reservation ;
+use IT\ReservationBundle\Entity\Reservation;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -57,15 +57,15 @@ class Ressource
     protected $bar_code;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="status", type="string" ,length=20,nullable=false)
+     * @ORM\Column(name="status", type="integer" ,nullable=false)
      * @Expose
      * @Assert\Choice(
-     *     choices={"Fonctionnel", "Détruit","Perdu"},
+     *     choices={1,0},
      *      message="Choose a valid status."
      * )
-     * @SWG\Property(type="string",description="Etat du dispositif.")
+     * @SWG\Property(type="integer",description="Etat du dispositif.")
      */
     protected $status;
 
@@ -131,21 +131,6 @@ class Ressource
         $this->bar_code = $bar_code;
     }
 
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param string $status
-     */
-    public function setStatus(string $status)
-    {
-        $this->status = $status;
-    }
 
     /**
      * @return mixed
@@ -211,10 +196,20 @@ class Ressource
         $this->category = $category;
     }
 
-    
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
 
-
-
-
+    /**
+     * @param int $status
+     */
+    public function setStatus(int $status)
+    {
+        $this->status = $status;
+    }
 
 }

@@ -22,58 +22,57 @@ use IT\ResourceBundle\Entity\Ressource;
  */
 class ResourcesApiController extends Controller
 {
-//    /**
-//     * @Rest\View()
-//     * @Rest\Post("api/ressource/add")
-//     * @param Request $request
-//     * @Operation(
-//     *      @SWG\Schema(
-//     *         type="Object",
-//     *         @Model(type=Ressource::class)
-//     *      ),
-//     *     tags={"Resource"},
-//     *     summary="",
-//     *      @SWG\Parameter(
-//     *     in="body",
-//     *     name="body",
-//     *     description="",
-//     *     required=true,
-//     *     @SWG\Schema(ref="#/definitions/Ressource"),
-//     *
-//     *   ),
-//     *     @SWG\Response(
-//     *         response="200",
-//     *         description="Ressource ajouté avec succée"
-//     *     ),
-//     * )
-//     *
-//     * @return array
-//     */
-//    public function addResourceAction(Request $request)
-//    {
-//
-//        return array("success" => 1);
-//    }
-//
-//
-//
-//    /**
-//     * @Rest\View()
-//     * @Rest\Get("api/resources/list")
-//     * @Operation(
-//     *  tags={"Resource"},summary="Retreive all the Ressource",
-//     *
-//     *  @SWG\Response(response=200,description="Array of resources",
-//     *  @SWG\Schema(type="array",@SWG\Items(ref="#/definitions/Ressource")
-//     *  ),
-//     * ),
-//     * )
-//     */
-//    public function listDispositifsAction()
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $dispositifs = $em->getRepository("ITResourceBundle:Ressource")->findAll();
-//        return $dispositifs;
-//    }
+    /**
+     * @Rest\View()
+     * @Rest\Post("api/ressource/add")
+     * @param Request $request
+     * @Operation(
+     *      @SWG\Schema(
+     *         type="Object",
+     *         @Model(type=Ressource::class)
+     *      ),
+     *     tags={"Resource"},
+     *     summary="",
+     *      @SWG\Parameter(
+     *     in="body",
+     *     name="body",
+     *     description="",
+     *     required=true,
+     *     @SWG\Schema(ref="#/definitions/Ressource"),
+     *
+     *   ),
+     *     @SWG\Response(
+     *         response="200",
+     *         description="Ressource ajouté avec succée"
+     *     ),
+     * )
+     *
+     * @return array
+     */
+    public function addResourceAction(Request $request)
+    {
+
+        return array("success" => 1);
+    }
+
+
+    /**
+     * @Rest\View()
+     * @Rest\Get("api/resources/list")
+     * @Operation(
+     *  tags={"Resource"},summary="Retreive all the Ressource",
+     *
+     *  @SWG\Response(response=200,description="Array of resources",
+     *  @SWG\Schema(type="array",@SWG\Items(ref="#/definitions/Ressource")
+     *  ),
+     * ),
+     * )
+     */
+    public function listResourceAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $dispositifs = $em->getRepository("ITResourceBundle:Ressource")->findBy(["status" => 1]);
+        return $dispositifs;
+    }
 
 }

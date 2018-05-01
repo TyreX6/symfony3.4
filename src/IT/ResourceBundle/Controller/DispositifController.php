@@ -82,16 +82,23 @@ class DispositifController extends Controller
     }
 
 
-
     /**
      * @Route("/list" , name="list_devices")
      * @Template()
+     * @param Request $request
+     * @return array
      */
-    public function list_devicesAction()
+    public function list_devicesAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $dispositifs = $em->getRepository("ITResourceBundle:Dispositif")->findAll();
-        return array('dispositifs' => $dispositifs);
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $dispositifs,
+            $request->query->get('page', 1)/*page number*/,
+            5/*limit per page*/
+        );
+        return array('dispositifs' => $pagination);
     }
 
 

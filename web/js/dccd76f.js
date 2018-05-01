@@ -484,8 +484,20 @@ function initCalender() {
                     console.log(deletable);
                     // Si la réservation n'est pas encore persisté -> on le supprimer du calendrier
                     if (ev._id == calEvent._id && typeof calEvent.id === 'undefined') {
+
                         return true;
                     }
+                    // if (!deletable){
+                    //     $.toast({
+                    //         heading: 'Pas possible',
+                    //         text: 'La réservation ne peut pas étre supprimé.',
+                    //         position: 'top-right',
+                    //         loaderBg: '#ff6849',
+                    //         icon: 'warning',
+                    //         hideAfter: 7000,
+                    //         stack: 6
+                    //     });
+                    // }
                     // Si réservation est persisté et date debut n'est pas encore passé
                     if (deletable && typeof calEvent.id !== 'undefined') {
                         $.ajax({
