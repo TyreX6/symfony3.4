@@ -21,10 +21,9 @@ use IT\ReservationBundle\Entity\Reservation;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="IT\ResourceBundle\Repository\ResourcesRepository")
  * @ORM\Table()
  * @ORM\InheritanceType("JOINED")
- * @ExclusionPolicy("all")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap(
  *     {
@@ -43,7 +42,7 @@ class Ressource
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(description="Identifiant du ressource.")
      */
     protected $id;
@@ -51,7 +50,7 @@ class Ressource
     /**
      * @var string
      * @ORM\Column(name="bar_code", type="string",nullable=true)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(property="bar_code",type="string",description="Bar code of the resource.")
      */
     protected $bar_code;
@@ -60,7 +59,7 @@ class Ressource
      * @var integer
      *
      * @ORM\Column(name="status", type="integer" ,nullable=false)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\Choice(
      *     choices={1,0},
      *      message="Choose a valid status."
@@ -71,21 +70,36 @@ class Ressource
 
     /**
      * @ORM\Column(type="datetime",nullable=false)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      */
     protected $dateAdd;
 
     /**
      * @var \DateTime
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @ORM\Column(name="last_check_date", type="datetime",nullable=true)
      */
     protected $lastCheckDate;
+
+    /**
+     * @var string
+     * @ORM\Column(name="name", type="string", length=50)
+     * @Serializer\Groups({"categories","resources"})
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 50,
+     *      minMessage = "Your resource name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your resource name cannot be longer than {{ limit }} characters"
+     * )
+     * @SWG\Property(property="name",type="string",description="Nom du ressource.")
+     */
+    protected $name;
 
 
     /**
      * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\Reservation", mappedBy="ressource",cascade="persist")
      * @SWG\Property(type="object",description="reservation of the resource.")
+     * @Serializer\Exclude()
      **/
     protected $reservations;
 
@@ -95,8 +109,13 @@ class Ressource
      * @Assert\NotBlank()
      * @ORM\JoinColumn(name="categorie_id", referencedColumnName="id",onDelete="CASCADE",nullable=false)
      * @SWG\Property(description="Le categorie.")
+     * @Serializer\Groups({"resources"})
      **/
     protected $category;
+    /**
+     * @var boolean
+     */
+    protected $reserved ;
 
     /**
      * Ressource constructor.
@@ -211,5 +230,39 @@ class Ressource
     {
         $this->status = $status;
     }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReserved()
+    {
+        return $this->reserved;
+    }
+
+    /**
+     * @param bool $reserved
+     */
+    public function setReserved(bool $reserved)
+    {
+        $this->reserved = $reserved;
+    }
+
+
 
 }

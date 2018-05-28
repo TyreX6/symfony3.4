@@ -14,7 +14,8 @@ class LdapConfigType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('host')->add('baseDn')->add('port');
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

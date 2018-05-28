@@ -12,7 +12,7 @@ use IT\ResourceBundle\Entity\Ressource;
 use IT\UserBundle\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\RestBundle\Context\Context;
-use FOS\RestBundle\Serializer\Serializer;
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Swagger\Annotations as SWG;
@@ -33,19 +33,19 @@ class Reservation
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Expose
+     * @Serializer\Groups({"resources"})
      * @SWG\Property(description="Identifiant du réservation.")
      */
     protected $id;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="statut", type="string", length=20)
-     * @Expose
+     * @ORM\Column(name="statut", type="integer", length=2)
+     * @Serializer\Groups({"resources"})
      * @Assert\NotBlank()
      * @Assert\Choice(
-     *     choices = { "En cours", "En attente","Terminé" },
+     *     choices = { 0,1,2 },
      *     message = "Choose a valid status."
      * )
      * @SWG\Property(description="Statut du réservation.")
@@ -59,7 +59,7 @@ class Reservation
      *      min = "now"
      * )
      * @ORM\Column(name="date_debut", type="datetime" ,nullable=false)
-     * @Expose
+     * @Serializer\Groups({"resources"})
      * @SWG\Property(description="Date de début du réservation.")
      */
     private $dateDebut;
@@ -68,7 +68,7 @@ class Reservation
      * @var \DateTime
      * @Assert\NotBlank()
      * @ORM\Column(name="date_fin", type="datetime" ,nullable=false)
-     * @Expose
+     * @Serializer\Groups({"resources"})
      * @SWG\Property(description="Date de fin du réservation.")
      */
     private $dateFin;
@@ -77,16 +77,16 @@ class Reservation
      * @ORM\ManyToOne(targetEntity="IT\UserBundle\Entity\User", inversedBy="reservation" ,cascade="persist")
      * @Assert\NotBlank()
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id",nullable=false,onDelete="CASCADE")
-     * @Expose
+     * @Serializer\Groups({"user"})
      * @SWG\Property(type="object", description="L'utilisateur qui a réservé.")
      **/
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="IT\ResourceBundle\Entity\Ressource", inversedBy="reservations",)
-     * @ORM\JoinColumn(name="ressource_id", referencedColumnName="id",onDelete="CASCADE")
+     * @ORM\JoinColumn(name="ressource_id", referencedColumnName="id",onDelete="CASCADE",nullable=false)
      * @SWG\Property(type="object",description="Le ressource réservé.")
-     * @Expose
+     * @Serializer\Groups({"resources"})
      **/
     private $ressource;
 
@@ -97,7 +97,7 @@ class Reservation
      */
     public function __construct()
     {
-        $this->setStatut("En attente");
+        $this->setStatut(0);
     }
 
 
@@ -136,7 +136,7 @@ class Reservation
     }
 
     /**
-     * @param string $statut
+     * @param int $statut
      */
     public function setStatut($statut)
     {

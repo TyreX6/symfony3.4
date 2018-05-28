@@ -10,12 +10,12 @@ namespace IT\UserBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use FR3D\LdapBundle\Model\LdapUserInterface;
 /**
  * @ORM\Entity(repositoryClass="IT\UserBundle\Repository\UsersRepository")
- * @ExclusionPolicy("all")
  * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser implements LdapUserInterface,\JsonSerializable
@@ -24,9 +24,29 @@ class User extends BaseUser implements LdapUserInterface,\JsonSerializable
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Expose
+     * @Serializer\Groups({"user"})
      */
     protected $id;
+
+    /**
+     * @var string
+     * @Serializer\Groups({"user"})
+     */
+    protected $username;
+
+
+    /**
+     * @var string
+     * @Serializer\Groups({"user"})
+     */
+    protected $email;
+
+    /**
+     * @var array
+     * @Serializer\Groups({"user"})
+     */
+    protected $roles;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -34,6 +54,7 @@ class User extends BaseUser implements LdapUserInterface,\JsonSerializable
 
     /**
      * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\Reservation", mappedBy="user",cascade="persist")
+     * @Serializer\Exclude()
      **/
     private $reservation;
 

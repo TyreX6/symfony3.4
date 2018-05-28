@@ -73,6 +73,7 @@ class ReservationsController extends Controller
      * @param Request $request
      * @param $id
      * @return array
+     * @throws \Doctrine\ORM\ORMException
      */
     public function reservations_list_By_DeviceAction(Request $request,$id)
     {

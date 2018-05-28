@@ -8,12 +8,13 @@
 
 namespace IT\ResourceBundle\Controller;
 
-use GuzzleHttp\Psr7\Response;
+use Symfony\Component\HttpFoundation\Response;
 use IT\ResourceBundle\Entity\Dispositif;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use IT\ResourceBundle\Entity\Projecteur;
 use IT\ResourceBundle\Entity\Ressource;
 use IT\ResourceBundle\Entity\Salle;
+use RMS\PushNotificationsBundle\Message\iOSMessage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -22,6 +23,23 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RessourceController extends Controller
 {
+
+    /**
+     * @Route("/resource/push/" , name="push_notification")
+     * @return Response
+     */
+    public function pushAction()
+    {
+        $message = new iOSMessage();
+        $message->setMessage('Rahma makch newya tji li local hedha !!');
+        $message->setDeviceIdentifier('0de2d534fdcabeee509fc4585c1fd4d3d3d741dd933526172db6e1d90ec15aa2');
+
+        $this->container->get('rms_push_notifications')->send($message);
+
+        return new Response('Push notification send!');
+
+    }
+
     /**
      * @Route("/resource/add/{id}" , name="ajouter_ressource")
      * @Template()

@@ -146,25 +146,41 @@ class LdapApiController extends FOSRestController
         $ldap_con = ldap_connect($ldaphost, $ldapConfig->getPort());
         ldap_set_option($ldap_con, LDAP_OPT_PROTOCOL_VERSION, 3);
 
-        if (@ldap_bind($ldap_con, $ldap_dn, $password)) {
+        $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
+        $user = $em->getRepository("ITUserBundle:User")->findOneBy(["username" => $login]);
+        $jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
 
-            $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
-            $user = $em->getRepository("ITUserBundle:User")->findOneBy(["username" => $login]);
-            $jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
-
-            try {
-                $count = $em->getRepository("ITReservationBundle:Reservation")->getActualReservationByUserRawSql($UUID, $login, $regles);
-            } catch (DBALException $e) {
-                return array("success" => 0);
-            }
-            if (count($count) > 0) {
-                return array("success" => 1, "res" => $count[0], 'token' => $jwtManager->create($user));
-            } else {
-                return array("success" => 0);
-            }
-        } else {
-            return array("success" => 0, "data" => $data);
+        try {
+            $count = $em->getRepository("ITReservationBundle:Reservation")->getActualReservationByUserRawSql($UUID, $login, $regles);
+        } catch (DBALException $e) {
+            return array("success" => 0,"exception"=>$e);
         }
+        if (count($count) > 0) {
+            return array("success" => 1, "res" => $count[0], 'token' => $jwtManager->create($user));
+        } else {
+            return array("success" => 0,"sql"=>$count);
+        }
+
+//        if (@ldap_bind($ldap_con, $ldap_dn, $password)) {
+//
+//            $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
+//            $user = $em->getRepository("ITUserBundle:User")->findOneBy(["username" => $login]);
+//            $jwtManager = $this->container->get('lexik_jwt_authentication.jwt_manager');
+//
+//            try {
+//                $count = $em->getRepository("ITReservationBundle:Reservation")->getActualReservationByUserRawSql($UUID, $login, $regles);
+//            } catch (DBALException $e) {
+//                return array("success" => 0);
+//            }
+//            if (count($count) > 0) {
+//                return array("success" => 1, "res" => $count[0], 'token' => $jwtManager->create($user));
+//            } else {
+//                return array("success" => 0);
+//            }
+//        } else {
+//            return array("success" => 0, "data" => $data);
+//        }
     }
+
 
 }

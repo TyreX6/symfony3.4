@@ -29,29 +29,34 @@ class CategoryApiController extends Controller
 {
     /**
      * @Rest\View()
-     * @Rest\Get("api/categories/list")
+     * @Rest\Get("api/categories/names")
      * @Operation(
-     *  tags={"Category"},summary="Retreive all categories",
-     *@SWG\Schema(
-     *         type="Object",
-     *         @Model(type=Categorie::class)
-     *      ),
-     *  @SWG\Response(response=200,description="Tableau de categories",
-     *  @SWG\Schema(type="array",@SWG\Items(ref="#/definitions/Categorie")
-     *  ),
-     * ),
+     *     tags={"Reservation"},
+     *     summary="Login for reservation",
+     *     @SWG\Response(
+     *         response="200",
+     *         description="Reservation launched"
+     *     ),
      * )
+     * @return array|Response
      */
     public function listCategoriesAction()
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository("ITResourceBundle:Categorie")->findAll();
-        return $categories;
+        $categoriesNames = [];
+
+        foreach ($categories as $categ){
+            $categoriesNames[]=array("id"=>$categ->getId(),"name"=>$categ->getName());
+        }
+        return $categoriesNames;
     }
 
 
     /**
-     * @Rest\View()
+     * @Rest\View(
+     *     serializerGroups={"categories"}
+     * )
      * @Rest\Get("api/categories/list/resources")
      * @Operation(
      *  tags={"Category"},summary="Retreive all resources grouped by Category",
@@ -75,7 +80,9 @@ class CategoryApiController extends Controller
 
     /**
      * @param $id
-     * @Rest\View()
+     * @Rest\View(
+     *     serializerGroups={"categories"}
+     * )
      * @Rest\GET("api/categories/list/resources/{id}")
      * @Operation(
      *  tags={"Category"},

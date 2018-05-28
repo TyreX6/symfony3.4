@@ -8,6 +8,7 @@
 
 namespace IT\ResourceBundle\Entity;
 
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Swagger\Annotations as SWG;
@@ -17,7 +18,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table()
- * @ExclusionPolicy("all")
  * @SWG\Definition(type="object", @SWG\Xml(name="Categorie"))
  */
 class Categorie
@@ -27,7 +27,7 @@ class Categorie
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(description="Identifiant du categorie.")
      */
     private $id;
@@ -35,14 +35,14 @@ class Categorie
     /**
      * @var string
      * @ORM\Column(name="name", type="string",nullable=false)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(property="name",type="string",description="Nom de l'application.")
      */
     private $name;
 
     /**
      * @ORM\OneToMany(targetEntity="IT\ResourceBundle\Entity\Ressource", mappedBy="category",cascade="persist")
-     * @Expose
+     * @Serializer\Groups({"categories"})
      **/
     private $ressource;
 

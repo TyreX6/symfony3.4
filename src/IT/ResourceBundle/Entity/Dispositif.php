@@ -11,6 +11,7 @@ namespace IT\ResourceBundle\Entity;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use IT\ResourceBundle\Entity\Image;
@@ -21,7 +22,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="IT\ResourceBundle\Repository\DispositifsRepository")
- * @ExclusionPolicy("all")
  * @SWG\Definition(type="object", @SWG\Xml(name="Dispositif"))
  */
 class Dispositif extends Ressource
@@ -30,7 +30,7 @@ class Dispositif extends Ressource
     /**
      * @var string
      * @ORM\Column(name="model", type="string", length=50)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\NotBlank()
      * @Assert\Length(
      *      min = 5,
@@ -42,30 +42,12 @@ class Dispositif extends Ressource
      */
     private $model;
 
-    /**
-     * @var string
-     * @ORM\Column(name="deviceName", type="string", length=50)
-     * @Expose
-     * @Assert\Length(
-     *      min = 5,
-     *      max = 50,
-     *      minMessage = "Your deviceName must be at least {{ limit }} characters long",
-     *      maxMessage = "Your deviceName cannot be longer than {{ limit }} characters"
-     * )
-     * @SWG\Property(property="deviceName",type="string",description="Nom du dispositif.")
-     */
-    private $deviceName;
-
-    /**
-     * @var string
-     **/
-    private $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="os", type="string", length=20)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\NotBlank()
      * @Assert\Choice(
      *     choices={"ANDROID", "IOS","WINDOWS","LINUX"},
@@ -78,7 +60,7 @@ class Dispositif extends Ressource
     /**
      * @var string
      * @ORM\Column(name="OsVersion", type="string")
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\NotBlank()
      * @Assert\Regex("/(^.+)\.(\w+)/",
      *     message="This is not a valid version")
@@ -90,7 +72,7 @@ class Dispositif extends Ressource
      * @var string
      *
      * @ORM\Column(name="device_UUID", type="string", length=80)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(type="string",description="Identifiant unique du dispositif.")
      */
     private $deviceUUID;
@@ -99,7 +81,7 @@ class Dispositif extends Ressource
      * @var string
      *
      * @ORM\Column(name="cpu", type="string", length=40)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\NotBlank()
      * @SWG\Property(type="string",description="Cpu of the device.")
      */
@@ -109,7 +91,7 @@ class Dispositif extends Ressource
      * @var int
      *
      * @ORM\Column(name="cpu_cores", type="integer")
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(type="number",description="Nombre de coeurs du dispositif.")
      */
     private $cpuCores;
@@ -118,7 +100,7 @@ class Dispositif extends Ressource
      * @var float
      *
      * @ORM\Column(name="ram", type="float")
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\NotBlank()
      * @Assert\Range(
      *      min = 0.512,
@@ -134,7 +116,7 @@ class Dispositif extends Ressource
      * @var string
      *
      * @ORM\Column(name="disk_space", type="string")
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(description="Storage du dispositif.")
      */
     private $diskSpace;
@@ -143,7 +125,7 @@ class Dispositif extends Ressource
      * @var string
      *
      * @ORM\Column(name="free_disk_space", type="string")
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(description="Storage disponible du dispositif.")
      */
     private $freeDiskSpace;
@@ -151,8 +133,17 @@ class Dispositif extends Ressource
     /**
      * @var string
      *
-     * @ORM\Column(name="used_disk_space", type="string")
-     * @Expose
+     * @ORM\Column(name="device_token", type="string",nullable=true)
+     * @Serializer\Groups({"categories","resources"})
+     * @SWG\Property(description="Token du device pour le push notification.")
+     */
+    private $device_token;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="used_disk_space", type="string" ,nullable=true)
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(description="Storage utilisé du dispositif.")
      */
     private $usedDiskSpace;
@@ -161,7 +152,7 @@ class Dispositif extends Ressource
     /**
      * @var string
      * @ORM\Column(name="resolution", type="string" ,length=20)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\NotBlank()
      * @Assert\Regex("/(^[0-9]{3,4}+)(x|X)([0-9]{3,4}$)/",
      *     message="This is not a valid resolution")
@@ -171,6 +162,7 @@ class Dispositif extends Ressource
 
     /**
      * @ORM\OneToMany(targetEntity="IT\ResourceBundle\Entity\Application", mappedBy="dispositif" ,cascade={"remove", "persist"},orphanRemoval=true)
+     * @Serializer\Groups({"categories","resources"})
      **/
     private $apps;
 
@@ -188,24 +180,6 @@ class Dispositif extends Ressource
         $this->apps = new ArrayCollection();
         $this->images = new ArrayCollection();
     }
-
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->deviceName;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-
 
 
     /**
@@ -294,21 +268,6 @@ class Dispositif extends Ressource
         $this->model = $model;
     }
 
-    /**
-     * @return string
-     */
-    public function getDeviceName()
-    {
-        return $this->deviceName;
-    }
-
-    /**
-     * @param string $deviceName
-     */
-    public function setDeviceName(string $deviceName)
-    {
-        $this->deviceName = $deviceName;
-    }
 
     /**
      * @return string
@@ -365,6 +324,23 @@ class Dispositif extends Ressource
     {
         return $this->cpu;
     }
+
+    /**
+     * @return string
+     */
+    public function getDeviceToken()
+    {
+        return $this->device_token;
+    }
+
+    /**
+     * @param string $device_token
+     */
+    public function setDeviceToken(string $device_token)
+    {
+        $this->device_token = $device_token;
+    }
+
 
     /**
      * @param string $cpu

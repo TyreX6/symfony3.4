@@ -19,6 +19,7 @@ use Doctrine\ORM\Query;
 use IT\ReservationBundle\Entity\Regles;
 use Doctrine\ORM\Query\ResultSetMapping;
 use IT\ReservationBundle\Entity\Reservation as Reservation;
+use IT\ResourceBundle\Entity\Dispositif as Dispositif;
 
 class ReservationsRepository extends EntityRepository
 {
@@ -60,7 +61,8 @@ class ReservationsRepository extends EntityRepository
         $qb = $this->_em->createQueryBuilder();
         $qb->select('r')
             ->from('ITReservationBundle:Reservation', 'r')
-            ->innerJoin('r.ressource', 'd')
+            ->innerJoin('r.ressource', 'rs')
+            ->leftJoin('ITResourceBundle:Dispositif', 'd', 'WITH', 'rs.id = d.id')
             ->where('d.model LIKE :keyword')
             ->setParameter('keyword', '%' . $keyword . '%');
         return $qb->getQuery()->getResult();
@@ -77,6 +79,23 @@ class ReservationsRepository extends EntityRepository
     {
         $timeout = $regles->getDureeTimeout();
         $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT r.id,r.date_debut,r.date_fin FROM `reservation` AS r LEFT JOIN `fos_user` as f ON r.user_id=f.id LEFT JOIN `dispositif` d on r.`ressource_id` = d.`id` WHERE f.username='" . $username . "' AND d.device_uuid='" . $UUID . "' AND NOW() > r.date_debut ";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    /**
+     * @param $UUID
+     * @param $username
+     * @param $regles Regles
+     * @return array
+     * @throws DBALException
+     */
+    public function getActualReservationByUserRawSqlBackup($UUID, $username, $regles)
+    {
+        $timeout = $regles->getDureeTimeout();
+        $conn = $this->getEntityManager()->getConnection();
         $sql = "SELECT r.id,r.date_debut,r.date_fin FROM `reservation` AS r LEFT JOIN `fos_user` as f ON r.user_id=f.id LEFT JOIN `dispositif` d on r.`ressource_id` = d.`id` WHERE f.username='" . $username . "' AND d.device_uuid='" . $UUID . "' AND NOW() > r.date_debut AND NOW() < ADDTIME(r.date_debut,'0 0:$timeout:00.00')";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -90,8 +109,22 @@ class ReservationsRepository extends EntityRepository
         $qb = $this->_em->createQueryBuilder();
         $qb->select('r')
             ->from('ITReservationBundle:Reservation', 'r')
-            ->where('r.dateDebut >= :now')
+            ->where('r.dateFin >= :now')
             ->orderBy('r.dateDebut', 'ASC')
+            ->setParameter('now', $date);
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getDeviceReservationsOrdererByDate($resource)
+    {
+        $date = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('r')
+            ->from('ITReservationBundle:Reservation', 'r')
+            ->where('r.dateFin >= :now')
+            ->andWhere('r.ressource = :resource')
+            ->orderBy('r.dateDebut', 'ASC')
+            ->setParameter('resource',$resource)
             ->setParameter('now', $date);
         return $qb->getQuery()->getResult();
     }
@@ -106,6 +139,22 @@ class ReservationsRepository extends EntityRepository
             ->andWhere('r.dateDebut <= :now')
             ->orderBy('r.dateDebut', 'ASC')
             ->setParameter('now', $date);
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getActifReservationsByDevice($id)
+    {
+        $date = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
+        $qb = $this->_em->createQueryBuilder();
+        $qb->select('r')
+            ->from('ITReservationBundle:Reservation', 'r')
+            ->leftJoin('r.ressource', 'rs')
+            ->where('r.dateFin >= :now')
+            ->andWhere('r.dateDebut <= :now')
+            ->andWhere('rs.id = :id')
+            ->orderBy('r.dateDebut', 'ASC')
+            ->setParameter('now', $date)
+            ->setParameter('id', $id);
         return $qb->getQuery()->getResult();
     }
 

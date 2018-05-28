@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new JMS\JobQueueBundle\JMSJobQueueBundle(),
             new JMS\AopBundle\JMSAopBundle(),
+            new RMS\PushNotificationsBundle\RMSPushNotificationsBundle(),
 //            new JMS\DiExtraBundle\JMSDiExtraBundle(),
         ];
 

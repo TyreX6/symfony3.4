@@ -64,13 +64,13 @@ class ReservationsApiController extends Controller
             $ressource = $em->getRepository("ITResourceBundle:Ressource")->findOneBy(['id' => $dispositif_id]);
 
 
+
             $dateNow = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
 
             //On ne peut pas ajouter un réservation avec un date de début déja passé
             if ($date_debut->getTimestamp() < $dateNow->getTimestamp()) {
                 return array("success" => 0, "message" => "On ne peut pas réserver dans le passé");
             }
-
 
             $notification = new Notification();
             $reservation = new Reservation();
@@ -81,6 +81,7 @@ class ReservationsApiController extends Controller
             $reservation->setDateDebut($date_debut);
             $reservation->setDateFin($date_fin);
 
+//            return array("resource"=>$ressource,"reservation"=>$reservation);
 
             $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
             $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reservation, $regles);
@@ -110,7 +111,9 @@ class ReservationsApiController extends Controller
     }
 
     /**
-     * @Rest\View()
+     * @Rest\View(
+     *     serializerGroups={"resources","user","Default"}
+     * )
      * @Rest\Get("api/reservations/liste")
      * @Operation(
      *  tags={"Reservation"},summary="Retreive all reservations",
@@ -130,8 +133,25 @@ class ReservationsApiController extends Controller
     }
 
     /**
+     * @Rest\View(
+     *     serializerGroups={"resources","Default"}
+     * )
+     * @Rest\Get("api/reservations/actif/device/{id}")
      * @param $id
-     * @Rest\View()
+     * @return array|\IT\ReservationBundle\Entity\Regles[]|Reservation[]|\IT\ResourceBundle\Entity\Dispositif[]
+     */
+    public function getActifReservationByDeviceAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $reservations = $em->getRepository("ITReservationBundle:Reservation")->getActifReservationsByDevice($id);
+        return $reservations;
+    }
+
+    /**
+     * @param $id
+     * @Rest\View(
+     *     serializerGroups={"resources","user","Default"}
+     * )
      * @Rest\Get("api/reservations/liste/{id}")
      * @Operation(
      *  tags={"Reservation"},
@@ -160,7 +180,9 @@ class ReservationsApiController extends Controller
 
     /**
      * @param $id
-     * @Rest\View()
+     * @Rest\View(
+     *     serializerGroups={"resources","user","Default"}
+     * )
      * @Rest\Get("api/reservations/liste/user/{id}")
      * @Operation(
      *  tags={"Reservation"},
@@ -190,7 +212,9 @@ class ReservationsApiController extends Controller
     /**
      * @param Request $request
      * @return array
-     * @Rest\View()
+     * @Rest\View(
+     *     serializerGroups={"resources","user","Default"}
+     * )
      * @Rest\Post("api/reservations/listeByUuid")
      * @Operation(
      *  tags={"Reservation"},
@@ -214,7 +238,7 @@ class ReservationsApiController extends Controller
         $device_UUID = $data["deviceUUID"];
 
         $em = $this->getDoctrine()->getManager();
-        $resource = $em->getRepository("ITResourceBundle:Dispositif")->findOneBy(["deviceUUID"=>$device_UUID]);
+        $resource = $em->getRepository("ITResourceBundle:Dispositif")->findOneBy(["deviceUUID" => $device_UUID]);
 
         $reservations = $em->getRepository("ITReservationBundle:Reservation")->getReservationsByDispositive($resource->getId());
 
@@ -258,22 +282,23 @@ class ReservationsApiController extends Controller
             $date_debut = DateTime::createFromFormat('Y-m-d H:i:s', $data["start"]);
             $date_fin = DateTime::createFromFormat('Y-m-d H:i:s', $data["end"]);
             $em = $this->getDoctrine()->getManager();
-            $reservation = $em->getRepository("ITReservationBundle:Reservation")->find(["id" => $id]);
+            $reservation = $em->getRepository("ITReservationBundle:Reservation")->findOneBy(["id" => $id]);
+
 
 
             $dateNow = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
 
             //On ne peut pas ajouter un réservation avec un date de début déja passé
-            if ($date_fin->getTimestamp() < $dateNow->getTimestamp()) {
-                return array("success" => 0, "message" => "Vous ne pouvez pas faire ça !");
-            }
+//            if ($date_fin->getTimestamp() < $dateNow->getTimestamp()) {
+////                return array("success" => 0, "message" => "Vous ne pouvez pas faire ça !");
+////            }
 
-
-            $notification = new Notification();
 
             $reservation->setDateDebut($date_debut);
             $reservation->setDateFin($date_fin);
-
+            if (isset($data["status"])) {
+                $reservation->setStatut((int)$data["status"]);
+            }
 
             $regles = $em->getRepository("ITReservationBundle:Regles")->findAll()[0];
             $result = $em->getRepository("ITReservationBundle:Reservation")->verifReservation($reservation, $regles);
@@ -320,8 +345,18 @@ class ReservationsApiController extends Controller
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository("ITReservationBundle:Reservation")->findOneBy(["id" => $id]);
         if ($reservation) {
-            $em->remove($reservation);
-            $em->flush();
+            $dateNow = new \DateTime(null, new \DateTimeZone("Africa/Tunis"));
+            if ($dateNow > $reservation->getDateDebut()) {
+                $reservation->setDateFin($dateNow);
+                $reservation->setStatut(2);
+                $em->persist($reservation);
+                $em->flush();
+            }
+            else {
+                $em->remove($reservation);
+                $em->flush();
+            }
+
             return array("success" => 1);
         } else return array("success" => 0);
     }

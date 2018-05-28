@@ -36,16 +36,16 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-info">
-                        <div class="panel-heading"> Liste des réservations entrantes</div>
+                        <div class="panel-heading">Liste des réservations entrantes</div>
                         <!-- Tabstyle start -->
                         <div class="panel-wrapper collapse in" aria-expanded="true">
                             <div class="panel-body">
                                 {#<label class="form-inline">Afficher#}
-                                    {#<select id="demo-show-entries" class="form-control input-sm">#}
-                                        {#<option value="10">10</option>#}
-                                        {#<option value="15">15</option>#}
-                                        {#<option value="20">20</option>#}
-                                    {#</select> entrées </label>#}
+                                {#<select id="demo-show-entries" class="form-control input-sm">#}
+                                {#<option value="10">10</option>#}
+                                {#<option value="15">15</option>#}
+                                {#<option value="20">20</option>#}
+                                {#</select> entrées </label>#}
                                 <div class="btn-group">
                                     <a href="{{ path('add_reservation',{'id_categ':1}) }}" class="right">
                                         <button id="sample_editable_1_new" class="btn btn-default"> Ajouter Réservation
@@ -56,14 +56,14 @@
                                 <hr>
                                 <table id="demo-foo-pagination"
                                        class="table table-bordered color-table success-table m-b-0 toggle-arrow-tiny"
-                                       data-page-size="10">
+                                       data-page-size="10" data-filtering="true">
                                     <thead>
                                     <tr>
                                         <th> ID</th>
-                                        <th data-toggle="true"> Catégorie</th>
+                                        <th data-hide="phone"> Catégorie</th>
                                         <th data-toggle="true"> Ressource</th>
                                         <th data-hide="phone"> Date début</th>
-                                        <th data-hide="phone"> Date fin</th>
+                                        <th data-hide="phone" data-breakpoints="xs sm"> Date fin</th>
                                         <th data-hide="phone"> Collaborateur</th>
                                         <th data-hide="phone"> Pourcentage</th>
                                         <th data-hide="phone"> Supprimer</th>
@@ -88,9 +88,7 @@
                                             </td>
                                             <td>
                                                 <div>
-                                                    <p><strong>{{ reservation.ressource }}</strong> <span
-                                                                class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"] }}
-                                                            % Complete</span>
+                                                    <p><span class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"] }} % Complete</span>
                                                     </p>
                                                     <div class="progress progress-striped active">
                                                         <div class="progress-bar progress-bar-{{ reservation.getPourcentage["class"] }}"
@@ -130,7 +128,7 @@
                                 </table>
                                 <div class="navigation row">
                                     <div class="center-block">
-                                    {{ knp_pagination_render(reservations) }}
+                                        {{ knp_pagination_render(reservations) }}
                                     </div>
                                 </div>
                             </div>
@@ -162,6 +160,7 @@
             [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
                 new CBPFWTabs(el);
             });
+            $('#demo-foo-pagination').footable();
         })();
 
         function notifier(user_id, date_debut) {

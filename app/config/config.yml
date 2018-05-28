@@ -23,7 +23,6 @@ framework:
         strict_requirements: ~
     form: ~
     csrf_protection: ~
-    validation: { enable_annotations: true }
     #serializer: { enable_annotations: true }
     default_locale: '%locale%'
     trusted_hosts: ~
@@ -175,3 +174,10 @@ knp_paginator:
         pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig'     # sliding pagination controls template
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+
+rms_push_notifications:
+  ios:
+      timeout: 30 # Seconds to wait for connection timeout, default is 60
+      sandbox: true
+      pem: 'cert.pem' # can be absolute or relative path (from app directory)
+      passphrase: 'proxym_mdm'

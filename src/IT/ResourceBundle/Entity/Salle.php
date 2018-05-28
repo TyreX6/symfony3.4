@@ -5,9 +5,11 @@
  * Date: 30/03/2018
  * Time: 14:21
  */
+
 namespace IT\ResourceBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Swagger\Annotations as SWG;
@@ -15,26 +17,18 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity()
  * @ORM\Table()
- * @ExclusionPolicy("all")
  * @SWG\Definition(type="object", @SWG\Xml(name="Salle"))
  */
 class Salle extends Ressource
 {
 
-    /**
-     * @var string
-     * @ORM\Column(name="name", type="string",nullable=false)
-     * @Expose
-     * @SWG\Property(property="name",type="string",description="Nom de la salle.")
-     */
-    private $name;
 
     /**
      * @var integer
      * @ORM\Column(name="numero_salle", type="integer")
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\NotBlank()
      * @SWG\Property(type="integer",description="numero salle.")
      */
@@ -48,22 +42,6 @@ class Salle extends Ressource
         parent::__construct();
     }
 
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
 
     /**
      * @return int
@@ -85,8 +63,6 @@ class Salle extends Ressource
     {
         return $this->name;
     }
-
-
 
 
 }

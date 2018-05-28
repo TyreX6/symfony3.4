@@ -9,6 +9,7 @@
 namespace IT\ResourceBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Swagger\Annotations as SWG;
@@ -18,7 +19,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table()
- * @ExclusionPolicy("all")
  * @SWG\Definition(type="object", @SWG\Xml(name="Projecteur"))
  */
 class Projecteur extends Ressource
@@ -27,7 +27,7 @@ class Projecteur extends Ressource
     /**
      * @var string
      * @ORM\Column(name="model", type="string", length=50)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\NotBlank()
      * @Assert\Length(
      *      min = 5,
@@ -42,7 +42,7 @@ class Projecteur extends Ressource
     /**
      * @var string
      * @ORM\Column(name="resolution", type="string" ,length=20)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @Assert\NotBlank()
      * @Assert\Regex("/(^[0-9]{4}+)(x|X)([0-9]{4}$)/",
      *     message="This is not a valid resolution")
@@ -50,10 +50,6 @@ class Projecteur extends Ressource
      */
     private $resolution;
 
-    /**
-     * @ORM\OneToMany(targetEntity="IT\ReservationBundle\Entity\ReservationProjecteur", mappedBy="projecteur",cascade="persist")
-     **/
-    private $reservationProjecteur;
 
     /**
      * Projecteur constructor.
@@ -61,7 +57,6 @@ class Projecteur extends Ressource
     public function __construct()
     {
         parent::__construct();
-        $this->reservationProjecteur = new ArrayCollection();
     }
 
 
@@ -97,21 +92,6 @@ class Projecteur extends Ressource
         $this->resolution = $resolution;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getReservationProjecteur()
-    {
-        return $this->reservationProjecteur;
-    }
-
-    /**
-     * @param mixed $reservationProjecteur
-     */
-    public function setReservationProjecteur($reservationProjecteur)
-    {
-        $this->reservationProjecteur = $reservationProjecteur;
-    }
 
     public function __toString()
     {

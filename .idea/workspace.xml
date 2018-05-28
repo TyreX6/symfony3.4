@@ -1,7 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95eba96f-0a33-4d83-9c5c-262449d710c4" name="Default" comment="" />
+    <list default="true" id="95eba96f-0a33-4d83-9c5c-262449d710c4" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Repository/ResourcesRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/LdapApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/LdapApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReservationsApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReservationsApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ResourcesApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ResourcesApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/InventoryBundle/Resources/views/Inventory/list_Inventaire.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/InventoryBundle/Resources/views/Inventory/list_Inventaire.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Controller/ReservationsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ReservationBundle/Controller/ReservationsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ReservationBundle/Entity/Reservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Entity/ReservationProjecteur.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Repository/ReservationsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ReservationBundle/Repository/ReservationsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/calendar/dist/cal-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/calendar/dist/cal-init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Regles/rules.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Regles/rules.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Controller/RessourceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Controller/RessourceController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Application.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Categorie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Dispositif.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Dispositif.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Projecteur.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Projecteur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Salle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Salle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Form/DispositifType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Form/DispositifType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Form/ProjecteurType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Form/ProjecteurType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Form/SalleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Form/SalleType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Repository/CategoryRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Repository/CategoryRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Repository/DispositifsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Repository/DispositifsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/add_device.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/add_device.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/edit_device.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/edit_device.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devices.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devices.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Recherche/Recherche.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Recherche/Recherche.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/UserBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/UserBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/UserBundle/EventListener/AuthenticationSuccessListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/UserBundle/EventListener/AuthenticationSuccessListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IT/UserBundle/Form/LdapConfigType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/IT/UserBundle/Form/LdapConfigType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony3.4-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/symfony3.4-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/dccd76f.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/dccd76f.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/dccd76f_cal-init_9.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/dccd76f_cal-init_9.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -10,25 +54,55 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="DispositifController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/DispositifController.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Dispositif.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Dispositif.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="120" selection-start-line="120" selection-end-line="120" />
+            <state relative-caret-position="4148">
+              <caret line="135" column="68" selection-start-line="135" selection-start-column="68" selection-end-line="135" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ressource.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php">
+      <file leaf-file-name="DispositifApiController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="590">
-              <caret line="214" column="1" selection-start-line="214" selection-start-column="1" selection-end-line="214" selection-end-column="1" />
+            <state relative-caret-position="5984">
+              <caret line="188" column="5" selection-start-line="169" selection-start-column="4" selection-end-line="188" selection-end-column="5" />
+              <folding>
+                <element signature="e#43#60#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReservationsApiController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReservationsApiController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4488">
+              <caret line="147" column="5" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="680">
+              <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LdapController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Controller/LdapController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -36,71 +110,82 @@
       <file leaf-file-name="DispositifsRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Repository/DispositifsRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+            <state relative-caret-position="1122">
+              <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
               <folding>
                 <element signature="e#134#168#0#PHP" expanded="true" />
-                <element signature="e#456#485#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UpdateReservationCommand.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Command/UpdateReservationCommand.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <file leaf-file-name="ReservationsRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Repository/ReservationsRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="163" selection-start-line="163" selection-end-line="163" />
+            <state relative-caret-position="4352">
+              <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parameters.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <file leaf-file-name="Ressource.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+            <state relative-caret-position="8058">
+              <caret line="252" column="32" selection-start-line="252" selection-start-column="32" selection-end-line="252" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
-        <option value="$PROJECT_DIR$/app/AppKernel.php" />
-        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Controller/DispositifController.php" />
         <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Controller/RechercheController.php" />
-        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/list_devices.html.twig" />
+        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Regles/rules.html.twig" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Recherche/Recherche.html.twig" />
+        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Controller/ReservationsController.php" />
+        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/calendar/dist/cal-init.js" />
+        <option value="$PROJECT_DIR$/src/IT/UserBundle/EventListener/AuthenticationSuccessListener.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Controller/DispositifController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/IT/UserBundle/Repository/UsersRepository.php" />
+        <option value="$PROJECT_DIR$/src/IT/UserBundle/Form/LdapConfigType.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/app/AppKernel.php" />
+        <option value="$PROJECT_DIR$/src/IT/InventoryBundle/Resources/views/Inventory/list_Inventaire.html.twig" />
+        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig" />
+        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/LdapApiController.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Repository/CategoryRepository.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Repository/ResourcesRepository.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Categorie.php" />
+        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Entity/Reservation.php" />
+        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Form/DispositifType.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/add_device.html.twig" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/edit_device.html.twig" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Form/SalleType.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Form/ProjecteurType.php" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Controller/RessourceController.php" />
+        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ResourcesApiController.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Dispositif.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Projecteur.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Salle.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Application.php" />
+        <option value="$PROJECT_DIR$/src/IT/UserBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Repository/DispositifsRepository.php" />
+        <option value="$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php" />
+        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php" />
+        <option value="$PROJECT_DIR$/src/IT/ReservationBundle/Repository/ReservationsRepository.php" />
+        <option value="$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReservationsApiController.php" />
       </list>
     </option>
   </component>
@@ -109,6 +194,12 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
@@ -131,8 +222,6 @@
       <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/sidebar-nav/package.json" />
       <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/tablesaw-master/package.json" />
       <path value="$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/plugins/bower_components/typeahead.js-master/package.json" />
-      <path value="$PROJECT_DIR$/vendor/kriswallsmith/assetic/package.json" />
-      <path value="$PROJECT_DIR$/vendor/ninsuo/symfony-collection/package.json" />
       <path value="$PROJECT_DIR$/web/bundles/itreservation/app/assets/bootstrap/package.json" />
       <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/Magnific-Popup-master/package.json" />
       <path value="$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/bootstrap-treeview-master/package.json" />
@@ -232,12 +321,20 @@
       <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/nyholm/psr7" />
+      <path value="$PROJECT_DIR$/vendor/http-interop/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/richsage/rms-push-notifications-bundle" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/kriswallsmith/buzz" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1358" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
+    <option name="width" value="1040" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -261,114 +358,214 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="IT" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ApiBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ApiBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="IT" type="462c0819:PsiDirectoryNode" />
               <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ReservationBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Reservations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="IT" type="462c0819:PsiDirectoryNode" />
               <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="IT" type="462c0819:PsiDirectoryNode" />
               <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="IT" type="462c0819:PsiDirectoryNode" />
               <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Form" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="IT" type="462c0819:PsiDirectoryNode" />
               <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="IT" type="462c0819:PsiDirectoryNode" />
               <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="IT" type="462c0819:PsiDirectoryNode" />
-              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="IT" type="462c0819:PsiDirectoryNode" />
               <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Default" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="symfony3.4-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="symfony3.4-master" type="462c0819:PsiDirectoryNode" />
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Dispositif" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="ResourceBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="Ressource" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="IT" type="462c0819:PsiDirectoryNode" />
               <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="symfony3.4" type="b2602c69:ProjectViewProjectNode" />
+              <item name="symfony3.4" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="IT" type="462c0819:PsiDirectoryNode" />
+              <item name="UserBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Entity" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -376,10 +573,12 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\symfony3.4\src\IT\ResourceBundle\Repository" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\testGithub\symfony3.4-master\src\IT" />
       <recent name="C:\Users\TyreX\Desktop\Proxym\PFE 2018\testGithub\symfony3.4-master\src\IT\ReservationBundle" />
@@ -470,43 +669,76 @@
       <option name="presentableId" value="Default" />
       <updated>1525165392954</updated>
       <workItem from="1525165398956" duration="3578000" />
+      <workItem from="1525193862732" duration="5213000" />
+      <workItem from="1525208020234" duration="7161000" />
+      <workItem from="1525249715527" duration="2816000" />
+      <workItem from="1525264892447" duration="6292000" />
+      <workItem from="1525277527408" duration="976000" />
+      <workItem from="1525340327235" duration="3706000" />
+      <workItem from="1525360077676" duration="2805000" />
+      <workItem from="1525534300448" duration="7819000" />
+      <workItem from="1525681267196" duration="1091000" />
+      <workItem from="1526034177157" duration="132000" />
+      <workItem from="1526371754346" duration="1787000" />
+      <workItem from="1526462399964" duration="6344000" />
+      <workItem from="1526544287288" duration="2666000" />
+      <workItem from="1526642002239" duration="541000" />
+      <workItem from="1526648959079" duration="2729000" />
+      <workItem from="1526664044887" duration="2027000" />
+      <workItem from="1526675996272" duration="289000" />
+      <workItem from="1526687354863" duration="10765000" />
+      <workItem from="1526758972802" duration="3403000" />
+      <workItem from="1526817204168" duration="2363000" />
+      <workItem from="1526898285912" duration="7579000" />
+      <workItem from="1526945618989" duration="493000" />
+      <workItem from="1526975561094" duration="439000" />
+      <workItem from="1526977205008" duration="994000" />
+      <workItem from="1527065696374" duration="1903000" />
+      <workItem from="1527073016777" duration="392000" />
+      <workItem from="1527074151470" duration="442000" />
+      <workItem from="1527075422237" duration="1799000" />
+      <workItem from="1527082078317" duration="534000" />
+      <workItem from="1527082699711" duration="803000" />
+      <workItem from="1527114264418" duration="2782000" />
+      <workItem from="1527160581095" duration="3058000" />
+      <workItem from="1527337036302" duration="2656000" />
+      <workItem from="1527378006348" duration="600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3578000" />
+    <option name="totallyTimeSpent" value="98977000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="1358" y="-8" width="1040" height="744" extended-state="6" />
     <layout>
-      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="8" weight="0.32980332" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="3" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18775511" />
+      <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32838285" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,88 +748,356 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Repository/UsersRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Form/LdapConfigType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Form/ReglesType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2272">
+          <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="50" column="46" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="163" selection-start-line="163" selection-end-line="163" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        <state relative-caret-position="192">
+          <caret line="136" column="25" lean-forward="true" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
+        <state relative-caret-position="1024">
+          <caret line="34" column="72" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/RechercheController.php">
+    <entry file="file://$PROJECT_DIR$/web/css/98e197a.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="192">
+          <caret column="3679" selection-start-column="3679" selection-end-column="3679" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/public/app/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret column="58395" selection-start-column="58395" selection-end-column="58395" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bundles/itreservation/app/plugins/bower_components/jsgrid/demos/demos.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="54" column="13" lean-forward="true" selection-start-line="54" selection-start-column="13" selection-end-line="54" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/InventoryBundle/Resources/views/Inventory/list_Inventaire.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/reservations_list.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="60" column="40" selection-start-line="60" selection-start-column="40" selection-end-line="60" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Repository/CategoryRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/orm/lib/Doctrine/ORM/QueryBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="1154" column="20" selection-start-line="1154" selection-start-column="20" selection-end-line="1154" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Categorie.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="43" column="111" selection-start-line="43" selection-start-column="111" selection-end-line="43" selection-end-column="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Entity/Notification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1823">
+          <caret line="100" column="21" selection-start-line="97" selection-start-column="4" selection-end-line="100" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/LdapApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2912">
+          <caret line="104" column="5" lean-forward="true" selection-start-line="104" selection-start-column="5" selection-end-line="104" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReglesApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/CategoryApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Repository/ResourcesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/DispositifController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        <state relative-caret-position="1861">
+          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Form/DispositifType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/add_device.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5678">
+          <caret line="167" column="99" selection-start-line="167" selection-start-column="86" selection-end-line="167" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Dispositif/edit_device.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="175" column="99" selection-start-line="175" selection-start-column="99" selection-end-line="175" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Ressource/ajouter_Ressource.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1872">
+          <caret line="52" column="88" selection-start-line="52" selection-start-column="88" selection-end-line="52" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/SalleRepository.php" />
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Form/SalleType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="24" column="35" selection-start-line="23" selection-start-column="20" selection-end-line="24" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="170" column="38" lean-forward="true" selection-start-line="170" selection-start-column="38" selection-end-line="170" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Form/ProjecteurType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/richsage/rms-push-notifications-bundle/RMS/PushNotificationsBundle/Message/AppleMessage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1107">
+          <caret line="113" column="5" lean-forward="true" selection-start-line="113" selection-start-column="5" selection-end-line="113" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Controller/RessourceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="33" column="71" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/ResourcesApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Entity/ReservationProjecteur.php" />
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Controller/ReservationsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7582">
+          <caret line="237" column="90" selection-start-line="237" selection-start-column="90" selection-end-line="237" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Resources/views/Reservations/add_Reservations.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6630">
+          <caret line="195" column="65" selection-start-line="195" selection-start-column="48" selection-end-line="195" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Salle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Projecteur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Entity/Reservation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2244">
+          <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Dispositif.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4148">
+          <caret line="135" column="68" selection-start-line="135" selection-start-column="68" selection-end-line="135" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="56" column="28" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Entity/Ressource.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="214" column="1" selection-start-line="214" selection-start-column="1" selection-end-line="214" selection-end-column="1" />
+        <state relative-caret-position="8058">
+          <caret line="252" column="32" selection-start-line="252" selection-start-column="32" selection-end-line="252" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Resources/views/Default/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IT/ResourceBundle/Repository/DispositifsRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+        <state relative-caret-position="1122">
+          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
           <folding>
             <element signature="e#134#168#0#PHP" expanded="true" />
-            <element signature="e#456#485#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/InventoryBundle/Tests/Controller/DefaultControllerTest.php">
+    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/DispositifApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="8" column="31" lean-forward="true" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        <state relative-caret-position="5984">
+          <caret line="188" column="5" selection-start-line="169" selection-start-column="4" selection-end-line="188" selection-end-column="5" />
+          <folding>
+            <element signature="e#43#60#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Command/UpdateReservationCommand.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/IT/ReservationBundle/Repository/ReservationsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4352">
+          <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/ApiBundle/Controller/ReservationsApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4488">
+          <caret line="147" column="5" selection-start-line="147" selection-start-column="5" selection-end-line="147" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IT/UserBundle/Controller/LdapController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="58" column="5" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

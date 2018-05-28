@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "14ae26b3e225bd312166d19f85668dc2",
+    "content-hash": "cbaf24cc6d9f7e5aad3fa014628acb2f",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1405,6 +1405,58 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
+            "name": "http-interop/http-factory",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/http-interop/http-factory.git",
+                "reference": "c2587cc0a6f74987fefb5b8074acfd32c69a4b0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/http-interop/http-factory/zipball/c2587cc0a6f74987fefb5b8074acfd32c69a4b0f",
+                "reference": "c2587cc0a6f74987fefb5b8074acfd32c69a4b0f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Interop\\Http\\Factory\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2017-03-24T14:48:51+00:00"
+        },
+        {
             "name": "incenteev/composer-parameter-handler",
             "version": "v2.1.3",
             "source": {
@@ -1683,12 +1735,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSJobQueueBundle.git",
-                "reference": "28d3bb23fa613229a43f3e8d214d0a221a251639"
+                "reference": "384bcabd4f827342d7d940055f9922e47cb8999f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/JMSJobQueueBundle/zipball/28d3bb23fa613229a43f3e8d214d0a221a251639",
-                "reference": "28d3bb23fa613229a43f3e8d214d0a221a251639",
+                "url": "https://api.github.com/repos/schmittjoh/JMSJobQueueBundle/zipball/384bcabd4f827342d7d940055f9922e47cb8999f",
+                "reference": "384bcabd4f827342d7d940055f9922e47cb8999f",
                 "shasum": ""
             },
             "require": {
@@ -1732,7 +1784,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache2"
+                "Apache-2.0"
             ],
             "authors": [
                 {
@@ -1746,7 +1798,7 @@
                 "job",
                 "queue"
             ],
-            "time": "2018-01-16T11:32:28+00:00"
+            "time": "2018-05-04T07:36:14+00:00"
         },
         {
             "name": "jms/metadata",
@@ -2205,6 +2257,71 @@
             "time": "2016-11-11T18:43:20+00:00"
         },
         {
+            "name": "kriswallsmith/buzz",
+            "version": "v0.17.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/Buzz.git",
+                "reference": "00d4b3022f1c519b295a4ca0f46e1b91ff3d65f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/Buzz/zipball/00d4b3022f1c519b295a4ca0f46e1b91ff3d65f3",
+                "reference": "00d4b3022f1c519b295a4ca0f46e1b91ff3d65f3",
+                "shasum": ""
+            },
+            "require": {
+                "nyholm/psr7": "^0.3",
+                "php": "^7.1",
+                "php-http/httplug": "^1.1",
+                "psr/http-client": "^0.1",
+                "psr/http-message": "^1.0",
+                "symfony/options-resolver": "^3.4 || ^4.0"
+            },
+            "provide": {
+                "php-http/client-implementation": "1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "php-http/client-integration-tests": "^0.6.2",
+                "phpunit/phpunit": "^6.5.7",
+                "psr/log": "^1.0",
+                "symfony/phpunit-bridge": "^4.0"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Buzz\\": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "http://tnyholm.se/"
+                }
+            ],
+            "description": "Lightweight HTTP client",
+            "homepage": "https://github.com/kriswallsmith/Buzz",
+            "keywords": [
+                "curl",
+                "http client"
+            ],
+            "time": "2018-04-05T08:07:12+00:00"
+        },
+        {
             "name": "lexik/jwt-authentication-bundle",
             "version": "v2.4.4",
             "source": {
@@ -2661,6 +2778,59 @@
             "time": "2018-04-06T09:17:08+00:00"
         },
         {
+            "name": "nyholm/psr7",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nyholm/psr7.git",
+                "reference": "ec2c453decfc5f8ee5a8cf43694b8ca392503d32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/ec2c453decfc5f8ee5a8cf43694b8ca392503d32",
+                "reference": "ec2c453decfc5f8ee5a8cf43694b8ca392503d32",
+                "shasum": ""
+            },
+            "require": {
+                "http-interop/http-factory": "^0.3",
+                "php": "^7.1",
+                "php-http/message-factory": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "provide": {
+                "psr/http-factory-implementation": "1.0",
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "http-interop/http-factory-tests": "dev-master",
+                "php-http/psr7-integration-tests": "dev-master",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nyholm\\Psr7\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com"
+                }
+            ],
+            "description": "A fast PHP7 implementation of PSR-7",
+            "homepage": "http://tnyholm.se",
+            "keywords": [
+                "psr-17",
+                "psr-7"
+            ],
+            "time": "2018-02-06T12:01:53+00:00"
+        },
+        {
             "name": "pagerfanta/pagerfanta",
             "version": "dev-master",
             "source": {
@@ -2776,6 +2946,162 @@
                 "random"
             ],
             "time": "2018-04-04T21:24:14+00:00"
+        },
+        {
+            "name": "php-http/httplug",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/httplug.git",
+                "reference": "1c6381726c18579c4ca2ef1ec1498fdae8bdf018"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/httplug/zipball/1c6381726c18579c4ca2ef1ec1498fdae8bdf018",
+                "reference": "1c6381726c18579c4ca2ef1ec1498fdae8bdf018",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "php-http/promise": "^1.0",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "HTTPlug, the HTTP client abstraction for PHP",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "client",
+                "http"
+            ],
+            "time": "2016-08-31T08:30:17+00:00"
+        },
+        {
+            "name": "php-http/message-factory",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/message-factory.git",
+                "reference": "a478cb11f66a6ac48d8954216cfed9aa06a501a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/message-factory/zipball/a478cb11f66a6ac48d8954216cfed9aa06a501a1",
+                "reference": "a478cb11f66a6ac48d8954216cfed9aa06a501a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                }
+            ],
+            "description": "Factory interfaces for PSR-7 HTTP Message",
+            "homepage": "http://php-http.org",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "time": "2015-12-19T14:08:53+00:00"
+        },
+        {
+            "name": "php-http/promise",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-http/promise.git",
+                "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-http/promise/zipball/dc494cdc9d7160b9a09bd5573272195242ce7980",
+                "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980",
+                "shasum": ""
+            },
+            "require-dev": {
+                "henrikbjorn/phpspec-code-coverage": "^1.0",
+                "phpspec/phpspec": "^2.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Http\\Promise\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com"
+                },
+                {
+                    "name": "Joel Wurtz",
+                    "email": "joel.wurtz@gmail.com"
+                }
+            ],
+            "description": "Promise used for asynchronous HTTP requests",
+            "homepage": "http://httplug.io",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-01-26T13:27:02+00:00"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -3123,6 +3449,55 @@
             "time": "2017-02-14T16:28:37+00:00"
         },
         {
+            "name": "psr/http-client",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-client.git",
+                "reference": "d4d3ec04b034120b0591ad9722a4c2be33a7dfec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-client/zipball/d4d3ec04b034120b0591ad9722a4c2be33a7dfec",
+                "reference": "d4d3ec04b034120b0591ad9722a4c2be33a7dfec",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP clients",
+            "homepage": "https://github.com/php-fig/http-client",
+            "keywords": [
+                "http",
+                "http-client",
+                "psr",
+                "psr-18"
+            ],
+            "time": "2018-02-03T12:55:20+00:00"
+        },
+        {
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -3315,6 +3690,70 @@
                 "simple-cache"
             ],
             "time": "2017-10-23T01:57:42+00:00"
+        },
+        {
+            "name": "richsage/rms-push-notifications-bundle",
+            "version": "dev-master",
+            "target-dir": "RMS/PushNotificationsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/richsage/RMSPushNotificationsBundle.git",
+                "reference": "3432bca679f93f9658a9f7666ca56d4a389c7855"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/richsage/RMSPushNotificationsBundle/zipball/3432bca679f93f9658a9f7666ca56d4a389c7855",
+                "reference": "3432bca679f93f9658a9f7666ca56d4a389c7855",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/buzz": "*",
+                "php": ">=5.3.0",
+                "psr/log": "^1.0"
+            },
+            "require-dev": {
+                "symfony/symfony": "^2.0 || ^3.0"
+            },
+            "suggest": {
+                "symfony/symfony": "To use as a bundle"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "RMS\\PushNotificationsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rich Sage",
+                    "email": "rich.sage@gmail.com",
+                    "homepage": "http://www.richsage.co.uk/"
+                }
+            ],
+            "description": "Push notifications/messages for mobile devices",
+            "homepage": "https://github.com/richsage/RMSPushNotificationsBundle",
+            "keywords": [
+                "apns",
+                "blackberry",
+                "bundle",
+                "c2dm",
+                "gcm",
+                "ios",
+                "mpns",
+                "notification",
+                "push",
+                "windowsphone"
+            ],
+            "time": "2017-06-07T15:27:11+00:00"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -4290,16 +4729,16 @@
         },
         {
             "name": "vich/uploader-bundle",
-            "version": "1.8.2",
+            "version": "1.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dustin10/VichUploaderBundle.git",
-                "reference": "a6934c197ba03be03929b4cedc93c5015f1cf3c5"
+                "reference": "37bc4b3264a0e22608a56406d5019b26864b9553"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/a6934c197ba03be03929b4cedc93c5015f1cf3c5",
-                "reference": "a6934c197ba03be03929b4cedc93c5015f1cf3c5",
+                "url": "https://api.github.com/repos/dustin10/VichUploaderBundle/zipball/37bc4b3264a0e22608a56406d5019b26864b9553",
+                "reference": "37bc4b3264a0e22608a56406d5019b26864b9553",
                 "shasum": ""
             },
             "require": {
@@ -4379,7 +4818,7 @@
                 "file uploads",
                 "upload"
             ],
-            "time": "2018-03-09T14:08:14+00:00"
+            "time": "2018-04-15T14:01:01+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -4767,7 +5206,8 @@
         "fr3d/ldap-bundle": 20,
         "ninsuo/symfony-collection": 20,
         "jms/job-queue-bundle": 20,
-        "pagerfanta/pagerfanta": 20
+        "pagerfanta/pagerfanta": 20,
+        "richsage/rms-push-notifications-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

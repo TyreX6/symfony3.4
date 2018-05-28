@@ -162,6 +162,18 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Nom ressource</label>
+                                                <div class="col-md-8">
+                                                    {{ form_widget (dispositifForm.name) }}
+                                                    <div class="has-danger">
+                                                        <span class="form-control-feedback"> {{ form_errors (dispositifForm.name) }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <h3 class="box-title">Applications installées</h3>

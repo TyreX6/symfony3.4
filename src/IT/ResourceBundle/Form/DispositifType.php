@@ -29,6 +29,11 @@ class DispositifType extends AbstractType
                 'placeholder' => 'Exp: Samsung Note 4',
                 'data-errormessage-value-missing' => 'This input is required!')
         ))
+            ->add('name', TextType::class, array(
+                'attr' => array('class' => 'form-control  validate[required] ',
+                    'placeholder' => '',
+                    'data-errormessage-value-missing' => 'This input is required!')
+            ))
             ->add('os', ChoiceType::class, array(
                 'attr' => array('class' => 'form-control selectpicker m-b-20 m-r-10',
                     'data-errormessage-value-missing' => 'This input is required!',
@@ -54,9 +59,8 @@ class DispositifType extends AbstractType
                     'data-errormessage-value-missing' => 'This input is required!',
                     'data-style' => 'btn-info btn-outline'),
                 'choices' => array(
-                    'Fonctionnel' => "Fonctionnel",
-                    'Détruit' => "Détruit",
-                    'Perdu' => "Perdu"
+                    "Fonctionnel" => 1,
+                    "Détruit" => 0
                 ),
 
             ))

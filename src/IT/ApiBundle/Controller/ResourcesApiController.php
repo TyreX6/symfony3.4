@@ -51,13 +51,14 @@ class ResourcesApiController extends Controller
      */
     public function addResourceAction(Request $request)
     {
-
         return array("success" => 1);
     }
 
 
     /**
-     * @Rest\View()
+     * @Rest\View(
+     *     serializerGroups={"resources"}
+     * )
      * @Rest\Get("api/resources/list")
      * @Operation(
      *  tags={"Resource"},summary="Retreive all the Ressource",
@@ -71,7 +72,7 @@ class ResourcesApiController extends Controller
     public function listResourceAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $dispositifs = $em->getRepository("ITResourceBundle:Ressource")->findBy(["status" => 1]);
+        $dispositifs = $em->getRepository("ITResourceBundle:Ressource")->findAll();
         return $dispositifs;
     }
 

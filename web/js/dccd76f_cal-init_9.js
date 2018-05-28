@@ -52,6 +52,7 @@ function initCalender() {
             //si date fin est déja passé -> enregistrer est désactivé
             var disabled = calEvent.editable === false ? "disabled" : "";
             var $this = this;
+
             //formulaire de sauvegarde
             var form = $("<form></form>");
             form.append("<label>Sauvegarder la réservation</label>");
@@ -222,6 +223,7 @@ function initCalender() {
             var dispModele = $("#newRes").find('select[name="dispositif-Select"] option:selected').text();
 
             form.find('select[name="dispositif-Select"]').attr("disabled", "disabled").html('<option value="' + dispID + '" selected="selected">' + dispModele + '</option>');
+            form.find('select[name="category-Select"]').attr("disabled", "disabled");
             form.find('select[name="utilisateur-select"]').select2();
 
             $this.$modal.find('.delete-event').hide().end().find('.save-event').show().end().find('.modal-body').empty().prepend(form).end().find('.save-event').unbind('click').click(function () {
@@ -308,15 +310,21 @@ function initCalender() {
             //Prevent events to be dropped in invalid ranges
             //Exmpl : event dropped in a past time
             eventDrop: function (event, delta, revertFunc) {
+
                 if ((new Date(event.start.format()) < new Date())) {
                     revertFunc();
+                    return ;
                 }
                 var onlyExpandble = (new Date(moment(event.start).format()) > new Date()) && new Date(moment(event.start).subtract(delta.asSeconds(), 'seconds').format()) < new Date();
 
                 if (onlyExpandble) {
                     alert('Vous ne pouvez pas modifier une "réservation déja démarré" que par une prolongation :)');
                     revertFunc();
+                    return;
                 }
+                event.title = "Cliquer pour sauvegarder";
+                $this.$calendarObj.fullCalendar('updateEvent', event);
+
 
             },
             header: {

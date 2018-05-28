@@ -151,17 +151,17 @@
                                             {% for reservation in reservations %}
                                                 <tr>
                                                     <td>
-                                                        {{ reservation.dispositif.id }}
+                                                        {{ reservation.id }}
                                                     </td>
                                                     <td>
-                                                        <a href="{{ path('edit_device',{'id':reservation.dispositif.id}) }}">{{ reservation.dispositif.model }}</a>
+                                                        <a href="{{ path('edit_device',{'id':reservation.ressource.id}) }}">{{ reservation.ressource.model }}</a>
                                                     </td>
                                                     <td>{{ reservation.dateDebut | date }}</td>
                                                     <td>{{ reservation.dateFin | date }}</td>
                                                     <td>{{ reservation.user.username }}</td>
                                                     <td>
                                                         <div>
-                                                            <p><strong>{{ reservation.dispositif.model }}</strong> <span
+                                                            <p><strong>{{ reservation.ressource.model }}</strong> <span
                                                                         class="pull-right text-muted">{{ reservation.getPourcentage["pourcentage"] }}
                                                                     % Complete</span>
                                                             </p>

@@ -38,7 +38,6 @@ class AuthenticationSuccessListener
     public function onJwtCreated(JWTCreatedEvent $event)
     {
         $user = $event->getUser();
-
         $payload = $event->getData();
         $payload['id'] = $user->getId();
         $payload['email'] = $user->getEmail();

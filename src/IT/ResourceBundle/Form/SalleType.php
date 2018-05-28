@@ -21,16 +21,17 @@ class SalleType extends AbstractType
             ->add('status', ChoiceType::class, array(
                 'attr' => array(),
                 'choices' => array(
-                    'Fonctionnel' => "Fonctionnel",
-                    'Détruit' => "Détruit",
-                    'Perdu' => "Perdu"
+                    "Fonctionnel" => 1,
+                    "Détruit" => 0,
                 ),
 
             ))
             ->add('Envoyer', SubmitType::class, array(
                 'attr' => array('class' => 'btn btn-primary'),
             ));
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

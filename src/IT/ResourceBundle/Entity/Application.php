@@ -8,6 +8,7 @@
 
 namespace IT\ResourceBundle\Entity;
 
+use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Expose;
 use Swagger\Annotations as SWG;
@@ -17,7 +18,6 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table()
- * @ExclusionPolicy("all")
  * @SWG\Definition(type="object", @SWG\Xml(name="Application"))
  */
 class Application
@@ -27,7 +27,7 @@ class Application
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(description="Identifiant de l'application.")
      */
     private $id;
@@ -35,7 +35,7 @@ class Application
     /**
      * @var string
      * @ORM\Column(name="name", type="string",nullable=false)
-     * @Expose
+     * @Serializer\Groups({"categories","resources"})
      * @SWG\Property(property="name",type="string",description="Nom de l'application.")
      */
     private $name;
@@ -44,6 +44,7 @@ class Application
      * @ORM\ManyToOne(targetEntity="IT\ResourceBundle\Entity\Dispositif", inversedBy="apps" ,cascade={"all"})
      * @ORM\JoinColumn(referencedColumnName="id",onDelete="CASCADE")
      * @Assert\NotBlank()
+     * @Serializer\Exclude()
      * @Assert\NotNull()
      **/
     private $dispositif;

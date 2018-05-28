@@ -28,14 +28,16 @@ class ProjecteurType extends AbstractType
                 'placeholder' => 'Exp: Projecteur Sharp',
                 'data-errormessage-value-missing' => 'This input is required!')
         ))
-            ->add('category', HiddenType::class, array()
-            )
+            ->add('name', TextType::class, array(
+                'attr' => array('class' => 'form-control  validate[required] ',
+                    'placeholder' => 'Nom du ressource',
+                    'data-errormessage-value-missing' => 'This input is required!')
+            ))
             ->add('status', ChoiceType::class, array(
                 'attr' => array(),
                 'choices' => array(
-                    'Fonctionnel' => "Fonctionnel",
-                    'Détruit' => "Détruit",
-                    'Perdu' => "Perdu"
+                    "Fonctionnel" => 1,
+                    "Détruit" => 0,
                 ),
 
             ))
